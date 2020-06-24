@@ -1,0 +1,51 @@
+.section_in {
+    /* background-color: red;   - Used in dev to see position and size of div.*/
+    position: relative;
+}
+
+.tt {
+    height: 25px;
+    width: 25px;
+    background-color: var(--orange);
+    border-radius: 50px;
+    text-align: center;
+    margin: 0;
+    position: relative;
+}
+
+.tt p {
+    margin:0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.section_ti {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 150%;
+}
+
+.section_ti h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0;
+    width: 300px;
+    text-align: left;
+    line-height: 1;
+}
+
+.btn {
+    width: 50%;
+    margin: 10px 0;
+}
+
+#search_container {
+    border: 1px solid var(--white);
+    width: 50%;
+    margin: auto;
+    border-radius: 8px;
+}
