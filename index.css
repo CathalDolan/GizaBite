@@ -1,0 +1,16 @@
+/*~~~~~~~~~~~~~~~~~~~~ Section Cards */
+div .container { /* Narrows the two cards, but only required on larger screens */
+    max-width: 60%;
+}
+
+div .card {
+    background-color: var(--bg_cards);
+}
+
+div .card-body .btn {
+    text-align: center;
+}
+
+div .card-text { /* Makes the buttons align. Not a good way to do it! */
+    height: 65px;
+}
