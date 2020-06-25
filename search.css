@@ -110,6 +110,24 @@ a.btn.button-image.mybutton{
     width: 33%;
 }
 
+@media (max-width: 1200px) {
+#search_container, a.btn {
+    width: 60%;
+    }
+}
+
+@media (max-width: 992px) {
+#search_container, a.btn {
+    width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+#search_container, a.btn {
+    width: 95%;
+    }
+}
+
 .button-image:before { /* Code to insert icon into buttopn from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
     content: "";
     width: 35px;
