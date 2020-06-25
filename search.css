@@ -38,9 +38,8 @@
     line-height: 1;
 }
 
-.btn {
-    width: 50%;
-    margin: 10px 0;
+#section_ti h3{
+    color: var(--bg);
 }
 
 #search_container {
@@ -48,4 +47,81 @@
     width: 50%;
     margin: auto;
     border-radius: 8px;
+    background-color: var(--white);
+    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
+}
+
+input.search_name_in {
+    color: var(--bg);
+    width: 95%;
+    height: 2.5rem;
+    margin: 10px 0;
+    text-align: center;
+    border: 2px solid var(--bg_trans);
+    border-radius: 8px;
+}
+
+.collapse1 {
+    color: var(--orange);
+    text-align: left;
+    width: 95%;
+    margin: 0 auto;
+    font-weight: 500;
+    line-height: 1;
+}
+
+div.content { /*  This is the area behind the advanced options */
+    background-color: var(--white);
+    padding: 0;
+}
+
+.justify-content-md-center {
+    width: 100%;
+    margin: 0;
+}
+
+.advanced_container{
+    padding: 0;
+}
+
+p.search_method {
+    color: var(--bg);
+    text-align: left;
+    width: 95%;
+    margin: 20px auto 10px auto;
+    font-weight: 500;
+    line-height: 1;
+}
+
+
+.col {
+    border: 0.5px solid var(--orange);
+    text-align: center;
+    white-space: nowrap;
+}
+
+a.btn {
+    width: 50%;
+    margin: 1rem 0; /* needs to be adjusted to take mobile into account */
+}
+
+a.btn.button-image.mybutton{
+    padding: 0 16px;
+    width: 33%;
+}
+
+.button-image:before { /* Code to insert icon into buttopn from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
+    content: "";
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: text-top;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+}
+
+.mybutton:before{
+    background-image : url(https://i.imgur.com/2RYxoQ1.png);
+    background-size: contain;
 }

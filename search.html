@@ -51,33 +51,105 @@
     
     <!--======================================== Main Body - Start -->
     <main>
-        <!--~~~~~~~~~~~~~~~~~~~~ Introduction -->
         <section>
             <div class="section_bg text-center"> <!-- Section Background -->
-                <div class="section_in"> <!-- Section inner. Used to position page content on -->
 
+                <div class="section_in"> <!-- Section inner. Used to position page content on -->
                     <div class="tt"> <!-- Section tooltip -->
                         <p>i</p>
                         <div class="section_ti"> <!-- Section title-->
                             <h3>Section Title</h3>
                         </div>
                     </div>
-
                 </div>
 
-                <div id="search_btn text-center"> <!-- Create a new dish button-->
+                <div id="create_btn" class="text-center"> <!-- Create a new dish button-->
                     <a href="#" class="btn">Create New Dish</a>
                 </div>
                 
-                <div id="search_container">
+                <div id="search_container" class="section_bg">  <!-- Search widget -->
                     <form action="">
-                        <h5>Search</h5>
-                        <input type="text" name="Search dish or ingredient name">
+                        <div class="section_in">
+                            <div class="tt"> 
+                                <p>i</p>
+                                <div class="section_ti" id="section_ti">
+                                    <h3>Search</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_in">
+                        <p class="collapse1">Reset</p> <!-- Need to figure out positioning, styling and action -->
+                        <p class="collapse1 collapsible">Advanced</p>
+                        
+                        <div class="content">
+                            <div class="advanced_container container">
+                                <p class="search_method">Method</p> <!-- Method section that displays when Advanced is clicked -->
+                                <div class="row justify-content-md-center">
+                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                    No Further Cooking Needed
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Not Cooked on its Own
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Boiled / Steamed
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Deep Fried
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Pan Fried
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Shallow Fried
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Grilled
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Roasted / Baked
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Microwave
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="advanced_container container">
+                                <p class="search_method">Substrate</p> <!-- Substrate section that displays when certain methods are clicked -->
+                                <div class="row justify-content-md-center">
+                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                    Dry / In the Ingredients
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Butter
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Vegetable Oil
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Animal Fat
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Margerine
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Low Cal Spray
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center"> <!-- Create a new dish button-->
+                            <a href="#" class="btn button-image mybutton"></a>
+                        </div>
+
                     </form>
                 </div>
 
             </div>
         </section>
     </main>
+    <script type="text/javascript" src="assets/js.js"></script>
 </body>
 </html>
