@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    console.log("Hello World!");
+});
+
 // Required to allow sections collapse and expand. Taken from w3schools
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -16,3 +20,7 @@ for (i = 0; i < coll.length; i++) {
         }); */
   });
 }
+
+$(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});

@@ -59,29 +59,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .collapsible {
-  color: red;
-  cursor: pointer;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+    color: red;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
 }
 
 .active, .collapsible:hover {
-  font-weight: 900; /*  Wrong font weight, but idea is correct */
+    font-weight: 900; /*  Wrong font weight, but idea is correct */
 }
 
-/* .collapsible:after {             This adds a + sign. Not used in search widget
-  content: '\002B';   
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-} */
 
-/*  .active:after {    This adds a - sign. Not used in search widget
-  content: "\2212";
-} */
+.collapse2:after {             
+    content: '';  
+    font-family: FontAwesome;
+    content: "\f063"; 
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 25px;
+    float: right;
+    margin-left: 5px;
+    line-height: 1;
+}
+
+.active:after {    
+    content: "\f062";
+} 
 
 .content {
   padding: 0 18px;

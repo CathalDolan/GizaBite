@@ -13,6 +13,38 @@
     position: relative;
 }
 
+.collapse1 {
+    color: var(--orange);
+    text-align: left;
+    width: 95%;
+    margin: 0 auto;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.collapse2 {
+    color: var(--orange);
+    position: absolute;
+    top: 0;
+    text-align: right;
+    line-height: 1;
+    font-size: 24px;
+}
+
+.drop_down {
+    margin-top: 20px;
+}
+
+.section_exp h3 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    line-height: 1;
+    
+    vertical-align: middle;
+}
+
 .tt p {
     margin:0;
     padding: 0;
@@ -59,15 +91,6 @@ input.search_name_in {
     text-align: center;
     border: 2px solid var(--bg_trans);
     border-radius: 8px;
-}
-
-.collapse1 {
-    color: var(--orange);
-    text-align: left;
-    width: 95%;
-    margin: 0 auto;
-    font-weight: 500;
-    line-height: 1;
 }
 
 div.content { /*  This is the area behind the advanced options */
@@ -128,7 +151,7 @@ a.btn.button-image.mybutton{
     }
 }
 
-.button-image:before { /* Code to insert icon into buttopn from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
+.button-image:before { /* Code to insert icon into button from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
     content: "";
     width: 35px;
     height: 35px;

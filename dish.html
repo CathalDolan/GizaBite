@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="search.css" type="text/css">
+    <title>GizaBite</title>
+    
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body>
+    <!--======================================== Header - Start -->
+    <header>
+        <a href="index.html">
+            <img src="https://i.imgur.com/Qw0QgK0.png" alt="GizaBite Logo" id="gizabite_logo">
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-light nav-bg-colour">
+            <button class="navbar-toggler ml-auto toggler-colour" data-toggle="collapse" data-target="#navbar_menu">
+                <span class="sr-only">Navigation Button</span>
+                <span class="navbar-toggler-icon toggler-colour"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar_menu">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link  active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Menu Item 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Menu Item 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <hr class="rule header_rule">
+        <section class="hero_outer">
+                <div class="hero_image home"></div>
+                <div id="hero_text">
+                    <h2>Count Calories Quickly</h2>
+                </div>
+                <div id="search"></div>
+        </section>
+    </header>
+    
+    <!--======================================== Main Body - Start -->
+    <main>
+        <section>
+            <div class="section_bg text-center"> <!-- Section Background -->
+
+                <div class="section_in"> <!-- Section inner. Used to position page content on -->
+                    <div class="tt"> <!-- Section tooltip -->
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <div class="section_ti"> <!-- Section title-->
+                            <h3>Nutrients & Allergens</h3>
+                        </div>
+                    </div>
+                    <div class="collapsible collapse2">
+                       <!-- <i class="fas fa-arrow-down"></i> --> 
+                    </div>
+                    <div class="content drop_down">
+                        <p>Lorem ipsu  m...</p>
+                    </div>
+                </div>
+
+<!--
+                <div id="create_btn" class="text-center">
+                    <a href="#" class="btn">Create New Dish</a>
+                </div>
+                
+                <div id="search_container" class="section_bg"> 
+                    <form action="">
+                        <div class="section_in">
+                            <div class="tt"> 
+                                <p>i</p>
+                                <div class="section_ti" id="section_ti">
+                                    <h3>Search</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_in">
+                        <p class="collapse1">Reset</p> 
+                        <p class="collapse1 collapsible">Advanced</p>
+                        
+                        <div class="content">
+                            <div class="advanced_container container">
+                                <p class="search_method">Method</p> 
+                                <div class="row justify-content-md-center">
+                                    <div class="col col-xs-2"> 
+                                    No Further Cooking Needed
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Not Cooked on its Own
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Boiled / Steamed
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Deep Fried
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Pan Fried
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Shallow Fried
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Grilled
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Roasted / Baked
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Microwave
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="advanced_container container">
+                                <p class="search_method">Substrate</p>
+                                <div class="row justify-content-md-center">
+                                    <div class="col col-xs-2"> 
+                                    Dry / In the Ingredients
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Butter
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Vegetable Oil
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Animal Fat
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Margerine
+                                    </div>
+                                    <div class="col col-xs-2">
+                                    Low Cal Spray
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="#" class="btn button-image mybutton"></a>
+                        </div>
+
+                    </form>
+                </div> -->
+            </div> 
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="assets/js.js"></script>
+    
+</body>
+</html>
