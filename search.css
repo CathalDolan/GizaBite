@@ -1,79 +1,4 @@
-.section_in {
-    /* background-color: red;   - Used in dev to see position and size of div.*/
-    position: relative;
-}
-
-.tt {
-    height: 25px;
-    width: 25px;
-    background-color: var(--orange);
-    border-radius: 50px;
-    text-align: center;
-    margin: 0;
-    position: relative;
-}
-
-.collapse1 {
-    color: var(--orange);
-    text-align: left;
-    width: 95%;
-    margin: 0 auto;
-    font-weight: 500;
-    line-height: 1;
-}
-
-.collapse2 {
-    color: var(--orange);
-    position: absolute;
-    top: 0;
-    text-align: right;
-    line-height: 1;
-    font-size: 24px;
-}
-
-.drop_down {
-    margin-top: 20px;
-}
-
-.section_exp h3 {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0;
-    line-height: 1;
-    
-    vertical-align: middle;
-}
-
-.tt p {
-    margin:0;
-    padding: 0;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 1;
-}
-
-.section_ti {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 150%;
-}
-
-.section_ti h3{
-    font-weight: 500;
-    font-size: 1.4rem;
-    margin: 0;
-    width: 300px;
-    text-align: left;
-    line-height: 1;
-}
-
-#section_ti h3{
-    color: var(--bg);
-}
-
+/*---------------------------------- Search Widget -- Start */
 #search_container {
     border: 1px solid var(--white);
     width: 50%;
@@ -83,7 +8,11 @@
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
 }
 
-input.search_name_in {
+#section_ti h3{ /* ------- Search Widget title. */
+    color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
+}
+
+input.search_name_in { /* ------- User Search input field. */
     color: var(--bg);
     width: 95%;
     height: 2.5rem;
@@ -93,21 +22,31 @@ input.search_name_in {
     border-radius: 8px;
 }
 
-div.content { /*  This is the area behind the advanced options */
-    background-color: var(--white);
+.advanced_container{
     padding: 0;
 }
 
+.collapse1 {     /*----- Advanced & Reset Buttons colours and positions in Search widget  */
+    color: var(--orange);
+    text-align: left;
+    width: 95%;
+    margin: 0 auto;
+    font-weight: 500;
+    line-height: 1;
+}
+
+div.content { 
+    padding: 0; /*  Required to give space between end of Substrate buttons and end of the search widget */
+}
+
+
+/*---------------------------------- Brick buttons */
 .justify-content-md-center {
     width: 100%;
     margin: 0;
 }
 
-.advanced_container{
-    padding: 0;
-}
-
-p.search_method {
+p.search_method { /*------- Brick Buttons Section title. */
     color: var(--bg);
     text-align: left;
     width: 95%;
@@ -116,23 +55,29 @@ p.search_method {
     line-height: 1;
 }
 
-
-.col {
+.col { /*------- Brick Buttons */
     border: 0.5px solid var(--orange);
     text-align: center;
     white-space: nowrap;
 }
 
-a.btn {
+
+/*------- Buttons............ for here? */
+a.btn { /*------- Creat a dish button. */
     width: 50%;
     margin: 1rem 0; /* needs to be adjusted to take mobile into account */
 }
 
-a.btn.button-image.mybutton{
-    padding: 0 16px;
-    width: 33%;
+a.btn.button-image.mybutton{ /*------- Search widget "search" button. */
+    width: 33%; /* needs to be adjusted to take mobile into account */
 }
 
+.mybutton:before{   /* . Adds image to the button. Related to .button-image:before in styles.css */
+    background-image : url(https://i.imgur.com/2RYxoQ1.png);
+}
+
+
+/*------- Media queries to make Search widget and dish buttons fit all devices. */
 @media (max-width: 1200px) {
 #search_container, a.btn {
     width: 60%;
@@ -149,20 +94,4 @@ a.btn.button-image.mybutton{
 #search_container, a.btn {
     width: 95%;
     }
-}
-
-.button-image:before { /* Code to insert icon into button from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
-    content: "";
-    width: 35px;
-    height: 35px;
-    display: inline-block;
-    vertical-align: text-top;
-    background-color: transparent;
-    background-position : center center;
-    background-repeat:no-repeat;
-}
-
-.mybutton:before{
-    background-image : url(https://i.imgur.com/2RYxoQ1.png);
-    background-size: contain;
 }

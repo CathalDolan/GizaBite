@@ -1,6 +1,6 @@
 /*~~~~~~~~~~~~~~~~~~~~ Section Cards */
 div .container { /* Narrows the two cards, but only required on larger screens */
-    max-width: 60%;
+    width: 60%;
 }
 
 div .card {
@@ -11,6 +11,21 @@ div .card-body .btn {
     text-align: center;
 }
 
-div .card-text { /* Makes the buttons align. Not a good way to do it! */
-    height: 65px;
+/*------- Media queries to make cards fit all devices. */
+@media (max-width: 1200px) {
+div .container {
+    width: 70%;
+    }
+}
+
+@media (max-width: 992px) {
+div .container  {
+    width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+div .container  {
+    width: 95%;
+    }
 }

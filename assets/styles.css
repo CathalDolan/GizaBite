@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~ Page Sections */
+/*~~~~~~~~~~~~~~~~~~~~ Page Sections - Background */
 .section_bg {
     margin: 2% auto;
     padding-top: 2%;
@@ -53,13 +53,53 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~ Page Sections - Background Inner to allow equal spacing within the background. */
 .section_in {
     margin: 0 auto;
     width: 95%;
+    position: relative;
+    border: 1px solid green; /*-- for visual purposes in dev */
 }
 
+/*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Tooltip */
+.tt {
+    height: 25px;
+    width: 25px;
+    background-color: var(--orange);
+    border-radius: 50px;
+    text-align: center;
+    margin: 0;
+    position: relative;
+}
+
+.tt p {
+    margin:0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Section Title */
+.section_ti {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 150%;
+}
+
+.section_ti h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0;
+    width: 300px;
+    text-align: left;
+    line-height: 1;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Collapse/Expand */
 .collapsible {
-    color: red;
     cursor: pointer;
     border: none;
     text-align: left;
@@ -72,8 +112,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900; /*  Wrong font weight, but idea is correct */
 }
 
+.collapse2 {    /* This is the collapse arrow icon positioning to the right of the sction heading */
+    position: absolute;
+    top: 0;
+    text-align: right;
+    line-height: 1;
+    font-size: 24px;
+}
 
-.collapse2:after {             
+.collapse2:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
     content: '';  
     font-family: FontAwesome;
     content: "\f063"; 
@@ -85,26 +132,47 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
 
-.active:after {    
+.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
     content: "\f062";
 } 
 
-.content {
+.content { /* This is the div that expands / collapses. */
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+  background-color: var(--white);
+  border: 1px solid blue; /*-- for visual purposes in dev */
+  margin-top: 20px /* Gives space between the bottom of the trigger element and the top of the expanded div. */
 }
 
 
-.btn {
-    /* width: 200px; This isn't right. Needs to be responsive */
+/*~~~~~~~~~~~~~~~~~~~~ Buttons */
+.btn {   /* Standard buttons */
     margin: auto;
     background-color: var(--orange);
     color: var(--white);
     font-weight: bold;
+
+    min-height: 40px;  /*------ Keeps text only buttons at same height as ones with an icon */
+
 }
+
+.button-image:before { /* Code to insert icon into button from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
+    content: "";
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: text-top;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+}
+
+.mybutton:before{   /* Image on the. Each button has it's own image and ius listed in required css files. */
+    background-size: contain;
+}
+
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Rules */
 .rule {
@@ -149,7 +217,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 3rem;
 }
 
-@media (max-width: 820px) { /*-- This needs to match the figure in the "Navbar" media query --*/
+@media (max-width: 820px) {
 #gizabite_logo {
     position: absolute;
     top: 1rem;
