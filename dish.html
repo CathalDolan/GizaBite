@@ -87,8 +87,7 @@
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
                         <div class="section_ti">
                             <h3># of Portions</h3>
-                            <input type="number" placeholder="10"/>
-                            <p>g</p>
+                            <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="10"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
                         </div>
                     </div>   
                 </div>
@@ -105,8 +104,17 @@
                     </div>
                     <div class="collapsible collapse_arrow">
                     </div>
-                    <div class="collapse_content">
-                        <p>Lorem ipsu  m...</p>
+                    <div class="collapse_content"> 
+                        <div class="collapse_content_row">
+                            <div class="tt1"> 
+                                <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                            </div>
+                            <div class="section_ti1">
+                                <h4>Description 1</h4>
+                            </div>
+                            <div class="delete_icon">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,6 +152,13 @@
                     </div>
                 </div>
             </div>
+
+        <div style="width: 100%">
+            <div style="float: left; width: 33%;">Left Stuff</div>
+            <div style="float: left; width: 33%;">Middle Stuff</div>
+            <div style="float: left; width: 34%;">Right Stuff</div>
+            <br style="clear: left;" />
+        </div>
 
         </section>
     </main>

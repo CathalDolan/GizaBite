@@ -1,6 +1,5 @@
 h2 {
     text-align: left;
-    font-size: 25px;
     line-height: 1;
 }
 
@@ -10,23 +9,22 @@ label {
   text-align: right;
 }
 
-.section_ti input {
-    position: absolute;
-    top: 0;
-    width: 10ch;
-    height: 25px;
-    border: 1px solid var(--orange); /* add a border radius? */
-    color: blue;
-    text-align: right;
+.tt1 {
+    height: 20px;
+    width: 20px;
+    background-color: var(--orange);
+    border-radius: 50px;
+    margin: 0;
 }
 
-.section_ti p {
-    position: absolute;
-    top: 0;
-    margin-left: 80%; /*------- Moves the "g" to right of the input, but has to be a better way */
+.tt1 p, div.delete_icon {
+    margin:0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 1;
 }
 
-input:required {
-  background: var(--orange);
+div.collapse_content p{
+    text-align: center;
 }

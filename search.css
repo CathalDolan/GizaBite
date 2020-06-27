@@ -8,6 +8,17 @@
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
 }
 
+#page_ti h3 { /* As it behaves as a page title, it's given h2 sizing. #page_ti needed to isloate it */
+    font-size: 27px;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .tt .section_ti h3 {
+        font-size: 24px;
+    }
+}
+
 .search_ti h3{ /* ------- Search Widget title. */
     color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
 }

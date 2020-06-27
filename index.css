@@ -7,6 +7,10 @@ div .card {
     background-color: var(--bg_cards);
 }
 
+.card-title {
+    margin: 0;
+}
+
 div .card-body .btn {
     text-align: center;
 }
@@ -28,4 +32,10 @@ div .container  {
 div .container  {
     width: 95%;
     }
+}
+
+/*-------------------------*/
+
+p {
+    margin-bottom: 1rem;
 }
