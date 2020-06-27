@@ -112,18 +112,19 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900; /*  Wrong font weight, but idea is correct */
 }
 
-.collapse2 {    /* This is the collapse arrow icon positioning to the right of the sction heading */
+.collapse_arrow, .heading_icon {    /* This is the collapse arrow icon positioning to the right of the sction heading */
     position: absolute;
     top: 0;
     text-align: right;
     line-height: 1;
     font-size: 24px;
+    width: 30px;
+    right: 0;
 }
 
-.collapse2:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
+.heading_icon, .collapse_arrow {  /* Used in section headings to insert icons positioned to the right */           
     content: '';  
     font-family: FontAwesome;
-    content: "\f063"; 
     color: var(--orange);
     font-weight: bold;
     font-size: 25px;
@@ -132,18 +133,33 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
 
-.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
+.heading_icon:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
+    content: "\f02f";
+    line-height: 1.2; /* Used to align the icon with the title. Not good. */
+    font-size: 20px;
+}
+
+.collapse_arrow:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
+    content: "\f063"; 
+}
+
+.collapse_arrow.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
     content: "\f062";
 } 
 
-.content { /* This is the div that expands / collapses. */
-  padding: 0 18px;
+.collapse_content { /* This is the div that expands / collapses. */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: var(--white);
+  background-color: var(--bg_trans);
   border: 1px solid blue; /*-- for visual purposes in dev */
   margin-top: 20px /* Gives space between the bottom of the trigger element and the top of the expanded div. */
+}
+
+div.collapse_content p{
+    color: var(--white);
+    width: 100%;
+    text-align: left;
 }
 
 

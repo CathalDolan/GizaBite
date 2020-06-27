@@ -8,7 +8,7 @@
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
 }
 
-#section_ti h3{ /* ------- Search Widget title. */
+.search_ti h3{ /* ------- Search Widget title. */
     color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
 }
 
@@ -35,8 +35,9 @@ input.search_name_in { /* ------- User Search input field. */
     line-height: 1;
 }
 
-div.content { 
+div.collapse_content { 
     padding: 0; /*  Required to give space between end of Substrate buttons and end of the search widget */
+    background-color: var(--white);
 }
 
 
@@ -46,7 +47,7 @@ div.content {
     margin: 0;
 }
 
-p.search_method { /*------- Brick Buttons Section title. */
+p.advanced_option { /*------- Brick Buttons Section title. */
     color: var(--bg);
     text-align: left;
     width: 95%;
