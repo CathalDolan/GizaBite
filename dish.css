@@ -3,45 +3,54 @@ h2 {
     line-height: 1;
 }
 
-.ingredient_tt { /* The ingredients tooltip is smaller than standard in styles */
+.section_in .section_tt_container { /* Not fully working! This and the media query below are to keep the title distance from the 
+                                       tooltip icon the same as all other sections, but it's a bit haphazard */
+    width: 40px;
+}
+@media (max-width: 768px){ /*  */
+    .section_in .section_tt_container {
+    width: 60px;
+    }
+}
+
+.insection_tt { /* In section tooltips are smaller than standard size set in styles */
     height: 20px;
     width: 20px;
 }
 
-.ingredient_tt p, div.delete_icon {
+.insection_tt p, div.delete_icon {
     font-weight: 500;
     font-size: 20px;
 }
 
-/* .collapse_content  Can;pt move between devices sizes without refreshing the page, why and is it OK? */
+/* .collapse_content  Can't move between devices sizes without refreshing the page, why and is it OK? */
 
-.container { /* Ingredients container required to align elements in a row */
+.container { /* Required to align elements in a row within a section */
     display: flex;
     padding: 0; /* Removes default Container padding left & right */
     margin-top: 0.5rem;
     margin-bottom: 0.5rem; /* This may not be needed. Top too maybe...*/
 }
 
-
-.ingredient_row p { 
-    flex: 1; text-align: left; 
-}
-
-#item_delete { /* Aligns the icon to the right */
-    position: absolute; 
-    right: 0; 
-    color: var(--orange);
-    font-size: 20px;
-    vertical-align: middle;
-    line-height: 1;
+@media (max-width: 768px){ /* Not working! From screen 768px and lower a Jquery width applies that I can't seem to override. */
+div.section_in.container {
+    width: 95%!important;
+    }
 }
 
 .section_tt_container { /* for spacing between tt and text */
     width: 30px;
 }
 
-.ingredient_tt_container {
-    width: 40px;
+/*------- # of Portions Section Start */
+.portions_input {
+    width: 300px;
+}
+
+/*------- Ingredients Section Start */
+
+.ingredient_row p { 
+    flex: 1; text-align: left; 
 }
 
 .section_ti_flex { /* Other sections use Position for positioning. This uses flex */
@@ -53,8 +62,13 @@ h2 {
     white-space: nowrap;
 }
 
-.portions_input {
-    width: 10%;
+#item_delete { /* Aligns the icon to the right */
+    position: absolute; 
+    right: 0; 
+    color: var(--orange);
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 input {
@@ -68,8 +82,12 @@ input {
 }
 
 #batch_total_ti, #per_portion_ti {
-    width: 9%;
+    width: 75px;
     margin-left: 0.5rem;
+}
+
+#batch_total_unit, #per_portion_unit {
+    width: 1% 
 }
 
 #batch_total_ti p, #per_portion_ti p, #batch_total_unit p, #per_portion_unit p {
@@ -92,8 +110,7 @@ input {
     margin: 1rem auto;
 }
 
-/*------- Media queries to search input fit all devices. */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
 div .search_name_input  {
     width: 50%;
     }
@@ -103,4 +120,67 @@ div .search_name_input  {
 div .search_name_input  {
     width: 95%;
     }
+}
+
+/*---------------------------------- Cooking Section Start */
+
+#search_container, #nutritional_container {
+    border: 1px solid pink;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
+}
+
+@media (max-width: 1200px) {
+#search_container, #nutritional_container {
+    width: 60%;
+    }
+}
+
+@media (max-width: 992px) {
+#search_container, #nutritional_container {
+    width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+#search_container, #nutritional_container {
+    width: 95%;
+    }
+}
+
+.advanced_container, .advanced_option, .row.justify-content-md-center {
+    width: 100%;
+}
+
+/* Brick buttons */
+.row.justify-content-md-center {
+    background-color: var(--white);
+    width: 100%;
+    margin: 0;
+}
+
+p.advanced_option { /*------- Brick Buttons Section title. */
+    text-align: left;
+    width: 95%;
+    margin: 20px auto 10px auto;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--white);
+}
+
+.col { /*------- Brick Buttons */
+    background-color: var(--white);
+    border: 0.5px solid var(--orange);
+    text-align: center;
+    white-space: nowrap;
+}
+
+#other_cook_method {
+    text-align: left;
+    color: var(--white);
+}
+
+#other_cook_method input{
+    border: 1px solid var(--orange);
 }
