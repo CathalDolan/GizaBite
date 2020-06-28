@@ -95,8 +95,8 @@
             </div> -->
 
             <div class="section_bg text-center">
-                <div class="section_in container"> 
-                    <div class="section_tt_container">
+                <div class="section_in portions_container container"> 
+                    <div >
                         <div class="tt"> 
                             <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
                         </div>
@@ -189,7 +189,7 @@
                     <div class="collapsible collapse_arrow">
                     </div>
                     <div class="collapse_content "> 
-                        <div id="search_container" class="section_bg">
+                        <div id="search_container">
                             <div class="advanced_container container">
                                 <p class="advanced_option">Method</p>
                                 <div class="row justify-content-md-center">
@@ -267,65 +267,163 @@
                     <div class="collapsible collapse_arrow">
                     </div>
                     <div class="collapse_content">
-                        <div id="nutritional_container">
-                            <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">Typical Values</th>
-                                <th scope="col">Per 100g</th>
-                                <th scope="col">Per Portion</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">Energy</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Fat</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Saturated Fat</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
-                                <th scope="row">Carbohydrates</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Fat</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Saturated Fat</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                            </table>
+                        <div class="nutritional_container nutrition_container">
+                            <h5>Nutrition</h5>
+                                <table class="table">
+                                <thead>
+                                    <tr class="d-flex">
+                                    <th scope="col" class="col-4">Typical Values</th>
+                                    <th scope="col" class="col-3">Per 100g</th>
+                                    <th scope="col" class="col-1">RI*</th>
+                                    <th scope="col" class="col-3">Per 100g</th>
+                                    <th scope="col" class="col-1">RI*</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Energy</th>
+                                    <td class="col-3">1500kj /350kcal</td>
+                                    <td class="col-1">20%</td>
+                                    <td class="col-3">500kj /120kcal</td>
+                                    <td class="col-1">7%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Fat</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Saturated Fat</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Cholesterol</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Carbohydrates</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">of which sugars</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Fibre</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Protein</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                    <tr class="d-flex">
+                                    <th scope="row" class="col-4">Salt</th>
+                                    <td class="col-3">3.0g</td>
+                                    <td class="col-1">9%</td>
+                                    <td class="col-3">1.0g</td>
+                                    <td class="col-1">3%</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                        </div>
+                        <hr class="rule section_rule">
+                        <div class="nutritional_container vitamins_container">
+                            <h5>Vitamins & Minerals</h5>
+                                <table class="table">
+                                    <thead>
+                                        <tr class="d-flex">
+                                        <th scope="col" class="col-4">Typical Values</th>
+                                        <th scope="col" class="col-3">Per 100g</th>
+                                        <th scope="col" class="col-1">RI*</th>
+                                        <th scope="col" class="col-3">Per 100g</th>
+                                        <th scope="col" class="col-1">RI*</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="d-flex">
+                                        <th scope="row" class="col-4">Thiamin</th>
+                                        <td class="col-3">0.9mg</td>
+                                        <td class="col-1">20%</td>
+                                        <td class="col-3">0.3mg</td>
+                                        <td class="col-1">7%</td>
+                                        </tr>
+                                        <tr class="d-flex">
+                                        <th scope="row" class="col-4">Riboflavin</th>
+                                        <td class="col-3">3.0mg</td>
+                                        <td class="col-1">9%</td>
+                                        <td class="col-3">1.0mg</td>
+                                        <td class="col-1">3%</td>
+                                        </tr>
+                                        <tr class="d-flex">
+                                        <th scope="row" class="col-4">Niacin</th>
+                                        <td class="col-3">3.0mg</td>
+                                        <td class="col-1">9%</td>
+                                        <td class="col-3">1.0mg</td>
+                                        <td class="col-1">3%</td>
+                                        </tr>
+                                        <tr class="d-flex">
+                                        <th scope="row" class="col-4">Folic Acid</th>
+                                        <td class="col-3">3.0µ</td>
+                                        <td class="col-1">9%</td>
+                                        <td class="col-3">1.0µ</td>
+                                        <td class="col-1">3%</td>
+                                        </tr>
+                                        <tr class="d-flex">
+                                        <th scope="row" class="col-4">Iron</th>
+                                        <td class="col-3">3.0mg</td>
+                                        <td class="col-1">9%</td>
+                                        <td class="col-3">1.0mg</td>
+                                        <td class="col-1">3%</td>
+                                        </tr>
+                                        <tr class="d-flex">
+                                        <th scope="row" class="col-4">Calcium</th>
+                                        <td class="col-3">3.0mg</td>
+                                        <td class="col-1">9%</td>
+                                        <td class="col-3">1.0mg</td>
+                                        <td class="col-1">3%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>            
+                        </div>
+                        <hr class="rule section_rule">
+                        <div class="nutritional_container allergens_container">
+                            <h5>Allergens</h5>
+                            <ul class="ul">
+                                <li>Wheat</li>
+                                <li>Barley</li>
+                            </ul>
+                        </div>
+                        <hr class="rule section_rule">
+                        <div class="nutritional_container notes_container">
+                            <h5>Notes</h5>
+                            <ul class="ul">
+                                <li>*Stuff about RI</li>
+                                <li>Uncooked, etc.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
-        <div style="width: 100%">
-            <div style="float: left; width: 33%;">Left Stuff</div>
-            <div style="float: left; width: 33%;">Middle Stuff</div>
-            <div style="float: left; width: 34%;">Right Stuff</div>
-            <br style="clear: left;" />
-        </div>
-
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
