@@ -210,7 +210,7 @@ p {
   transition: max-height 0.2s ease-out;
   background-color: var(--bg_trans);
   border: 1px solid blue; /*-- for visual purposes in dev */
-  margin-top: 0.5rem /* Gives space between the bottom of the trigger element and the top of the expanded div. */
+  margin-top: 0.5rem; /* Gives space between the bottom of the trigger element and the top of the expanded div. */
 }
 
 div.collapse_content p{

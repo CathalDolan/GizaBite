@@ -13,6 +13,8 @@ h2 {
     font-size: 20px;
 }
 
+/* .collapse_content  Can;pt move between devices sizes without refreshing the page, why and is it OK? */
+
 .container { /* Ingredients container required to align elements in a row */
     display: flex;
     padding: 0; /* Removes default Container padding left & right */
@@ -20,15 +22,18 @@ h2 {
     margin-bottom: 0.5rem; /* This may not be needed. Top too maybe...*/
 }
 
-.ingredient_row h4 { 
+
+.ingredient_row p { 
     flex: 1; text-align: left; 
 }
 
 #item_delete { /* Aligns the icon to the right */
-    position: absolute; right: 0; 
+    position: absolute; 
+    right: 0; 
     color: var(--orange);
     font-size: 20px;
     vertical-align: middle;
+    line-height: 1;
 }
 
 .section_tt_container { /* for spacing between tt and text */
@@ -58,16 +63,44 @@ input {
 }
 
 #ingredient_description {
-    width: 50%;
+    width: 53%; /* Most appropriate width to allow following elements to fit */
     word-wrap: break-word;
 }
 
-#batch_total, #per_portion {
-    width: 10%;
-    margin-left: 16px;
+#batch_total_ti, #per_portion_ti {
+    width: 9%;
+    margin-left: 0.5rem;
+}
+
+#batch_total_ti p, #per_portion_ti p, #batch_total_unit p, #per_portion_unit p {
+    font-size: 12px;
+    line-height: 2.35; /* Makes them line-up with everything else on the row */ 
 }
 
 #batch_total_unit, #per_portion_unit {
     width: 2%;
     margin-left: 2px;
+}
+
+#ingredient_totals p {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.search_name_input {
+    width: 40%;
+    margin: 1rem auto;
+}
+
+/*------- Media queries to search input fit all devices. */
+@media (max-width: 768px) {
+div .search_name_input  {
+    width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+div .search_name_input  {
+    width: 95%;
+    }
 }
