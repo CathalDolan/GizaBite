@@ -164,7 +164,7 @@ p {
     font-weight: 900; /*  Wrong font weight, but idea is correct */
 }
 
-.collapse_arrow, .heading_icon, .delete_icon {    /* This is the collapse arrow icon positioning to the right of the sction heading */
+.collapse_arrow, .heading_icon  {    /* This is the collapse arrow icon positioning to the right of the sction heading */
     position: absolute;
     top: 0;
     text-align: right;
@@ -174,7 +174,7 @@ p {
     right: 0;
 }
 
-.heading_icon, .collapse_arrow, .delete_icon {  /* Used in section headings to insert icons positioned to the right */           
+.heading_icon, .collapse_arrow {  /* Used in section headings to insert icons positioned to the right */           
     content: '';  
     font-family: FontAwesome;
     color: var(--orange);
@@ -199,9 +199,9 @@ p {
     content: "\f062";
 } 
 
-.delete_icon:after {    /* Delete icon used in ingredients and dish pages */ 
+/* .delete_icon:after {    Delete icon used in ingredients and dish pages. Didn't work here because of flex on dish page
     content: "\f014";
-} 
+} */
 
 .collapse_content { /* This is the div that expands / collapses. */
   position: relative;
