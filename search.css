@@ -1,8 +1,6 @@
 /*---------------------------------- Search Widget -- Start */
 #search_container {
     border: 1px solid var(--white);
-    width: 50%;
-    margin: auto;
     border-radius: 8px;
     background-color: var(--white);
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
@@ -89,21 +87,3 @@ a.btn.button-image.mybutton{ /*------- Search widget "search" button. */
 }
 
 
-/*------- Media queries to make Search widget and dish buttons fit all devices. */
-@media (max-width: 1200px) {
-#search_container, a.btn {
-    width: 60%;
-    }
-}
-
-@media (max-width: 992px) {
-#search_container, a.btn {
-    width: 70%;
-    }
-}
-
-@media (max-width: 576px) {
-#search_container, a.btn {
-    width: 95%;
-    }
-}

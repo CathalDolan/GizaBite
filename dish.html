@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
-   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles.css" type="text/css">
-
     <link rel="stylesheet" href="dish.css" type="text/css">
     <title>GizaBite</title>
     
@@ -56,56 +54,63 @@
     <main>
         <section>
 
+            <!--======================================== Action Icons Bar -->
+            <div id="action_icons_bar" class="section_bg">
+                <div class="section_in"> 
+                    <i class="fas fa-arrow-left"></i>
+                    <hr class="rule section_rule">
+                </div>
+            </div>
+
             <!--======================================== Description -->
             <div class="section_bg text-center">
                 <div id="page_heading_container"class="section_in"> 
-                    <div class="page_ti">
-                        <h2>Product Title</h2>
+                    <div class="page_ti floatL">
+                        <h2>New Ingredient</h2>
                     </div>
-                    <div class="heading_icon">
+                    <div class="heading_icon floatR">
                     </div>
-                    
+                    <p class="clear">Optional content if it the product is an ingredient</p>
                 </div>
+
                 <div class="section_in"> 
-                    <div class="tt"> 
+                    <div class="tt floatL"> 
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        <div class="section_ti">
-                            <h3>Description</h3>
-                        </div>
                     </div>
-                    <div class="collapsible collapse_arrow">
+                    <div class="floatL">
+                        <h3>Description</h3>
                     </div>
-                    <div class="collapse_content">
+                    <div class="collapsible collapse_arrow floatR">
+                    </div>
+                    <div class="collapse_content clear">
                         <p>Lorem ipsu  m...</p>
                     </div>
                 </div>
             </div>
 
             <!--======================================== # of Portions -->
-            <!--<div class="section_bg text-center">
-                <div class="section_in"> 
-                    <div class="tt"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        <div class="section_ti">
-                            <h3># of Portions</h3>
-                            <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="10"/>    Look at this again regarding autodisplay numbers keyborad on mobile
-                        </div>
-                    </div>   
-                </div>
-            </div> -->
 
             <div class="section_bg text-center">
-                <div class="section_in portions_container container"> 
-                    <div >
-                        <div class="tt"> 
-                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        </div>
+                <div class="section_in"> 
+                    <div class="tt floatL"> 
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
                     </div>
-                    <div class="section_ti_flex">
+                    <div class="floatL">
                         <h3># of Portions</h3>
                     </div>
-                    <div class="portions_input">
+                    <div class="floatL">
                         <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="10" /> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
+                    </div>
+                    <div class="collapsible collapse_arrow floatR">
+                    </div>
+                    <div class="collapse_content clear">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum 
+                        interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, 
+                        ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante 
+                        ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit 
+                        risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis 
+                        imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non 
+                        fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.<p>
                     </div>
                 </div>
             </div>
@@ -113,19 +118,16 @@
             <!--======================================== Ingredients -->
             <div class="section_bg text-center">
                 <div class="section_in"> 
-
-                    <div class="tt"> 
+                    <div class="tt floatL"> 
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        <div class="section_ti">
-                            <h3>Ingredients</h3>
-                        </div>
                     </div>
-
-                    <div class="collapsible collapse_arrow">
+                    <div class="floatL">
+                        <h3>Ingredients</h3>
                     </div>
-
-                    <div class="collapse_content "> 
-                        <div class="collapse_content_row container">
+                    <div class="collapsible collapse_arrow floatR">
+                    </div>
+                    <div class="collapse_content clear"> 
+                        <div class="collapse_content_row container"> <!-- Container and this set up isn't correct-->
                             <div class="insection_tt_container">
                                 <div class="tt insection_tt"> 
                                     <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
@@ -180,15 +182,15 @@
             <!--======================================== Cooking -->
             <div class="section_bg text-center">
                 <div class="section_in"> 
-                    <div class="tt"> 
+                    <div class="tt floatL"> 
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        <div class="section_ti">
-                            <h3>Cooking</h3>
-                        </div>
                     </div>
-                    <div class="collapsible collapse_arrow">
+                    <div class="floatL">
+                        <h3>Cooking</h3>
                     </div>
-                    <div class="collapse_content "> 
+                    <div class="collapsible collapse_arrow floatR">
+                    </div>
+                    <div class="collapse_content clear"> 
                         <div id="search_container">
                             <div class="advanced_container container">
                                 <p class="advanced_option">Method</p>
@@ -258,15 +260,15 @@
             <!--======================================== Nutrients & Allergens -->
             <div class="section_bg text-center">
                 <div class="section_in"> 
-                    <div class="tt"> 
+                    <div class="tt floatL"> 
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        <div class="section_ti">
-                            <h3>Nutrients & Allergens</h3>
-                        </div>
                     </div>
-                    <div class="collapsible collapse_arrow">
+                    <div class="floatL">
+                        <h3>Nutrients & Allergens</h3>
                     </div>
-                    <div class="collapse_content">
+                    <div class="collapsible collapse_arrow floatR">
+                    </div>
+                    <div class="collapse_content clear">
                         <div class="nutritional_container nutrition_container">
                             <h5>Nutrition</h5>
                                 <table class="table">

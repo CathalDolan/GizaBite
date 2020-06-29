@@ -1,48 +1,6 @@
-h2 {
+h2 { /* Required because global is text-align: center; */
     text-align: left;
-    line-height: 1;
-}
-
-.section_in .section_tt_container { /* Not fully working! This and the media query below are to keep the title distance from the 
-                                       tooltip icon the same as all other sections, but it's a bit haphazard */
-    width: 40px;
-}
-@media (max-width: 768px){ /*  */
-    .section_in .section_tt_container {
-    width: 60px;
-    }
-}
-
-.insection_tt { /* In section tooltips are smaller than standard size set in styles */
-    height: 20px;
-    width: 20px;
-}
-
-.insection_tt p, div.delete_icon {
-    font-weight: 500;
-    font-size: 20px;
-}
-
-/* .collapse_content  Can't move between devices sizes without refreshing the page, why and is it OK? */
-
-.container { /* Required to align elements in a row within a section */
-    padding: 0; /* Removes default Container padding left & right */
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; /* This may not be needed. Top too maybe...*/
-}
-
-.collapse_content_row.container, .portions_container.container { /* Required to align elements in a row within a section */
-    display: flex;
-}
-
-@media (max-width: 768px){ /* Not working! From screen 768px and lower a Jquery width applies that I can't seem to override. */
-div.section_in.container {
-    width: 95%!important;
-    }
-}
-
-.section_tt_container { /* for spacing between tt and text */
-    width: 30px;
+    line-height: 1; /* Can this be global? */
 }
 
 /*------- # of Portions Section Start */
@@ -54,15 +12,7 @@ div.section_in.container {
 
 .ingredient_row p { 
     flex: 1; text-align: left; 
-}
-
-.section_ti_flex { /* Other sections use Position for positioning. This uses flex */
-    width: 20%;
-}
-
-.section_ti_flex h3 {
-    text-align: left;
-    white-space: nowrap;
+    line-height: 1;
 }
 
 #item_delete { /* Aligns the icon to the right */
@@ -126,30 +76,6 @@ div .search_name_input  {
 }
 
 /*---------------------------------- Cooking Section Start */
-
-#search_container {
-    width: 50%;
-    margin: auto;
-    padding: 0;
-}
-
-@media (max-width: 1200px) {
-#search_container {
-    width: 60%;
-    }
-}
-
-@media (max-width: 992px) {
-#search_container {
-    width: 70%;
-    }
-}
-
-@media (max-width: 576px) {
-#search_container{
-    width: 95%;
-    }
-}
 
 .advanced_container, .advanced_option, .row.justify-content-md-center {
     width: 100%;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:100,200,300,400,500,600,700&family=Parisienne&family=Roboto:100,200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Parisienne&family=Roboto:wght@100;300;400;500;700&display=swap');
 
 /*~~~~~~~~~~~~~~~~~~~~ Pages Set-up */
 * {-webkit-font-smoothing: antialiased;}
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-    font-weight: 600;
+    /* font-weight: 600; to be checked and updated */
 }
 
 h1 {
@@ -109,8 +109,8 @@ p {
 .section_in { /*------- Background Inner to allow equal spacing within the background. */
     margin: 0 auto;
     width: 95%;
-    position: relative;
     border: 1px solid green; /*-- for visual purposes in dev */
+    min-height: 30px;
 }
 
 #page_heading_container{ /*------- Provides spacing between page title and next section */
@@ -124,7 +124,6 @@ p {
     background-color: var(--orange);
     border-radius: 50px;
     margin: 0;
-    position: relative;
 }
 
 .tt p {
@@ -139,14 +138,12 @@ p {
 .section_ti {
     margin: 0;
     padding: 0;
-    position: absolute;
     top: 0;
     left: 150%;
 }
 
 .section_ti h3{
     margin: 0;
-    width: 300px;
     text-align: left;
     line-height: 1;
 }
@@ -161,28 +158,17 @@ p {
 }
 
 .active, .collapsible:hover {
-    font-weight: 900; /*  Wrong font weight, but idea is correct */
+    /*  font-weight: 900; Wrong font weight, but idea is correct */
 }
 
 .collapse_arrow, .heading_icon  {    /* This is the collapse arrow icon positioning to the right of the sction heading */
-    position: absolute;
-    top: 0;
-    text-align: right;
-    line-height: 1;
-    font-size: 24px;
-    width: 30px;
-    right: 0;
-}
-
-.heading_icon, .collapse_arrow {  /* Used in section headings to insert icons positioned to the right */           
     content: '';  
     font-family: FontAwesome;
-    color: var(--orange);
-    font-weight: bold;
-    font-size: 25px;
-    float: right;
-    margin-left: 5px;
     line-height: 1;
+    width: 25px;        
+    color: var(--orange);
+    font-size: 25px;
+    margin-left: 5px;
 }
 
 .heading_icon:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
@@ -198,6 +184,20 @@ p {
 .collapse_arrow.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
     content: "\f062";
 } 
+
+.floatL {
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.floatR {
+    float: right;
+    margin-left: 0.5rem;
+}
+
+.clear {
+    clear: both;
+}
 
 /* .delete_icon:after {    Delete icon used in ingredients and dish pages. Didn't work here because of flex on dish page
     content: "\f014";
@@ -229,7 +229,7 @@ div.collapse_content .tt p{
     margin: auto;
     background-color: var(--orange);
     color: var(--white);
-    font-weight: bold;
+    /* font-weight: bold;  font weight to be check */
 
     min-height: 40px;  /*------ Keeps text only buttons at same height as ones with an icon */
 
@@ -271,6 +271,12 @@ div.collapse_content .tt p{
 .card_rule {
     width: 50%;
     height: 1px;
+}
+
+@media (max-width: 576px) {
+    .section_rule {
+        width: 50%;
+    }
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Navbar */
@@ -371,5 +377,62 @@ div.collapse_content .tt p{
 
     .hero_outer #hero_text{
     width: 75%;
+    }
+}
+
+#action_icons_bar .section_rule {
+    width: 100%;
+    height: 1px;
+}
+
+.fa-arrow-left:before {
+    font-size: 40px;
+    color: var(--orange);
+}
+
+.insection_tt { /* In section tooltips are smaller than standard size set in styles */
+    height: 20px;
+    width: 20px;
+}
+
+.insection_tt p, div.delete_icon {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+
+/* .collapse_content  Can't move between devices sizes without refreshing the page, why and is it OK? */
+
+.container { /* Required to align elements in a row within a section */
+    padding: 0; /* Removes default Container padding left & right */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; /* This may not be needed. Top too maybe...*/
+}
+
+.collapse_content_row.container, .portions_container.container { /* Required to align elements in a row within a section */
+    display: flex;
+}
+
+#search_container {
+    width: 50%;
+    margin: auto;
+}
+
+/*------- Media queries to make Search widget and dish buttons fit all devices. */
+@media (max-width: 1200px) {
+#search_container, a.btn {
+    width: 60%;
+    }
+}
+
+@media (max-width: 992px) {
+#search_container, a.btn {
+    width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+#search_container, a.btn {
+    width: 95%;
     }
 }
