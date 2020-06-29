@@ -11,7 +11,7 @@ h2 { /* Required because global is text-align: center; */
 /*------- Ingredients Section Start */
 
 .ingredient_row p { 
-    flex: 1; text-align: left; 
+    text-align: left; 
     line-height: 1;
 }
 
@@ -30,12 +30,21 @@ input {
 }
 
 #ingredient_description {
-    width: 53%; /* Most appropriate width to allow following elements to fit */
+    max-width: 53%; /* Most appropriate width to allow following elements to fit */
     word-wrap: break-word;
+}
+@media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
+#ingredient_description  {
+    max-width: 90%;
+    }
+}
+
+#batch_total_section {
+    white-space:nowrap; /* needed? */
 }
 
 #batch_total_ti, #per_portion_ti {
-    width: 75px;
+    width: 70px;
     margin-left: 0.5rem;
 }
 
@@ -74,6 +83,7 @@ div .search_name_input  {
     width: 95%;
     }
 }
+
 
 /*---------------------------------- Cooking Section Start */
 
@@ -139,4 +149,18 @@ ul.ul {
 
 .notes_container {
     text-align: left;
+}
+
+.ingredient_row1 {
+    border: 1px solid pink;
+    min-height: 32px;
+    overflow: hidden;
+    margin: 1rem 0;
+    vertical-align: middle; /* not working */
+}
+
+@media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
+#batch_total_section, #per_portion_total_section {
+    margin-top: 0.5rem;
+    }
 }

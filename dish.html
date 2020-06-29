@@ -126,47 +126,91 @@
                     </div>
                     <div class="collapsible collapse_arrow floatR">
                     </div>
+
                     <div class="collapse_content clear"> 
-                        <div class="collapse_content_row container"> <!-- Container and this set up isn't correct-->
-                            <div class="insection_tt_container">
-                                <div class="tt insection_tt"> 
-                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <div class="ingredient_row1">
+                            <div class="collapse_content_row">
+                                <div class="insection_tt_container">
+                                    <div class="tt insection_tt floatL"> 
+                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                                    </div>
+                                </div>
+
+                                <div id="ingredient_description" class="ingredient_row floatL">
+                                    <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
+                                </div>
+
+                                <div id="batch_total_section" class="floatL">
+                                    <div id="batch_total_ti" class="ingredient_row floatL">
+                                        <p>Batch Total:<p>
+                                    </div>
+                                    <div id="batch_total_input" class="ingredient_row floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
+                                        <p>g<p>
+                                    </div>
+                                </div>
+
+                                <div id="per_portion_total_section" class="floatL">
+                                    <div id="per_portion_ti" class="ingredient_row floatL">
+                                        <p>Per Portion:<p>
+                                    </div>
+                                    <div id="per_portion_input" class="ingredient_row floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
+                                    </div>
+                                    <div id="per_portion_unit" class="ingredient_row measure_unit floatL">
+                                        <p>g<p>
+                                    </div>
+                                </div>
+
+                                <div id="item_delete" class="delete_icon1">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </div>
                             </div>
+                        </div>
+                        <div class="ingredient_row1 clear"> <!-- In as an example for layout purposes -->
+                            <div class="collapse_content_row">
+                                <div class="insection_tt_container">
+                                    <div class="tt insection_tt floatL"> 
+                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                                    </div>
+                                </div>
 
-                            <div id="ingredient_description" class="ingredient_row">
-                                <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
-                            </div>
+                                <div id="ingredient_description" class="ingredient_row floatL">
+                                    <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
+                                </div>
 
-                            <div id="batch_total_ti" class="ingredient_row">
-                                <p>Batch Total:<p>
-                            </div>
+                                <div id="batch_total_section" class="floatL">
+                                    <div id="batch_total_ti" class="ingredient_row floatL">
+                                        <p>Batch Total:<p>
+                                    </div>
+                                    <div id="batch_total_input" class="ingredient_row floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
+                                        <p>g<p>
+                                    </div>
+                                </div>
 
-                            <div id="batch_total_input" class="ingredient_row">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                            </div>
+                                <div id="per_portion_total_section" class="floatL">
+                                    <div id="per_portion_ti" class="ingredient_row floatL">
+                                        <p>Per Portion:<p>
+                                    </div>
+                                    <div id="per_portion_input" class="ingredient_row floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
+                                    </div>
+                                    <div id="per_portion_unit" class="ingredient_row measure_unit floatL">
+                                        <p>g<p>
+                                    </div>
+                                </div>
 
-                            <div id="batch_total_unit" class="ingredient_row measure_unit">
-                                <p>g<p>
-                            </div>
-
-                            <div id="per_portion_ti" class="ingredient_row">
-                                <p>Per Portion:<p>
-                            </div>
-
-                            <div id="per_portion_input" class="ingredient_row">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
-                            </div>
-
-                            <div id="per_portion_unit" class="ingredient_row measure_unit">
-                                <p>g<p>
-                            </div>
-
-                            <div id="item_delete" class="delete_icon1">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                <div id="item_delete" class="delete_icon1">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
-                        <hr class="rule section_rule">
+                        <hr class="rule section_rule clear">
                         <div id="ingredient_totals">
                             <p><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
                         </div>
