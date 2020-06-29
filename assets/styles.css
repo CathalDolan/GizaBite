@@ -436,3 +436,8 @@ div.collapse_content .tt p{
     width: 95%;
     }
 }
+
+.back_button {
+    border: none;
+    background-color: var(--bg);
+}
