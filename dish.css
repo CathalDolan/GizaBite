@@ -22,20 +22,15 @@ h2 { /* Required because global is text-align: center; */
     font-size: 20px;
     vertical-align: middle;
     line-height: 1;
-}
-
-input {
-    width: 8ch;
-    border: 1px solid var(--orange);
-}
+} 
 
 #ingredient_description {
-    max-width: 53%; /* Most appropriate width to allow following elements to fit */
+    min-width: 53%; /* Most appropriate width to allow following elements to fit */
     word-wrap: break-word;
 }
 @media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
 #ingredient_description  {
-    max-width: 90%;
+    min-width: 85%;
     }
 }
 
@@ -141,6 +136,10 @@ p.advanced_option { /*------- Brick Buttons Section title. */
     padding: 0;
 }
 
+table th, table td {
+    font-size: 12px;
+}
+
 ul.ul {
   list-style-type: circle;
   list-style-position: inside;
@@ -163,4 +162,27 @@ ul.ul {
 #batch_total_section, #per_portion_total_section {
     margin-top: 0.5rem;
     }
+}
+
+/*   New Dish */
+
+.input_nutrient_weight>input {
+    width: 5ch;
+}
+
+.input_percent>input {
+    width: 3ch;
+}
+
+.input_ingredient_weight {
+    width: 8ch;
+    border: 1px solid var(--orange);
+}
+
+.new_dish_name_input, #ingredient_description {
+    width: 225px;
+}
+
+.new_dish_description_input {
+    width: 100%;
 }

@@ -26,9 +26,9 @@ main {
 }
 
 :root {
-    --bg: rgb(0, 0, 0, 0.9);
-    --bg_trans: rgb(0, 0, 0, 0.3);
-    --bg_cards: rgb(0, 0, 0, 0.5);
+    --bg: #202224;
+    --bg_trans: #1b1c1d;
+    --bg_cards: #121213;
     --orange: rgb(239, 128, 26);
     --white: rgb(254, 254, 253);
 }
@@ -210,7 +210,7 @@ p {
   transition: max-height 0.2s ease-out;
   background-color: var(--bg_trans);
   border: 1px solid blue; /*-- for visual purposes in dev */
-  margin-top: 0.5rem; /* Gives space between the bottom of the trigger element and the top of the expanded div. */
+  margin-top: 2.25rem; /* Gives space between the bottom of the trigger element and the top of the expanded div. */
 }
 
 div.collapse_content p{
@@ -285,16 +285,7 @@ div.collapse_content .tt p{
     padding: 1rem 2rem;
 }
 
-.navbar-light .navbar-nav .nav-link{
-    color: var(--orange); 
-}
-
-.navbar-light .navbar-nav .nav-link.active{
-    color: var(--white);
-}
-
 #gizabite_logo {
-    position: absolute;
     top: 0.75rem;
     left: 10%;
     height: 3rem;
@@ -302,12 +293,27 @@ div.collapse_content .tt p{
 
 @media (max-width: 820px) {
 #gizabite_logo {
-    position: absolute;
     top: 1rem;
     left: 5%;
     height: 2.5rem;
  }
 }
+
+.navbar-nav .nav-link {
+    color: var(--orange);
+}
+
+.navbar-nav .active .nav-link {
+    color: var(--white);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(239, 128, 26)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: var(--orange);
+} 
 
 /*~~~~~~~~~~~~~~~~~~~~ Hero Image Start */
 
