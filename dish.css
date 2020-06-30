@@ -40,7 +40,56 @@ h2 { /* Required because global is text-align: center; */
 
 #batch_total_ti, #per_portion_ti {
     width: 70px;
-    margin-left: 0.5rem;
+    margin-left: 0.5rem; /* These need to be looked at as once size ain't fitting all */
+}
+
+#batch_total_ti2 { /* This class name needs to be changed as do possibly others surrounding */
+    width: 130px;
+}
+
+@media (max-width: 768px) { /*------- Used to force following div onto next line */
+.other_cook_method2 {
+    width: 100%;
+    }
+}
+
+.batch_total_section2{ /*------- Adds space between it and previous */
+    margin-left: 50px;
+}
+@media (max-width: 768px) { /*------- removes 10% margin when bumped onto its own line. */
+.batch_total_section2 {
+    margin-left: 0;
+    }
+}
+
+/*------- used to align Measurements */
+@media (max-width: 1100px) { 
+.section_in>.batch_total_section3 {
+    margin-right: 50%;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    }
+}
+@media (max-width: 768px) { 
+.section_in>.batch_total_section3 {
+    margin-right: 25%;
+    }
+}
+@media (max-width: 415px) { 
+.section_in>.batch_total_section3 {
+    margin-right: 0%;
+    }
+}
+
+/*------- These control the input names for Measurements section width. */
+#batch_total_ti2.portions_p {
+    width: 100px;
+}
+#batch_total_ti2.batch_p {
+    width: 147px;
+}
+#batch_total_ti2.weight_p {
+    width: 150px;
 }
 
 #batch_total_unit, #per_portion_unit {
@@ -174,15 +223,24 @@ ul.ul {
     width: 3ch;
 }
 
-.input_ingredient_weight {
+.input_ingredient_weight { /* This class name needs to be changed as it applies to more than just ingredieint weights */
     width: 8ch;
     border: 1px solid var(--orange);
 }
 
-.new_dish_name_input, #ingredient_description {
+#ingredient_description { /* Max width the field can be to prevent it pushing other elements down opn mobile */
     width: 225px;
+}
+
+.new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
+    width: 260px;
 }
 
 .new_dish_description_input {
     width: 100%;
+}
+
+div>ul>li {
+    color: var(--white);
+    text-align: left;
 }
