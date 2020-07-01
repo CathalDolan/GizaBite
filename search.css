@@ -1,9 +1,8 @@
 /*---------------------------------- Search Widget -- Start */
-#search_container {
-    border: 1px solid var(--white);
+.search_container {
     border-radius: 8px;
     background-color: var(--white);
-    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
+    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing here */
 }
 
 #page_ti h3 { /* As it behaves as a page title, it's given h2 sizing. #page_ti needed to isloate it */
@@ -21,9 +20,12 @@
     color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
 }
 
+.mybutton:before{   /* . Adds image to the "Search" button. Related to .button-image:before in styles.css */
+    background-image : url(https://i.imgur.com/2RYxoQ1.png);
+}
+
 input.search_name_in { /* ------- User Search input field. */
     color: var(--bg);
-    width: 95%;
     height: 2.5rem;
     margin: 10px 0;
     text-align: center;
@@ -35,10 +37,9 @@ input.search_name_in { /* ------- User Search input field. */
     padding: 0;
 }
 
-.collapse1 {     /*----- Advanced & Reset Buttons colours and positions in Search widget  */
+.advanced_reset_buttons {     /*----- Advanced & Reset Buttons colours and positions in Search widget  */
     color: var(--orange);
     text-align: left;
-    width: 95%;
     margin: 0 auto;
     font-weight: 500;
     line-height: 1;
@@ -59,7 +60,6 @@ div.collapse_content {
 p.advanced_option { /*------- Brick Buttons Section title. */
     color: var(--bg);
     text-align: left;
-    width: 95%;
     margin: 20px auto 10px auto;
     font-weight: 500;
     line-height: 1;
@@ -71,19 +71,14 @@ p.advanced_option { /*------- Brick Buttons Section title. */
     white-space: nowrap;
 }
 
-
-/*------- Buttons............ for here? */
-a.btn { /*------- Creat a dish button. */
-    width: 50%;
-    margin: 1rem 0; /* needs to be adjusted to take mobile into account */
+.container .content1 { 
+    display: none; /* Allows the Advanced section in search widget to display closed */
 }
 
-a.btn.button-image.mybutton{ /*------- Search widget "search" button. */
-    width: 33%; /* needs to be adjusted to take mobile into account */
+#search_title {
+    margin: 0.5rem auto;
 }
 
-.mybutton:before{   /* . Adds image to the button. Related to .button-image:before in styles.css */
-    background-image : url(https://i.imgur.com/2RYxoQ1.png);
+h6.advanced_option { /* Default font color is white. This is black as it's on a white background */
+    color: var(--bg);
 }
-
-

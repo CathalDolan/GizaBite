@@ -44,7 +44,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    text-align: center;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -64,15 +63,27 @@ h3 {
     font-size: 23px;
 }
 
-h4, h5, h6 {
+h4, h5{
     font-size: 20px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+.alignL {
+    text-align: left;
+}
+
+.alignC {
+    text-align: center;
 }
 
 p {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    text-align: left;
 }
+
 
 #hero_text h2 {
     font-family: 'Parisienne', cursive;
@@ -91,8 +102,12 @@ p {
         font-size: 20px;
     }
 
-    h4, h5, h6 {
+    h4, h5{
         font-size: 18px;
+    }
+
+    h6 {
+        font-size: 14px
     }
 }
 
@@ -108,9 +123,22 @@ p {
 
 .section_in { /*------- Background Inner to allow equal spacing within the background. */
     margin: 0 auto;
-    width: 95%;
     border: 1px solid green; /*-- for visual purposes in dev */
     min-height: 30px;
+    overflow: hidden;
+}
+
+.inner_element_95 {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.section_in, .inner_element_95 {
+    width: 95%;
+}
+
+.collapse_content {
+    width: 100%;
 }
 
 #page_heading_container{ /*------- Provides spacing between page title and next section */
@@ -131,7 +159,6 @@ p {
     padding: 0;
     font-size: 25px;
     line-height: 1;
-    text-align: center;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Section Title */
@@ -144,7 +171,6 @@ p {
 
 .section_ti h3{
     margin: 0;
-    text-align: left;
     line-height: 1;
 }
 
@@ -152,9 +178,8 @@ p {
 .collapsible {
     cursor: pointer;
     border: none;
-    text-align: left;
     outline: none;
-    width: 100%;
+    /*width: 100%; */
 }
 
 .active, .collapsible:hover {
@@ -199,6 +224,10 @@ p {
     clear: both;
 }
 
+.clearL {
+    clear: left;
+}
+
 /* .delete_icon:after {    Delete icon used in ingredients and dish pages. Didn't work here because of flex on dish page
     content: "\f014";
 } */
@@ -215,27 +244,81 @@ p {
 
 div.collapse_content p{
     color: var(--white);
-    width: 100%;
-    text-align: left;
-}
-
-div.collapse_content .tt p{
-    text-align: center;
 }
 
 
-/*~~~~~~~~~~~~~~~~~~~~ Buttons */
+/*~~~~~~~~~~~~~~~~~~~~ Inner Elements such as buttons and the Search Widget */
+
+.inner_element_245 { /* Width: 25% on PC, 40% on tablet, 50% on mobile */
+    width: 25%;
+}
+@media (max-width: 992px){
+    .inner_element_245 {
+        width: 40%;
+    }
+}
+@media (max-width: 500px){ /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_245 {
+        width: 50%;
+    }
+}
+
+.inner_element_567 { /* Width: 50% on PC, 62.5% on tablet, 75% on mobile */
+    width: 50%;
+}
+@media (max-width: 992px){
+    .inner_element_567 {
+        width: 62.5%;
+    }
+}
+@media (max-width: 500px){  /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_567 {
+        width: 75%;
+    }
+}
+
+.inner_element_571 { /* Width: 50% on PC, 75% on tablet, 100% on mobile */
+    width: 50%;
+}
+@media (max-width: 992px){
+    .inner_element_571 {
+        width: 75%;
+    }
+}
+@media (max-width: 500px){  /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_571 {
+        width: 100%;
+    }
+}
+.inner_element_571 {
+    border: 1px solid goldenrod;
+    margin: 0 auto;
+}
+
+.inner_element_579 { /* Width: 50% on PC, 75% on tablet, 95% on mobile */
+    width: 50%;
+}
+@media (max-width: 992px){
+    .inner_element_579 {
+        width: 75%;
+    }
+}
+@media (max-width: 500px){  /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_579 {
+        width: 95%;
+    }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~ Button Specific */
 .btn {   /* Standard buttons */
     margin: auto;
     background-color: var(--orange);
     color: var(--white);
     /* font-weight: bold;  font weight to be check */
-
     min-height: 40px;  /*------ Keeps text only buttons at same height as ones with an icon */
-
 }
 
-.button-image:before { /* Code to insert icon into button from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz */
+.button-image:before { /* Code to insert an icon into a button from Jean-Francois Gilbert https://codepen.io/jfgilbert/pen/LppbLz. Images on specific page css files. */
     content: "";
     width: 35px;
     height: 35px;
@@ -246,8 +329,28 @@ div.collapse_content .tt p{
     background-repeat:no-repeat;
 }
 
-.mybutton:before{   /* Image on the. Each button has it's own image and ius listed in required css files. */
+.mybutton:before{   /* ????  Image on the. Each button has it's own image and is listed in required css files. */
     background-size: contain;
+}
+
+.back_button {
+    border: none;
+    background-color: var(--bg);
+}
+
+div.card-body>.btn { /*---- Required to override Bootstrap default left alignment ----*/
+    margin: 0 auto;
+}
+
+@media (max-width: 500px){ 
+    .cardR { /* puts a space between card when stacked in mobile view only */
+        margin-top: 0.5rem;
+    }
+}
+
+a.btn { /*------- Creat a dish button. */
+
+    margin: 1rem 0; /* needs to be adjusted to take mobile into account */
 }
 
 
@@ -267,22 +370,25 @@ div.collapse_content .tt p{
     width: 25%;
     height: 1px
 }
-
-.card_rule {
-    width: 50%;
-    height: 1px;
-}
-
 @media (max-width: 576px) {
     .section_rule {
         width: 50%;
     }
 }
 
+.card_rule {
+    width: 50%;
+    height: 1px;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~ Navbar */
 
 .navbar{
     padding: 1rem 2rem;
+}
+
+.navbar_container {
+    width: 100%;
 }
 
 #gizabite_logo {
@@ -419,31 +525,7 @@ div.collapse_content .tt p{
     display: flex;
 }
 
-#search_container {
-    width: 50%;
+.search_container {
     margin: auto;
-}
-
-/*------- Media queries to make Search widget and dish buttons fit all devices. */
-@media (max-width: 1200px) {
-#search_container, a.btn {
-    width: 60%;
-    }
-}
-
-@media (max-width: 992px) {
-#search_container, a.btn {
-    width: 70%;
-    }
-}
-
-@media (max-width: 576px) {
-#search_container, a.btn {
-    width: 95%;
-    }
-}
-
-.back_button {
-    border: none;
-    background-color: var(--bg);
+    overflow: hidden;
 }

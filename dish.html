@@ -16,7 +16,7 @@
     <!--======================================== Header - Start -->
     <header>
         <nav class="navbar navbar-expand-lg static-top">
-            <div class="container">
+            <div class="container navbar_container">
                 <a class="navbar-brand" href="#">
                     <img src="https://i.imgur.com/Qw0QgK0.png" alt="GizaBite Logo" id="gizabite_logo">
                     </a>
@@ -25,22 +25,25 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="search.html">Search</a>
+                        </li>
+                        <li class="nav-item active">
+                        <a class="nav-link" href="dish.html">Dish
                             <span class="sr-only">(current)</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="new_dish.html">New Dish</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="ingredient.html">Ingredient</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -48,7 +51,7 @@
         <section class="hero_outer">
                 <div class="hero_image home"></div>
                 <div id="hero_text">
-                    <h2>Count Calories Quickly</h2>
+                    <h2 class="hC">Count Calories Quickly</h2>
                 </div>
                 <div id="search"></div>
         </section>
@@ -70,18 +73,18 @@
 
             <!--======================================== Description -->
             <div class="section_bg text-center">
-                <div id="page_heading_container"class="section_in"> 
+                <div id="page_heading_container" class="section_in"> 
                     <div class="page_ti floatL">
-                        <h2>New Ingredient</h2>
+                        <h2>Dish Name</h2>
                     </div>
                     <div class="heading_icon floatR">
                     </div>
-                    <p class="clear">Optional content if it the product is an ingredient</p>
+                    <p class="clear alignL">Optional content if it the product is an ingredient</p>
                 </div>
 
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here pC">i</p>
                     </div>
                     <div class="floatL">
                         <h3>Description</h3>
@@ -89,34 +92,22 @@
                     <div class="collapsible collapse_arrow floatR">
                     </div>
                     <div class="collapse_content clear">
-                        <p>Lorem ipsu  m...</p>
+                        <p class="alignL">Lorem ipsu  m...</p>
                     </div>
                 </div>
             </div>
 
             <!--======================================== # of Portions -->
-
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="pC">i</p>
                     </div>
                     <div class="floatL">
                         <h3># of Portions</h3>
                     </div>
                     <div class="floatL">
                         <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="10" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
-                    </div>
-                    <div class="collapsible collapse_arrow floatR">
-                    </div>
-                    <div class="collapse_content clear">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum 
-                        interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, 
-                        ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante 
-                        ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit 
-                        risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis 
-                        imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non 
-                        fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.<p>
                     </div>
                 </div>
             </div>
@@ -125,7 +116,7 @@
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="pC">i</p>
                     </div>
                     <div class="floatL">
                         <h3>Ingredients</h3>
@@ -133,17 +124,17 @@
                     <div class="collapsible collapse_arrow floatR">
                     </div>
 
-                    <div class="collapse_content clear"> 
-                        <div class="ingredient_row1">
+                    <div class="collapse_content clear">
+                        <div class="ingredient_row_container">
                             <div class="collapse_content_row">
                                 <div class="insection_tt_container">
                                     <div class="tt insection_tt floatL"> 
-                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="pC">i</p>
                                     </div>
                                 </div>
 
                                 <div id="ingredient_description" class="ingredient_row floatL">
-                                    <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
+                                    <p class="alignL">Freshly filleted salmon that pushes the name onto more lines over and over.</p>
                                 </div>
 
                                 <div id="batch_total_section" class="floatL">
@@ -175,16 +166,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ingredient_row1 clear"> <!-- In as an example for layout purposes -->
+                        <div class="ingredient_row_container clear">
                             <div class="collapse_content_row">
                                 <div class="insection_tt_container">
                                     <div class="tt insection_tt floatL"> 
-                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="pC">i</p>
                                     </div>
                                 </div>
 
                                 <div id="ingredient_description" class="ingredient_row floatL">
-                                    <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
+                                    <p class="alignL">Freshly filleted salmon that pushes the name onto more lines over and over.</p>
                                 </div>
 
                                 <div id="batch_total_section" class="floatL">
@@ -192,7 +183,7 @@
                                         <p>Batch Total:<p>
                                     </div>
                                     <div id="batch_total_input" class="ingredient_row floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/>
                                     </div>
                                     <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
                                         <p>g<p>
@@ -204,7 +195,7 @@
                                         <p>Per Portion:<p>
                                     </div>
                                     <div id="per_portion_input" class="ingredient_row floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7" class="input_ingredient_weight"/>
                                     </div>
                                     <div id="per_portion_unit" class="ingredient_row measure_unit floatL">
                                         <p>g<p>
@@ -216,13 +207,15 @@
                                 </div>
                             </div>
                         </div>
+
                         <hr class="rule section_rule clear">
-                        <div id="ingredient_totals">
-                            <p><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
-                        </div>
-                        <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container">
-                        <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
-                            <a href="#" class="btn">Creat a New Ingredient</a>
+
+                        <div>
+                            <p class="pC nutrition_total"><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
+                            <div>
+                                <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container inner_element_571">
+                            </div>
+                            <a href="#" class="btn inner_element_245">Create Ingredient</a>
                         </div>
                     </div>
                     
@@ -233,75 +226,73 @@
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="pC">i</p>
                     </div>
                     <div class="floatL">
                         <h3>Cooking</h3>
                     </div>
                     <div class="collapsible collapse_arrow floatR">
                     </div>
-                    <div class="collapse_content clear"> 
-                        <div id="search_container">
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Method</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    No Further Cooking Needed
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Not Cooked on its Own
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Boiled / Steamed
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Deep Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Pan Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Shallow Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Grilled
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Roasted / Baked
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Microwave
-                                    </div>
+                    <div class="collapse_content clear">
+                        <div class="container inner_element_571">
+                            <h6  class="alignL">Method</h6>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                No Further Cooking Needed
+                                </div>
+                                <div class="col col-xs-2">
+                                Not Cooked on its Own
+                                </div>
+                                <div class="col col-xs-2">
+                                Boiled / Steamed
+                                </div>
+                                <div class="col col-xs-2">
+                                Deep Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Pan Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Shallow Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Grilled
+                                </div>
+                                <div class="col col-xs-2">
+                                Roasted / Baked
+                                </div>
+                                <div class="col col-xs-2">
+                                Microwave
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Substrate</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    Dry / In the Ingredients
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Butter
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Vegetable Oil
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Animal Fat
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Margerine
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Low Cal Spray
-                                    </div>
+                        <div class="container inner_element_571">
+                            <h6  class="alignL">Substrate</h6>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                Dry / In the Ingredients
+                                </div>
+                                <div class="col col-xs-2">
+                                Butter
+                                </div>
+                                <div class="col col-xs-2">
+                                Vegetable Oil
+                                </div>
+                                <div class="col col-xs-2">
+                                Animal Fat
+                                </div>
+                                <div class="col col-xs-2">
+                                Margerine
+                                </div>
+                                <div class="col col-xs-2">
+                                Low Cal Spray
                                 </div>
                             </div>
-                            <div id="other_cook_method">
-                                <label for="another">Add another cooking method?</label>
-                                <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
-                            </div>
+                        </div>
+                        <div id="other_cook_method" class="inner_element_571 alignL">
+                            <label for="another">Add another cooking method?</label>
+                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
                         </div>
                     </div>
                 </div>
@@ -311,7 +302,7 @@
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC>i</p>
                     </div>
                     <div class="floatL">
                         <h3>Nutrients & Allergens</h3>
@@ -319,7 +310,7 @@
                     <div class="collapsible collapse_arrow floatR">
                     </div>
                     <div class="collapse_content clear">
-                        <div class="nutritional_container nutrition_container">
+                        <div class="nutrition_container inner_element_571">
                             <h5>Nutrition</h5>
                                 <table class="table">
                                 <thead>
@@ -399,7 +390,7 @@
                                 </table>
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container vitamins_container">
+                        <div class="nutrition_container inner_element_571">
                             <h5>Vitamins & Minerals</h5>
                                 <table class="table">
                                     <thead>
@@ -458,17 +449,17 @@
                                 </table>            
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container allergens_container">
+                        <div class="inner_element_571">
                             <h5>Allergens</h5>
-                            <ul class="ul">
+                            <ul class="ul alignL">
                                 <li>Wheat</li>
                                 <li>Barley</li>
                             </ul>
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container notes_container">
+                        <div class="inner_element_571">
                             <h5>Notes</h5>
-                            <ul class="ul">
+                            <ul class="ul alignL">
                                 <li>*Stuff about RI</li>
                                 <li>Uncooked, etc.</li>
                             </ul>

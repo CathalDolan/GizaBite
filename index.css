@@ -11,10 +11,6 @@ div .card {
     margin: 0;
 }
 
-div .card-body .btn {
-    text-align: center;
-}
-
 /*------- Media queries to make cards fit all devices. */
 @media (max-width: 1200px) {
 div .container {

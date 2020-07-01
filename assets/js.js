@@ -24,3 +24,20 @@ for (i = 0; i < coll.length; i++) {
 $(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+
+/* A function is required for the ingredients page to change the position of html elements so that they are responsive on smaller devices */
+
+function goBack() { /* Back Button function. Take from w3schools.*/
+  window.history.back();
+}
+
+
+$(".header").click(function() {
+  $('.content1').slideToggle().toggleClass('active');
+  if ($('.content1').hasClass('active')) {
+    $('.header').text('Close Advanced');
+  } else {
+    $('.header').text('Advanced');
+  }
+});

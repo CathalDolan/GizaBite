@@ -16,7 +16,7 @@
     <!--======================================== Header - Start -->
     <header>
         <nav class="navbar navbar-expand-lg static-top">
-            <div class="container">
+            <div class="container navbar_container">
                 <a class="navbar-brand" href="#">
                     <img src="https://i.imgur.com/Qw0QgK0.png" alt="GizaBite Logo" id="gizabite_logo">
                     </a>
@@ -25,22 +25,25 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="search.html">Search</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="dish.html">Dish</a>
+                        </li>
+                        <li class="nav-item active">
+                        <a class="nav-link" href="new_dish.html">New Dish
                             <span class="sr-only">(current)</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="ingredient.html">Ingredient</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -72,7 +75,7 @@
             <div class="section_bg text-center">
                 <div id="page_heading_container"class="section_in"> 
                     <div class="page_ti floatL">
-                        <h2>New Dish</h2>
+                        <input type="text" placeholder="Add the dish name" class="new_dish_name_input"/>
                     </div>
                     <div class="heading_icon floatR">
                     </div>
@@ -83,7 +86,7 @@
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
                     </div>
                     <div class="floatL">
-                        <input type="text" placeholder="Add the dish name" class="new_dish_name_input"/>
+                        <h3>Description</h3>
                     </div>
                     <div class="collapsible collapse_arrow floatR">
                     </div>
@@ -94,7 +97,6 @@
             </div>
 
             <!--======================================== # of Portions -->
-
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
@@ -105,17 +107,6 @@
                     </div>
                     <div class="floatL">
                         <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="10" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
-                    </div>
-                    <div class="collapsible collapse_arrow floatR">
-                    </div>
-                    <div class="collapse_content clear">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum 
-                        interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, 
-                        ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante 
-                        ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit 
-                        risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis 
-                        imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non 
-                        fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.<p>
                     </div>
                 </div>
             </div>
@@ -142,7 +133,7 @@
                                 </div>
 
                                 <div id="ingredient_description" class="ingredient_row floatL">
-                                    <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
+                                    <p class="alignL">Freshly filleted salmon that pushes the name onto more lines over and over.</p>
                                 </div>
 
                                 <div id="batch_total_section" class="floatL">
@@ -183,7 +174,7 @@
                                 </div>
 
                                 <div id="ingredient_description" class="ingredient_row floatL">
-                                    <p>Freshly filleted salmon that pushes the name onto more lines over and over.</p>
+                                    <p class="alignL">Freshly filleted salmon that pushes the name onto more lines over and over.</p>
                                 </div>
 
                                 <div id="batch_total_section" class="floatL">
@@ -216,12 +207,14 @@
                             </div>
                         </div>
                         <hr class="rule section_rule clear">
-                        <div id="ingredient_totals">
-                            <p><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
-                        </div>
-                        <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container">
-                        <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
-                            <a href="#" class="btn">New Ingredient</a>
+                        <div class="section_in_579">
+                            <div id="ingredient_totals">
+                                <p class="inner_element_579 nutrition_total"><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
+                            </div>
+                            <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container inner_element_571">
+                            <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
+                                <a href="#" class="btn inner_element_245">Create Ingredient</a>
+                            </div>
                         </div>
                     </div>
                     
@@ -239,68 +232,66 @@
                     </div>
                     <div class="collapsible collapse_arrow floatR">
                     </div>
-                    <div class="collapse_content clear"> 
-                        <div id="search_container">
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Method</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    No Further Cooking Needed
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Not Cooked on its Own
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Boiled / Steamed
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Deep Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Pan Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Shallow Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Grilled
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Roasted / Baked
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Microwave
-                                    </div>
+                    <div class="collapse_content clear">
+                        <div class="container inner_element_571">
+                            <h6 class="advanced_option alignL">Method</h6>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                No Further Cooking Needed
+                                </div>
+                                <div class="col col-xs-2">
+                                Not Cooked on its Own
+                                </div>
+                                <div class="col col-xs-2">
+                                Boiled / Steamed
+                                </div>
+                                <div class="col col-xs-2">
+                                Deep Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Pan Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Shallow Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Grilled
+                                </div>
+                                <div class="col col-xs-2">
+                                Roasted / Baked
+                                </div>
+                                <div class="col col-xs-2">
+                                Microwave
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Substrate</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    Dry / In the Ingredients
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Butter
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Vegetable Oil
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Animal Fat
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Margerine
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Low Cal Spray
-                                    </div>
+                        <div class="container inner_element_571">
+                            <h6 class="advanced_option alignL">Substrate</h6>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                Dry / In the Ingredients
+                                </div>
+                                <div class="col col-xs-2">
+                                Butter
+                                </div>
+                                <div class="col col-xs-2">
+                                Vegetable Oil
+                                </div>
+                                <div class="col col-xs-2">
+                                Animal Fat
+                                </div>
+                                <div class="col col-xs-2">
+                                Margerine
+                                </div>
+                                <div class="col col-xs-2">
+                                Low Cal Spray
                                 </div>
                             </div>
-                            <div id="other_cook_method">
-                                <label for="another">Add another cooking method?</label>
-                                <input type="checkbox" id="another" name="gender" value="male">
-                            </div>
+                        </div>
+                        <div id="other_cook_method" class="inner_element_571">
+                            <label for="another">Add another cooking method?</label>
+                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
                         </div>
                     </div>
                 </div>
@@ -310,7 +301,7 @@
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
                     </div>
                     <div class="floatL">
                         <h3>Nutrients & Allergens</h3>
@@ -319,246 +310,253 @@
                     </div>
                     <div class="collapse_content clear">
 
-                        <div class="nutritional_container nutrition_container clear">
+                        <div class="nutrition_container clear inner_element_571">
                             <h5>Nutrition</h5>
                                 <table class="table">
                                 <thead>
                                     <tr class="d-flex">
                                     <th scope="col" class="col-4">Typical Values</th>
-                                    <th scope="col" class="col-2">Per 100g</th>
-                                    <th scope="col" class="col-2">RI*</th>
-                                    <th scope="col" class="col-2">Per 100g</th>
-                                    <th scope="col" class="col-2">RI*</th>
+                                    <th scope="col" class="col-2 alignL">Per 100g</th>
+                                    <th scope="col" class="col-2 alignL">RI*</th>
+                                    <th scope="col" class="col-2 alignL">Per 100g</th>
+                                    <th scope="col" class="col-2 alignL">RI*</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Energy</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="5"/>kj</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kj</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="5"/>kj</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kj</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4"></th>
-                                    <td class="col-3 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kcal</td>
+                                    <td class="col-3 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kcal</td>
                                     <td class="col-1 input_percent"></td>
-                                    <td class="col-3 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kcal</td>
+                                    <td class="col-3 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kcal</td>
                                     <td class="col-1 input_percent"></td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Fat</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Saturated Fat</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Cholesterol</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Carbohydrates</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">of which sugars</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Fibre</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Protein</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                     <tr class="d-flex">
                                     <th scope="row" class="col-4">Salt</th>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
+                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                     </tr>
                                 </tbody>
                                 </table>
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container vitamins_container">
+                        <div class="nutrition_container inner_element_571">
                             <h5>Vitamins & Minerals</h5>
                                 <table class="table">
                                     <thead>
                                         <tr class="d-flex">
                                         <th scope="col" class="col-4">Typical Values</th>
-                                        <th scope="col" class="col-2">Per 100g</th>
-                                        <th scope="col" class="col-2">RI*</th>
-                                        <th scope="col" class="col-2">Per 100g</th>
-                                        <th scope="col" class="col-2">RI*</th>
+                                        <th scope="col" class="col-2 alignL">Per 100g</th>
+                                        <th scope="col" class="col-2 alignL">RI*</th>
+                                        <th scope="col" class="col-2 alignL">Per 100g</th>
+                                        <th scope="col" class="col-2 alignL">RI*</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="d-flex">
                                         <th scope="row" class="col-4">Thiamin</th>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                         </tr>
                                         <tr class="d-flex">
                                         <th scope="row" class="col-4">Riboflavin</th>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                         </tr>
                                         <tr class="d-flex">
                                         <th scope="row" class="col-4">Niacin</th>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                         </tr>
                                         <tr class="d-flex">
                                         <th scope="row" class="col-4">Folic Acid</th>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>µ</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>µ</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>µ</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>µ</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                         </tr>
                                         <tr class="d-flex">
                                         <th scope="row" class="col-4">Iron</th>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                         </tr>
                                         <tr class="d-flex">
                                         <th scope="row" class="col-4">Calcium</th>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
+                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
+                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
                                         </tr>
                                     </tbody>
                                 </table>            
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container allergens_container">
+                        <div class="inner_element_571">
                             <h5>Allergens</h5>
-                            <p>For your convenience, the allergens have been
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Cereals</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    Wheat
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Rye
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Barley
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Oats
-                                    </div>
+                            <p class="alignL">For your convenience, the allergens have been</p>
+                        </div>
+
+                        <div class="container inner_element_571">
+                            <p class="alignL">Cereals</p>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                Wheat
                                 </div>
-                                <p class="advanced_option">Nuts & Beans</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    Lupin
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Soybeans
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Peanuts
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Almonds
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Brazil Nuts
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Cashews
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Hazelnuts
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Macademia/Quensland Nut
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Pecan
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Pistachio Nuts
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Walnuts
-                                    </div>
+                                <div class="col col-xs-2">
+                                Rye
                                 </div>
-                                <p class="advanced_option">Fish</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2">
-                                    Crustaceans
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Fish
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Molluscs
-                                    </div>
+                                <div class="col col-xs-2">
+                                Barley
                                 </div>
-                                <p class="advanced_option">General</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2">
-                                    Eggs
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Milk
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Celery
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Mustard
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Sesame Seeds
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Sulphur Dioxide*
-                                    </div>
+                                <div class="col col-xs-2">
+                                Oats
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container inner_element_571">
+                            <p class="advanced_option">Nuts & Beans</p>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                Lupin
+                                </div>
+                                <div class="col col-xs-2">
+                                Soybeans
+                                </div>
+                                <div class="col col-xs-2">
+                                Peanuts
+                                </div>
+                                <div class="col col-xs-2">
+                                Almonds
+                                </div>
+                                <div class="col col-xs-2">
+                                Brazil Nuts
+                                </div>
+                                <div class="col col-xs-2">
+                                Cashews
+                                </div>
+                                <div class="col col-xs-2">
+                                Hazelnuts
+                                </div>
+                                <div class="col col-xs-2">
+                                Macademia/Quensland Nut
+                                </div>
+                                <div class="col col-xs-2">
+                                Pecan
+                                </div>
+                                <div class="col col-xs-2">
+                                Pistachio Nuts
+                                </div>
+                                <div class="col col-xs-2">
+                                Walnuts
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container inner_element_571">
+                            <p class="advanced_option">Fish</p>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2">
+                                Crustaceans
+                                </div>
+                                <div class="col col-xs-2">
+                                Fish
+                                </div>
+                                <div class="col col-xs-2">
+                                Molluscs
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container inner_element_571">
+                            <p class="advanced_option">General</p>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2">
+                                Eggs
+                                </div>
+                                <div class="col col-xs-2">
+                                Milk
+                                </div>
+                                <div class="col col-xs-2">
+                                Celery
+                                </div>
+                                <div class="col col-xs-2">
+                                Mustard
+                                </div>
+                                <div class="col col-xs-2">
+                                Sesame Seeds
+                                </div>
+                                <div class="col col-xs-2">
+                                Sulphur Dioxide*
                                 </div>
                             </div>
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container notes_container">
+                        <div class="inner_element_571">
                             <h5>Notes</h5>
-                            <ul class="ul">
+                            <ul class="ul alignL">
                                 <li>*Sulphur Dioxide and sulphites (at concentrations of more than 10mg/kg or 10mg/L in terms of total sulphur dioxide) – used as a preservative. From FSAI.</li>
                                 <li>Full allergens details on <a href="https://www.fsai.ie/legislation/food_legislation/food_information/14_allergens.html" target="_blank">FSAI website</a></li>
                             </ul>
@@ -567,8 +565,8 @@
                 </div>
             </div>
 
-            <div class="section_bg text-center">
-                <a href="" class="btn">Save</a>
+            <div class="section_bg text-center new_dish_save_btn">
+                <a href="" class="btn inner_element_245 ">Save</a>
             </div>
 
         </section>

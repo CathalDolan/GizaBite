@@ -16,7 +16,7 @@
     <!--======================================== Header - Start -->
     <header>
         <nav class="navbar navbar-expand-lg static-top">
-            <div class="container">
+            <div class="container navbar_container">
                 <a class="navbar-brand" href="#">
                     <img src="https://i.imgur.com/Qw0QgK0.png" alt="GizaBite Logo" id="gizabite_logo">
                     </a>
@@ -39,8 +39,8 @@
                         <li class="nav-item">
                         <a class="nav-link" href="new_dish.html">New Dish</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link  active" href="ingredient.html">ingredient
+                        <li class="nav-item active">
+                        <a class="nav-link" href="ingredient.html">Ingredient
                             <span class="sr-only">(current)</span>
                         </a>
                         </li>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="heading_icon floatR">
                     </div>
-                    <p class="clear">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
+                    <p class="clear alignL">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
                 </div>
 
                 <div class="section_in"> 
@@ -93,7 +93,7 @@
                     <div class="collapsible collapse_arrow floatR">
                     </div>
                     <div class="collapse_content clear">
-                        <p>Lorem ipsu  m...</p>
+                        <p class="alignL">Lorem ipsu  m...</p>
                     </div>
                 </div>
             </div>
@@ -185,17 +185,23 @@
                     </div>
 
                     <div class="collapse_content clear"> 
-                        <ul class="ul">
-                            <li>Ingredient 1</li>
-                            <li>Ingredient 2</li>
-                        </ul>
-                        <hr class="rule section_rule clear">
-                        <div id="ingredient_totals">
-                            <p><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
+                        <div>
+                            <ul class="ul alignL">
+                                <li>Ingredient 1</li>
+                                <li>Ingredient 2</li>
+                            </ul>
                         </div>
-                        <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container">
-                        <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
-                            <a href="#" class="btn">Create a New Ingredient</a>
+
+                        <hr class="rule section_rule clear">
+
+                        <div class="section_in_579">
+                            <div id="ingredient_totals">
+                                <p class="inner_element_579 nutrition_total"><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
+                            </div>
+                            <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container inner_element_571">
+                            <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
+                                <a href="#" class="btn inner_element_245">Create Ingredient</a>
+                            </div>
                         </div>
                     </div>
                     
@@ -213,68 +219,66 @@
                     </div>
                     <div class="collapsible collapse_arrow floatR">
                     </div>
-                    <div class="collapse_content clear"> 
-                        <div id="search_container">
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Method</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    No Further Cooking Needed
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Not Cooked on its Own
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Boiled / Steamed
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Deep Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Pan Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Shallow Fried
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Grilled
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Roasted / Baked
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Microwave
-                                    </div>
+                    <div class="collapse_content clear">
+                        <div class="container inner_element_571">
+                            <h6 class="advanced_option alignL">Method</h6>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                No Further Cooking Needed
+                                </div>
+                                <div class="col col-xs-2">
+                                Not Cooked on its Own
+                                </div>
+                                <div class="col col-xs-2">
+                                Boiled / Steamed
+                                </div>
+                                <div class="col col-xs-2">
+                                Deep Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Pan Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Shallow Fried
+                                </div>
+                                <div class="col col-xs-2">
+                                Grilled
+                                </div>
+                                <div class="col col-xs-2">
+                                Roasted / Baked
+                                </div>
+                                <div class="col col-xs-2">
+                                Microwave
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="advanced_container container">
-                                <p class="advanced_option">Substrate</p>
-                                <div class="row justify-content-md-center">
-                                    <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                    Dry / In the Ingredients
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Butter
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Vegetable Oil
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Animal Fat
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Margerine
-                                    </div>
-                                    <div class="col col-xs-2">
-                                    Low Cal Spray
-                                    </div>
+                        <div class="container inner_element_571">
+                            <h6 class="advanced_option alignL">Substrate</h6>
+                            <div class="row justify-content-md-center">
+                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
+                                Dry / In the Ingredients
+                                </div>
+                                <div class="col col-xs-2">
+                                Butter
+                                </div>
+                                <div class="col col-xs-2">
+                                Vegetable Oil
+                                </div>
+                                <div class="col col-xs-2">
+                                Animal Fat
+                                </div>
+                                <div class="col col-xs-2">
+                                Margerine
+                                </div>
+                                <div class="col col-xs-2">
+                                Low Cal Spray
                                 </div>
                             </div>
-                            <div id="other_cook_method">
-                                <label for="another">Add another cooking method?</label>
-                                <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
-                            </div>
+                        </div>
+                        <div id="other_cook_method" class="inner_element_571">
+                            <label for="another">Add another cooking method?</label>
+                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
                         </div>
                     </div>
                 </div>
@@ -284,7 +288,7 @@
             <div class="section_bg text-center">
                 <div class="section_in"> 
                     <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
                     </div>
                     <div class="floatL">
                         <h3>Nutrients & Allergens</h3>
@@ -292,7 +296,7 @@
                     <div class="collapsible collapse_arrow floatR">
                     </div>
                     <div class="collapse_content clear">
-                        <div class="nutritional_container nutrition_container">
+                        <div class="nutrition_container inner_element_571">
                             <h5>Nutrition</h5>
                                 <table class="table">
                                 <thead>
@@ -372,7 +376,7 @@
                                 </table>
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container vitamins_container">
+                        <div class="nutrition_container  inner_element_571">
                             <h5>Vitamins & Minerals</h5>
                                 <table class="table">
                                     <thead>
@@ -431,17 +435,17 @@
                                 </table>            
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container allergens_container">
+                        <div class="inner_element_571">
                             <h5>Allergens</h5>
-                            <ul class="ul">
+                            <ul class="ul alignL">
                                 <li>Wheat</li>
                                 <li>Barley</li>
                             </ul>
                         </div>
                         <hr class="rule section_rule">
-                        <div class="nutritional_container notes_container">
+                        <div class="inner_element_571">
                             <h5>Notes</h5>
-                            <ul class="ul">
+                            <ul class="ul alignL">
                                 <li>*Stuff about RI</li>
                                 <li>Uncooked, etc.</li>
                             </ul>

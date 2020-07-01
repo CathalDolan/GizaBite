@@ -1,5 +1,4 @@
-h2 { /* Required because global is text-align: center; */
-    text-align: left;
+h2, .ingredient_row p { /* Required because global is text-align: center; */
     line-height: 1; /* Can this be global? */
 }
 
@@ -9,11 +8,6 @@ h2 { /* Required because global is text-align: center; */
 }
 
 /*------- Ingredients Section Start */
-
-.ingredient_row p { 
-    text-align: left; 
-    line-height: 1;
-}
 
 #item_delete { /* Aligns the icon to the right */
     position: absolute; 
@@ -107,31 +101,21 @@ h2 { /* Required because global is text-align: center; */
 }
 
 #ingredient_totals p {
-    text-align: center;
     margin-top: 0.5rem;
 }
 
 .search_name_input {
-    width: 40%;
     margin: 1rem auto;
 }
 
-@media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
-div .search_name_input  {
-    width: 50%;
-    }
-}
-
-@media (max-width: 767px) {
-div .search_name_input  {
-    width: 95%;
-    }
+div.collapse_content p{
+    margin: 0 auto;
 }
 
 
 /*---------------------------------- Cooking Section Start */
 
-.advanced_container, .advanced_option, .row.justify-content-md-center {
+.row.justify-content-md-center {
     width: 100%;
 }
 
@@ -143,7 +127,6 @@ div .search_name_input  {
 }
 
 p.advanced_option { /*------- Brick Buttons Section title. */
-    text-align: left;
     width: 95%;
     margin: 1rem auto;
     font-weight: 500;
@@ -154,7 +137,6 @@ p.advanced_option { /*------- Brick Buttons Section title. */
 .col { /*------- Brick Buttons */
     background-color: var(--white);
     border: 0.5px solid var(--orange);
-    text-align: center;
     white-space: nowrap;
 }
 
@@ -167,25 +149,18 @@ p.advanced_option { /*------- Brick Buttons Section title. */
     border: 1px solid var(--orange);
 }
 
-.nutritional_container {
+.nutrition_container {
+    background-color: var(--white);
     margin: auto;
-    max-width: 510px;
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
 }
 
-.nutrition_container, .vitamins_container {
-    background-color: var(--white);
-}
-
-.nutritional_container tr, .nutrition_container h5, .vitamins_container h5 {
+.nutrition_container tr, .nutrition_container h5 {
     color: var(--bg);
 }
 
 .table th, .table td {
     padding: 0;
-}
-
-table th, table td {
     font-size: 12px;
 }
 
@@ -199,8 +174,8 @@ ul.ul {
     text-align: left;
 }
 
-.ingredient_row1 {
-    border: 1px solid pink;
+.ingredient_row_container {
+    border: 1px solid pink; /*  Visual for dev purposes */
     min-height: 32px;
     overflow: hidden;
     margin: 1rem 0;
@@ -233,7 +208,7 @@ ul.ul {
 }
 
 .new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
-    width: 260px;
+    width: 250px;
 }
 
 .new_dish_description_input {
@@ -242,5 +217,8 @@ ul.ul {
 
 div>ul>li {
     color: var(--white);
-    text-align: left;
+}
+
+.section_bg.new_dish_save_btn {
+    padding: 0;
 }
