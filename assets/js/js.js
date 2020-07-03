@@ -6,7 +6,7 @@ $(document).ready(function(){
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
-for (i = 0; i < coll.length; i++) {
+for (i = 0; i < coll.length; i++) { 
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
@@ -15,9 +15,6 @@ for (i = 0; i < coll.length; i++) {
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     } 
-    /* $collapse1.text(function () { // Advanced text to change depending on state. From http://jsfiddle.net/eK8X5/8290/
-            return $content.is(":visible") ? "Close Advanced" : "Advanced";
-        }); */
   });
 }
 
@@ -28,11 +25,12 @@ $(function(){
 
 /* A function is required for the ingredients page to change the position of html elements so that they are responsive on smaller devices */
 
-function goBack() { /* Back Button function. Take from w3schools.*/
+/* Back Button function. Take from w3schools.*/
+function goBack() { 
   window.history.back();
 }
 
-
+/* Funtion to allow the "Advance" section in Search expand and collapes upwards */
 $(".header").click(function() {
   $('.content1').slideToggle().toggleClass('active');
   if ($('.content1').hasClass('active')) {

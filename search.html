@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
-   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/styles.css" type="text/css">
-    <link rel="stylesheet" href="search.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/search.css" type="text/css">
     <title>GizaBite</title>
     
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
@@ -51,10 +49,23 @@
         <hr class="rule header_rule">
         <section class="hero_outer">
                 <div class="hero_image home"></div>
-                <div id="hero_text">
-                    <h2>Count Calories Quickly</h2>
+                <div id="hero_text_container">
+                    <h2 class="alignC hero_text">Count Calories Quickly</h2>
                 </div>
-                <div id="search"></div>
+                <div id="hero_search_container" class="section_bg">
+                    <div id="hero_search_section_in" class="section_in">
+                        <div id="hero_search_inner">
+                            <div class="hero_search_inner_element">
+                                <input type="text" name="search" placeholder="Search dish or ingredient name" id="hero_search_input" class="floatL">
+                            </div>
+                            <div class="hero_search_inner_element"> <!-- Search button-->
+                                <a href="#" id="hero_search_button" class="button-image mybutton floatR "></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr id="hero_search_rule" class="rule">
+                </div>
         </section>
     </header>
     
@@ -68,12 +79,12 @@
                     <button onclick="goBack()" class="back_button">
                         <i class="fas fa-arrow-left"></i>
                     </button>
-                    <hr class="rule section_rule">
+                    <hr class="rule section_in_rule">
                 </div>
             </div>
 
             <div class="section_bg text-center"> <!-- Section Background -->
-                <div class="section_in "> <!-- Section inner. Used to position page content on -->
+                <div class="section_in "> <!-- Section inner. Used to position page content on section_bg -->
                     <div class="tt floatL"> <!-- Section tooltip -->
                         <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
                     </div>
@@ -168,21 +179,75 @@
                         </div>
 
 
-                        <div class="text-center"> <!-- Create a new dish button-->
+                        <div class="text-center"> <!-- Search button-->
                             <a href="#" class="btn button-image mybutton inner_element_245"></a>
                         </div>
-
                     </form>
                 </div>
-
+                <div id="results_numbers_bg" class="section_in">
+                    <h4> Results go here. Along with A-Z arrows? </h4>
+                </div>
+                <div class="section_in results_in">
+                    <div class="results_in_row"> 
+                        <h3 class="floatL alignL">Dishes</h3>
+                        <div class="collapsible collapse_arrow floatR">
+                        </div>
+                        <div class="collapse_content clear">
+                            <div class="ingredient_row">
+                                <h4 class="floatL alignL">Dish Name</h4>
+                                <div class="collapsible plus_icon floatR"></div>
+                                <p class="clear alignL">Dish description goes here if available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section_in results_in">
+                    <div class="results_in_row"> 
+                        <h3 class="floatL alignL">Sides</h3>
+                        <div class="collapsible collapse_arrow floatR">
+                        </div>
+                        <div class="collapse_content clear">
+                            <div class="ingredient_row">
+                                <h4 class="floatL alignL">Sides Name</h4>
+                                <div class="collapsible plus_icon floatR"></div>
+                                <p class="clear alignL">Sides description goes here if available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div class="results_in_row">
+                <div class="section_in results_in">
+                    <div> 
+                        <h3 class="floatL alignL">Ingredients</h3>
+                        <div class="collapsible collapse_arrow floatR">
+                        </div>
+                        <div class="collapse_content clear">
+                            <div>
+                                <h4 class="floatL alignL">Ingredients Name</h4>
+                                <div class="collapsible plus_icon floatR"></div>
+                                <p class="clear alignL">Ingredients description goes here if available</p>
+                            </div>
+                            <div>
+                                <h4 class="floatL alignL">Ingredients Name</h4>
+                                <div class="collapsible plus_icon floatR"></div>
+                                <p class="clear alignL">Ingredients description goes here if available</p>
+                            </div>
+                            <div>
+                                <h4 class="floatL alignL">Ingredients Name</h4>
+                                <div class="collapsible plus_icon floatR"></div>
+                                <p class="clear alignL">Ingredients description goes here if available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
     </main>
+    <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     
-    <script type="text/javascript" src="assets/js.js"></script>
+    <script type="text/javascript" src="assets/js/js.js"></script>
     
 </body>
 </html>

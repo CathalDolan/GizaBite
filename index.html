@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/styles.css" type="text/css">
-    <link rel="stylesheet" href="index.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/index.css" type="text/css">
     <title>GizaBite</title>
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
 </head>
@@ -49,11 +48,25 @@
         <hr class="rule header_rule">
         <section class="hero_outer">
                 <div class="hero_image home"></div>
-                <div id="hero_text">
-                    <h2 class="alignC">Count Calories Quickly</h2>
+                <div id="hero_text_container">
+                    <h2 class="alignC hero_text">Count Calories Quickly</h2>
                 </div>
-                <div id="search"></div>
+                <div id="hero_search_container" class="section_bg">
+                    <div id="hero_search_section_in" class="section_in">
+                        <div id="hero_search_inner">
+                            <div class="hero_search_inner_element">
+                                <input type="text" name="search" placeholder="Search dish or ingredient name" id="hero_search_input" class="floatL">
+                            </div>
+                            <div class="hero_search_inner_element"> <!-- Search button-->
+                                <a href="#" id="hero_search_button" class="button-image mybutton floatR "></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr id="hero_search_rule" class="rule">
+                </div>
         </section>
+        
     </header>
     
     <!--======================================== Main Body - Start -->
@@ -135,5 +148,6 @@
         </section>
 
     </main>
+    <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
 </body>
 </html>
