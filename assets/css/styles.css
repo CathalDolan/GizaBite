@@ -99,15 +99,15 @@ p {
     }
 
     h3 {
-        font-size: 20px;
-    }
-
-    h4 {
         font-size: 18px;
     }
 
-    h5{
+    h4 {
         font-size: 16px;
+    }
+
+    h5{
+        font-size: 14px;
     }
 
     h6 {
@@ -117,6 +117,10 @@ p {
     p {
         font-size: 14px;
     }
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections - Start */
@@ -159,14 +163,15 @@ p {
     width: 25px;
     background-color: var(--orange);
     border-radius: 50px;
-    margin: 0;
+    margin: 2px 0 0 0;
+    line-height: 30px;
 }
 
 .tt p {
     margin:0;
     padding: 0;
     font-size: 25px;
-    line-height: 1;
+    line-height: 25px;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Section Title */
@@ -177,9 +182,9 @@ p {
     left: 150%;
 }
 
-.section_ti h3{
+.section_in h3{
     margin: 0;
-    line-height: 1;
+    line-height: 30px;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Collapse/Expand */
