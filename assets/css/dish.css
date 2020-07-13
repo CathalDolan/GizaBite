@@ -263,6 +263,20 @@ div>ul>li {
     margin: 0 auto;
 }
 
+.test1 {
+    width: 140px;
+}
+.test2, .test22 {
+    overflow: auto;
+}
+.test22 {
+    margin-top: 5px;
+}
+
+.section_bg {
+    padding-bottom: 0;
+}
+
 .bricks_container {
     flex-wrap: wrap;
 }

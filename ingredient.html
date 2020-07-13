@@ -71,360 +71,348 @@
                 </div>
             </div>
 
+            
                 <!--======================================== Description -->
-                <div class="section_bg text-center">
+                <div class="section_bg">
                     <div id="page_heading_container" class="section_in">
                         <h2  class="page_ti floatL">Ingredient Name</h2>
                         <div class="heading_icon floatR">
                         </div>
                         <p class="clear alignL">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
                     </div>
+                </div>
 
-                    <div class="section_in"> 
-                        <div class="tt floatL"> 
-                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+            <div id="accordion">
+                <div class="section_in card"> 
+
+                    <!-- Section Header - Description -->
+                    <div class="section_bg results_header_bg card-header">
+                        <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseOne"> 
+                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
+                                <div class="tt pointer">
+                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
+                                </div>
+                            </div>
+                            <h3 class="results_name alignL">Description</h3>
+                            <div class="collapse_arrow pointer">
+                            </div>
                         </div>
-                        <div class="floatL">
-                            <h3>Description</h3>
-                        </div>
-                        <div class="collapsible collapse_arrow floatR">
-                        </div>
-                        <div class="collapse_content clear">
-                            <p class="alignL">Lorem ipsu  m...</p>
+                    </div>
+
+                    <!-- Collapse/Expand Section - Description -->
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="section_in">
+                                <div id="other_cook_method" class="test2">
+                                    <p>No description available.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!--======================================== Measurement -->
-                <div class="section_bg text-center">
-                    <div class="section_in"> 
-                        <div class="tt floatL"> 
-                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        </div>
-                        <div class="floatL">
-                            <h3>Measurement</h3>
+                <div class="section_in card"> 
+
+                    <!-- Section Header - Measurement -->
+                    <div class="section_bg results_header_bg card-header">
+                        <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseTwo"> 
+                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
+                                <div class="tt pointer">
+                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
+                                </div>
+                            </div>
+                            <h3 class="results_name alignL">Measurement</h3>
+                            <div class="collapse_arrow pointer">
+                            </div>
                         </div>
                     </div>
-                    <div class="section_in">
-                        <div id="other_cook_method" class="other_cook_method2 floatL">
-                            <label for="another">Purchased and/or sold on a per piece basis? 
-                                <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
-                            </label>
-                        </div>
-                        <div id="batch_total_section" class="batch_total_section2 floatL">
-                            <div id="batch_total_ti2" class="ingredient_row floatL">
-                                <p>Weight per piece:<p>
-                            </div>
-                            <div id="batch_total_input" class="ingredient_row floatL">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                            </div>
-                            <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
-                                <p>g<p>
+
+                    <!-- Collapse/Expand Section - Measurement -->
+                    <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="section_in">
+                                <div id="other_cook_method" class="test2">
+                                    <label for="another">Purchased and/or sold on a per piece basis? 
+                                        <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
+                                    </label>
+                                </div>
+                                <div class="test22 clear">
+                                    <div class=" test1 floatL">
+                                        <p>Weight per Piece:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!--======================================== Batch & Portion -->
-                <div class="section_bg text-center">
-                    <div class="section_in"> 
-                        <div class="tt floatL"> 
-                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        </div>
-                        <div class="floatL">
-                            <h3>Batch & Portion</h3>
+                <!--======================================== Portion -->
+                <div class="section_in card"> 
+
+                    <!-- Section Header - Portion -->
+                    <div class="section_bg results_header_bg card-header">
+                        <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseThree"> 
+                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
+                                <div class="tt pointer">
+                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
+                                </div>
+                            </div>
+                            <h3 class="results_name alignL">Portion</h3>
+                            <div class="collapse_arrow pointer">
+                            </div>
                         </div>
                     </div>
-                    <div class="section_in">
-                        <div id="batch_total_section" class="batch_total_section3 floatL">
-                            <div id="batch_total_ti2" class="portions_p ingredient_row floatL">
-                                <p># of Portions:<p>
-                            </div>
-                            <div id="batch_total_input" class="ingredient_row floatL">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                            </div>
-                        </div>
-                        <div id="batch_total_section" class="batch_total_section2 batch_total_section3 floatL">
-                            <div id="batch_total_ti2" class="batch_p ingredient_row floatL">
-                                <p>Batch Total Weight:<p>
-                            </div>
-                            <div id="batch_total_input" class="ingredient_row floatL">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                            </div>
-                            <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
-                                <p>g<p>
-                            </div>
-                        </div>
-                        <div id="batch_total_section" class="batch_total_section2 batch_total_section3 floatL">
-                            <div id="batch_total_ti2" class="weight_p ingredient_row floatL">
-                                <p>Weight per Portion:<p>
-                            </div>
-                            <div id="batch_total_input" class="ingredient_row floatL">
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                            </div>
-                            <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
-                                <p>g<p>
+
+                    <!-- Collapse/Expand Section - Portion -->
+                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">               <!-- When this goes it's back -->
+                            <div class="section_in">
+                                <div class="test2">
+                                    <div class="test1 floatL">
+                                        <p>Standard Portion:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div class="test22 clear">
+                                    <div class=" test1 floatL">
+                                        <p>Portion g:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_ingredient_weight"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!--======================================== Ingredients -->
-                <div class="section_bg text-center">
-                    <div class="section_in"> 
-                        <div class="tt floatL"> 
-                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                        </div>
-                        <div class="floatL">
-                            <h3>Ingredients</h3>
-                        </div>
-                        <div class="collapsible collapse_arrow floatR">
-                        </div>
+                <div class="section_in card"> 
 
-                        <div class="collapse_content clear"> 
-                            <div>
-                                <ul class="ul alignL">
-                                    <li>Ingredient 1</li>
-                                    <li>Ingredient 2</li>
+                    <!-- Section Header - Ingredients -->
+                    <div class="section_bg results_header_bg card-header">
+                        <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseFour"> 
+                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
+                                <div class="tt pointer">
+                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
+                                </div>
+                            </div>
+                            <h3 class="results_name alignL">Ingredients</h3>
+                            <div class="collapse_arrow pointer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collapse/Expand Section - Ingredients -->
+                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="section_in ">
+                                <ul>
+                                    <li class="ingredient_ingredient">- Ingredients fro API "Packaged Foods"</li>
                                 </ul>
                             </div>
-
-                            <hr class="rule section_rule clear">
-
-                            <div class="section_in_579">
-                                <div id="ingredient_totals">
-                                    <p class="inner_element_579 nutrition_total"><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
-                                </div>
-                                <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container inner_element_571">
-                                <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
-                                    <a href="#" class="btn inner_element_245">Create Ingredient</a>
-                                </div>
-                            </div>
                         </div>
-                        
                     </div>
                 </div>
-            
-            <div id="accordion">
 
-                    <!--======================================== Ingredients -->
-                    <div class="section_in card"> 
+                <!--======================================== Nutrients & Allergens -->
+                <div class="section_in card"> 
 
-                        <!-- Section Header - Ingredients -->
-                        <div class="section_bg results_header_bg card-header">
-                            <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseOne"> 
-                                <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                    <div class="tt pointer">
-                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                    </div>
-                                </div>
-                                <h3 class="results_name alignL">Ingredients</h3>
-                                <div class="collapse_arrow pointer">
+                    <!-- Section Header - Nutrients & Allergens -->
+                    <div class="section_bg results_header_bg card-header">
+                        <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseFive"> 
+                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
+                                <div class="tt pointer">
+                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
                                 </div>
                             </div>
+                            <h3 class="results_name alignL">Nutrients & Allergens</h3>
+                            <div class="collapse_arrow pointer">
+                            </div>
                         </div>
+                    </div>
 
-                        <!-- Collapse/Expand Section - Ingredients -->
-                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="section_in ">
-                                    <ul>
-                                        <li class="ingredient_ingredient">- Ingredients fro API "Packaged Foods"</li>
-                                        <li class="ingredient_ingredient">- Ingredients fro API "Packaged Foods"</li>
-                                        <li class="ingredient_ingredient">- Ingredients fro API "Packaged Foods"</li>
+                    <!-- Collapse/Expand Section - Nutrients & Allergens -->
+                    <div id="collapseFive" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="results_in ">
+                                <div class="nutrition_container inner_element_571">
+                                    <h5>Nutrition</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="d-flex">
+                                            <th scope="col" class="col-4">Typical Values</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Energy</th>
+                                            <td class="col-3">1500kj /350kcal</td>
+                                            <td class="col-1">20%</td>
+                                            <td class="col-3">500kj /120kcal</td>
+                                            <td class="col-1">7%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Fat</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Saturated Fat</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Cholesterol</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Carbohydrates</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">of which sugars</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Fibre</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Protein</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Salt</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr class="rule section_rule">
+                                <div class="nutrition_container  inner_element_571">
+                                    <h5>Vitamins & Minerals</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="d-flex">
+                                            <th scope="col" class="col-4">Typical Values</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Thiamin</th>
+                                            <td class="col-3">0.9mg</td>
+                                            <td class="col-1">20%</td>
+                                            <td class="col-3">0.3mg</td>
+                                            <td class="col-1">7%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Riboflavin</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Niacin</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Folic Acid</th>
+                                            <td class="col-3">3.0µ</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0µ</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Iron</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Calcium</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>            
+                                </div>
+                                <hr class="rule section_rule">
+                                <div class="inner_element_571">
+                                    <h5>Allergens</h5>
+                                    <ul class="ul alignL">
+                                        <li>Wheat</li>
+                                        <li>Barley</li>
                                     </ul>
                                 </div>
-                        
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!--======================================== Nutrients & Allergens -->
-                    <div class="section_in card"> 
-
-                        <!-- Section Header - Nutrients & Allergens -->
-                        <div class="section_bg results_header_bg card-header">
-                            <div class="results_header_in results_in card-link" data-toggle="collapse" href="#collapseOne"> 
-                                <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                    <div class="tt pointer">
-                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                    </div>
+                                <hr class="rule section_rule">
+                                <div class="inner_element_571">
+                                    <h5>Notes</h5>
+                                    <ul class="ul alignL">
+                                        <li>*Stuff about RI</li>
+                                        <li>Uncooked, etc.</li>
+                                    </ul>
                                 </div>
-                                <h3 class="results_name alignL">Nutrients & Allergens</h3>
-                                <div class="collapse_arrow pointer">
+                                <div class="filler">
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Collapse/Expand Section - Nutrients & Allergens -->
-                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="results_in ">
-                                    <div class="nutrition_container inner_element_571">
-                                        <h5>Nutrition</h5>
-                                        <table class="table">
-                                            <thead>
-                                                <tr class="d-flex">
-                                                <th scope="col" class="col-4">Typical Values</th>
-                                                <th scope="col" class="col-3">Per 100g</th>
-                                                <th scope="col" class="col-1">RI*</th>
-                                                <th scope="col" class="col-3">Per 100g</th>
-                                                <th scope="col" class="col-1">RI*</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Energy</th>
-                                                <td class="col-3">1500kj /350kcal</td>
-                                                <td class="col-1">20%</td>
-                                                <td class="col-3">500kj /120kcal</td>
-                                                <td class="col-1">7%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Fat</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Saturated Fat</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Cholesterol</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Carbohydrates</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">of which sugars</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Fibre</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Protein</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Salt</th>
-                                                <td class="col-3">3.0g</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0g</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <hr class="rule section_rule">
-                                    <div class="nutrition_container  inner_element_571">
-                                        <h5>Vitamins & Minerals</h5>
-                                        <table class="table">
-                                            <thead>
-                                                <tr class="d-flex">
-                                                <th scope="col" class="col-4">Typical Values</th>
-                                                <th scope="col" class="col-3">Per 100g</th>
-                                                <th scope="col" class="col-1">RI*</th>
-                                                <th scope="col" class="col-3">Per 100g</th>
-                                                <th scope="col" class="col-1">RI*</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Thiamin</th>
-                                                <td class="col-3">0.9mg</td>
-                                                <td class="col-1">20%</td>
-                                                <td class="col-3">0.3mg</td>
-                                                <td class="col-1">7%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Riboflavin</th>
-                                                <td class="col-3">3.0mg</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0mg</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Niacin</th>
-                                                <td class="col-3">3.0mg</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0mg</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Folic Acid</th>
-                                                <td class="col-3">3.0µ</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0µ</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Iron</th>
-                                                <td class="col-3">3.0mg</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0mg</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                                <tr class="d-flex">
-                                                <th scope="row" class="col-4">Calcium</th>
-                                                <td class="col-3">3.0mg</td>
-                                                <td class="col-1">9%</td>
-                                                <td class="col-3">1.0mg</td>
-                                                <td class="col-1">3%</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>            
-                                    </div>
-                                    <hr class="rule section_rule">
-                                    <div class="inner_element_571">
-                                        <h5>Allergens</h5>
-                                        <ul class="ul alignL">
-                                            <li>Wheat</li>
-                                            <li>Barley</li>
-                                        </ul>
-                                    </div>
-                                    <hr class="rule section_rule">
-                                    <div class="inner_element_571">
-                                        <h5>Notes</h5>
-                                        <ul class="ul alignL">
-                                            <li>*Stuff about RI</li>
-                                            <li>Uncooked, etc.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="filler">
-                                    </div>
-                                </div>
-                        
-                            </div>
-                        </div>
-                    </div>
                     
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </section>
     </main>
     <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
