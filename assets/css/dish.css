@@ -222,3 +222,76 @@ div>ul>li {
 .section_bg.new_dish_save_btn {
     padding: 0;
 }
+
+/*--------- Accordion Collapse / Expand ----------*/
+.results_header_bg {
+    background-color: pink;
+    height: 30px;
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--third_layer);
+}
+
+.card-header, .card-body {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.results_header_in {
+    width: 95%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.tt.pointer{
+    margin: 0; /* There's a top margin of 2px on the styles.css to center on other headings. Address this. */
+}
+
+.card-body {
+    width: 98%;
+    margin: 0.5rem auto;
+}
+
+.results_header_in, .results_row, .bricks_container {
+    display:flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.bricks_container {
+    flex-wrap: wrap;
+}
+
+.results_count, .collapse_arrow, .flex1 {
+    flex:1;
+    line-height: 30px; /* Keeps the contents verically centered */
+}
+.brick {
+    flex: 1 1 auto;
+    height: 30px;
+}
+
+.collapse_arrow {
+    text-align: right; 
+}
+
+.results_row_tt, .plus_icon, .filler {
+    flex: 1;
+    height: 25px;
+    width: 25px;
+}
+
+.results_row_name, .results_row_description { 
+    flex: 18; 
+    margin: 0 5px;
+}
+
+h3.results_name { 
+    flex: 25; 
+    margin: 0 5px;
+}

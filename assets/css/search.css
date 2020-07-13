@@ -82,7 +82,6 @@ h6.advanced_option { /* Default font color is white. This is black as it's on a 
 /*--------- Results Section --------*/
 .results_header_bg {
     background-color: var(--orange);
-
     height: 30px;
     width: 100%;
 }
