@@ -2,12 +2,103 @@ h2, .ingredient_row p { /* Required because global is text-align: center; */
     line-height: 1; /* Can this be global? */
 }
 
-/*------- # of Portions Section Start */
-.portions_input {
-    width: 300px;
+/*--------- Accordion Collapse / Expand ----------*/
+#accordion .section_bg { /* Overrides the global padding in the collapse/expand sections as it is not required */
+    padding: 0;
 }
 
+.results_header_bg {
+    background-color: pink;
+}
+
+.measurement_container {
+    overflow: hidden;
+}
+
+.measurement_row_container {
+    overflow: auto;
+}
+
+.measurement_row_container_after { /*--- Use to put a space between measurement rows. Applies to all bar the first ---*/
+    margin-top: 5px;
+}
+
+.measurement_row_label {
+    width: 140px;
+}
+
+.card { /* Each collapse section is a card */
+    width: 100%;
+}
+
+.collapse_arrow {
+    text-align: right; 
+    flex:1;
+    line-height: 30px; /* Keeps the contents verically centered */
+}
+
+.bricks_container {
+    flex-wrap: wrap;
+}
+
+.brick {
+    flex: 1 1 auto;
+    height: 30px;
+}
+
+.results_row_tt {
+    flex: 1;
+    height: 25px;
+    width: 25px;
+}
+
+h3.page_section_name { 
+    flex: 25; 
+    margin: 0 5px;
+}
+
+.section_in ul {
+    padding: 0;
+    margin: 0;
+}
+
+.section_in li {
+    line-height: 30px;
+}
+
+
+/*---------------------------------- Nutrition & Allergens Section */
+
+.nutrition_container {
+    background-color: var(--white);
+    margin: auto;
+    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
+}
+
+.nutrition_container tr, .nutrition_container h5 {
+    color: var(--bg);
+}
+
+.table th, .table td {
+    padding: 0;
+    font-size: 12px;
+}
+
+ul.ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  color: var(--white);
+}
+
+.notes_container {
+    text-align: left;
+}
+
+/*----------------*/
+
+
 /*------- Ingredients Section Start */
+
 
 #item_delete { /* Aligns the icon to the right */
     position: absolute; 
@@ -18,15 +109,7 @@ h2, .ingredient_row p { /* Required because global is text-align: center; */
     line-height: 1;
 } 
 
-#ingredient_description {
-    min-width: 53%; /* Most appropriate width to allow following elements to fit */
-    word-wrap: break-word;
-}
-@media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
-#ingredient_description  {
-    min-width: 85%;
-    }
-}
+
 
 #batch_total_section {
     white-space:nowrap; /* needed? */
@@ -112,13 +195,6 @@ div.collapse_content p{
     margin: 0 auto;
 }
 
-
-/*---------------------------------- Cooking Section Start */
-
-.row.justify-content-md-center {
-    width: 100%;
-}
-
 /* Brick buttons */
 .row.justify-content-md-center {
     background-color: var(--white);
@@ -148,64 +224,9 @@ p.advanced_option { /*------- Brick Buttons Section title. */
 #other_cook_method input{
     border: 1px solid var(--orange);
 }
-
-.nutrition_container {
-    background-color: var(--white);
-    margin: auto;
-    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
-}
-
-.nutrition_container tr, .nutrition_container h5 {
-    color: var(--bg);
-}
-
-.table th, .table td {
-    padding: 0;
-    font-size: 12px;
-}
-
-ul.ul {
-  list-style-type: circle;
-  list-style-position: inside;
-  color: var(--white);
-}
-
-.notes_container {
-    text-align: left;
-}
-
-.ingredient_row_container {
-    border: 1px solid pink; /*  Visual for dev purposes */
-    min-height: 32px;
-    overflow: hidden;
-    margin: 1rem 0;
-    vertical-align: middle; /* not working */
-}
-
-@media (max-width: 768px) { /*------- Media queries to make Ingredients search input fit all devices. */
-#batch_total_section, #per_portion_total_section {
-    margin-top: 0.5rem;
-    }
-}
+/*-------------------*/
 
 /*   New Dish */
-
-.input_nutrient_weight>input {
-    width: 5ch;
-}
-
-.input_percent>input {
-    width: 3ch;
-}
-
-.input_ingredient_weight { /* This class name needs to be changed as it applies to more than just ingredieint weights */
-    width: 8ch;
-    border: 1px solid var(--orange);
-}
-
-#ingredient_description { /* Max width the field can be to prevent it pushing other elements down opn mobile */
-    width: 225px;
-}
 
 .new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
     width: 250px;
@@ -221,100 +242,4 @@ div>ul>li {
 
 .section_bg.new_dish_save_btn {
     padding: 0;
-}
-
-/*--------- Accordion Collapse / Expand ----------*/
-.results_header_bg {
-    background-color: pink;
-    height: 30px;
-    width: 100%;
-}
-
-.card {
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    background-color: var(--third_layer);
-}
-
-.card-header, .card-body {
-    padding: 0;
-    margin: 0 auto;
-}
-
-.results_header_in {
-    width: 95%;
-    margin: 0 auto;
-    align-items: center;
-}
-
-.tt.pointer{
-    margin: 0; /* There's a top margin of 2px on the styles.css to center on other headings. Address this. */
-}
-
-.card-body {
-    width: 98%;
-    margin: 0.5rem auto;
-}
-
-.results_header_in, .results_row, .bricks_container {
-    display:flex;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.test1 {
-    width: 140px;
-}
-.test2, .test22 {
-    overflow: auto;
-}
-.test22 {
-    margin-top: 5px;
-}
-
-.section_bg {
-    padding-bottom: 0;
-}
-
-.bricks_container {
-    flex-wrap: wrap;
-}
-
-.results_count, .collapse_arrow, .flex1 {
-    flex:1;
-    line-height: 30px; /* Keeps the contents verically centered */
-}
-.brick {
-    flex: 1 1 auto;
-    height: 30px;
-}
-
-.collapse_arrow {
-    text-align: right; 
-}
-
-.results_row_tt, .plus_icon, .filler {
-    flex: 1;
-    height: 25px;
-    width: 25px;
-}
-
-.results_row_name, .results_row_description { 
-    flex: 18; 
-    margin: 0 5px;
-}
-
-h3.results_name { 
-    flex: 25; 
-    margin: 0 5px;
-}
-
-.section_in ul {
-    padding: 0;
-    margin: 0;
-}
-
-.section_in li {
-    line-height: 30px;
 }

@@ -1,3 +1,7 @@
+a.btn { /*--- Required to over ride the styles.css where a margin ius applied top and bottom ---*/
+    margin: 0;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~ Section Cards */
 div .container { /* Narrows the two cards, but only required on larger screens */
     width: 60%;
@@ -9,6 +13,14 @@ div .card {
 
 .card-title {
     margin: 0;
+}
+
+.card-text {
+    margin-bottom: 0;
+}
+
+a.btn.mt-auto {
+    margin-bottom: 1rem;  /*--- mt-auto is used on teh cards to align the buttons with each other. It has auto margin-top but requires bottom for sapacing ---*/
 }
 
 /*------- Media queries to make cards fit all devices. */
