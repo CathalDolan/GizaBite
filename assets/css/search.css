@@ -10,13 +10,7 @@
     font-weight: 600;
 }
 
-@media (max-width: 576px) {
-    .tt .section_ti h3 {
-        font-size: 24px;
-    }
-}
-
-.search_ti h3{ /* ------- Search Widget title. */
+#search_title>h3{ /* ------- Search Widget title. */
     color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
 }
 

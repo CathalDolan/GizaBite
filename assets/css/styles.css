@@ -24,6 +24,12 @@ main {
     margin: 0 auto;
     }
 }
+@media (max-width: 572px) {
+main {
+    width: 95%;
+    margin: 0 auto;
+    }
+}
 
 :root {
     --first_layer: #202224;
@@ -48,40 +54,23 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
 }
 
-h1, h2 {
-    /* font-weight: 600; to be checked and updated */
-}
-
 h1 {
     font-size: 32px;
 }
-
 h2 {
     font-size: 27px;
 }
-
 h3 {
     font-size: 23px;
 }
-
 h5{
     font-size: 20px;
 }
-
 h4 {
     font-size: 18px;
 }
-
 h6 {
     font-size: 16px;
-}
-
-.alignL {
-    text-align: left;
-}
-
-.alignC {
-    text-align: center;
 }
 
 p {
@@ -119,35 +108,35 @@ p {
     }
 }
 
+.alignL {
+    text-align: left;
+}
+.alignC {
+    text-align: center;
+}
+.alignR {
+    text-align: right;
+}
+
 .pointer {
     cursor: pointer;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections - Start */
-.section_bg { /*------- Background layer that sits on top of the Body */
+.section_bg { /*------- Layer 2 that sits on top of the Body */
     margin: 1rem auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: var(--second_layer);
-    /*-- border: 1px solid red; for visual purposes in dev */
     border-radius: 8px;
 }
 
-.section_in, .inner_element_95 {
+.section_in { /*------- Background Inner to allow equal spacing within the section_bg and others. */
     width: 95%;
-}
-
-.section_in { /*------- Background Inner to allow equal spacing within the background. */
     margin: 0 auto;
-    /*-- border: 1px solid green; for visual purposes in dev */
     min-height: 30px;
     overflow: hidden;
     align-items: center;
-}
-
-.inner_element_95 {
-    margin: 0 auto;
-    overflow: hidden;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Tooltip */
@@ -167,12 +156,6 @@ p {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Section Title */
-.section_ti {
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: 150%;
-}
 
 .section_in h3{
     margin: 0;
