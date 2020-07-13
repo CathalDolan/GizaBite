@@ -295,3 +295,12 @@ h3.results_name {
     flex: 25; 
     margin: 0 5px;
 }
+
+.section_in ul {
+    padding: 0;
+    margin: 0;
+}
+
+.section_in li {
+    line-height: 30px;
+}
