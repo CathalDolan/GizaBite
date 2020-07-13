@@ -18,9 +18,17 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+
 $(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+$(".brick").on("click", function() {
+    $(this).css("background", "orange");
+})
+$(".brick>p").on("click", function() {
+    $(this).css("color", "white");
+})
 
 
 /* A function is required for the ingredients page to change the position of html elements so that they are responsive on smaller devices */

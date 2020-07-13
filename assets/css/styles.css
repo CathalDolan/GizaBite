@@ -119,6 +119,10 @@ p {
     }
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections - Start */
 .section_bg {
     margin: 2% auto;
