@@ -19,9 +19,7 @@ div .card {
     margin-bottom: 0;
 }
 
-a.btn.mt-auto {
-    margin-bottom: 1rem;  /*--- mt-auto is used on teh cards to align the buttons with each other. It has auto margin-top but requires bottom for sapacing ---*/
-}
+
 
 /*------- Media queries to make cards fit all devices. */
 @media (max-width: 1200px) {

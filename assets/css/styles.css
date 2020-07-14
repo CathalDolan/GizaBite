@@ -558,7 +558,10 @@ h2.hero_text {
     margin: 0 auto;
 }
 
-
+.card-body {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 
 .collapse {
     width: 100%;

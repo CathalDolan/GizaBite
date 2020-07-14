@@ -7,9 +7,7 @@ h2, .ingredient_row p { /* Required because global is text-align: center; */
     padding: 0;
 }
 
-.results_header_bg {
-    background-color: pink;
-}
+
 
 .measurement_container {
     overflow: hidden;
@@ -124,12 +122,6 @@ ul.ul {
     width: 130px;
 }
 
-@media (max-width: 768px) { /*------- Used to force following div onto next line */
-.other_cook_method2 {
-    width: 100%;
-    }
-}
-
 .batch_total_section2{ /*------- Adds space between it and previous */
     margin-left: 50px;
 }
@@ -216,14 +208,10 @@ p.advanced_option { /*------- Brick Buttons Section title. */
     white-space: nowrap;
 }
 
-#other_cook_method {
-    text-align: left;
+#measurement_checkbox_label {
     color: var(--white);
 }
 
-#other_cook_method input{
-    border: 1px solid var(--orange);
-}
 /*-------------------*/
 
 /*   New Dish */
