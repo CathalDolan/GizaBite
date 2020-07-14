@@ -8,8 +8,8 @@ Accordion - https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
 
 Each time I worked on a page I created a new brnach, likewise when I was trying something new. To do this I:
 - Create the branch on your local machine and switch in this branch: $ git checkout -b [name_of_your_new_branch]
-If you want create a new branch: $ git branch <name_of_your_new_branch>
 - Push the branch on github : $ git push origin [name_of_your_new_branch]
+-    git push --set-upstream origin ingredient_page_update
 
 As I was finished something I'd do:
 - git add . or 

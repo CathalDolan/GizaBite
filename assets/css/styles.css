@@ -24,6 +24,12 @@ main {
     margin: 0 auto;
     }
 }
+@media (max-width: 572px) {
+main {
+    width: 95%;
+    margin: 0 auto;
+    }
+}
 
 :root {
     --first_layer: #202224;
@@ -48,40 +54,23 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
 }
 
-h1, h2 {
-    /* font-weight: 600; to be checked and updated */
-}
-
 h1 {
     font-size: 32px;
 }
-
 h2 {
     font-size: 27px;
 }
-
 h3 {
     font-size: 23px;
 }
-
 h5{
     font-size: 20px;
 }
-
 h4 {
     font-size: 18px;
 }
-
 h6 {
     font-size: 16px;
-}
-
-.alignL {
-    text-align: left;
-}
-
-.alignC {
-    text-align: center;
 }
 
 p {
@@ -119,42 +108,35 @@ p {
     }
 }
 
+.alignL {
+    text-align: left;
+}
+.alignC {
+    text-align: center;
+}
+.alignR {
+    text-align: right;
+}
+
 .pointer {
     cursor: pointer;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections - Start */
-.section_bg {
-    margin: 2% auto;
-    padding-top: 2%;
-    padding-bottom: 2%;
+.section_bg { /*------- Layer 2 that sits on top of the Body */
+    margin: 1rem auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     background-color: var(--second_layer);
-    /*-- border: 1px solid red; for visual purposes in dev */
     border-radius: 8px;
 }
 
-.section_in { /*------- Background Inner to allow equal spacing within the background. */
+.section_in { /*------- Background Inner to allow equal spacing within the section_bg and others. */
+    width: 95%;
     margin: 0 auto;
-    /*-- border: 1px solid green; for visual purposes in dev */
     min-height: 30px;
     overflow: hidden;
-}
-
-.inner_element_95 {
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.section_in, .inner_element_95 {
-    width: 95%;
-}
-
-.collapse_content {
-    width: 100%;
-}
-
-#page_heading_container{ /*------- Provides spacing between page title and next section */
-    margin-bottom: 1rem;
+    align-items: center;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Tooltip */
@@ -163,7 +145,6 @@ p {
     width: 25px;
     background-color: var(--orange);
     border-radius: 50px;
-    margin: 2px 0 0 0;
     line-height: 30px;
 }
 
@@ -175,12 +156,6 @@ p {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Section Title */
-.section_ti {
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: 150%;
-}
 
 .section_in h3{
     margin: 0;
@@ -188,16 +163,7 @@ p {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Collapse/Expand */
-.collapsible {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    /*width: 100%; */
-}
 
-.active, .collapsible:hover {
-    /*  font-weight: 900; Wrong font weight, but idea is correct */
-}
 
 .collapse_arrow, .heading_icon, .plus_icon  {    /* This is the collapse arrow icon positioning to the right of the sction heading */
     content: '';  
@@ -250,20 +216,6 @@ p {
 /* .delete_icon:after {    Delete icon used in ingredients and dish pages. Didn't work here because of flex on dish page
     content: "\f014";
 } */
-
-.collapse_content { /* This is the div that expands / collapses. */
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: var(--second_layer);
-  /*-- border: 1px solid blue; for visual purposes in dev */
-  margin-top: 2.25rem; /* Gives space between the bottom of the trigger element and the top of the expanded div. */
-}
-
-div.collapse_content p{
-    color: var(--white);
-}
 
 
 /*~~~~~~~~~~~~~~~~~~~~ Inner Elements such as buttons and the Search Widget */
@@ -371,9 +323,8 @@ div.card-body>.btn { /*---- Required to override Bootstrap default left alignmen
     }
 }
 
-a.btn { /*------- Creat a dish button. */
-
-    margin: 1rem 0; /* needs to be adjusted to take mobile into account */
+a.btn {
+    margin: 1rem 0;
 }
 
 
@@ -554,8 +505,7 @@ h2.hero_text {
 
 .hero_search_inner_element a#hero_search_button.button-image { /* The background section of the search buttoin in the hero section */
     margin: 8px 0 0 0;
-    height: 30px;
-    width: 30px;
+    width: 40px;
     text-align: center;
     border-radius: 5px;
 }
@@ -590,19 +540,65 @@ h2.hero_text {
 }
 
 
-/* .collapse_content  Can't move between devices sizes without refreshing the page, why and is it OK? */
+/*--------- collapse_content -----------*/
+.results_header_bg {
+    height: 30px;
+    width: 100%;
+}
+
+.card {
+    width: 98%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--second_layer);
+}
+
+.card-header, .card-body {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.card-body {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.collapse {
+    width: 100%;
+}
+
+.card-link, .results_row, .bricks_container {
+    display:flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
 
 .container { /* Required to align elements in a row within a section */
     padding: 0; /* Removes default Container padding left & right */
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; /* This may not be needed. Top too maybe...*/
-}
-
-.collapse_content_row.container, .portions_container.container { /* Required to align elements in a row within a section */
-    display: flex;
+    margin: 0.5rem auto;
 }
 
 .search_container {
     margin: auto;
     overflow: hidden;
+}
+
+/*-------- Global Inputs -----*/
+.input_nutrient_weight>input {
+    width: 5ch;
+}
+
+.input_percent>input {
+    width: 3ch;
+}
+
+.input_weight_number { /* This class name needs to be changed as it applies to more than just ingredieint weights */
+    width: 8ch;
+    border: 1px solid var(--orange);
+}
+
+
+#action_icons_bar {
+    padding-bottom: 0; /* Over rides the global padding. Required as the bar was too deep and affected aesthetic positioning of the rule */
 }

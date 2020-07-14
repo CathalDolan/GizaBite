@@ -10,13 +10,7 @@
     font-weight: 600;
 }
 
-@media (max-width: 576px) {
-    .tt .section_ti h3 {
-        font-size: 24px;
-    }
-}
-
-.search_ti h3{ /* ------- Search Widget title. */
+#search_title>h3{ /* ------- Search Widget title. */
     color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
 }
 
@@ -76,44 +70,25 @@ p.advanced_option { /*------- Brick Buttons Section title. */
 
 h6.advanced_option { /* Default font color is white. This is black as it's on a white background */
     color: var(--bg);
+    margin: 0.5rem 0 0.25rem 0;
 }
 
 
 /*--------- Results Section --------*/
 .results_header_bg {
     background-color: var(--orange);
-
-    height: 30px;
-    width: 100%;
 }
 
 .card {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    background-color: var(--third_layer);
-}
-
-.card-header, .card-body {
-    padding: 0;
-    margin: 0 auto;
-}
-
-.card-body, .results_in {
     width: 98%;
-    margin: 0.5rem auto;
-}
-
-.results_header_in, .results_row, .bricks_container {
-    display:flex;
-    align-items: center;
-    margin: 0 auto;
+    background-color: var(--third_layer); /* As this is a 3rd layer, global card colour is over-ridden */
 }
 
 .bricks_container {
     flex-wrap: wrap;
 }
 
-.results_name, .results_count, .collapse_arrow, .flex1 {
+.results_section_name, .results_count, .collapse_arrow, .flex1 {
     flex:1;
     line-height: 30px; /* Keeps the contents verically centered */
 }
