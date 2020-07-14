@@ -1,16 +1,19 @@
-h2, .ingredient_row p { /* Required because global is text-align: center; */
-    line-height: 1; /* Can this be global? */
-}
-
 /*--------- Accordion Collapse / Expand ----------*/
 #accordion .section_bg { /* Overrides the global padding in the collapse/expand sections as it is not required */
     padding: 0;
 }
 
+.card { /* Each collapse section is a card. This over rides styles.css */
+    width: 100%;
+}
 
-
+/*--- Measurement Section ---*/
 .measurement_container {
     overflow: hidden;
+}
+
+#measurement_checkbox_label { /*--- Over rides the default label black colour ---*/
+    color: var(--white);
 }
 
 .measurement_row_container {
@@ -25,25 +28,7 @@ h2, .ingredient_row p { /* Required because global is text-align: center; */
     width: 140px;
 }
 
-.card { /* Each collapse section is a card */
-    width: 100%;
-}
-
-.collapse_arrow {
-    text-align: right; 
-    flex:1;
-    line-height: 30px; /* Keeps the contents verically centered */
-}
-
-.bricks_container {
-    flex-wrap: wrap;
-}
-
-.brick {
-    flex: 1 1 auto;
-    height: 30px;
-}
-
+/*--- Lists ---*/
 .section_in ul {
     padding: 0;
     margin: 0;
@@ -53,12 +38,14 @@ h2, .ingredient_row p { /* Required because global is text-align: center; */
     line-height: 30px;
 }
 
-
 /*---------------------------------- Nutrition & Allergens Section */
+
+.nutrition_container, .inner_element_571 {
+    margin: 0 auto;
+}
 
 .nutrition_container {
     background-color: var(--white);
-    margin: auto;
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
 }
 
@@ -80,23 +67,58 @@ ul.ul {
 .notes_container {
     text-align: left;
 }
-
 /*----------------*/
 
+/*   New Dish */
 
-/*------- Ingredients Section Start */
+.new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
+    width: 250px;
+}
 
+.new_dish_description_input {
+    width: 100%;
+}
 
-#item_delete { /* Aligns the icon to the right */
-    position: absolute; 
-    right: 0; 
-    color: var(--orange);
-    font-size: 20px;
-    vertical-align: middle;
+div>ul>li {
+    color: var(--white);
+}
+
+.section_bg.new_dish_save_btn {
+    padding: 0;
+}
+
+/*--- Bricks ---*/
+.bricks_container {
+    flex-wrap: wrap;
+}
+
+.brick {
+    flex: 1 1 auto;
+    height: 30px;
+}
+
+.row.justify-content-md-center {
+    background-color: var(--white);
+    width: 100%;
+    margin: 0;
+}
+
+p.advanced_option { /*------- Brick Buttons Section title. */
+    width: 95%;
+    margin: 1rem auto;
+    font-weight: 500;
     line-height: 1;
-} 
+    color: var(--white);
+}
 
+.col { /*------- Brick Buttons */
+    background-color: var(--white);
+    border: 0.5px solid var(--orange);
+    white-space: nowrap;
+}
+/*--------*/
 
+/*------- Portions Section Start */
 
 #batch_total_section {
     white-space:nowrap; /* needed? */
@@ -120,7 +142,7 @@ ul.ul {
     }
 }
 
-/*------- used to align Measurements */
+/*--- Used to align Measurements */
 @media (max-width: 1100px) { 
 .section_in>.batch_total_section3 {
     margin-right: 50%;
@@ -139,7 +161,7 @@ ul.ul {
     }
 }
 
-/*------- These control the input names for Measurements section width. */
+            /*--- These control the input names for Measurements section width. ---*/
 #batch_total_ti2.portions_p {
     width: 100px;
 }
@@ -171,52 +193,4 @@ ul.ul {
 .search_name_input {
     margin: 1rem auto;
 }
-
-div.collapse_content p{
-    margin: 0 auto;
-}
-
-/* Brick buttons */
-.row.justify-content-md-center {
-    background-color: var(--white);
-    width: 100%;
-    margin: 0;
-}
-
-p.advanced_option { /*------- Brick Buttons Section title. */
-    width: 95%;
-    margin: 1rem auto;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--white);
-}
-
-.col { /*------- Brick Buttons */
-    background-color: var(--white);
-    border: 0.5px solid var(--orange);
-    white-space: nowrap;
-}
-
-#measurement_checkbox_label {
-    color: var(--white);
-}
-
-/*-------------------*/
-
-/*   New Dish */
-
-.new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
-    width: 250px;
-}
-
-.new_dish_description_input {
-    width: 100%;
-}
-
-div>ul>li {
-    color: var(--white);
-}
-
-.section_bg.new_dish_save_btn {
-    padding: 0;
-}
+/*--------*/

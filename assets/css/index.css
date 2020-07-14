@@ -7,10 +7,6 @@ div .container { /* Narrows the two cards, but only required on larger screens *
     width: 60%;
 }
 
-div .card {
-    background-color: var(--third_layer);
-}
-
 .card-title {
     margin: 0;
 }

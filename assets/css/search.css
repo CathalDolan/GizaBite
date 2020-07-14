@@ -2,7 +2,8 @@
 .search_container {
     border-radius: 5px;
     background-color: var(--white);
-    padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing here */
+    margin: auto;
+    overflow: hidden;
 }
 
 #search_widget_input {
@@ -12,16 +13,26 @@
     border-radius: 5px;
 }
 
-.mybutton:before{   /* . Adds image to the "Search" button. Related to .button-image:before in styles.css */
-    background-image : url(https://i.imgur.com/2RYxoQ1.png);
-}
-
 .advanced_reset_buttons {
     color: var(--orange);
 }
 
-.container .content1 { 
-    display: none; /* Allows the Advanced section in search widget to show closed when page is landed on */
+.container>.content1 { /* Allows the Advanced section in search widget to show closed when page is landed on */
+    display: none; 
+}
+
+
+/*--------- Results Section --------*/
+.results>.section_header_bg {
+    background-color: var(--orange);
+}
+
+.results_section_name, .results_count, .results_row_name, .results_row_description {
+    flex:1;
+}
+
+.results_section_name, .results_count {
+    line-height: 30px; /* Keeps the contents verically centered */
 }
 
 
@@ -57,22 +68,3 @@ h6.search_advanced_section_title { /*--- Over rides default colour of white for 
     margin: 0.5rem 0 0.25rem 0;
 }
 /*--------*/
-
-
-/*--------- Results Section --------*/
-.results .section_header_bg {
-    background-color: var(--orange);
-}
-
-.card {
-    width: 98%;
-    background-color: var(--third_layer); /* As this is a 3rd layer, global card colour is over-ridden */
-}
-
-.results_section_name, .results_count, .results_row_name, .results_row_description {
-    flex:1;
-}
-
-.results_section_name, .results_count {
-    line-height: 30px; /* Keeps the contents verically centered */
-}
