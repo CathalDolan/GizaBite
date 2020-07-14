@@ -1,81 +1,66 @@
 /*---------------------------------- Search Widget -- Start */
 .search_container {
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: var(--white);
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing here */
 }
 
-#page_ti h3 { /* As it behaves as a page title, it's given h2 sizing. #page_ti needed to isloate it */
-    font-size: 27px;
-    font-weight: 600;
-}
-
-#search_title>h3{ /* ------- Search Widget title. */
-    color: var(--bg); /* ------- Required because global colour is white, but this is on a white background so need black */
+#search_widget_input {
+    margin-top: 1rem;
+    height: 30px;
+    border: 1px solid var(--second_layer);
+    border-radius: 5px;
 }
 
 .mybutton:before{   /* . Adds image to the "Search" button. Related to .button-image:before in styles.css */
     background-image : url(https://i.imgur.com/2RYxoQ1.png);
 }
 
-input.search_name_in { /* ------- User Search input field. */
-    color: var(--bg);
-    height: 2.5rem;
-    margin: 10px 0;
-    text-align: center;
-    border: 2px solid var(--bg_trans);
-    border-radius: 8px;
-}
-
-.advanced_container{
-    padding: 0;
-}
-
-.advanced_reset_buttons {     /*----- Advanced & Reset Buttons colours and positions in Search widget  */
+.advanced_reset_buttons {
     color: var(--orange);
-    text-align: left;
-    margin: 0 auto;
-    font-weight: 500;
-    line-height: 1;
+}
+
+.container .content1 { 
+    display: none; /* Allows the Advanced section in search widget to show closed when page is landed on */
 }
 
 
 /*---------------------------------- Brick buttons */
+.bricks_container {
+    flex-wrap: wrap;
+}
+
 .justify-content-md-center {
     width: 100%;
     margin: 0;
 }
 
-p.advanced_option { /*------- Brick Buttons Section title. */
-    color: var(--bg);
-    text-align: left;
-    margin: 20px auto 10px auto;
-    font-weight: 500;
-    line-height: 1;
-}
-
 .brick { /*------- Brick Buttons */
     border: 0.5px solid var(--orange);
     text-align: center;
-  
+    flex: 1 1 auto;
+    height: 30px;
 }
 
-.container .content1 { 
-    display: none; /* Allows the Advanced section in search widget to display closed */
+.brick p{
+    color: var(--first_layer);
+    margin: 0 1rem;
+    line-height: 30px;
 }
 
-#search_title {
-    margin: 0.5rem auto;
+.search_advanced_section { /*--- Section within the Search Widget advanced dropdown ---*/
+    padding: 0;
 }
 
-h6.advanced_option { /* Default font color is white. This is black as it's on a white background */
+h6.search_advanced_section_title { /*--- Over rides default colour of white for h6 */
     color: var(--bg);
     margin: 0.5rem 0 0.25rem 0;
 }
+/*--------*/
 
 
 /*--------- Results Section --------*/
-.results_header_bg {
+.results .section_header_bg {
     background-color: var(--orange);
 }
 
@@ -84,48 +69,10 @@ h6.advanced_option { /* Default font color is white. This is black as it's on a 
     background-color: var(--third_layer); /* As this is a 3rd layer, global card colour is over-ridden */
 }
 
-.bricks_container {
-    flex-wrap: wrap;
+.results_section_name, .results_count, .results_row_name, .results_row_description {
+    flex:1;
 }
 
-.results_section_name, .results_count, .collapse_arrow, .flex1 {
-    flex:1;
+.results_section_name, .results_count {
     line-height: 30px; /* Keeps the contents verically centered */
 }
-.brick {
-    flex: 1 1 auto;
-    height: 30px;
-}
-
-.brick p{
-    color: black;
-    margin: 0 15px;
-    line-height: 30px;
-}
-
-.collapse_arrow {
-    color: white;
-    text-align: right;
-}
-
-.results_row_tt, .plus_icon, .filler {
-    flex: 1;
-    height: 25px;
-    width: 25px;
-}
-
-
-.plus_icon {
-    text-align: right; /* Keeps the + icon to the right */
-}
-
-.results_row_name, .results_row_description { 
-    flex: 18; 
-    margin: 0 5px;
-}
-
-.results_row_description { 
-    line-height: 1.25; 
-}
-
-

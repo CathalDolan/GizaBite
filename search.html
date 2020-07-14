@@ -73,7 +73,7 @@
     <main>
         <section>
 
-            <!--======================================== Action Icons Bar -->
+            <!-- Action Icons Bar -->
             <div id="action_icons_bar" class="section_bg">
                 <div class="section_in"> 
                     <button onclick="goBack()" class="back_button">
@@ -83,37 +83,36 @@
                 </div>
             </div>
 
-            <section class="section_bg text-center"> <!-- Search Section -->
-                <div class="section_in "> <!-- Section inner. Used to position page content on section_bg -->
-                    <div class="tt floatL pointer"> <!-- Section tooltip -->
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                    </div>
-                    <div class="floatL"> <!-- Section title-->
-                        <h3>Section Title</h3>
+            <!-- Search Section -->
+            <section class="section_bg"> 
+                <div class="section_header_bg card-header">
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
+                        <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Search & Create</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
+                        </div>
                     </div>
                 </div>
 
-                <div class="text-center"> <!-- Create a new dish button-->
+                <!-- Create a new dish button-->
+                <div class="text-center"> 
                     <a href="#" class="btn inner_element_579">Create New Dish</a>
                 </div>
                 
-                <div class="search_container inner_element_579">  <!-- Search widget -->
+                <!-- Search widget -->
+                <div class="search_container inner_element_579 text-center">  
                     <form action="">
-                        <div id="search_title" class="section_in">
-                            <div class="tt floatL pointer"> 
-                                <p>i</p>
-                            </div>
-                            <h3 class="floatL">Search</h3>
-                        </div>
-                        <div class="clear">
-                            <input type="text" name="search" placeholder="Search dish or ingredient name" class="section_in">
-                        </div> <!-- This div is preventing collapse from working. Investigate work around -->
+                        
+                        <input id="search_widget_input" type="text" name="search" placeholder="Search dish or ingredient name" class="section_in">
                         
                         <div> <!-- Advanced Section Expand upwards initial code from https://stackoverflow.com/questions/35263219/expand-collapse-div-by-clicking-another -->
                             <div class="container">
                                 <div class="content1">
-                                    <div class="advanced_container container section_in"> <!-- Cooking Method-->
-                                        <h6 class="advanced_option alignL">Method</h6>
+
+                                    <!-- Cooking Method-->
+                                    <div class="search_advanced_section container section_in"> 
+                                        <h6 class="search_advanced_section_title alignL">Method</h6>
                                             <div class="bricks_container">
                                                 <div class="brick">
                                                     <p>No Further Cooking Needed</p>
@@ -151,8 +150,9 @@
                                             </div>
                                     </div>
 
-                                    <div class="advanced_container container section_in"> <!-- Cooking Substrate -->
-                                        <h6 class="advanced_option alignL">Substrate</h6>
+                                    <!-- Cooking Substrate -->
+                                    <div class="search_advanced_section container section_in"> 
+                                        <h6 class="search_advanced_section_title alignL">Substrate</h6>
                                         <div class="bricks_container">
                                             <div class="brick">
                                                 <p>Included in Ingredients</p>
@@ -185,8 +185,8 @@
                             </div>
                         </div>
 
-
-                        <div class="text-center"> <!-- Search button-->
+                        <!-- Search button-->
+                        <div class="text-center"> 
                             <a href="#" class="btn button-image mybutton inner_element_245"></a>
                         </div>
                     </form>
@@ -195,12 +195,12 @@
                 <div id="accordion"> <!-- Results Section -->
 
                     <!-- Dishes Results -->
-                    <div class="section_in card"> 
-                        <div class="results_header_bg card-header">
+                    <div class="results section_in card"> 
+                        <div class="section_header_bg card-header">
                             <div class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
                                 <h3 class="results_section_name alignL">Dishes</h3>
                                 <h4 class="results_count"><span id="dishes_results_count">No</span> Results</h4>
-                                <div class="collapse_arrow pointer">
+                                <div class="row_icon_container collapse_arrow pointer">
                                 </div>
                             </div>
                         </div>
@@ -208,23 +208,20 @@
                             <div class="card-body">
                                 <!-- Results - Dishes Name Row -->
                                 <div class="results_row section_in">
-                                    <div class="results_row_tt">
-                                        <div class="tt pointer">
-                                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                        </div>
+                                    <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                                     </div>
                                     <h4 class="alignL results_row_name pointer">Dish Name Dish Name Dish Na</h4>
-                                    <div class="filler">
+                                    <div class="row_icon_container">
                                     </div>
                                 </div>
                                 <!-- Results - Dishes Description Row -->
                                 <div class="results_row section_in ">
-                                    <div class="results_row_tt">
-                                        <div class="filler">
+                                    <div class="row_icon_container">
+                                        <div class="row_icon_container">
                                         </div>
                                     </div>
                                     <p class="alignL results_row_description">Dish Name Dish Name Dish Name Dish </p>
-                                    <div class="filler">
+                                    <div class="row_icon_container">
                                     </div>
                                 </div>
                             </div>
@@ -232,12 +229,12 @@
                     </div>
                     
                     <!-- Portions Results -->
-                    <div class="section_in card"> 
-                        <div class="results_header_bg card-header">
+                    <div class=" results section_in card"> 
+                        <div class="section_header_bg card-header">
                             <div class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
                                 <h3 class="results_section_name alignL">Portions</h3>
                                 <h4 class="results_count"><span id="portions_results_count">No</span> Results</h4>
-                                <div class="collapse_arrow pointer">
+                                <div class="row_icon_container collapse_arrow pointer">
                                 </div>
                             </div>
                         </div>
@@ -245,43 +242,37 @@
                             <div class="card-body">
                                 <!-- Results - Portions Name Row -->
                                 <div class="results_row section_in">
-                                    <div class="results_row_tt">
-                                        <div class="tt pointer">
-                                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                        </div>
+                                    <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                                     </div>
                                     <h4 class="alignL results_row_name pointer">Portion Name</h4>
-                                    <div class="plus_icon pointer">
+                                    <div class="row_icon_container plus_icon pointer alignR">
                                     </div>
                                 </div>
                                 <!-- Results - Portions Description Row -->
                                 <div class="results_row section_in ">
-                                    <div class="results_row_tt">
-                                        <div class="filler">
+                                    <div class="row_icon_container">
+                                        <div class="row_icon_container">
                                         </div>
                                     </div>
                                     <p class="alignL results_row_description">Portion description if available</p>
-                                    <div class="filler">
+                                    <div class="row_icon_container">
                                     </div>
                                 </div>
                                 <div class="results_row section_in">
-                                    <div class="results_row_tt">
-                                        <div class="tt pointer">
-                                            <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                        </div>
+                                    <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                                     </div>
                                     <h4 class="alignL results_row_name pointer">Portion Name</h4>
-                                    <div class="plus_icon pointer">
+                                    <div class="row_icon_container plus_icon pointer alignR">
                                     </div>
                                 </div>
                                 <!-- Results - Portions Description Row -->
                                 <div class="results_row section_in ">
-                                    <div class="results_row_tt">
-                                        <div class="filler">
+                                    <div class="row_icon_container">
+                                        <div class="row_icon_container">
                                         </div>
                                     </div>
                                     <p class="alignL results_row_description">Portion description if available</p>
-                                    <div class="filler">
+                                    <div class="row_icon_container">
                                     </div>
                                 </div>
                             </div>
@@ -289,12 +280,12 @@
                     </div>
 
                     <!-- Ingredients Results -->
-                    <div class="section_in card"> 
-                        <div class="results_header_bg card-header">
+                    <div class="results section_in card"> 
+                        <div class="section_header_bg card-header">
                             <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
                                 <h3 class="results_section_name alignL">Ingredients</h3>
                                 <h4 class="results_count"><span id="ingredients_results_count">No</span> Results</h4>
-                                <div class="collapse_arrow pointer">
+                                <div class="row_icon_container collapse_arrow pointer">
                                 </div>
                             </div>
                         </div>
@@ -302,12 +293,12 @@
                             <div class="card-body">
                                 <!-- Results - Ingredient Name Row -->
                                 <div class="results_row section_in">
-                                    <div class="results_row_tt">
-                                        <div class="filler">
+                                    <div class="row_icon_container">
+                                        <div class="row_icon_container">
                                         </div>
                                     </div>
                                     <h4 class="alignL results_row_name">Ingredient Name</h4>
-                                    <div class="plus_icon pointer">
+                                    <div class="row_icon_container plus_icon pointer alignR">
                                     </div>
                                 </div>
                             </div>
