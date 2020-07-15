@@ -39,9 +39,7 @@
     color: var(--orange);
 }
 
-.results_section_name, .results_count, .results_row_name, .results_row_description {
-    flex:1;
-}
+
 
 .results_section_name, .results_count {
     line-height: 30px; /* Keeps the contents verically centered */

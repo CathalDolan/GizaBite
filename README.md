@@ -5,6 +5,7 @@ Branches, pushes, commits, etc.
 https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
 
 Accordion - https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
+Buttons - https://getbootstrap.com/docs/4.0/components/buttons/
 
 Each time I worked on a page I created a new brnach, likewise when I was trying something new. To do this I:
 - Create the branch on your local machine and switch in this branch: $ git checkout -b [name_of_your_new_branch]

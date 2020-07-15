@@ -1,7 +1,10 @@
 #page_title_ingredient {
     color: green;
 }
-#page_title_ingredient span {
+#page_title_portion {
+    color: yellow;
+}
+.page_ti span {
     color: var(--white);
 }
 
@@ -126,34 +129,45 @@ div>ul>li {
     padding: 0;
 }
 
-/*--- Bricks ---*/
+/*---------------------------------- Brick buttons */
+.content1{ /* Centres the cooking widget */
+    margin: 0 auto;
+    text-align: center;
+}
+
+#cooking_section .card-body { /* Over rides the default top margin of 1rem to reduce space between top of the widget and the section heading */
+    margin-top: 0;
+}
+
 .bricks_container {
     flex-wrap: wrap;
 }
 
-.brick {
-    flex: 1 1 auto;
-    height: 30px;
-}
-
-.row.justify-content-md-center {
-    background-color: var(--white);
+.justify-content-md-center {
     width: 100%;
     margin: 0;
 }
 
-p.advanced_option { /*------- Brick Buttons Section title. */
-    width: 95%;
-    margin: 1rem auto;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--white);
+.brick { /*------- Brick Buttons */
+    border: 0.5px solid var(--orange);
+    background-color: var(--white);
+    text-align: center;
+    flex: 1 1 auto;
+    height: 30px;
 }
 
-.col { /*------- Brick Buttons */
-    background-color: var(--white);
-    border: 0.5px solid var(--orange);
-    white-space: nowrap;
+.brick p{
+    color: var(--first_layer);
+    margin: 0 1rem;
+    line-height: 30px;
+}
+
+.search_advanced_section { /*--- Section within the Search Widget advanced dropdown ---*/
+    padding: 0;
+}
+
+h6.search_advanced_section_title { /*--- Over rides default colour of white for h6 */
+    margin: 0.5rem 0 0.25rem 0;
 }
 /*--------*/
 
@@ -233,3 +247,11 @@ p.advanced_option { /*------- Brick Buttons Section title. */
     margin: 1rem auto;
 }
 /*--------*/
+
+#portions_input {
+    flex: 1;
+}
+
+#ingredient_search_input {
+    width: 250px;
+}

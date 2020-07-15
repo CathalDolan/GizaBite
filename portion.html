@@ -38,9 +38,6 @@
                         <li class="nav-item">
                         <a class="nav-link" href="new_dish.html">New Dish</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="portion.html">Portion</a>
-                        </li>
                         <li class="nav-item active">
                         <a class="nav-link" href="ingredient.html">Ingredient
                             <span class="sr-only">(current)</span>
@@ -51,6 +48,12 @@
             </div>
         </nav>
         <hr class="rule header_rule">
+        <section class="hero_outer">
+                <div class="hero_image home"></div>
+                <div id="hero_text_container">
+                    <h2 class="alignC hero_text">Count Calories Quickly</h2>
+                </div>
+        </section>
        
     </header>
     
@@ -76,7 +79,7 @@
                 <!--======================================== Name -->
                 <div class="section_bg">
                     <div class="section_in">
-                        <h2 id="page_title_ingredient" class="page_ti floatL">Ingr: <span>Ingredient Name</span></h2>
+                        <h2 id="page_title_portion" class="page_ti floatL">Port: <span>Ingredient Name</span></h2>
                         <div class="row_icon_container plus_icon pointer alignR floatR">
                         </div>
                     </div>
@@ -100,7 +103,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Description -->
-                    <div id="collapseOne" class="collapse" data-parent="#accordion"> <!-- insert show class to expand on arrival -->
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion"> <!-- insert show class to expand on arrival -->
                         <div class="card-body">
                             <div class="section_in">
                                 <div>
@@ -111,79 +114,28 @@
                     </div>
                 </div>
 
-                <!--======================================== Measurement -->
-                <div class="card section_bg"> 
-
-                    <!-- Section Header - Measurement -->
-                    <div class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
-                        </div>
-                        <h3 class="page_section_name alignL">Measurement</h3>
-                        <div class="row_icon_container collapse_arrow pointer alignR">
-                        </div>
-                    </div>
-
-                    <!-- Collapse/Expand Section - Measurement -->
-                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="section_in">
-                                <div class="measurement_container floatL">
-                                    <label id="measurement_checkbox_label" for="another">Purchased and/or sold by the piece? 
-                                        <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
-                                    </label>
-                                </div>
-                                <div class="measurement_container measurement_row_container_second floatL">
-                                    <div class=" measurement_row_label floatL">
-                                        <p>Weight per Piece:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--======================================== Portion -->
+                <!--======================================== Portions -->
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Portion -->
                     <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
                         <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                         </div>
-                        <h3 class="page_section_name alignL">Portion</h3>
+                        <h3 class="page_section_name alignL">Portions</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
 
                     <!-- Collapse/Expand Section - Portion -->
-                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
                         <div class="card-body">               <!-- When this goes it's back -->
                             <div class="section_in">
                                 <div class="measurement_container floatL">
                                     <div class="measurement_row_label floatL">
-                                        <p>Standard Portion:</p>
+                                        <p># of Portions</p>
                                     </div>
                                     <div class="floatL">
                                         <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
-                                    </div>
-                                </div>
-                                <div class="measurement_container measurement_row_container_second floatL">
-                                    <div class=" measurement_row_label floatL">
-                                        <p>Portion g:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
                                     </div>
                                 </div>
                             </div>
@@ -204,13 +156,162 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Ingredients -->
-                    <div id="collapseFour" class="collapse" data-parent="#accordion">
+                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
-                            <div class="section_in ">
-                                <ul>
-                                    <li class="ingredient_ingredient">- Ingredients fro API "Packaged Foods"</li>
-                                </ul>
+                            
+                            <!-- Ingredient Row -->
+                            <div class="results_row section_in">
+                                <div class="row_icon_container eye_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                                </div>
+                                <h4 class="alignL results_row_name pointer">Ingredient Name goes here</h4>
+                                <div class="row_icon_container delete_icon pointer alignR">
+                                </div>
                             </div>
+
+                            <!-- Ingredients Row with Inputs -->
+                            <div class="section_in">
+                                <div class="measurement_container floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Batch Qty:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>pcs</p>
+                                    </div>
+                                </div>
+                                <div class="measurement_container measurement_row_container_second floatL">
+                                    <div class=" measurement_row_label floatL">
+                                        <p>Batch g:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div class="measurement_container measurement_row_container_third floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Portion g:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div class="measurement_container measurement_row_container_fourth floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Portion Kcal:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <p><span class="kcal_count">125</span>Kcal</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section_in alignC">
+                                <h4>Portion Total s: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
+                            </div>
+                            <div class="section_in alignC">
+                                <input type="text" name="search" placeholder="Search portions & ingredients" id="ingredient_search_input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--======================================== Cooking -->
+                <div id="cooking_section" class="card section_bg"> 
+
+                    <!-- Section Header - Cooking -->
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Cooking</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
+                        </div>
+                    </div>
+
+                    <!-- Collapse/Expand Section - Cooking -->
+                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">               <!-- When this goes it's back -->
+                                <div class="content1 inner_element_579">
+
+                                    <!-- Cooking Method-->
+                                    <div class="search_advanced_section container section_in"> 
+                                        <h6 class="search_advanced_section_title alignL">Method</h6>
+                                            <div class="bricks_container">
+                                                <div class="brick">
+                                                    <p>No Further Cooking Needed</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Not Cooked on its Own</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Boiled</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Steamed</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Microwave</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Baked</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Roasted</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Grilled</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Pan Fried</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Shallow Fried</p>
+                                                </div>
+                                                <div class="brick">
+                                                    <p>Deep Fried</p>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    <!-- Cooking Substrate -->
+                                    <div class="search_advanced_section container section_in"> 
+                                        <h6 class="search_advanced_section_title alignL">Substrate</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Included in Ingredients</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Dry</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Vegetable Oil</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Animal Fat</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Margarine</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Butter</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Low Cal Spray</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <label id="measurement_checkbox_label" for="another">Add a second cooking method 
+                                        <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                    </label>
+                                </div>
+                            
                         </div>
                     </div>
                 </div>

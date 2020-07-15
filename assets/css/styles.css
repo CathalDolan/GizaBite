@@ -228,7 +228,7 @@ p {
     width: 100%;
 }
 
-.section_in h3{
+.section_in h3, .section_in h4 {
     margin: 0;
     line-height: 30px;
 }
@@ -253,6 +253,10 @@ p {
     height: 25px;
     width: 25px;
 }
+.row_icon_container.alignL {
+    margin-left: 0;
+}
+
 
 .page_section_name { 
     flex: 1; 
@@ -281,10 +285,20 @@ p {
     content: "\f05a";
 }
 
+.eye_icon:after {
+    content: "\f06e";
+}
+
+xf06e
+
 /*--- Button Specific ---*/
 .btn {
-    margin: auto;
+    margin: 0 auto;
     min-height: 40px;  /*------ Keeps text only buttons at same height as ones with an icon */
+}
+
+a.btn {
+    margin: 1rem auto;
 }
 
 .btn, .button-image {   /* button-image required for positioning of search button in hero section */
@@ -322,9 +336,6 @@ div.card-body>.btn { /*---- Required to override Bootstrap default left alignmen
     }
 }
 
-a.btn {
-    margin: 1rem 0;
-}
 /*--------*/
 
 
@@ -563,6 +574,9 @@ h2.hero_text {
     display:flex;
     align-items: center;
     margin: 0 auto;
+}
+.results_section_name, .results_count, .results_row_name, .results_row_description {
+    flex:1;
 }
 /*--------*/
 
