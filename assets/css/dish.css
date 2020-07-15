@@ -1,3 +1,10 @@
+#page_title_ingredient {
+    color: green;
+}
+#page_title_ingredient span {
+    color: var(--white);
+}
+
 /*--------- Accordion Collapse / Expand ----------*/
 #accordion .section_bg { /* Overrides the global padding in the collapse/expand sections as it is not required */
     padding: 0;
