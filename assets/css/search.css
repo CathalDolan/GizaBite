@@ -27,6 +27,10 @@
     background-color: var(--orange);
 }
 
+.results .row_icon_container {
+    color: var(--white);
+}
+
 .results_section_name, .results_count, .results_row_name, .results_row_description {
     flex:1;
 }

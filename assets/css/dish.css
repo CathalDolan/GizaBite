@@ -16,16 +16,25 @@
     color: var(--white);
 }
 
+label { /* Over rides default. Prevents large space between it and rows beneath. */
+    margin-bottom: 0;
+}
+
 .measurement_row_container {
     overflow: auto;
 }
 
-.measurement_row_container_after { /*--- Use to put a space between measurement rows. Applies to all bar the first ---*/
-    margin-top: 5px;
-}
-
-.measurement_row_label {
+.measurement_row_container_after { /*--- Use to put a space between measurement rows, left on PC, top on mobile. Applies to all bar the first ---*/
+    margin-left: 0.5rem;
+    }
+@media (max-width: 572px) {
+    .measurement_row_container_after {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    }
+    .measurement_row_label {
     width: 140px;
+    }
 }
 
 /*--- Lists ---*/

@@ -259,10 +259,6 @@ p {
     margin: 0 5px;
 }
 
-.heading_icon:after {         
-    content: "\f02f";
-}
-
 .collapse_arrow:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
     content: "\f063"; 
 }
@@ -314,11 +310,6 @@ p {
 
 .mybutton:before{   /* . Adds image to the "Search" button. Related to .button-image:before in styles.css */
     background-image : url(https://i.imgur.com/2RYxoQ1.png);
-}
-
-.back_button {
-    border: none;
-    background-color: var(--second_layer);
 }
 
 div.card-body>.btn { /*---- Required to override Bootstrap default left alignment ----*/
@@ -555,7 +546,7 @@ h2.hero_text {
     width: 98%;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    background-color: var(--third_layer);
+    background-color: var(--second_layer);
 }
 
 .card-header, .card-body {
@@ -580,7 +571,18 @@ h2.hero_text {
     padding-bottom: 0; /* Over rides the global padding. Required as the bar was too deep and affected aesthetic positioning of the rule */
 }
 
-.fa-arrow-left:before {
+.back_button, .print_button {
+    border: none;
+    background-color: var(--second_layer);
+}
+
+.fa-arrow-left:before, .fa-print:before {
     font-size: 40px;
+    color: var(--orange);
+}
+
+.print_icon:after {   
+    font-size: 40px;      
+    content: "\f02f";
     color: var(--orange);
 }
