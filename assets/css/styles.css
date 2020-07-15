@@ -270,7 +270,7 @@ p {
 .plus_icon:after {         
     content: "\f067";
     line-height: 1.2; /* Used to align the icon with the title. Not good. */
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .delete_icon:after {

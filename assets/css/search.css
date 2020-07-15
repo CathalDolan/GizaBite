@@ -31,6 +31,14 @@
     color: var(--white);
 }
 
+.results .row_icon_container .alignR {
+    text-align: right; /* alignR class not working from html so this is here */
+}
+
+.card-body .row_icon_container {
+    color: var(--orange);
+}
+
 .results_section_name, .results_count, .results_row_name, .results_row_description {
     flex:1;
 }

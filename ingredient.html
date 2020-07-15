@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/dish.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/food_pages.css" type="text/css">
     <title>GizaBite</title>
     
     <link rel="shortcut icon" type="image/png" href="assets/graphics/GizaBite_Favicon.png">
@@ -48,13 +48,7 @@
             </div>
         </nav>
         <hr class="rule header_rule">
-        <section class="hero_outer">
-                <div class="hero_image home"></div>
-                <div id="hero_text">
-                    <h2>Count Calories Quickly</h2>
-                </div>
-                <div id="search"></div>
-        </section>
+       
     </header>
     
     <!--======================================== Main Body - Start -->
@@ -80,9 +74,11 @@
                 <div class="section_bg">
                     <div class="section_in">
                         <h2 id="page_title_ingredient" class="page_ti floatL">Ingr: <span>Ingredient Name</span></h2>
+                        <div class="row_icon_container plus_icon pointer alignR floatR">
+                        </div>
                     </div>
                     <div class="section_in">
-                        <p class="clear alignL">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
+                        <p class="alignL">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
                     </div>
                 </div>
 
@@ -101,7 +97,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Description -->
-                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div id="collapseOne" class="collapse" data-parent="#accordion"> <!-- insert show class to expand on arrival -->
                         <div class="card-body">
                             <div class="section_in">
                                 <div>
@@ -125,7 +121,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Measurement -->
-                    <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <div class="section_in">
                                 <div class="measurement_container floatL">
@@ -162,7 +158,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Portion -->
-                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
                         <div class="card-body">               <!-- When this goes it's back -->
                             <div class="section_in">
                                 <div class="measurement_container floatL">
@@ -227,7 +223,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Ingredients -->
-                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                    <div id="collapseFour" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <div class="section_in ">
                                 <ul>
@@ -251,7 +247,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Nutrients & Allergens -->
-                    <div id="collapseFive" class="collapse show" data-parent="#accordion">
+                    <div id="collapseFive" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <div>
                                 <div class="nutrition_container inner_element_571">
