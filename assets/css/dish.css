@@ -1,60 +1,66 @@
-h2, .ingredient_row p { /* Required because global is text-align: center; */
-    line-height: 1; /* Can this be global? */
-}
-
 /*--------- Accordion Collapse / Expand ----------*/
 #accordion .section_bg { /* Overrides the global padding in the collapse/expand sections as it is not required */
     padding: 0;
 }
 
-
-
-.measurement_container {
-    overflow: hidden;
-}
-
-.measurement_row_container {
-    overflow: auto;
-}
-
-.measurement_row_container_after { /*--- Use to put a space between measurement rows. Applies to all bar the first ---*/
-    margin-top: 5px;
-}
-
-.measurement_row_label {
-    width: 140px;
-}
-
-.card { /* Each collapse section is a card */
+.card { /* Each collapse section is a card. This over rides styles.css */
     width: 100%;
 }
 
-.collapse_arrow {
-    text-align: right; 
-    flex:1;
-    line-height: 30px; /* Keeps the contents verically centered */
+/*--- Measurement Section ---*/
+
+
+#measurement_checkbox_label { /*--- Over rides the default label black colour ---*/
+    color: var(--white);
 }
 
-.bricks_container {
-    flex-wrap: wrap;
+label { /* Over rides default. Prevents large space between it and rows beneath. */
+    margin-bottom: 0;
 }
 
-.brick {
-    flex: 1 1 auto;
-    height: 30px;
+.measurement_row_container_second, .measurement_row_container_third, .measurement_row_container_fourth { /*--- Use to put a space between measurement rows, left on PC, top on mobile. Applies to all bar the first ---*/
+    margin-left: 0.5rem;
+    }
+@media (max-width: 1024px) {
+    .measurement_container, .measurement_row_container {
+        width: 275px;
+        overflow: hidden;
+    }
+    .measurement_row_label {
+        width: 140px;
+    }
+    .measurement_row_container_third, .measurement_row_container_fourth {
+        margin-top: 0.5rem;
+        margin-left: 0;
+    }
+    .measurement_row_container_second {
+        margin-left: 0;
+        margin-right: 200px;
+    }
+}
+@media (max-width: 768px) {
+    .measurement_row_container_second {
+    margin-left: 0.5rem;
+    margin-right: 0;
+    }
+    .measurement_row_container_third {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    }
+    .measurement_row_container_fourth {
+    margin-left: 0.5rem;
+    }
+}
+@media (max-width: 650px) { /* 650px instead of 572 to allow for mobile in landsacape */
+    .measurement_row_container_second, .measurement_row_container_third, .measurement_row_container_fourth {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    }
+
 }
 
-.results_row_tt {
-    flex: 1;
-    height: 25px;
-    width: 25px;
-}
 
-h3.page_section_name { 
-    flex: 25; 
-    margin: 0 5px;
-}
-
+/*--- Lists ---*/
 .section_in ul {
     padding: 0;
     margin: 0;
@@ -64,12 +70,14 @@ h3.page_section_name {
     line-height: 30px;
 }
 
-
 /*---------------------------------- Nutrition & Allergens Section */
+
+.nutrition_container, .inner_element_571 {
+    margin: 0 auto;
+}
 
 .nutrition_container {
     background-color: var(--white);
-    margin: auto;
     padding-bottom: 0; /* unlike the top of the container, the search button gives the spacing hjere */
 }
 
@@ -91,23 +99,58 @@ ul.ul {
 .notes_container {
     text-align: left;
 }
-
 /*----------------*/
 
+/*   New Dish */
 
-/*------- Ingredients Section Start */
+.new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
+    width: 250px;
+}
 
+.new_dish_description_input {
+    width: 100%;
+}
 
-#item_delete { /* Aligns the icon to the right */
-    position: absolute; 
-    right: 0; 
-    color: var(--orange);
-    font-size: 20px;
-    vertical-align: middle;
+div>ul>li {
+    color: var(--white);
+}
+
+.section_bg.new_dish_save_btn {
+    padding: 0;
+}
+
+/*--- Bricks ---*/
+.bricks_container {
+    flex-wrap: wrap;
+}
+
+.brick {
+    flex: 1 1 auto;
+    height: 30px;
+}
+
+.row.justify-content-md-center {
+    background-color: var(--white);
+    width: 100%;
+    margin: 0;
+}
+
+p.advanced_option { /*------- Brick Buttons Section title. */
+    width: 95%;
+    margin: 1rem auto;
+    font-weight: 500;
     line-height: 1;
-} 
+    color: var(--white);
+}
 
+.col { /*------- Brick Buttons */
+    background-color: var(--white);
+    border: 0.5px solid var(--orange);
+    white-space: nowrap;
+}
+/*--------*/
 
+/*------- Portions Section Start */
 
 #batch_total_section {
     white-space:nowrap; /* needed? */
@@ -131,7 +174,7 @@ ul.ul {
     }
 }
 
-/*------- used to align Measurements */
+/*--- Used to align Measurements */
 @media (max-width: 1100px) { 
 .section_in>.batch_total_section3 {
     margin-right: 50%;
@@ -150,7 +193,7 @@ ul.ul {
     }
 }
 
-/*------- These control the input names for Measurements section width. */
+            /*--- These control the input names for Measurements section width. ---*/
 #batch_total_ti2.portions_p {
     width: 100px;
 }
@@ -182,52 +225,4 @@ ul.ul {
 .search_name_input {
     margin: 1rem auto;
 }
-
-div.collapse_content p{
-    margin: 0 auto;
-}
-
-/* Brick buttons */
-.row.justify-content-md-center {
-    background-color: var(--white);
-    width: 100%;
-    margin: 0;
-}
-
-p.advanced_option { /*------- Brick Buttons Section title. */
-    width: 95%;
-    margin: 1rem auto;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--white);
-}
-
-.col { /*------- Brick Buttons */
-    background-color: var(--white);
-    border: 0.5px solid var(--orange);
-    white-space: nowrap;
-}
-
-#measurement_checkbox_label {
-    color: var(--white);
-}
-
-/*-------------------*/
-
-/*   New Dish */
-
-.new_dish_name_input { /* Max width the field can be to prevent it pushing other elements down opn mobile */
-    width: 250px;
-}
-
-.new_dish_description_input {
-    width: 100%;
-}
-
-div>ul>li {
-    color: var(--white);
-}
-
-.section_bg.new_dish_save_btn {
-    padding: 0;
-}
+/*--------*/

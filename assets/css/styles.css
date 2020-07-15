@@ -8,6 +8,11 @@
     padding: 0;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+/*--- Global Widths ---*/
 body {
     width: 100%;
 }
@@ -31,6 +36,66 @@ main {
     }
 }
 
+            /*--- Inner Elements such as buttons and the Search Widget ---*/
+
+.inner_element_245 { /* Width: 25% on PC, 40% on tablet, 50% on mobile */
+    width: 25%;
+}
+@media (max-width: 992px){
+    .inner_element_245 {
+        width: 40%;
+    }
+}
+@media (max-width: 576px){ /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_245 {
+        width: 50%;
+    }
+}
+
+.inner_element_567 { /* Width: 50% on PC, 62.5% on tablet, 75% on mobile */
+    width: 50%;
+}
+@media (max-width: 992px){
+    .inner_element_567 {
+        width: 62.5%;
+    }
+}
+@media (max-width: 576px){  /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_567 {
+        width: 75%;
+    }
+}
+
+.inner_element_571 { /* Width: 50% on PC, 75% on tablet, 100% on mobile */
+    width: 50%;
+}
+@media (max-width: 992px){
+    .inner_element_571 {
+        width: 75%;
+    }
+}
+@media (max-width: 576px){  /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_571 {
+        width: 100%;
+    }
+}
+
+.inner_element_579 { /* Width: 50% on PC, 75% on tablet, 95% on mobile */
+    width: 50%;
+}
+@media (max-width: 992px){
+    .inner_element_579 {
+        width: 75%;
+    }
+}
+@media (max-width: 576px){  /*Screen shize choosen so that it applies only to mobile */
+    .inner_element_579 {
+        width: 95%;
+    }
+}
+/*--------*/
+
+/*--- Colours & Fonts ---*/
 :root {
     --first_layer: #202224;
     --second_layer: #1b1c1d;
@@ -107,6 +172,9 @@ p {
         font-size: 14px;
     }
 }
+/*--------*/
+
+/*--- Global Positioning ---*/
 
 .alignL {
     text-align: left;
@@ -116,83 +184,6 @@ p {
 }
 .alignR {
     text-align: right;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-/*~~~~~~~~~~~~~~~~~~~~ Page Sections - Start */
-.section_bg { /*------- Layer 2 that sits on top of the Body */
-    margin: 1rem auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: var(--second_layer);
-    border-radius: 8px;
-}
-
-.section_in { /*------- Background Inner to allow equal spacing within the section_bg and others. */
-    width: 95%;
-    margin: 0 auto;
-    min-height: 30px;
-    overflow: hidden;
-    align-items: center;
-}
-
-/*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Tooltip */
-.tt {
-    height: 25px;
-    width: 25px;
-    background-color: var(--orange);
-    border-radius: 50px;
-    line-height: 30px;
-}
-
-.tt p {
-    margin:0;
-    padding: 0;
-    font-size: 25px;
-    line-height: 25px;
-}
-
-/*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Section Title */
-
-.section_in h3{
-    margin: 0;
-    line-height: 30px;
-}
-
-/*~~~~~~~~~~~~~~~~~~~~ Page Sections Heading - Collapse/Expand */
-
-
-.collapse_arrow, .heading_icon, .plus_icon  {    /* This is the collapse arrow icon positioning to the right of the sction heading */
-    content: '';  
-    font-family: FontAwesome;
-    line-height: 1;
-    width: 25px;        
-    color: var(--orange);
-    font-size: 25px;
-    margin-left: 5px;
-}
-
-.heading_icon:after {         
-    content: "\f02f";
-    line-height: 1.2; /* Used to align the icon with the title. Not good. */
-    font-size: 20px;
-}
-
-.collapse_arrow:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
-    content: "\f063"; 
-}
-
-.collapse_arrow.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
-    content: "\f062";
-} 
-
-.plus_icon:after {         
-    content: "\f067";
-    line-height: 1.2; /* Used to align the icon with the title. Not good. */
-    font-size: 20px;
 }
 
 .floatL {
@@ -212,78 +203,87 @@ p {
 .clearL {
     clear: left;
 }
-
-/* .delete_icon:after {    Delete icon used in ingredients and dish pages. Didn't work here because of flex on dish page
-    content: "\f014";
-} */
+/*--------*/
 
 
-/*~~~~~~~~~~~~~~~~~~~~ Inner Elements such as buttons and the Search Widget */
-
-.inner_element_245 { /* Width: 25% on PC, 40% on tablet, 50% on mobile */
-    width: 25%;
-}
-@media (max-width: 992px){
-    .inner_element_245 {
-        width: 40%;
-    }
-}
-@media (max-width: 576px){ /*Screen shize choosen so that it applies only to mobile */
-    .inner_element_245 {
-        width: 50%;
-    }
+/*--- Page Sections ---*/
+.section_bg { /*------- Layer 2 that sits on top of the Body */
+    margin: 1rem auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--second_layer);
+    border-radius: 8px;
 }
 
-.inner_element_567 { /* Width: 50% on PC, 62.5% on tablet, 75% on mobile */
-    width: 50%;
-}
-@media (max-width: 992px){
-    .inner_element_567 {
-        width: 62.5%;
-    }
-}
-@media (max-width: 576px){  /*Screen shize choosen so that it applies only to mobile */
-    .inner_element_567 {
-        width: 75%;
-    }
-}
-
-.inner_element_571 { /* Width: 50% on PC, 75% on tablet, 100% on mobile */
-    width: 50%;
-}
-@media (max-width: 992px){
-    .inner_element_571 {
-        width: 75%;
-    }
-}
-@media (max-width: 576px){  /*Screen shize choosen so that it applies only to mobile */
-    .inner_element_571 {
-        width: 100%;
-    }
-}
-.inner_element_571 {
-    border: 1px solid goldenrod;
+.section_in { /*------- Background Inner to allow equal spacing within the section_bg and others. */
+    width: 95%;
     margin: 0 auto;
+    min-height: 30px;
+    overflow: hidden;
+    align-items: center;
 }
 
-.inner_element_579 { /* Width: 50% on PC, 75% on tablet, 95% on mobile */
-    width: 50%;
-}
-@media (max-width: 992px){
-    .inner_element_579 {
-        width: 75%;
-    }
-}
-@media (max-width: 576px){  /*Screen shize choosen so that it applies only to mobile */
-    .inner_element_579 {
-        width: 95%;
-    }
+.section_header_bg { /*---Currently used in Search Results Sections ---*/
+    height: 30px;
+    width: 100%;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~ Button Specific */
-.btn {   /* Standard buttons */
+.section_in h3{
+    margin: 0;
+    line-height: 30px;
+}
+
+.collapse {
+    width: 100%;
+}
+
+.container { /* Required to align elements in a row within a section */
+    padding: 0; /* Removes default Container padding left & right */
+    margin: 0.5rem auto;
+}
+
+.row_icon_container {
+    flex: 0 0 35px;
+    content: '';  
+    font-family: FontAwesome;
+    line-height: 1;       
+    color: var(--orange);
+    font-size: 25px;
+    margin-left: 5px;
+    height: 25px;
+    width: 25px;
+}
+
+.page_section_name { 
+    flex: 1; 
+    margin: 0 5px;
+}
+
+.collapse_arrow:after {  /* Used in section headings to insert an arrow icon facing DOWN */           
+    content: "\f063"; 
+}
+
+.collapse_arrow.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
+    content: "\f062";
+} 
+
+.plus_icon:after {         
+    content: "\f067";
+    line-height: 1.2; /* Used to align the icon with the title. Not good. */
+    font-size: 20px;
+}
+
+.delete_icon:after {
+    content: "\f014";
+}
+
+.info_icon:after {
+    content: "\f05a";
+}
+
+/*--- Button Specific ---*/
+.btn {
     margin: auto;
-    /* font-weight: bold;  font weight to be check */
     min-height: 40px;  /*------ Keeps text only buttons at same height as ones with an icon */
 }
 
@@ -308,9 +308,8 @@ p {
     background-size: contain;
 }
 
-.back_button {
-    border: none;
-    background-color: var(--second_layer);
+.mybutton:before{   /* . Adds image to the "Search" button. Related to .button-image:before in styles.css */
+    background-image : url(https://i.imgur.com/2RYxoQ1.png);
 }
 
 div.card-body>.btn { /*---- Required to override Bootstrap default left alignment ----*/
@@ -326,9 +325,10 @@ div.card-body>.btn { /*---- Required to override Bootstrap default left alignmen
 a.btn {
     margin: 1rem 0;
 }
+/*--------*/
 
 
-/*~~~~~~~~~~~~~~~~~~~~ Page Rules */
+/*--- Page Rules ---*/
 .rule {
     background-color: var(--orange);
     margin: 1em auto;
@@ -354,8 +354,24 @@ a.btn {
     width: 50%;
     height: 1px;
 }
+/*--------*/
 
-/*~~~~~~~~~~~~~~~~~~~~ Navbar */
+/*-------- Global Inputs -----*/
+.input_nutrient_weight>input {
+    width: 5ch;
+}
+
+.input_percent>input {
+    width: 3ch;
+}
+
+.input_weight_number { /* This class name needs to be changed as it applies to more than just ingredieint weights */
+    width: 8ch;
+    border: 1px solid var(--orange);
+}
+/*--------*/
+
+/*--- Navbar ---*/
 
 .navbar{
     padding: 0 2rem;
@@ -394,8 +410,9 @@ a.btn {
 .custom-toggler.navbar-toggler {
   border-color: var(--orange);
 } 
+/*--------*/
 
-/*~~~~~~~~~~~~~~~~~~~~ Hero Image Start */
+/*--- Hero Image Start ---*/
 
 .hero_image {
     background-image: url(https://i.imgur.com/rNHT0wI.png);
@@ -511,7 +528,6 @@ h2.hero_text {
 }
 
 #hero_search_button.mybutton:before{   /* . Adds image to the "Search" button in the hero section. Related to .button-image:before*/
-    background-image : url(https://i.imgur.com/2RYxoQ1.png);
     max-height: 30px;
     width: 27px;
 }
@@ -521,30 +537,10 @@ h2.hero_text {
     height: 1px;
     margin: 0.5rem 0;
 }
+/*--------*/
 
 
-
-.fa-arrow-left:before {
-    font-size: 40px;
-    color: var(--orange);
-}
-
-.insection_tt { /* In section tooltips are smaller than standard size set in styles */
-    height: 20px;
-    width: 20px;
-}
-
-.insection_tt p, div.delete_icon {
-    font-weight: 500;
-    font-size: 20px;
-}
-
-
-/*--------- collapse_content -----------*/
-.results_header_bg {
-    height: 30px;
-    width: 100%;
-}
+/*--- Page Cards ---*/
 
 .card {
     width: 98%;
@@ -563,42 +559,30 @@ h2.hero_text {
     margin-bottom: 1rem;
 }
 
-.collapse {
-    width: 100%;
-}
-
 .card-link, .results_row, .bricks_container {
     display:flex;
     align-items: center;
     margin: 0 auto;
 }
+/*--------*/
 
-
-.container { /* Required to align elements in a row within a section */
-    padding: 0; /* Removes default Container padding left & right */
-    margin: 0.5rem auto;
-}
-
-.search_container {
-    margin: auto;
-    overflow: hidden;
-}
-
-/*-------- Global Inputs -----*/
-.input_nutrient_weight>input {
-    width: 5ch;
-}
-
-.input_percent>input {
-    width: 3ch;
-}
-
-.input_weight_number { /* This class name needs to be changed as it applies to more than just ingredieint weights */
-    width: 8ch;
-    border: 1px solid var(--orange);
-}
-
-
+/*--- Action Icons Bar ---*/
 #action_icons_bar {
     padding-bottom: 0; /* Over rides the global padding. Required as the bar was too deep and affected aesthetic positioning of the rule */
+}
+
+.back_button, .print_button {
+    border: none;
+    background-color: var(--second_layer);
+}
+
+.fa-arrow-left:before, .fa-print:before {
+    font-size: 40px;
+    color: var(--orange);
+}
+
+.print_icon:after {   
+    font-size: 40px;      
+    content: "\f02f";
+    color: var(--orange);
 }

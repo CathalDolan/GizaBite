@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/dish.css" type="text/css">
     <title>GizaBite</title>
     
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/graphics/GizaBite_Favicon.png">
 </head>
 <body>
     <!--======================================== Header - Start -->
@@ -67,6 +67,10 @@
                     <button onclick="goBack()" class="back_button">
                         <i class="fas fa-arrow-left"></i>
                     </button>
+                    <button class="print_button floatR">
+                        <i class="fas fa-print"></i>
+                    </button>
+                    
                     <hr class="rule section_in_rule">
                 </div>
             </div>
@@ -76,8 +80,6 @@
                 <div class="section_bg">
                     <div class="section_in">
                         <h2  class="page_ti floatL">Ingredient Name</h2>
-                        <div class="heading_icon floatR">
-                        </div>
                     </div>
                     <div class="section_in">
                         <p class="clear alignL">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
@@ -90,16 +92,11 @@
                 <div class="card section_bg "> 
 
                     <!-- Section Header - Description -->
-                    <div class="results_header_bg card-header">
-                        <div class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
-                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                <div class="tt pointer">
-                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                </div>
-                            </div>
-                            <h3 class="page_section_name alignL">Description</h3>
-                            <div class="collapse_arrow pointer">
-                            </div>
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
+                        <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Description</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
 
@@ -119,16 +116,11 @@
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Measurement -->
-                    <div class="results_header_bg card-header">
-                        <div class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
-                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                <div class="tt pointer">
-                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                </div>
-                            </div>
-                            <h3 class="page_section_name alignL">Measurement</h3>
-                            <div class="collapse_arrow pointer">
-                            </div>
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
+                        <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Measurement</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
 
@@ -136,12 +128,12 @@
                     <div id="collapseTwo" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
                             <div class="section_in">
-                                <div>
-                                    <label id="measurement_checkbox_label" for="another">Purchased and/or sold on a per piece basis? 
+                                <div class="measurement_container floatL">
+                                    <label id="measurement_checkbox_label" for="another">Purchased and/or sold by the piece? 
                                         <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
                                     </label>
                                 </div>
-                                <div class="measurement_container clear">
+                                <div class="measurement_container measurement_row_container_second floatL">
                                     <div class=" measurement_row_label floatL">
                                         <p>Weight per Piece:</p>
                                     </div>
@@ -161,16 +153,11 @@
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Portion -->
-                    <div class="results_header_bg card-header">
-                        <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
-                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                <div class="tt pointer">
-                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                </div>
-                            </div>
-                            <h3 class="page_section_name alignL">Portion</h3>
-                            <div class="collapse_arrow pointer">
-                            </div>
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
+                        <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Portion</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
 
@@ -178,7 +165,7 @@
                     <div id="collapseThree" class="collapse show" data-parent="#accordion">
                         <div class="card-body">               <!-- When this goes it's back -->
                             <div class="section_in">
-                                <div class="measurement_container">
+                                <div class="measurement_container floatL">
                                     <div class="measurement_row_label floatL">
                                         <p>Standard Portion:</p>
                                     </div>
@@ -189,9 +176,31 @@
                                         <p>g</p>
                                     </div>
                                 </div>
-                                <div class="measurement_row_container measurement_row_container_after clear">
+                                <div class="measurement_container measurement_row_container_second floatL">
                                     <div class=" measurement_row_label floatL">
                                         <p>Portion g:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div class="measurement_container measurement_row_container_third floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Extra input:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div class="measurement_container measurement_row_container_fourth floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Extra input:</p>
                                     </div>
                                     <div class="floatL">
                                         <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
@@ -209,16 +218,11 @@
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Ingredients -->
-                    <div class="results_header_bg card-header">
-                        <div class="section_in card-link" data-toggle="collapse" href="#collapseFour"> 
-                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                <div class="tt pointer">
-                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                </div>
-                            </div>
-                            <h3 class="page_section_name alignL">Ingredients</h3>
-                            <div class="collapse_arrow pointer">
-                            </div>
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseFour"> 
+                        <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Ingredients</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
 
@@ -238,16 +242,11 @@
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Nutrients & Allergens -->
-                    <div class="results_header_bg card-header">
-                        <div class="section_in card-link" data-toggle="collapse" href="#collapseFive"> 
-                            <div class="results_row_tt"> <!-- Required to give the tt a fixed width as he flex:1 in css was stretching it -->
-                                <div class="tt pointer">
-                                    <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                                </div>
-                            </div>
-                            <h3 class="page_section_name alignL">Nutrients & Allergens</h3>
-                            <div class="collapse_arrow pointer">
-                            </div>
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseFive"> 
+                        <div class="row_icon_container info_icon pointer" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Nutrients & Allergens</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
 
