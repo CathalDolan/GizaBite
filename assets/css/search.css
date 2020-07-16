@@ -1,3 +1,7 @@
+#search .hero_image {
+    background-image: url(/assets/graphics/Search_Image.jpg);
+}
+
 /*---------------------------------- Search Widget -- Start */
 .search_container {
     border-radius: 5px;

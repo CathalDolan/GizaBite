@@ -45,3 +45,9 @@ To force the deletion of local branch on your filesystem : $ git branch -D [name
 
 Delete the branch on github : $ git push origin :[name_of_your_new_branch]
 
+Images from pexels.com
+- Dish Header: https://www.pexels.com/photo/close-up-photo-of-cooked-shrimp-with-sauce-2291353/
+- New Dish: https://www.pexels.com/photo/pasta-noodles-tomato-sauce-spirelli-14737/
+- Portion: https://www.pexels.com/photo/cheeseburger-and-fries-2725744/
+- New Portion: https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/
+- Ingredients Header: https://www.pexels.com/photo/food-healthy-vegetables-vegetarian-45914/
