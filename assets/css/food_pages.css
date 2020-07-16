@@ -129,48 +129,6 @@ div>ul>li {
     padding: 0;
 }
 
-/*---------------------------------- Brick buttons */
-.content1{ /* Centres the cooking widget */
-    margin: 0 auto;
-    text-align: center;
-}
-
-#cooking_section .card-body { /* Over rides the default top margin of 1rem to reduce space between top of the widget and the section heading */
-    margin-top: 0;
-}
-
-.bricks_container {
-    flex-wrap: wrap;
-}
-
-.justify-content-md-center {
-    width: 100%;
-    margin: 0;
-}
-
-.brick { /*------- Brick Buttons */
-    border: 0.5px solid var(--orange);
-    background-color: var(--white);
-    text-align: center;
-    flex: 1 1 auto;
-    height: 30px;
-}
-
-.brick p{
-    color: var(--first_layer);
-    margin: 0 1rem;
-    line-height: 30px;
-}
-
-.search_advanced_section { /*--- Section within the Search Widget advanced dropdown ---*/
-    padding: 0;
-}
-
-h6.search_advanced_section_title { /*--- Over rides default colour of white for h6 */
-    margin: 0.5rem 0 0.25rem 0;
-}
-/*--------*/
-
 /*------- Portions Section Start */
 
 #batch_total_section {
@@ -255,3 +213,28 @@ h6.search_advanced_section_title { /*--- Over rides default colour of white for 
 #ingredient_search_input {
     width: 250px;
 }
+
+#portion .portion_totals_div h4 { /* Adds space between the ingredient name and its measurements beneath it */
+    margin-top: 1rem;
+}
+
+#portion .ingredient_measurement_row { /* Adds spacing between the ingredients listed */
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+
+/*---------------------------------- Brick buttons */
+
+#cooking_section .card-body { /* Over rides the default top margin of 1rem to reduce space between top of the widget and the section heading */
+    margin-top: 0;
+}
+
+#add_cooking_method_checkbox, #allergens_nut_checkbox {
+    color: var(--white);
+}
+
+#portion .container { /* centres the "add another cooking method" */
+    text-align: center;
+}
+/*--------*/

@@ -58,7 +58,7 @@
     </header>
     
     <!--======================================== Main Body - Start -->
-    <main>
+    <main id="portion">
         <section>
 
             <!--======================================== Action Icons Bar -->
@@ -118,7 +118,7 @@
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Portion -->
-                    <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
                         <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                         </div>
                         <h3 class="page_section_name alignL">Portions</h3>
@@ -127,15 +127,15 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Portion -->
-                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
-                        <div class="card-body">               <!-- When this goes it's back -->
+                    <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
                             <div class="section_in">
                                 <div class="measurement_container floatL">
                                     <div class="measurement_row_label floatL">
                                         <p># of Portions</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                 <div class="card section_bg"> 
 
                     <!-- Section Header - Ingredients -->
-                    <div class="section_in card-link" data-toggle="collapse" href="#collapseFour"> 
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
                         <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                         </div>
                         <h3 class="page_section_name alignL">Ingredients</h3>
@@ -156,7 +156,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Ingredients -->
-                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
                             
                             <!-- Ingredient Row -->
@@ -169,13 +169,13 @@
                             </div>
 
                             <!-- Ingredients Row with Inputs -->
-                            <div class="section_in">
+                            <div class="ingredient_measurement_row section_in">
                                 <div class="measurement_container floatL">
                                     <div class="measurement_row_label floatL">
                                         <p>Batch Qty:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
@@ -186,7 +186,7 @@
                                         <p>Batch g:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -197,7 +197,7 @@
                                         <p>Portion g:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> 
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -212,8 +212,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="section_in alignC">
-                                <h4>Portion Total s: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
+
+                            <div class="portion_totals_div section_in alignC">
+                                <h4>Portion Totals: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
                             </div>
                             <div class="section_in alignC">
                                 <input type="text" name="search" placeholder="Search portions & ingredients" id="ingredient_search_input">
@@ -226,7 +227,7 @@
                 <div id="cooking_section" class="card section_bg"> 
 
                     <!-- Section Header - Cooking -->
-                    <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseFour"> 
                         <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                         </div>
                         <h3 class="page_section_name alignL">Cooking</h3>
@@ -235,82 +236,82 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Cooking -->
-                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
-                        <div class="card-body">               <!-- When this goes it's back -->
-                                <div class="content1 inner_element_579">
+                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                        <div class="card-body"> 
+                            <div class="container inner_element_579">
 
-                                    <!-- Cooking Method-->
-                                    <div class="search_advanced_section container section_in"> 
-                                        <h6 class="search_advanced_section_title alignL">Method</h6>
-                                            <div class="bricks_container">
-                                                <div class="brick">
-                                                    <p>No Further Cooking Needed</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Not Cooked on its Own</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Boiled</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Steamed</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Microwave</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Baked</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Roasted</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Grilled</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Pan Fried</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Shallow Fried</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Deep Fried</p>
-                                                </div>
-                                            </div>
-                                    </div>
-
-                                    <!-- Cooking Substrate -->
-                                    <div class="search_advanced_section container section_in"> 
-                                        <h6 class="search_advanced_section_title alignL">Substrate</h6>
+                                <!-- Cooking Method-->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Method</h6>
                                         <div class="bricks_container">
                                             <div class="brick">
-                                                <p>Included in Ingredients</p>
+                                                <p>No Further Cooking Needed</p>
                                             </div>
                                             <div class="brick">
-                                                <p>Dry</p>
+                                                <p>Not Cooked on its Own</p>
                                             </div>
                                             <div class="brick">
-                                                <p>Vegetable Oil</p>
+                                                <p>Boiled</p>
                                             </div>
                                             <div class="brick">
-                                                <p>Animal Fat</p>
+                                                <p>Steamed</p>
                                             </div>
                                             <div class="brick">
-                                                <p>Margarine</p>
+                                                <p>Microwave</p>
                                             </div>
                                             <div class="brick">
-                                                <p>Butter</p>
+                                                <p>Baked</p>
                                             </div>
                                             <div class="brick">
-                                                <p>Low Cal Spray</p>
+                                                <p>Roasted</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Grilled</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pan Fried</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Shallow Fried</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Deep Fried</p>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <label id="measurement_checkbox_label" for="another">Add a second cooking method 
-                                        <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
-                                    </label>
                                 </div>
+
+                                <!-- Cooking Substrate -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Substrate</h6>
+                                    <div class="bricks_container">
+                                        <div class="brick">
+                                            <p>Included in Ingredients</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Dry</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Vegetable Oil</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Animal Fat</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Margarine</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Butter</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Low Cal Spray</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label id="add_cooking_method_checkbox" for="another">Add a second cooking method 
+                                    <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                </label>
+                            </div>
                             
                         </div>
                     </div>
@@ -412,7 +413,7 @@
                                     </table>
                                 </div>
                                 <hr class="rule section_rule">
-                                <div class="nutrition_container  inner_element_571">
+                                <div class="nutrition_container inner_element_571">
                                     <h5>Vitamins & Minerals</h5>
                                     <table class="table">
                                         <thead>
@@ -471,19 +472,111 @@
                                     </table>            
                                 </div>
                                 <hr class="rule section_rule">
-                                <div class="inner_element_571">
-                                    <h5>Allergens</h5>
-                                    <ul class="ul alignL">
-                                        <li>Wheat</li>
-                                        <li>Barley</li>
-                                    </ul>
+
+                            <div class="container inner_element_579">
+                                <h5>Allergens</h5>
+                                <p>As food contents can vary from one supplier to another, it is your responsibility to ensure any food allergens are correctly listed.</p>
+
+                                <!-- Cereals -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Cereals</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Barley</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Oats</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Rye</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Wheat</p>
+                                            </div>
+                                        </div>
                                 </div>
+
+                                <!-- Nuts -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Nuts*</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Almonds</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Brazil Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Cashew Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Hazelnuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Macadamea Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Peanuts*</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pecan Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pistacho Nuts</p>
+                                            </div>
+                                        </div>
+                                        <label id="allergens_nut_checkbox" for="another">Prepared in a factory that handles nuts
+                                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                        </label>
+                                </div>
+
+                                <!-- Other Foods -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Other Foods</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Celery</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Crustaceans</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Eggs</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Fish</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Lupin</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Milk</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Mustard</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Sesame Seeds</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Soybeans</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Sulphur Dioxide and Sulphites</p>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                
+                            </div>
+
                                 <hr class="rule section_rule">
-                                <div class="inner_element_571">
+                                <div class="container inner_element_579">
                                     <h5>Notes</h5>
                                     <ul class="ul alignL">
-                                        <li>*Stuff about RI</li>
+                                        <li>Stuff about RI</li>
                                         <li>Uncooked, etc.</li>
+                                        <li>*Peanuts are not technically a nut</li>
                                     </ul>
                                 </div>
                             </div>

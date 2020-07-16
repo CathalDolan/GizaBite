@@ -47,34 +47,8 @@
 
 
 /*---------------------------------- Brick buttons */
-.bricks_container {
-    flex-wrap: wrap;
-}
 
-.justify-content-md-center {
-    width: 100%;
-    margin: 0;
-}
-
-.brick { /*------- Brick Buttons */
-    border: 0.5px solid var(--orange);
-    text-align: center;
-    flex: 1 1 auto;
-    height: 30px;
-}
-
-.brick p{
-    color: var(--first_layer);
-    margin: 0 1rem;
-    line-height: 30px;
-}
-
-.search_advanced_section { /*--- Section within the Search Widget advanced dropdown ---*/
-    padding: 0;
-}
-
-h6.search_advanced_section_title { /*--- Over rides default colour of white for h6 */
+#search h6.search_advanced_section_title { /*--- Over rides default colour of white for h6 */
     color: var(--bg);
-    margin: 0.5rem 0 0.25rem 0;
 }
 /*--------*/
