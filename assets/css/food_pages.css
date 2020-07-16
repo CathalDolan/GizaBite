@@ -213,12 +213,11 @@ div>ul>li {
     flex: 1;
 }
 
-#ingredient_search_input {
-    width: 250px;
-}
+
 
 #portion .portion_totals_div h4, #dish .portion_totals_div h4 { /* Adds space between the ingredient name and its measurements beneath it */
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #portion .ingredient_measurement_row, #dish .ingredient_measurement_row { /* Adds spacing between the ingredients listed */
@@ -237,7 +236,35 @@ div>ul>li {
     color: var(--white);
 }
 
-#portion .container { /* centres the "add another cooking method" */
+.container { /* centres the "add another cooking method" */
     text-align: center;
 }
 /*--------*/
+
+/*--- New Dish / Portion ---*/
+textarea {
+    width: 70%;
+}
+
+textarea.product_name { /* removes margin added by global FloatL. Allows the input to be wide as possible on mobile" */
+        margin: 0;
+        line-height: 30px;
+}
+
+#description textarea, #add_ingredients.product_description {
+    width: 100%;
+}
+
+#ingredient_search_div  {
+    margin: 0 auto;
+    text-align: center;
+}
+#ingredient_search_div>label{
+    color: var(--orange);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+#ingredient_search_input{
+    border: 1px solid var(--orange);
+}

@@ -38,6 +38,12 @@
                         <li class="nav-item">
                         <a class="nav-link" href="new_dish.html">New Dish</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="portion.html">Portion</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="new_portion.html">New Portion</a>
+                        </li>
                         <li class="nav-item active">
                         <a class="nav-link" href="ingredient.html">Ingredient
                             <span class="sr-only">(current)</span>
@@ -210,11 +216,15 @@
                                 </div>
                             </div>
 
+                            <!-- Wieght and Calorie Totals-->
                             <div class="portion_totals_div section_in alignC">
-                                <h4>Portion Totals: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
+                                <h4>Dish Totals: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
                             </div>
-                            <div class="section_in alignC">
-                                <input type="text" name="search" placeholder="Search portions & ingredients" id="ingredient_search_input">
+                            
+                            <!-- Search Input-->
+                            <div class="section_in inner_element_571" id="ingredient_search_div">
+                                <label for="ingredient_search_input">SEARCH:</label>
+                                <input type="text" id="ingredient_search_input" name="ingredient_search_input" placeholder="Search for and add Portions & Ingredients" class="inner_element_571">
                             </div>
                         </div>
                     </div>
@@ -303,11 +313,10 @@
                                             <p>Low Cal Spray</p>
                                         </div>
                                     </div>
-                                </div>
-
-                                <label id="add_cooking_method_checkbox" for="another">Add a second cooking method 
+                                    <label id="add_cooking_method_checkbox" for="another">Add a second cooking method 
                                     <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
                                 </label>
+                                </div>
                             </div>
                             
                         </div>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/dish.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/food_pages.css" type="text/css">
     <title>GizaBite</title>
     
     <link rel="shortcut icon" type="image/png" href="assets/graphics/GizaBite_Favicon.png">
@@ -26,7 +26,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home
+                            </a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="search.html">Search</a>
@@ -34,13 +35,19 @@
                         <li class="nav-item">
                         <a class="nav-link" href="dish.html">Dish</a>
                         </li>
-                        <li class="nav-item active">
-                        <a class="nav-link" href="new_dish.html">New Dish
-                            <span class="sr-only">(current)</span>
-                        </a>
+                        <li class="nav-item">
+                        <a class="nav-link" href="new_dish.html">New Dish</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="ingredient.html">Ingredient</a>
+                        <a class="nav-link" href="portion.html">Portion</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="new_portion.html">New Portion</a>
+                        </li>
+                        <li class="nav-item active">
+                        <a class="nav-link" href="ingredient.html">Ingredient
+                            <span class="sr-only">(current)</span>
+                        </a>
                         </li>
                     </ul>
                 </div>
@@ -49,15 +56,15 @@
         <hr class="rule header_rule">
         <section class="hero_outer">
                 <div class="hero_image home"></div>
-                <div id="hero_text">
-                    <h2>Count Calories Quickly</h2>
+                <div id="hero_text_container">
+                    <h2 class="alignC hero_text">Count Calories Quickly</h2>
                 </div>
-                <div id="search"></div>
         </section>
+       
     </header>
     
     <!--======================================== Main Body - Start -->
-    <main>
+    <main id="dish">
         <section>
 
             <!--======================================== Action Icons Bar -->
@@ -66,512 +73,480 @@
                     <button onclick="goBack()" class="back_button">
                         <i class="fas fa-arrow-left"></i>
                     </button>
+                    
                     <hr class="rule section_in_rule">
                 </div>
             </div>
 
-            <!--======================================== Description -->
-            <div class="section_bg text-center">
-                <div class="section_in"> 
-                    <input type="text" placeholder="Add the dish name" class="new_dish_name_input floatL"/>
-                    <div class="heading_icon floatR">
+            
+                <!--======================================== Name -->
+                <div class="section_bg">
+                    <div class="section_in">
+                        <h2 id="page_title_dish" class="page_ti floatL">Dish:</h2>
+                        <textarea class="product_name floatL" type="text" name="dish_name" rows="1" placeholder="Add Dish Name*"></textarea>
+                        <div class="row_icon_container plus_icon pointer alignR floatR">
+                        </div>
                     </div>
                 </div>
 
-                <div class="section_in"> 
-                    <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+            <div id="accordion">
+
+                <!--======================================== Description -->
+                <div id="description" class="card section_bg "> 
+
+                    <!-- Section Header - Description -->
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Description</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
+                        </div>
                     </div>
-                    <div class="floatL">
-                        <h3>Description</h3>
-                    </div>
-                    <div class="collapsible collapse_arrow floatR">
-                    </div>
-                    <div class="collapse_content clear">
-                        <input type="textarea" placeholder="Add the dish description - Optional" class="new_dish_description_input"/>
+
+                    <!-- Collapse/Expand Section - Description -->
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion"> <!-- insert show class to expand on arrival -->
+                        <div class="card-body">
+                            <div class="section_in">
+                                <div>
+                                    <textarea class="product_description" name="dish_description" rows="2" placeholder="Add Dish Description"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!--======================================== # of Portions -->
-            <div class="section_bg text-center">
-                <div class="section_in"> 
-                    <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                <!--======================================== Portions -->
+                <div class="card section_bg"> 
+
+                    <!-- Section Header - Portion -->
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Portions</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
+                        </div>
                     </div>
-                    <div class="floatL">
-                        <h3># of Portions</h3>
-                    </div>
-                    <div class="floatL">
-                        <input type="number" inputmode="numeric" pattern="[0-9]*" placeholder="10" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
+
+                    <!-- Collapse/Expand Section - Portion -->
+                    <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="section_in">
+                                <div class="measurement_container floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p># of Portions</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!--======================================== Ingredients -->
-            <div class="section_bg text-center">
-                <div class="section_in"> 
-                    <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
+                <!--======================================== Ingredients -->
+                <div class="card section_bg"> 
+
+                    <!-- Section Header - Ingredients -->
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseThree"> 
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Ingredients</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
+                        </div>
                     </div>
-                    <div class="floatL">
-                        <h3>Ingredients</h3>
-                    </div>
-                    <div class="collapsible collapse_arrow floatR">
-                    </div>
 
-                    <div class="collapse_content clear"> 
-                        <div class="ingredient_row1">
-                            <div class="collapse_content_row">
-                                <div class="insection_tt_container">
-                                    <div class="tt insection_tt floatL"> 
-                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                                    </div>
-                                </div>
-
-                                <div class="ingredient_row floatL">
-                                    <p class="alignL">Freshly filleted salmon that pushes the name onto more lines over and over.</p>
-                                </div>
-
-                                <div id="batch_total_section" class="floatL">
-                                    <div id="batch_total_ti" class="ingredient_row floatL">
-                                        <p>Batch Total:<p>
-                                    </div>
-                                    <div id="batch_total_input" class="ingredient_row floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                                    </div>
-                                    <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
-                                        <p>g<p>
-                                    </div>
-                                </div>
-
-                                <div id="per_portion_total_section" class="floatL">
-                                    <div id="per_portion_ti" class="ingredient_row floatL">
-                                        <p>Per Portion:<p>
-                                    </div>
-                                    <div id="per_portion_input" class="ingredient_row floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
-                                    </div>
-                                    <div id="per_portion_unit" class="ingredient_row measure_unit floatL">
-                                        <p>g<p>
-                                    </div>
-                                </div>
-
-                                <div id="item_delete" class="delete_icon1">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <!-- Collapse/Expand Section - Ingredients -->
+                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="section_in">
+                                <div>
+                                    <textarea id="add_ingredients" class="product_description" name="dish_description" rows="2" placeholder="Add Dish Ingredients"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="ingredient_row1 clear"> <!-- In as an example for layout purposes -->
-                            <div class="collapse_content_row">
-                                <div class="insection_tt_container">
-                                    <div class="tt insection_tt floatL"> 
-                                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
 
-                                <div class="ingredient_row floatL">
-                                    <p class="alignL">Freshly filleted salmon that pushes the name onto more lines over and over.</p>
-                                </div>
+                <!--======================================== Cooking -->
+                <div id="cooking_section" class="card section_bg"> 
 
-                                <div id="batch_total_section" class="floatL">
-                                    <div id="batch_total_ti" class="ingredient_row floatL">
-                                        <p>Batch Total:<p>
-                                    </div>
-                                    <div id="batch_total_input" class="ingredient_row floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
-                                    </div>
-                                    <div id="batch_total_unit" class="ingredient_row measure_unit floatL">
-                                        <p>g<p>
-                                    </div>
-                                </div>
-
-                                <div id="per_portion_total_section" class="floatL">
-                                    <div id="per_portion_ti" class="ingredient_row floatL">
-                                        <p>Per Portion:<p>
-                                    </div>
-                                    <div id="per_portion_input" class="ingredient_row floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="10" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyborad on mobile-->
-                                    </div>
-                                    <div id="per_portion_unit" class="ingredient_row measure_unit floatL">
-                                        <p>g<p>
-                                    </div>
-                                </div>
-
-                                <div id="item_delete" class="delete_icon1">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </div>
-                            </div>
+                    <!-- Section Header - Cooking -->
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseFour"> 
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
                         </div>
-                        <hr class="rule section_rule clear">
-                        <div class="section_in_579">
-                            <div id="ingredient_totals">
-                                <p class="inner_element_579 nutrition_total"><strong>Per Portion:</strong>   <span>250</span>g       <span>150</span>Kcal</p>
-                            </div>
-                            <input type="text" name="search" placeholder="Search dish or ingredient name" class="search_name_input container inner_element_571">
-                            <div id="ingredient_new_button" class="text-center"> <!-- Create a new dish button-->
-                                <a href="#" class="btn inner_element_245">Create Ingredient</a>
-                            </div>
+                        <h3 class="page_section_name alignL">Cooking</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
                         </div>
                     </div>
+
+                    <!-- Collapse/Expand Section - Cooking -->
+                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                        <div class="card-body"> 
+                            <div class="container inner_element_579">
+
+                                <!-- Cooking Method-->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Method</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>No Further Cooking Needed</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Not Cooked on its Own</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Boiled</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Steamed</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Microwave</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Baked</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Roasted</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Grilled</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pan Fried</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Shallow Fried</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Deep Fried</p>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <!-- Cooking Substrate -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Substrate</h6>
+                                    <div class="bricks_container">
+                                        <div class="brick">
+                                            <p>Included in Ingredients</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Dry</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Vegetable Oil</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Animal Fat</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Margarine</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Butter</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Low Cal Spray</p>
+                                        </div>
+                                    </div>
+                                    <label id="add_cooking_method_checkbox" for="another">Add a second cooking method 
+                                    <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                </label>
+                                </div>
+
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!--======================================== Nutrients & Allergens -->
+                <div class="card section_bg"> 
+
+                    <!-- Section Header - Nutrients & Allergens -->
+                    <div class="section_in card-link" data-toggle="collapse" href="#collapseFive"> 
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                        </div>
+                        <h3 class="page_section_name alignL">Nutrients & Allergens</h3>
+                        <div class="row_icon_container collapse_arrow pointer alignR">
+                        </div>
+                    </div>
+
+                    <!-- Collapse/Expand Section - Nutrients & Allergens -->
+                    <div id="collapseFive" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div>
+                                <div class="nutrition_container inner_element_571">
+                                    <h5>Nutrition</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="d-flex">
+                                            <th scope="col" class="col-4">Typical Values</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Energy</th>
+                                            <td class="col-3">1500kj /350kcal</td>
+                                            <td class="col-1">20%</td>
+                                            <td class="col-3">500kj /120kcal</td>
+                                            <td class="col-1">7%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Fat</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Saturated Fat</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Cholesterol</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Carbohydrates</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">of which sugars</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Fibre</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Protein</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Salt</th>
+                                            <td class="col-3">3.0g</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0g</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr class="rule section_rule">
+                                <div class="nutrition_container inner_element_571">
+                                    <h5>Vitamins & Minerals</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="d-flex">
+                                            <th scope="col" class="col-4">Typical Values</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            <th scope="col" class="col-3">Per 100g</th>
+                                            <th scope="col" class="col-1">RI*</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Thiamin</th>
+                                            <td class="col-3">0.9mg</td>
+                                            <td class="col-1">20%</td>
+                                            <td class="col-3">0.3mg</td>
+                                            <td class="col-1">7%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Riboflavin</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Niacin</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Folic Acid</th>
+                                            <td class="col-3">3.0µ</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0µ</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Iron</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                            <tr class="d-flex">
+                                            <th scope="row" class="col-4">Calcium</th>
+                                            <td class="col-3">3.0mg</td>
+                                            <td class="col-1">9%</td>
+                                            <td class="col-3">1.0mg</td>
+                                            <td class="col-1">3%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>            
+                                </div>
+                                <hr class="rule section_rule">
+
+                            <div class="container inner_element_579">
+                                <h5>Allergens</h5>
+                                <p>As food contents can vary from one supplier to another, it is your responsibility to ensure any food allergens are correctly listed.</p>
+
+                                <!-- Cereals -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Cereals</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Barley</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Oats</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Rye</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Wheat</p>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <!-- Nuts -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Nuts*</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Almonds</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Brazil Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Cashew Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Hazelnuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Macadamea Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Peanuts*</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pecan Nuts</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pistacho Nuts</p>
+                                            </div>
+                                        </div>
+                                        <label id="allergens_nut_checkbox" for="another">Prepared in a factory that handles nuts
+                                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                        </label>
+                                </div>
+
+                                <!-- Other Foods -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Other Foods</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>Celery</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Crustaceans</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Eggs</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Fish</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Lupin</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Milk</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Mustard</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Sesame Seeds</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Soybeans</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Sulphur Dioxide and Sulphites</p>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                
+                            </div>
+
+                                <hr class="rule section_rule">
+                                <div class="container inner_element_579">
+                                    <h5>Notes</h5>
+                                    <ul class="ul alignL">
+                                        <li>Stuff about RI</li>
+                                        <li>Uncooked, etc.</li>
+                                        <li>*Peanuts are not technically a nut</li>
+                                    </ul>
+                                </div>
+                            </div>
                     
-                </div>
-            </div>
-
-            <!--======================================== Cooking -->
-            <div class="section_bg text-center">
-                <div class="section_in"> 
-                    <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here">i</p>
-                    </div>
-                    <div class="floatL">
-                        <h3>Cooking</h3>
-                    </div>
-                    <div class="collapsible collapse_arrow floatR">
-                    </div>
-                    <div class="collapse_content clear">
-                        <div class="container inner_element_571">
-                            <h6 class="advanced_option alignL">Method</h6>
-                            <div class="row justify-content-md-center">
-                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                No Further Cooking Needed
-                                </div>
-                                <div class="col col-xs-2">
-                                Not Cooked on its Own
-                                </div>
-                                <div class="col col-xs-2">
-                                Boiled / Steamed
-                                </div>
-                                <div class="col col-xs-2">
-                                Deep Fried
-                                </div>
-                                <div class="col col-xs-2">
-                                Pan Fried
-                                </div>
-                                <div class="col col-xs-2">
-                                Shallow Fried
-                                </div>
-                                <div class="col col-xs-2">
-                                Grilled
-                                </div>
-                                <div class="col col-xs-2">
-                                Roasted / Baked
-                                </div>
-                                <div class="col col-xs-2">
-                                Microwave
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container inner_element_571">
-                            <h6 class="advanced_option alignL">Substrate</h6>
-                            <div class="row justify-content-md-center">
-                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                Dry / In the Ingredients
-                                </div>
-                                <div class="col col-xs-2">
-                                Butter
-                                </div>
-                                <div class="col col-xs-2">
-                                Vegetable Oil
-                                </div>
-                                <div class="col col-xs-2">
-                                Animal Fat
-                                </div>
-                                <div class="col col-xs-2">
-                                Margerine
-                                </div>
-                                <div class="col col-xs-2">
-                                Low Cal Spray
-                                </div>
-                            </div>
-                        </div>
-                        <div id="other_cook_method" class="inner_element_571">
-                            <label for="another">Add another cooking method?</label>
-                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!--======================================== Nutrients & Allergens -->
-            <div class="section_bg text-center">
-                <div class="section_in"> 
-                    <div class="tt floatL"> 
-                        <p href="" data-toggle="tooltip" data-placement="top" title="whats here" class="alignC">i</p>
-                    </div>
-                    <div class="floatL">
-                        <h3>Nutrients & Allergens</h3>
-                    </div>
-                    <div class="collapsible collapse_arrow floatR">
-                    </div>
-                    <div class="collapse_content clear">
-
-                        <div class="nutrition_container clear inner_element_571">
-                            <h5>Nutrition</h5>
-                                <table class="table">
-                                <thead>
-                                    <tr class="d-flex">
-                                    <th scope="col" class="col-4">Typical Values</th>
-                                    <th scope="col" class="col-2 alignL">Per 100g</th>
-                                    <th scope="col" class="col-2 alignL">RI*</th>
-                                    <th scope="col" class="col-2 alignL">Per 100g</th>
-                                    <th scope="col" class="col-2 alignL">RI*</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Energy</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="5"/>kj</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kj</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4"></th>
-                                    <td class="col-3 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kcal</td>
-                                    <td class="col-1 input_percent"></td>
-                                    <td class="col-3 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>kcal</td>
-                                    <td class="col-1 input_percent"></td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Fat</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Saturated Fat</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Cholesterol</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Carbohydrates</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">of which sugars</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Fibre</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Protein</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                    <tr class="d-flex">
-                                    <th scope="row" class="col-4">Salt</th>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>g</td>
-                                    <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                    </tr>
-                                </tbody>
-                                </table>
-                        </div>
-                        <hr class="rule section_rule">
-                        <div class="nutrition_container inner_element_571">
-                            <h5>Vitamins & Minerals</h5>
-                                <table class="table">
-                                    <thead>
-                                        <tr class="d-flex">
-                                        <th scope="col" class="col-4">Typical Values</th>
-                                        <th scope="col" class="col-2 alignL">Per 100g</th>
-                                        <th scope="col" class="col-2 alignL">RI*</th>
-                                        <th scope="col" class="col-2 alignL">Per 100g</th>
-                                        <th scope="col" class="col-2 alignL">RI*</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="d-flex">
-                                        <th scope="row" class="col-4">Thiamin</th>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                        <th scope="row" class="col-4">Riboflavin</th>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                        <th scope="row" class="col-4">Niacin</th>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                        <th scope="row" class="col-4">Folic Acid</th>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>µ</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>µ</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                        <th scope="row" class="col-4">Iron</th>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                        <th scope="row" class="col-4">Calcium</th>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        <td class="col-2 input_nutrient_weight alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="4"/>mg</td>
-                                        <td class="col-2 input_percent alignL"><input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" maxlength="3"/>%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>            
-                        </div>
-                        <hr class="rule section_rule">
-                        <div class="inner_element_571">
-                            <h5>Allergens</h5>
-                            <p class="alignL">For your convenience, the allergens have been</p>
-                        </div>
-
-                        <div class="container inner_element_571">
-                            <p class="alignL">Cereals</p>
-                            <div class="row justify-content-md-center">
-                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                Wheat
-                                </div>
-                                <div class="col col-xs-2">
-                                Rye
-                                </div>
-                                <div class="col col-xs-2">
-                                Barley
-                                </div>
-                                <div class="col col-xs-2">
-                                Oats
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container inner_element_571">
-                            <p class="advanced_option">Nuts & Beans</p>
-                            <div class="row justify-content-md-center">
-                                <div class="col col-xs-2"> <!-- col-xs-2 is what makes the buttons fill the available space -->
-                                Lupin
-                                </div>
-                                <div class="col col-xs-2">
-                                Soybeans
-                                </div>
-                                <div class="col col-xs-2">
-                                Peanuts
-                                </div>
-                                <div class="col col-xs-2">
-                                Almonds
-                                </div>
-                                <div class="col col-xs-2">
-                                Brazil Nuts
-                                </div>
-                                <div class="col col-xs-2">
-                                Cashews
-                                </div>
-                                <div class="col col-xs-2">
-                                Hazelnuts
-                                </div>
-                                <div class="col col-xs-2">
-                                Macademia/Quensland Nut
-                                </div>
-                                <div class="col col-xs-2">
-                                Pecan
-                                </div>
-                                <div class="col col-xs-2">
-                                Pistachio Nuts
-                                </div>
-                                <div class="col col-xs-2">
-                                Walnuts
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container inner_element_571">
-                            <p class="advanced_option">Fish</p>
-                            <div class="row justify-content-md-center">
-                                <div class="col col-xs-2">
-                                Crustaceans
-                                </div>
-                                <div class="col col-xs-2">
-                                Fish
-                                </div>
-                                <div class="col col-xs-2">
-                                Molluscs
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container inner_element_571">
-                            <p class="advanced_option">General</p>
-                            <div class="row justify-content-md-center">
-                                <div class="col col-xs-2">
-                                Eggs
-                                </div>
-                                <div class="col col-xs-2">
-                                Milk
-                                </div>
-                                <div class="col col-xs-2">
-                                Celery
-                                </div>
-                                <div class="col col-xs-2">
-                                Mustard
-                                </div>
-                                <div class="col col-xs-2">
-                                Sesame Seeds
-                                </div>
-                                <div class="col col-xs-2">
-                                Sulphur Dioxide*
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="rule section_rule">
-                        <div class="inner_element_571">
-                            <h5>Notes</h5>
-                            <ul class="ul alignL">
-                                <li>*Sulphur Dioxide and sulphites (at concentrations of more than 10mg/kg or 10mg/L in terms of total sulphur dioxide) – used as a preservative. From FSAI.</li>
-                                <li>Full allergens details on <a href="https://www.fsai.ie/legislation/food_legislation/food_information/14_allergens.html" target="_blank">FSAI website</a></li>
-                            </ul>
-                        </div>
-                    </div>
+            <!-- Buttons -->
+            <div class="card section_bg"> 
+                <div class="section_in alignC"> 
+                    <button type="button" class="btn">Save</button>
+                    <button type="button" class="btn">Cancel</button>
                 </div>
-            </div>
-
-            <div class="section_bg text-center new_dish_save_btn">
-                <a href="" class="btn inner_element_245 ">Save</a>
             </div>
 
         </section>
     </main>
     <script src="https://kit.fontawesome.com/d15238ecdd.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="assets/js/js.js"></script>
     
 </body>

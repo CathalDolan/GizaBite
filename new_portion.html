@@ -64,7 +64,7 @@
     </header>
     
     <!--======================================== Main Body - Start -->
-    <main id="portion">
+    <main id="new_portion">
         <section>
 
             <!--======================================== Action Icons Bar -->
@@ -72,9 +72,6 @@
                 <div class="section_in"> 
                     <button onclick="goBack()" class="back_button">
                         <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <button class="print_button floatR">
-                        <i class="fas fa-print"></i>
                     </button>
                     
                     <hr class="rule section_in_rule">
@@ -85,19 +82,17 @@
                 <!--======================================== Name -->
                 <div class="section_bg">
                     <div class="section_in">
-                        <h2 id="page_title_portion" class="page_ti floatL">Port: <span>Portion Name</span></h2>
+                        <h2 id="page_title_portion" class="page_ti floatL">Port:</h2>
+                        <textarea class="product_name floatL" type="text" name="portion_name" rows="1" placeholder="Add Portion Name*"></textarea>
                         <div class="row_icon_container plus_icon pointer alignR floatR">
                         </div>
-                    </div>
-                    <div class="section_in">
-                        <p class="alignL">Optional content if it the product is an ingredient</p> <!-- Not sure if this should be here too... -->
                     </div>
                 </div>
 
             <div id="accordion">
 
                 <!--======================================== Description -->
-                <div class="card section_bg "> 
+                <div id="description" class="card section_bg "> 
 
                     <!-- Section Header - Description -->
                     <div class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
@@ -113,7 +108,7 @@
                         <div class="card-body">
                             <div class="section_in">
                                 <div>
-                                    <p>No description available.</p>
+                                    <textarea class="product_description" name="dish_description" rows="2" placeholder="Add Portion Description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -164,70 +159,10 @@
                     <!-- Collapse/Expand Section - Ingredients -->
                     <div id="collapseThree" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
-                            
-                            <!-- Ingredient Row -->
-                            <div class="results_row section_in">
-                                <div class="row_icon_container eye_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                            <div class="section_in">
+                                <div>
+                                    <textarea id="add_ingredients" class="product_description" name="dish_description" rows="2" placeholder="Add Portion Ingredients."></textarea>
                                 </div>
-                                <h4 class="alignL results_row_name pointer">Ingredient Name goes here</h4>
-                                <div class="row_icon_container delete_icon pointer alignR">
-                                </div>
-                            </div>
-
-                            <!-- Ingredients Row with Inputs -->
-                            <div class="ingredient_measurement_row section_in">
-                                <div class="measurement_container floatL">
-                                    <div class="measurement_row_label floatL">
-                                        <p>Batch Qty:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
-                                    </div>
-                                    <div class="floatL">
-                                        <p>pcs</p>
-                                    </div>
-                                </div>
-                                <div class="measurement_container measurement_row_container_second floatL">
-                                    <div class=" measurement_row_label floatL">
-                                        <p>Batch g:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
-                                    </div>
-                                </div>
-                                <div class="measurement_container measurement_row_container_third floatL">
-                                    <div class="measurement_row_label floatL">
-                                        <p>Portion g:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> 
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
-                                    </div>
-                                </div>
-                                <div class="measurement_container measurement_row_container_fourth floatL">
-                                    <div class="measurement_row_label floatL">
-                                        <p>Portion Kcal:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <p><span class="kcal_count">125</span>Kcal</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Wieght and Calorie Totals-->
-                            <div class="portion_totals_div section_in alignC">
-                                <h4>Portion Totals: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
-                            </div>
-
-                            <!-- Search Input-->
-                            <div class="section_in inner_element_571" id="ingredient_search_div">
-                                <label for="ingredient_search_input">SEARCH:</label>
-                                <input type="text" id="ingredient_search_input" name="ingredient_search_input" placeholder="Search for and add Portions & Ingredients" class="inner_element_571">
                             </div>
                         </div>
                     </div>
@@ -320,6 +255,8 @@
                                     <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
                                 </label>
                                 </div>
+
+                                
                             </div>
                             
                         </div>
