@@ -270,7 +270,7 @@ p {
     content: "\f063"; 
 }
 
-.collapse_arrow.active:after {    /* Used in section headings to insert an arrow icon facing UP */ 
+.collapse_arrow.collapsed:after {    /* Used in section headings to insert an arrow icon facing UP */ 
     content: "\f062";
 } 
 
@@ -454,6 +454,10 @@ div.card-body>.btn { /*---- Required to override Bootstrap default left alignmen
     animation-name: hero_zoom;
     animation-duration: 5s;
     animation-fill-mode: forwards;
+}
+
+#about .hero_image { /* Included here because "About" page has no css file of its own */
+    background-image: url(/assets/graphics/Index_Image.jpg);
 }
 
 .hero_outer {
@@ -644,7 +648,9 @@ h6.search_advanced_section_title { /*--- Over rides default colour of white for 
 }
 
 /*--- Footer ---*/
+
 footer {
+    width: 100%;
     background-color: var(--second_layer);
     min-height: 150px;
 }
@@ -674,6 +680,3 @@ footer {
     margin: 0 auto;
 }
 
-#about .hero_image {
-    background-image: url(/assets/graphics/Index_Image.jpg);
-}

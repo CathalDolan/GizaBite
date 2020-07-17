@@ -2,10 +2,12 @@ $(document).ready(function(){
     console.log("Hello World!");
 });
 
+/*--- Tooltip Funcion ---*/
 $(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+/*--- Change Brick Colours. Not correct ---*/
 $(".brick").on("click", function() {
     $(this).css("background", "orange");
 })
@@ -13,8 +15,6 @@ $(".brick>p").on("click", function() {
     $(this).css("color", "white");
 })
 
-
-/* A function is required for the ingredients page to change the position of html elements so that they are responsive on smaller devices */
 
 /* Back Button function. Take from w3schools.*/
 function goBack() { 
