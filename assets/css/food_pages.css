@@ -38,6 +38,10 @@ h2.hero_text {
 .page_ti span {
     color: var(--white);
 }
+.page_ti {
+    max-width: 90%;
+    margin: 0;
+}
 
 /*--------- Accordion Collapse / Expand ----------*/
 #accordion .section_bg { /* Overrides the global padding in the collapse/expand sections as it is not required */

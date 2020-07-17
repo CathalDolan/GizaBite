@@ -230,6 +230,9 @@ p {
 
 .section_in h3, .section_in h4 {
     margin: 0;
+}
+
+.section_in h3{
     line-height: 30px;
 }
 
@@ -409,6 +412,18 @@ div.card-body>.btn { /*---- Required to override Bootstrap default left alignmen
     color: var(--orange);
 }
 
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(239, 128, 26)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+    border: 1px solid var(--orange);
+}
+
+.nav-item {
+    text-align: left;
+}
+
 .navbar-nav .active .nav-link {
     color: var(--white);
 }
@@ -480,7 +495,6 @@ h2.hero_text {
         margin: 0;
         height: 100%;
         width: 100%;
-        background-image: url(https://i.imgur.com/wItTgme.png);
         background-position: center center;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
@@ -627,4 +641,39 @@ h2.hero_text {
 
 h6.search_advanced_section_title { /*--- Over rides default colour of white for h6 */
     margin: 0.5rem 0 0.25rem 0;
+}
+
+/*--- Footer ---*/
+footer {
+    background-color: var(--second_layer);
+    min-height: 150px;
+}
+
+.footer_row {
+    display: flex;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.footer_link {
+    flex: 1;
+}
+
+.footer_icon_row {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.sm_icon {
+    color: var(--orange);
+    font-size: 35px;
+    margin: 0 0.5rem;
+}
+
+.footer_row p {
+    margin: 0 auto;
+}
+
+#about .hero_image {
+    background-image: url(/assets/graphics/Index_Image.jpg);
 }

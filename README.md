@@ -51,3 +51,8 @@ Images from pexels.com
 - Portion: https://www.pexels.com/photo/cheeseburger-and-fries-2725744/
 - New Portion: https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/
 - Ingredients Header: https://www.pexels.com/photo/food-healthy-vegetables-vegetarian-45914/
+- Search Page: https://www.pexels.com/photo/sliced-fried-chicken-2232433/
+- Index Page: https://www.pexels.com/photo/grilled-salmon-fish-on-rectangular-black-ceramic-plate-842142/
+- https://www.pexels.com/photo/mouth-watering-hamburgers-3052362/
+- https://www.pexels.com/photo/assorted-variety-of-foods-on-plates-on-dining-table-1528013/
+- https://www.pexels.com/photo/food-chicken-fresh-rice-105588/
