@@ -215,6 +215,10 @@ p {
     border-radius: 8px;
 }
 
+.page_title_description {
+    margin-top: 0.5rem;
+}
+
 .section_in { /*------- Background Inner to allow equal spacing within the section_bg and others. */
     width: 95%;
     margin: 0 auto;
@@ -679,4 +683,3 @@ footer {
 .footer_row p {
     margin: 0 auto;
 }
-
