@@ -86,13 +86,13 @@
                 <div class="section_bg">
                     <div class="section_in">
                         <h2 id="page_title_dish" class="page_ti floatL">Dish:</h2>
-                        <textarea class="product_name floatL" type="text" name="dish_name" rows="1" placeholder="Add Dish Name*"></textarea>
+                        <textarea class="product_name floatL" name="dish_name" rows="1" placeholder="Add Dish Name*"></textarea>
                         <div class="row_icon_container plus_icon pointer alignR floatR">
                         </div>
                     </div>
             
                     <div id="description" class="section_in">
-                        <textarea class="product_description page_title_description" name="dish_description" rows="2" placeholder="Add Dish Description"></textarea>
+                        <textarea class="product_description page_title_description" name="dish_description" rows="2" placeholder="Add Dish Description. It should be written as you would expect to see it in a menu."></textarea>
                     </div> 
                 </div>
 
@@ -102,7 +102,8 @@
 
                     <!-- Section Header - Portion -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="right" data-html="true" 
+                        title="Add the number of portions you will make in this or in a typical batch.">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseTwo">Portions</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseTwo">
@@ -110,7 +111,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Portion -->
-                    <div id="collapseTwo" class="collapse show" data-parent="#accordion">
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <div class="section_in">
                                 <div class="measurement_container floatL">
@@ -131,23 +132,45 @@
 
                     <!-- Section Header - Ingredients -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="right" data-html="true" title="
+                        <p>Dishes are best compiled using portions as ingredients.</p>
+                            </br>
+                            <p><strong>- Batch Qty: </strong>Total number of ingredient's units required for the batch. Applies if sold per piece rather than by weight</p>
+                            </br>
+                            <p><strong>- Batch g: </strong>Total amount of this ingredient required for the batch</p>
+                            </br>
+                            <p><strong>- Portion g: </strong>Weight of this ingredient per portion</p>
+                            </br>
+                            <p><strong>- Portion Kcal: </strong>Number of calories this ingredient provides per portion</p>
+                        ">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseThree">Ingredients</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseThree">
                         </div>
                     </div>
 
-                    <!-- Collapse/Expand Section - Ingredients -->
-                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
+                    <!-- Collapse/Expand Section - Ingredients  show-->
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <div class="section_in">
-                                <div>
-                                    <textarea id="add_ingredients" class="product_description" name="dish_description" rows="2" placeholder="Add Dish Ingredients"></textarea>
+                                <div class="portion_totals_div section_in alignC">
+                                    <h4>Dish Totals: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
+                                </div>
+                                
+                                <!-- Search Input-->
+                                <div class="section_in inner_element_571" id="ingredient_search_div">
+                                    <label for="ingredient_search_input">SEARCH:</label>
+                                    <input type="text" id="ingredient_search_input" name="ingredient_search_input" placeholder="Search for and add Portions & Ingredients" class="inner_element_571">
+                                </div>
+                                <div class="text-center"> 
+                                    <a href="new_portion.html" class="btn inner_element_579">Create New Portion</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Weight and Calorie Totals-->
+                    
                 </div>
 
                 <!--======================================== Cooking -->
@@ -155,7 +178,18 @@
 
                     <!-- Section Header - Cooking -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="right" data-html="true" title="
+                        <h4>Method</h4>
+                        <p>The cooking method applies to all dish ingredients. If different ingredients require different methods, each set needs to be a 
+                        separate portion. Either search for or create a new Portion.</p> 
+                        <p>If all ingredients are already cooked, select 'No Further Cooking Needed'.</p>
+                        </br>
+                        <h4>Substrate</4>
+                        <p>If the substrate is already included as part of your ingredients list, choose 'Included in Ingredients'.</p>
+                        </br>
+                        <h4>Second Cooking Method</4>
+                        <p>If an additional cooking method is required, it also applies to the entire dish.</p>
+                        ">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFour">Cooking</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseFour">
@@ -163,7 +197,7 @@
                     </div>
 
                     <!-- Collapse/Expand Section - Cooking -->
-                    <div id="collapseFour" class="collapse show" data-parent="#accordion">
+                    <div id="collapseFour" class="collapse" data-parent="#accordion">
                         <div class="card-body"> 
                             <div class="container inner_element_579">
 
@@ -173,9 +207,6 @@
                                         <div class="bricks_container">
                                             <div class="brick">
                                                 <p>No Further Cooking Needed</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Not Cooked on its Own</p>
                                             </div>
                                             <div class="brick">
                                                 <p>Boiled</p>
@@ -250,7 +281,15 @@
 
                     <!-- Section Header - Nutrients & Allergens -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
+                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="right" data-html="true" title="
+                        <h4>Calories & Nutrients</h4>
+                        <p>Dish calories are calculated post-cooking. Nutrients are calculated pre-cooking. Owing to natural variations in raw foods
+                        and preparation processes, data accuracy will vary.</p>
+                        </br>
+                        <h4>Allergens</h4>
+                        <p>As variations can exist between suppliers for the same product, it is vital that you ensure all allergen information
+                        is correctly included.</p>
+                        ">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFive">Nutrients & Allergens</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseFive">
@@ -453,8 +492,8 @@
                                                 <p>Pistacho Nuts</p>
                                             </div>
                                         </div>
-                                        <label id="allergens_nut_checkbox" for="another">Prepared in a factory that handles nuts
-                                            <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                        <label id="allergens_nut_checkbox" for="factory_nuts">Prepared in a factory that handles nuts
+                                            <input type="checkbox" id="factory_nuts" name="gender" value="male" class="input_percent">
                                         </label>
                                 </div>
 
