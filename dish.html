@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg static-top">
             <div class="container navbar_container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="https://i.imgur.com/Qw0QgK0.png" alt="GizaBite Logo" id="gizabite_logo">
                     </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,8 +104,8 @@
 
                     <!-- Section Header - Portion -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" 
-                            title="Add the number of portions you will make in this batch.">
+                        <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" 
+                            title="Add the number of portions you will make in this or in a typical batch.">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseTwo">Portions</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseTwo">
@@ -134,14 +134,15 @@
 
                     <!-- Section Header - Ingredients -->
                     <div class="section_in card-link"> 
-                            <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="right" data-html="true" 
-                            title="
-                            <p>The default info is based on the number of portions and standard 'per serving' data.
-                            Any changes you make will be reflected in the affected portion/ingredient.</p>
+                            <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" 
+                            title="<p>The default info is based on the number of portions and standard 'per serving' data.</p>
                             </br>
                             <p><strong>- Batch Qty: </strong>Total number of ingredient's units required for the batch. Applies if sold per piece rather than by weight</p>
+                            </br>
                             <p><strong>- Batch g: </strong>Total amount of this ingredient required for the batch</p>
+                            </br>
                             <p><strong>- Portion g: </strong>Weight of this ingredient per portion</p>
+                            </br>
                             <p><strong>- Portion Kcal: </strong>Number of calories this ingredient provides per portion</p>
                             ">
                             </div>
@@ -157,7 +158,7 @@
                             
                             <!-- Ingredient Row -->
                             <div class="results_row section_in">
-                                <div class="row_icon_container eye_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" title="whats here">
+                                <div class="row_icon_container eye_icon pointer alignL" data-toggle="tooltip" data-placement="top" title="whats here">
                                 </div>
                                 <h4 class="alignL results_row_name pointer">Ingredient Name goes here</h4>
                                 <div class="row_icon_container delete_icon pointer alignR">
@@ -209,7 +210,7 @@
                                 </div>
                             </div>
 
-                            <!-- Wieght and Calorie Totals-->
+                            <!-- Weight and Calorie Totals-->
                             <div class="portion_totals_div section_in alignC">
                                 <h4>Dish Totals: <span class="total_portion_weight">330</span>g <span class="total_portion_kcal">195</span>Kcal</h4>
                             </div>
@@ -218,6 +219,9 @@
                             <div class="section_in inner_element_571" id="ingredient_search_div">
                                 <label for="ingredient_search_input">SEARCH:</label>
                                 <input type="text" id="ingredient_search_input" name="ingredient_search_input" placeholder="Search for and add Portions & Ingredients" class="inner_element_571">
+                            </div>
+                            <div class="text-center"> 
+                                <a href="new_portion.html" class="btn inner_element_579">Create New Portion</a>
                             </div>
                         </div>
                     </div>
@@ -228,7 +232,19 @@
 
                     <!-- Section Header - Cooking -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
+                        <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" 
+                        title="
+                        <h4>Method</h4>
+                        <p>The cooking method applies to all dish ingredients. If different ingredients require different methods, each set needs to be a 
+                        separate portion. Either search for or create a new Portion.</p> 
+                        <p>If all ingredients are already cooked, select 'No Further Cooking Needed'.</p>
+                        </br>
+                        <h4>Substrate</4>
+                        <p>If the substrate is already included as part of your ingredients list, choose 'Included in Ingredients'.</p>
+                        </br>
+                        <h4>Second Cooking Method</4>
+                        <p>If an additional cooking method is required, it also applies to the entire dish.</p>
+                        ">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFour">Cooking</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseFour">
@@ -246,9 +262,6 @@
                                         <div class="bricks_container">
                                             <div class="brick">
                                                 <p>No Further Cooking Needed</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Not Cooked on its Own</p>
                                             </div>
                                             <div class="brick">
                                                 <p>Boiled</p>
@@ -321,7 +334,16 @@
 
                     <!-- Section Header - Nutrients & Allergens -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" href="" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
+                        <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" 
+                        title="
+                        <h4>Calories & Nutrients</h4>
+                        <p>Dish calories are calculated post-cooking. Nutrients are calculated pre-cooking. Owing to natural variations in raw foods
+                        and preparation processes, data accuracy will vary.</p>
+                        </br>
+                        <h4>Allergens</h4>
+                        <p>As variations can exist between suppliers for the same product, it is vital that you ensure all allergen information
+                        is correctly included.</p>
+                        ">
                         </div>
                         <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFive">Nutrients & Allergens</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseFive">
