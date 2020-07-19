@@ -1,9 +1,9 @@
 # Contents
 
-- [Github & Version Control](github-&-version-control),
-- [What is GizaBite?](what-is-gizabite),
-- [Website Style & Design](website-style-&-design),
-- [Third Party](third-party),
+- [Github & Version Control](#github-&-version-control),
+- [What is GizaBite?](#what-is-gizabite),
+- [Website Style & Design](#website-style-&-design),
+- [Third Party](#third-party),
 
 
 # Github & Version Control
@@ -14,7 +14,7 @@
 Github is used as a code repository.
 
 ### Branches
-Two branches were employed during development so as to help prevent unintentional over wroitiong of code
+Two branches were employed during development so as to help prevent the unintended over-writing of code
 - dev_branch: Where work was carried out
 - master branch: Where completed work was stored and from where the site us published.
 
