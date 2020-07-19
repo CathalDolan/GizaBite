@@ -24,7 +24,8 @@ async function searchIngredients(searchTerm) {
     //
     let response = await fetch(url), // "await" is linked to "async" and is a better option than "promises". It prevents the next event from happening until the current one completes
         recipes = await response.json();
-        console.log("recipes", recipes);
+        console.log("Ingredients", recipes);
+        console.log(recipes.length);
 
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
@@ -59,11 +60,11 @@ async function searchPortions(searchTerm) {
 
     let response = await fetch(url),
         recipes = await response.json();
+        console.log("Portions", recipes);
 
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic meals"){
             let product_name = (item.food.label).toLowerCase();
-                
                 let capitalized_product_name = (product_name) => {
                 let arr = product_name.split(' ');
                 arr.forEach(function(i, index) {
