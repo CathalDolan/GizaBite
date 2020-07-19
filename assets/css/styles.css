@@ -683,3 +683,17 @@ footer {
 .footer_row p {
     margin: 0 auto;
 }
+
+
+/*--- Tooltips ---*/
+
+.tooltip-inner {
+min-width: 350px;
+}
+@media (max-width: 572px) {
+.tooltip-inner {
+    min-width: 250px;
+    }
+}
+
+/*--------*/

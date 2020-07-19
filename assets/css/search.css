@@ -1,4 +1,4 @@
-#search .hero_image {
+#search_page .hero_image {
     background-image: url(/assets/graphics/Search_Image.jpg);
 }
 
@@ -47,6 +47,10 @@
 
 .results_section_name, .results_count {
     line-height: 30px; /* Keeps the contents verically centered */
+}
+
+#ingredient_results>.results_row {
+    margin-top: 0.5rem;
 }
 
 
