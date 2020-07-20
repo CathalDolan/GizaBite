@@ -10,7 +10,6 @@ async function searchAPI(){
 
 async function searchIngredients(searchTerm) {
     let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods&categoryLabel=food`;
-
     // Clears the results list for every new search
     let list = document.getElementById("ingredient_results");
     list.innerHTML = "";
@@ -30,7 +29,7 @@ async function searchIngredients(searchTerm) {
         }  
     })
 
-    // Returns the contents food label as a string and excludes any products that don't have them (are "undefined")
+    // Returns the contents food label (ingredients) as a string and excludes any products that don't have them (are "undefined")
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
             if ('undefined' !== typeof item.food.foodContentsLabel)
@@ -38,7 +37,7 @@ async function searchIngredients(searchTerm) {
         }
     })
 
-    // Injects the ingredient contents into the DOM, creating an unordered list in html
+    // Injects the contents food labels (ingredients) into the DOM, creating an unordered list in html
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
             if ('undefined' !== typeof item.food.foodContentsLabel){
@@ -75,6 +74,35 @@ async function searchIngredients(searchTerm) {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
         let product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase();
         console.log(product_name);
+        console.log(item.measures.label);
         }  
     })
+
+    // Return serving size - Not working
+    recipes.hints.filter((item) => {
+        if(item.measures.label === "Serving"){
+        console.log(item.measures.label);
+        }  
+    })
+
 }
+
+// Make field appear when checkbox is ticked
+/* function myFunction() {
+  var checkBox = document.getElementById("measurement_checkbox");
+  var text = document.getElementById("measure_weight_per_piece");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+} */
+
+var selector = document.querySelector('input[id=measurement_checkbox]'); //http://jsfiddle.net/wewtnbpc/1/
+selector.addEventListener('change', function (event) {
+    if (selector.checked) {
+        document.getElementById("measure_weight_per_piece").text.style.display = "block";
+    } else {
+        document.getElementById("measure_weight_per_piece").text.style.display = "none";
+    }
+});
