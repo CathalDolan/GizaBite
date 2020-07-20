@@ -203,3 +203,4 @@ Informational pages were given a larger image as the aesthetics need to be more 
 ## Code
 Accordion - https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
 Buttons - https://getbootstrap.com/docs/4.0/components/buttons/
+API Packaged Products Ingredieints Lists - https://gomakethings.com/two-different-ways-to-create-html-from-an-array-of-data-with-vanilla-js/  &  https://codepen.io/cferdinandi/pen/mYmbgL
