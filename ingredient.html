@@ -119,11 +119,11 @@
                         <div class="card-body">
                             <div class="section_in">
                                 <div class="measurement_container floatL">
-                                    <label id="measurement_checkbox_label" for="another">Purchased and/or sold by the piece? 
-                                        <input type="checkbox" id="another" name="gender" value="male" class="input_percent"> <!-- Class used to make this fit on 1 line on mobile -->
+                                    <label id="measurement_checkbox_label" for="measurement_checkbox">Purchased and/or sold by the piece? 
+                                        <input type="checkbox" id="measurement_checkbox" class="input_percent" onclick="myFunction()"> <!-- Class used to make this fit on 1 line on mobile -->
                                     </label>
                                 </div>
-                                <div class="measurement_container measurement_row_container_second floatL">
+                                <div id="measure_weight_per_piece" class="measurement_container measurement_row_container_second floatL" style="display:none">
                                     <div class=" measurement_row_label floatL">
                                         <p>Weight per Piece:</p>
                                     </div>
@@ -430,6 +430,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="assets/js/js.js"></script>
+    <script type="text/javascript" src="jasmine_testing/scripts/scripts.js"></script>
     
 </body>
 </html>

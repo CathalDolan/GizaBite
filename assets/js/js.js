@@ -16,7 +16,7 @@ async function searchAPI(){
 
 async function searchIngredients(searchTerm) {
     let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods&categoryLabel=food`;
-    console.log(url);
+    // console.log(url);
     // Clears the results list for every new search
     let list = document.getElementById("ingredient_results");
     list.innerHTML = "";
@@ -24,13 +24,13 @@ async function searchIngredients(searchTerm) {
     //
     let response = await fetch(url), // "await" is linked to "async" and is a better option than "promises". It prevents the next event from happening until the current one completes
         recipes = await response.json();
-        console.log("Ingredients", recipes);
-        console.log(recipes.length);
+        //console.log("Ingredients", recipes);
+        //console.log(recipes.length);
 
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
         let product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase();
-        console.log(product_name);// Used to show comparisson to console.log(capitalized_product_name(product_name)); below
+        //console.log(product_name);// Used to show comparisson to console.log(capitalized_product_name(product_name)); below
             
             // API returns a variety of cases. This and toLowerCase above are used to capitalise 1st letter of each word
             let capitalized_product_name = (product_name) => { /* Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" */
@@ -40,7 +40,7 @@ async function searchIngredients(searchTerm) {
             });
             return arr.join(' ');
         };
-        console.log(capitalized_product_name(product_name)); // Returns some results then falters due maybe to toUpperCase, why?
+        //console.log(capitalized_product_name(product_name)); // Returns some results then falters due maybe to toUpperCase, why?
 
         // Publishes the results to the Ingredients section
         list.innerHTML += `
@@ -60,7 +60,7 @@ async function searchPortions(searchTerm) {
 
     let response = await fetch(url),
         recipes = await response.json();
-        console.log("Portions", recipes);
+        //console.log("Portions", recipes);
 
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic meals"){
@@ -73,7 +73,7 @@ async function searchPortions(searchTerm) {
                 return arr.join(' ');
             }
         };
-        console.log(capitalized_product_name(product_name)); 
+        // console.log(capitalized_product_name(product_name)); 
 
         list.innerHTML += `
         <div class="results_row section_in">
