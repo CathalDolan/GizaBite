@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.css" integrity="sha512-XKXP02aeSNI5HsDB3+4MM0tSDXJTBFZpt99xL7PvMz3+A3aRy0F0Ne/CATK+Z72ckE/4Ev9OiosWQr5LtU284Q==" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="assets/css/food_pages.css" type="text/css">
@@ -128,7 +129,7 @@
                                         <p>Portion g:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -147,7 +148,7 @@
                                         <p>Standard Portion:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="1" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="1" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
@@ -158,7 +159,7 @@
                                         <p>Weight per Piece:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -415,8 +416,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="assets/js/js.js"></script>
+    <!-- Load Jasmine Framework -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.js" integrity="sha512-PAOFqlhbgGVh70gKb5RfTLLVmEFnh5jO75xrEMjT8mzspI+Wl4PKqEDGx4x4/EwgFHe8nlKCAGUwisHZXOtQ8g==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine-html.js" integrity="sha512-noNmiAb9mmW56srU8iRSdFsAYTAMYCjRk+bH8T3iTOvUlJrmCZCf3aLZcpwAPH1wZ/Vkrehf+WNnFV4Qu29KLQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/boot.js" integrity="sha512-2shpoK9lnpDGymLugeKOQ48e5sL452343YLO9z1KLiFHop0ZuzqiG69i1X/UV9hd4UzVmCOBHxlRyFBmXGRyUw==" crossorigin="anonymous"></script>
+    
+    <!-- Load Scripts-->
     <script type="text/javascript" src="jasmine_testing/scripts/scripts.js"></script>
+
+    <!-- Load Specs-->
+    <script type="text/javascript" src="jasmine_testing/spec/spec.js"></script>
+
+    <!--<script type="text/javascript" src="assets/js/js.js"></script> -->
     
 </body>
 </html>
