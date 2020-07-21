@@ -111,7 +111,7 @@
                         <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" 
                         title="
                         <p>Confirm the typical per serving weight for this ingredient.</p> 
-                        <p>If this product is usually purchased or sold on a per piece basis rather than by weight, eg chicken wings, confirm 
+                        <p>If this product is usually purchased or sold on a per piece basis rather than by weight, e.g. chicken wings, confirm 
                         the number of pieces per serving as well as weight per piece.</p>
                         ">
                         </div>
@@ -129,7 +129,7 @@
                                         <p>Serving g:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input id="weight_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" name="total_amt"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -148,7 +148,7 @@
                                         <p>Standard Serving:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="1" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input id="pieces_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="1" maxlength="7" class="input_weight_number" onblur="calculate()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
@@ -159,7 +159,7 @@
                                         <p>Weight per Piece:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input id="measure_weight_per_piece_input" type="number" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" onblur="calculate()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
