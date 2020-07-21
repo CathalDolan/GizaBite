@@ -106,4 +106,13 @@ checkbox.addEventListener( 'change', function() {
     }
 });
 
-// Ingredients "Portion g" Field Calculation
+// Ingredients "Servings g" Field Calculation
+calculate = function()
+{
+    var weight_per_piece = document.getElementById('measure_weight_per_piece_input').value;
+    console.log(weight_per_piece);
+    var pieces_per_serving = document.getElementById('pieces_per_serving_input').value; 
+    console.log(pieces_per_serving);
+    console.log(pieces_per_serving*weight_per_piece);
+    document.getElementById('weight_per_serving_input').value = parseInt(weight_per_piece)*parseInt(pieces_per_serving);
+   }
