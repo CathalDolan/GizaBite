@@ -1,7 +1,7 @@
 /*--- Search Functionality ---*/
-let app_id = "1234dec7",
-    app_key = "634dea9e2c3835579ba9232e741217fc",
-    edamamURL = "https://api.edamam.com/api/food-database/v2/parser";
+//let app_id = "1234dec7",
+//    app_key = "634dea9e2c3835579ba9232e741217fc",
+//    edamamURL = "https://api.edamam.com/api/food-database/v2/parser";
 
 async function searchAPI(){
     let searchTerm = document.getElementById('search_widget_input').value;
@@ -88,21 +88,15 @@ async function searchIngredients(searchTerm) {
 }
 
 // Make field appear when checkbox is ticked
-/* function myFunction() {
-  var checkBox = document.getElementById("measurement_checkbox");
-  var text = document.getElementById("measure_weight_per_piece");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-} */
+var checkbox = document.querySelector("input[name=checkbox]"); // https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
 
-var selector = document.querySelector('input[id=measurement_checkbox]'); //http://jsfiddle.net/wewtnbpc/1/
-selector.addEventListener('change', function (event) {
-    if (selector.checked) {
-        document.getElementById("measure_weight_per_piece").text.style.display = "block";
+checkbox.addEventListener( 'change', function() {
+    if(this.checked) {
+        document.getElementById("measure_weight_per_piece").style.display = "block";
+        document.getElementById("pieces_per_portion_container").style.display = "block";
     } else {
-        document.getElementById("measure_weight_per_piece").text.style.display = "none";
+        document.getElementById("measure_weight_per_piece").style.display = "none";
+        document.getElementById("pieces_per_portion_container").style.display = "none";
     }
 });
+
