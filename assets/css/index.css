@@ -1,5 +1,5 @@
 #index .hero_image {
-    background-image: url(/assets/graphics/Index_Image.jpg);
+    background-image: url(../graphics/Index_Image.jpg);
 }
 
 a.btn { /*--- Required to over ride the styles.css where a margin ius applied top and bottom ---*/

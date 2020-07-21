@@ -2,19 +2,19 @@
     height: 60px;
 }
 #dish .hero_image {
-    background-image: url(/assets/graphics/Dish_Image.jpg);
+    background-image: url(../graphics/Dish_Image.jpg);
 }
 #new_dish .hero_image {
-    background-image: url(/assets/graphics/New_Dish_Image.jpg);
+    background-image: url(../graphics/New_Dish_Image.jpg);
 }
 #portion .hero_image {
-    background-image: url(/assets/graphics/Portion_Image.jpg);
+    background-image: url(../graphics/Portion_Image.jpg);
 }
 #new_portion .hero_image {
-    background-image: url(/assets/graphics/New_Portion_Image.jpg);
+    background-image: url(../graphics/New_Portion_Image.jpg);
 }
 #ingredient .hero_image {
-    background-image: url(/assets/graphics/Ingredient_Image.jpg);
+    background-image: url(../graphics/Ingredient_Image.jpg);
 }
 
 h2.hero_text {

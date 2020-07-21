@@ -1,7 +1,7 @@
 /*--- Search Functionality ---*/
-//let app_id = "1234dec7",
-//    app_key = "634dea9e2c3835579ba9232e741217fc",
-//    edamamURL = "https://api.edamam.com/api/food-database/v2/parser";
+let app_id = "1234dec7",
+    app_key = "634dea9e2c3835579ba9232e741217fc",
+    edamamURL = "https://api.edamam.com/api/food-database/v2/parser";
 
 async function searchAPI(){
     let searchTerm = document.getElementById('search_widget_input').value;
@@ -78,9 +78,15 @@ async function searchIngredients(searchTerm) {
         }  
     })
 
-    // Return serving size - Not working
+    // Return serving size (for "Portion g" fields) - Not working
     recipes.hints.filter((item) => {
         if(item.measures.label === "Serving"){
+        console.log(item.measures.label);
+        }  
+    })
+    // Return per piece size (for "Weight per Piece" fields) - Not working
+    recipes.hints.filter((item) => {
+        if(item.measures.label === "Piece"){
         console.log(item.measures.label);
         }  
     })
