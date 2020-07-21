@@ -247,7 +247,7 @@ div>ul>li {
 
 
 
-#portion .portion_totals_div h4, #dish .portion_totals_div h4 { /* Adds space between the ingredient name and its measurements beneath it */
+#portion .serving_totals_div h4, #dish .serving_totals_div h4 { /* Adds space between the ingredient name and its measurements beneath it */
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
