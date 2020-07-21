@@ -74,7 +74,7 @@ async function searchIngredients(searchTerm) {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
         let product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase();
         console.log(product_name);
-        console.log(item.measures.label);
+        console.log(item.food.label);
         }  
     })
 
@@ -99,10 +99,11 @@ var checkbox = document.querySelector("input[name=checkbox]"); // https://stacko
 checkbox.addEventListener( 'change', function() {
     if(this.checked) {
         document.getElementById("measure_weight_per_piece").style.display = "block";
-        document.getElementById("pieces_per_portion_container").style.display = "block";
+        document.getElementById("pieces_per_serving_container").style.display = "block";
     } else {
         document.getElementById("measure_weight_per_piece").style.display = "none";
-        document.getElementById("pieces_per_portion_container").style.display = "none";
+        document.getElementById("pieces_per_serving_container").style.display = "none";
     }
 });
 
+// Ingredients "Portion g" Field Calculation
