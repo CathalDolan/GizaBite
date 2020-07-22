@@ -10,33 +10,39 @@ async function searchAPI() {
 
 // Search: Ingredients
 async function searchIngredients(searchTerm) {
-  let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
-  
-  // Clears the results list for every new search
-  let product_name = '',
-    list = document.getElementById("ingredient_results");
-    list.innerHTML = ""; //What's this?
-  
-  let response = await fetch(url), // "await" is linked to "async" and is a better option than "promises". It prevents the next event from happening until the current one completes
-    recipes = await response.json();
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
 
-    let capitalized_product_name = (product_name) => { //Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
+    // Clears the results list for every new search
+    let product_name = '',
+        list = document.getElementById("ingredient_results");
+        list.innerHTML = ""; //What's this?
+
+    let response = await fetch(url), 
+        recipes = await response.json();
+        console.log(recipes);
+
+    let capitalized_product_name = (product_name) => {
         let arr = product_name.split(' ');
-        arr.forEach(function(i, index) {
+        console.log(arr); // Prints an empty array
+
+        arr.forEach(function(i, index) { // What is "i"? Console.log prints it, but it's blank.
+            console.log(index);
             arr[index] = i.replace(i[0], i[0].toUpperCase());
             });
-        return arr.join(' ');
-    };
+            
+            return arr.join(' ');
+        };
 
     recipes.hints.filter((item) => {
         if (item.food.category === "Packaged foods") {
-            product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase(); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
+            product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase();
+            console.log(product_name); // Not printing
         } else if (item.food.category === "Generic foods") {
             product_name = item.food.label.toLowerCase();
     }
-    // API returns a variety of cases. This and toLowerCase above are used to capitalise 1st letter of each word
-    
-    //console.log(capitalized_product_name(product_name)); // Returns some results then falters due maybe to toUpperCase, why?
+    console.log(product_name); // Prints, but is blank.
+    console.log(capitalized_product_name(product_name)); // Not printing
+
     // Publishes the results to the Ingredients section
     list.innerHTML += `
     <div class="results_row section_in results_list">
@@ -49,11 +55,12 @@ async function searchIngredients(searchTerm) {
   //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
   recipes.hints.filter((item) => {
     if (item.food.category === "Generic foods" || item.food.category === "Packaged foods") {
-      if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items
-        let foodContentsLabels = item.food.foodContentsLabel; // Food's ingredients listed in a string
+      if ('undefined' !== typeof item.food.foodContentsLabel) { 
+        let foodContentsLabels = item.food.foodContentsLabel; 
         let foodContentsLabelsArray = foodContentsLabels.split(";"); // Food's ingredients list string, converted to an array
         if (foodContentsLabelsArray.length > 1) { // Excludes products where there was only one ingredient
           console.log(foodContentsLabelsArray);
+
           /* //To insert ingredients string into results - Not Functioning
            let tbc1 = foodContentsLabelsArray.toString();
            document.querySelector('ingredient_results_ingredients').list.innerHTML = "tbc1"; // Returning an error

@@ -204,4 +204,4 @@ Informational pages were given a larger image as the aesthetics need to be more 
 Accordion - https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
 Buttons - https://getbootstrap.com/docs/4.0/components/buttons/
 API Packaged Products Ingredieints Lists - https://gomakethings.com/two-different-ways-to-create-html-from-an-array-of-data-with-vanilla-js/  &  https://codepen.io/cferdinandi/pen/mYmbgL
-Capitalise Results in "Search" - Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
+Capitalise Results in "Search" capitalized_product_name - Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
