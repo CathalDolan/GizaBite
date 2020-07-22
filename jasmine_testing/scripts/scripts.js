@@ -15,24 +15,29 @@ async function searchAPI(){
 
 // Search: Ingredients
 async function searchIngredients(searchTerm) {
-    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods&categoryLabel=food`;
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
     // Clears the results list for every new search
     let list = document.getElementById("ingredient_results");
     list.innerHTML = ""; //What's this?
 
+    let product_name;
+
     let response = await fetch(url), // "await" is linked to "async" and is a better option than "promises". It prevents the next event from happening until the current one completes
         recipes = await response.json();
-        //console.log("Ingredients", recipes);
-        //console.log(recipes.length);
+        console.log("Ingredients", recipes);
 
     recipes.hints.filter((item) => {
-        if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
-            let product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase(); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
-        //console.log(product_name);// Used to show comparisson to console.log(capitalized_product_name(product_name)); below. e.g "link snacks, inc." - beef steak strip
-        // console.log(item.food.label); e.g. BEEF STEAK STRIP
+        if(item.food.category === "Packaged foods" && item.food.category !== "Generic meals"){
+            product_name = ('"' + item.food.brand + '"' + ' - ' + item.food.label).toLowerCase(); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
+        } else if (item.food.category === "Generic foods" && item.food.category !== "Generic meals"){
+            product_name = (item.food.label).toLowerCase();
+        }
+        if (typeof(product_name) !== 'undefined') { 
+            console.log(product_name);
+        }
             
-            // API returns a variety of cases. This and toLowerCase above are used to capitalise 1st letter of each word
-            let capitalized_product_name = (product_name) => { /* Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" */
+            /* // API returns a variety of cases. This and toLowerCase above are used to capitalise 1st letter of each word
+            let capitalized_product_name = (product_name) => { Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
                 let arr = product_name.split(' ');
                 arr.forEach(function(i, index) {
                     arr[index] = i.replace(i[0], i[0].toUpperCase());
@@ -47,9 +52,8 @@ async function searchIngredients(searchTerm) {
                 <h4 class="alignL results_row_name">${capitalized_product_name(product_name)}</h4>
                 <div class="row_icon_container plus_icon pointer alignR">
                 </div>
-            </div>`;
-        }
-    })
+            </div>`; */
+        });
 
 
     //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
