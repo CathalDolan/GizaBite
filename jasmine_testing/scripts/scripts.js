@@ -174,15 +174,14 @@ $(".brick>p").on("click", function() {
     $(this).css("color", "white");
 })
 
-
 // Back Button function. Take from w3schools.
 function goBack() { 
   window.history.back();
 }
 
-
-/* Funtion to allow the "Advance" section in Search expand and collape upwards */
-$(".header").click(function() {
+// Funtion to allow the "Advance" section in Search expand and collape upwards - Not working due to Ingredients Page: Make field appear when checkbox is ticked
+$("#search_advanced_button").click(function() {
+    console.log("clicked");
   $('.content1').slideToggle().toggleClass('active');
   if ($('.content1').hasClass('active')) {
     $('.header').text('Close Advanced');
