@@ -53,6 +53,9 @@
     margin-top: 0.5rem;
 }
 
+#ingredient_results_ingredients {
+    color: var(--white);
+}
 
 /*---------------------------------- Brick buttons */
 
