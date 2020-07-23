@@ -54,12 +54,6 @@ async function searchIngredients(searchTerm) {
         foodIngredients = document.getElementById('ingredient_results_ingredients');
         foodIngredients.innerHTML = "";
 
-    if (item.food.category === "Packaged foods") {
-        //ingredientList = item.food.foodContentsLabel; 
-    } else {
-        return;
-    }
-
     //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
     if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items, ie items that don't have ingredients
         let foodContentsLabels = item.food.foodContentsLabel; // Food's ingredients listed in a string
