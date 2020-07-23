@@ -61,34 +61,35 @@ async function searchIngredients(searchTerm) {
     }
 
     //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
-    if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items
+    if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items, ie items that don't have ingredients
         let foodContentsLabels = item.food.foodContentsLabel; // Food's ingredients listed in a string
         let foodContentsLabelsArray = foodContentsLabels.split(";"); // Food's ingredients list string converted to an array
-        if (foodContentsLabelsArray.length > 1) { // Excludes products where there was only one ingredient
-            console.log(foodContentsLabelsArray); // OK
+        if (foodContentsLabelsArray.length > 1) { // Excludes products where there was only one ingredient. Not quite correct, should only eliminate single words maybe.
+            //console.log(foodContentsLabelsArray); // OK
 
             foodContentsLabelsArray.forEach(function (foodContentsLabelsArrayLooped) {
                 console.log(foodContentsLabelsArrayLooped);
                 ingredientList += '<li> - ' + foodContentsLabelsArrayLooped + '</li>';
                 })
-                // ingredientList = '<ul>' + ingredientList + '</ul>'; // Adds <ul> to the existing <li> html 
-        }
-
+                ingredientList = '<ul>' + ingredientList + '</ul>'; // Adds <ul> to the existing <li> html 
+            }
     foodIngredients.innerHTML += `<div class="results_row section_in"><ul>${ingredientList}</ul></div>`;
-
-        }
+            }
+        
 
     }); // All searches need to be inside these
 
-  /* //Search Page: To calculate the number of results. How to integrate with above?
-   // let resultNames = [];
-   recipes.hints.filter((item) => {
-       if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
-           resultNames.unshift(item.food.label); // Adds each result to the resultsNames array on each loop
-       }  
-   })
-   document.querySelector('ingredients_results_count').innerHTML = resultNames.length; //Returning an error. Also tried.text and .value
-   console.log(resultNames.length); */
+    // Search Page: To calculate the number of results. How to integrate with above?
+    let resultNames = [];
+    recipes.hints.filter((item) => {
+        if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
+            resultNames.unshift(item.food.label); // Adds each result to the resultsNames array on each loop
+        }  
+    });
+    console.log(resultNames.length);
+    document.getElementById('ingredients_results_count').innerHTML = resultNames.length; //Returning an error. Also tried.text and .value
+
+
   // // Return serving size (for "Portion g" fields) - Not Functioning
   // recipes.hints.filter((item) => {
   //   if (item.measures.label === "Serving") {
