@@ -3,8 +3,20 @@ let app_id = "1234dec7",
     app_key = "634dea9e2c3835579ba9232e741217fc",
     edamamURL = "https://api.edamam.com/api/food-database/v2/parser";
 
+
+/* // Trigger search using Return key. Also tried  onsearch="searchAPI()" in the html - Neither functioning properly
+var input = document.getElementById("search_widget_input");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+      console.log("Yellow");
+   event.preventDefault();
+   document.getElementById("search_button").click();
+  }
+}); */
+
 async function searchAPI() {
     let searchTerm = document.getElementById('search_widget_input').value;
+    console.log(searchTerm);
     await searchIngredients(searchTerm);
     await searchPortions(searchTerm);
 }
@@ -135,27 +147,73 @@ async function searchPortions(searchTerm) {
   })
 };
 
-// Ingredients Page: Make field appear when checkbox is ticked
-var checkbox = document.querySelector("input[name=checkbox]"); // https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
+// Ingredients Page: Make fields appear when checkbox is ticked
+var checkbox = document.querySelector("input[name=measurement_checkbox]"); 
 checkbox.addEventListener('change', function () {
     if (this.checked) {
-        document.getElementById("measure_weight_per_piece").style.display = "block";
-        document.getElementById("pieces_per_serving_container").style.display = "block";
+        document.getElementById(measure_weight_per_piece).style.display = "block";
+        document.getElementById(pieces_per_serving_container).style.display = "block";
+        //document.getElementById(ingredient_batch_qty_div).style.display = "block"; // Hides pieces per serving in Ingredients page. 
     } else {
-        document.getElementById("measure_weight_per_piece").style.display = "none";
-        document.getElementById("pieces_per_serving_container").style.display = "none";
+        document.getElementById(measure_weight_per_piece).style.display = "none";
+        document.getElementById(pieces_per_serving_container).style.display = "none";
+        //document.getElementById(ingredient_batch_qty_div).style.display = "none";
     }
 });
 
 // Ingredients Page: "Servings g" Field Calculation
-calculate = function () {
-    var weight_per_piece = document.getElementById('measure_weight_per_piece_input').value;
-    console.log(weight_per_piece);
-    var pieces_per_serving = document.getElementById('pieces_per_serving_input').value;
-    console.log(pieces_per_serving);
-    console.log(pieces_per_serving * weight_per_piece);
-    document.getElementById('weight_per_serving_input').value = parseInt(weight_per_piece) * parseInt(pieces_per_serving);
+calculateIngredientPage = function () {
+    let weightPerPiece = document.getElementById('measure_weight_per_piece_input').value;
+    let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+    document.getElementById('weight_per_serving_input').value = parseInt(weightPerPiece) * parseInt(piecesPerServing);
 }
+
+/*
+// Portions Page: Ingredients section calculations - Untested
+// The fields should all be autocompleted based on Ingredients page and default data
+calculate = function (){
+
+    let numberOfServings = getElementById("number_of_servings_input").value;
+
+    // Only takes affect if User changes Batch Quantity in Portions. Changes on Ingredients page
+    let piecesPerServing = getElementById('ingredient_batch_quantity_input').value / getElementById("number_of_servings_input").value;
+    document.getElementById('measure_weight_per_piece_input').value = parseInt(piecesPerServing);
+
+    // Only displays if "by the piece" is checked on ingredient page
+    let batchQuantity = getElementById("number_of_servings_input").value * getElementById("pieces_per_serving_input").value; // Latter is from Ingredient page
+    document.getElementById('ingredient_batch_quantity_input').value = parseInt(batchQuantity);
+    
+    // Calculates total amount of ingredient needed for a batch
+    let batchWeight = getElementById("number_of_servings_input").value * ingredientServingWeight;
+    document.getElementById('ingredient_batch_weight_input').value = parseInt(batchWeight);
+
+    // Gets the value from the Ingredient page 
+    let ingredientServingWeight = getElementById("weight_per_serving_input").value; 
+    document.getElementById('ingredient_serving_weight_input').value = ingredientServingWeight;
+
+    // If the User changes the Batch Weight in Portions, per serving weight updates in Ingredients
+    let ingredientServingWeightChange = batchWeight / numberOfServings;
+    document.getElementById('measure_weight_per_piece_input').value = parseInt(ingredientServingWeightChange);
+
+    // If the User changes the Serving Weight in Portions, per serving weight updates in Ingredients
+    let ingredientServingWeightChange2 = batchWeight / numberOfServings;
+    document.getElementById('measure_weight_per_piece_input').value = parseInt(ingredientServingWeightChange2);
+
+    // Value is supplied by API, details tbc
+    let kcal= tbc;
+    document.getElementById('ingredient_kcal_value').text = parseInt(kcal);
+
+    // Total serving weight
+    let servingTotalWeight = "sum of all ingredientServingWeight"; 
+    document.getElementById('total_serving_weight').text = parseInt(servingTotalWeight); 
+
+    // Total serving kcal
+    let servingTotalKcal = "sum of all kcal"; 
+    document.getElementById('total_serving_kcal').text = parseInt(servingTotalKcal);
+
+
+} */
+
 
 // Tooltip Funcion
 $(function () {

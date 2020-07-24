@@ -117,7 +117,7 @@ async function searchIngredients(searchTerm) {
         }
     })
 
-   /* //Search Page: To calculate the number of results. How to integrate with above?
+   //Search Page: To calculate the number of results. How to integrate with above?
     // let resultNames = [];
     recipes.hints.filter((item) => {
         if(item.food.category === "Generic foods" || item.food.category === "Packaged foods"){
@@ -125,7 +125,7 @@ async function searchIngredients(searchTerm) {
         }  
     })
     document.querySelector('ingredients_results_count').innerHTML = resultNames.length; //Returning an error. Also tried.text and .value
-    console.log(resultNames.length); */
+    console.log(resultNames.length);
 
     // Return serving size (for "Portion g" fields) - Not Functioning
     recipes.hints.filter((item) => {
