@@ -53,26 +53,20 @@ $(document).ready(function(){
             //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
             if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items, ie items that don't have ingredients
             let foodContentsLabels = item.food.foodContentsLabel; // Food's ingredients listed in a string
+            console.log(foodContentsLabels);
             let foodContentsLabelsArray = foodContentsLabels.split(";"); // Food's ingredients list string converted to an array
+            console.log(foodContentsLabelsArray);
             if (foodContentsLabelsArray.length > 1) { // Excludes products where there was only one ingredient. Not quite correct, should only eliminate single words maybe.
                 foodContentsLabelsArray.forEach(function (foodContentsLabelsArrayLooped) {
                 ingredientList += '<li class="ingredient_ingredient"> - ' + foodContentsLabelsArrayLooped + '</li>';
                 })
+                console.log("Line 63", ingredientList);
                 ingredientList = '<ul>' + ingredientList + '</ul>'; // Adds <ul> to the existing <li> html 
                 
                 ingredientListId.innerHTML = `${ingredientList}`;
                 console.log(ingredientList);
                 }
             }
-
-            /*// Publishes the results to the Ingredients section
-            if (ingredientList === '') {
-                list.innerHTML = `${product_name}`;
-                    return;
-                } else {
-                list.innerHTML = `${ingredientList}`;
-                }
-                console.log(list.innerHTML);*/
     });
 
 
@@ -80,5 +74,3 @@ $(document).ready(function(){
 
 
 });
-
-

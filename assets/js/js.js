@@ -57,43 +57,16 @@ recipes.hints.filter((item) => {
       return;
     }
 
- 
-    let foodId = item.food.foodId;
-    let newUrl = window.document.location;
-    console.log(newUrl);
-
     // Increment counter by 1
     count += 1;
-    var ingredientList = '';
-
-    //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
-    if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items, ie items that don't have ingredients
-      let foodContentsLabels = item.food.foodContentsLabel; // Food's ingredients listed in a string
-      let foodContentsLabelsArray = foodContentsLabels.split(";"); // Food's ingredients list string converted to an array
-      if (foodContentsLabelsArray.length > 1) { // Excludes products where there was only one ingredient. Not quite correct, should only eliminate single words maybe.
-        foodContentsLabelsArray.forEach(function (foodContentsLabelsArrayLooped) {
-          ingredientList += '<li> - ' + foodContentsLabelsArrayLooped + '</li>';
-        })
-        ingredientList = '<ul>' + ingredientList + '</ul>'; // Adds <ul> to the existing <li> html 
-      }
-    }
-
-    // Publishes the results to the Ingredients section
-    if (ingredientList === '') {
-      list.innerHTML += `
-        <div class="results_row section_in results_list">
-          <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${item.food.foodId}">${product_name}</a></h4>
-          <div class="row_icon_container plus_icon pointer alignR"></div>
-        </div>`;
-      return;
-    }
 
     list.innerHTML += `
     <div class="results_row section_in results_list">
-      <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${item.food.foodId}">${product_name}</a></h4>
-      <div class="row_icon_container plus_icon pointer alignR"></div>
-    </div>
-    <div class="results_row section_in" style="color:white;"><ul>${ingredientList}</ul></div>`;
+        <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${item.food.foodId}">${product_name}</a></h4>
+        <div class="row_icon_container plus_icon pointer alignR"></div>
+    </div>`;
+    
+     
   });
   document.getElementById('ingredients_results_count').innerHTML = count; //Returning an error. Also tried.text and .value
   
