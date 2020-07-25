@@ -1,3 +1,5 @@
+var foodId;
+
 $(document).ready(function(){
     foodId = document.location.search.replace(/^.*?\=/,'');
     //console.log(foodId);
@@ -72,5 +74,27 @@ $(document).ready(function(){
 
     }; //Search is all conrained in here
 
-
 });
+
+
+// Ingredients Page: Make fields appear when checkbox is ticked
+var checkbox = document.querySelector("input[name=measurement_checkbox]");
+checkbox.addEventListener('change', function () {
+  if (this.checked) {
+    document.getElementById(measure_weight_per_piece).style.display = "block";
+    document.getElementById(pieces_per_serving_container).style.display = "block";
+    localStorage.setItem('ingredientCheckBox', 'true');
+  } else {
+    document.getElementById(measure_weight_per_piece).style.display = "none";
+    document.getElementById(pieces_per_serving_container).style.display = "none";
+    localStorage.setItem('ingredientCheckBox', 'false');
+  }
+});
+
+
+// Ingredients Page: "Servings g" Field Calculation
+calculateIngredientPage = function () {
+  let weightPerPiece = document.getElementById('measure_weight_per_piece_input').value;
+  let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+  document.getElementById('weight_per_serving_input').value = parseInt(weightPerPiece) * parseInt(piecesPerServing);
+}

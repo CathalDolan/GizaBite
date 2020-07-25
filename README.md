@@ -207,4 +207,4 @@ API Packaged Products Ingredieints Lists - https://gomakethings.com/two-differen
 Capitalise Results in "Search" capitalized_product_name - Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
 Search: Trigger with button click or return key - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_trigger_button_enter
 Ingredient Page: Checkbox trigger https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
-Ingredient Page: Accessing teh foodId from the URL https://www.youtube.com/watch?v=SHLI2rvmJdc &  https://www.youtube.com/watch?v=GNZg1KRsWuU
+Ingredient Page: Accessing teh foodId from the URL https://www.youtube.com/watch?v=GNZg1KRsWuU
