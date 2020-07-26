@@ -602,6 +602,13 @@ h2.hero_text {
     align-items: center;
     margin: 0 auto;
 }
+
+/* Inserted to space ingredientsa in portions */
+.results_row {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .results_section_name, .results_count, .results_row_name, .results_row_description {
     flex:1;
 }
