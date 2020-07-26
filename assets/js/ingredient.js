@@ -1,6 +1,18 @@
 var foodId = document.location.search.replace(/^.*?\=/,'');
 
+
+
 $(document).ready(function(){
+
+    // Add href to add icon to bring user to portion page
+    var addIngredient = document.getElementById("add_ingredient_icon");
+    console.log(addIngredient);
+    addIngredient.outerHTML = `
+        <a href="new_portion.html?foodId=${foodId} target="_self">
+            <div id="add_ingredient_icon" class="row_icon_container plus_icon pointer alignR floatR">
+            </div>
+        </a>    
+    `;
 
     async function searchAPI() {
         searchIngredients(foodId);
@@ -67,7 +79,7 @@ $(document).ready(function(){
                 console.log(ingredientList);
                 }
             }
-    });
+        });
 
     }; //Search is all contained in here
 
