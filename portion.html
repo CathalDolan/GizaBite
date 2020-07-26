@@ -10,6 +10,11 @@
     <title>GizaBite</title>
     
     <link rel="shortcut icon" type="image/png" href="assets/graphics/GizaBite_Favicon.png">
+    
+    <script>
+        var div_id = "measure_weight_per_piece";
+    </script>
+    
 </head>
 <body id="portion">
     <!--======================================== Header - Start -->
@@ -123,7 +128,7 @@
                                         <p># of Servings</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
+                                        <input id="number_of_servings_input" type="text" inputmode="numeric" pattern="[0-9]*" value="10" maxlength="7" class="input_weight_number" onkeyup="calculate()"/>
                                     </div>
                                 </div>
                             </div>
@@ -168,52 +173,52 @@
 
                             <!-- Ingredients Row with Inputs -->
                             <div class="ingredient_measurement_row section_in">
-                                <div class="measurement_container floatL">
+                                <div id="ingredient_batch_qty_div" class="measurement_container floatL"  style="display:none">
                                     <div class="measurement_row_label floatL">
                                         <p>Batch Qty:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
+                                        <input id="ingredient_batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" onkeyup="calculate()"/>
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
                                     </div>
                                 </div>
-                                <div class="measurement_container measurement_row_container_second floatL">
+                                <div id="ingredient_batch_weight" class="measurement_container measurement_row_container_second floatL">
                                     <div class=" measurement_row_label floatL">
                                         <p>Batch g:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
+                                        <input id="ingredient_batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/>
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
                                     </div>
                                 </div>
-                                <div class="measurement_container measurement_row_container_third floatL">
+                                <div id="ingredient_serving_weight" class="measurement_container measurement_row_container_third floatL">
                                     <div class="measurement_row_label floatL">
                                         <p>Serving g:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/> 
+                                        <input id="ingredient_serving_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/> 
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
                                     </div>
                                 </div>
-                                <div class="measurement_container measurement_row_container_fourth floatL">
+                                <div id="ingredient_serving_kcals" class="measurement_container measurement_row_container_fourth floatL">
                                     <div class="measurement_row_label floatL">
                                         <p>Serving Kcal:</p>
                                     </div>
                                     <div class="floatL">
-                                        <p><span class="kcal_count">125</span>Kcal</p>
+                                        <p><span id="ingredient_kcal_value" class="kcal_count">125</span>Kcal</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Wieght and Calorie Totals-->
                             <div class="serving_totals_div section_in alignC">
-                                <h4>Serving Totals: <span class="total_serving_weight">330</span>g <span class="total_serving_kcal">195</span>Kcal</h4>
+                                <h4>Serving Totals: <span id="total_serving_weight">330</span>g <span id="total_serving_kcal">195</span>Kcal</h4>
                             </div>
 
                             <!-- Search Input-->
@@ -642,6 +647,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="assets/js/js.js"></script>
+    <script type="text/javascript" src="assets/js/portion.js"></script>
     
 </body>
 </html>

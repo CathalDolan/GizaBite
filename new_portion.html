@@ -119,7 +119,7 @@
                                         <p># of Servings</p>
                                     </div>
                                     <div class="floatL">
-                                        <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="100" maxlength="7" class="input_weight_number"/>
+                                        <input id="number_of_servings_input" type="text" inputmode="numeric" pattern="[0-9]*" value="10" maxlength="7" class="input_weight_number" onkeyup="numberOfServingsFn(); batchQuantityFn(); batchWeightFn()"/>
                                     </div>
                                 </div>
                             </div>
@@ -152,10 +152,71 @@
                     <!-- Collapse/Expand Section - Ingredients -->
                     <div id="collapseThree" class="collapse" data-parent="#accordion">
                         <div class="card-body">
-                            <div class="section_in">
-                                <div>
-                                    <textarea id="add_ingredients" class="product_description" name="dish_description" rows="2" placeholder="Add Portion Ingredients."></textarea>
+                            
+                            <!-- Ingredient Row -->
+                            <div class="results_row section_in">
+                                <div class="row_icon_container eye_icon pointer alignL" data-toggle="tooltip" data-placement="top" title="whats here">
                                 </div>
+                                <a id="ingredient_product_name" class="alignL results_row_name pointer">Ingredient Name goes here</a>
+                            
+                                <div class="row_icon_container delete_icon pointer alignR">
+                                </div>
+                            </div>
+
+                            <!-- Ingredients Row with Inputs -->
+                            <div class="ingredient_measurement_row section_in">
+                                <div id="ingredient_batch_qty_div" class="measurement_container floatL"  style="display:none">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Batch Qty:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input id="ingredient_batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="calculate()"/>
+                                    </div>
+                                    <div class="floatL">
+                                        <p>pcs</p>
+                                    </div>
+                                </div>
+                                <div id="ingredient_batch_weight" class="measurement_container measurement_row_container_second floatL">
+                                    <div class=" measurement_row_label floatL">
+                                        <p>Batch g:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input id="ingredient_batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/>
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div id="ingredient_serving_weight" class="measurement_container measurement_row_container_third floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Serving g:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <input id="ingredient_serving_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number"/> 
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div id="ingredient_serving_kcals" class="measurement_container measurement_row_container_fourth floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <p>Serving Kcal:</p>
+                                    </div>
+                                    <div class="floatL">
+                                        <p><span id="ingredient_kcal_value" class="kcal_count">125</span>Kcal</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Wieght and Calorie Totals-->
+                            <div class="serving_totals_div section_in alignC">
+                                <h4>Serving Totals: <span id="total_serving_weight">330</span>g <span id="total_serving_kcal">195</span>Kcal</h4>
+                            </div>
+
+                            <!-- Search Input-->
+                            <div class="section_in inner_element_571" id="ingredient_search_div">
+                                <label for="ingredient_search_input">SEARCH:</label>
+                                <input type="text" id="ingredient_search_input" name="ingredient_search_input" placeholder="Search for and add Portions & Ingredients" class="inner_element_571">
                             </div>
                         </div>
                     </div>
@@ -581,6 +642,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="assets/js/js.js"></script>
+    <script type="text/javascript" src="assets/js/portion.js"></script>
     
 </body>
 </html>
