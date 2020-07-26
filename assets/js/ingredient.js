@@ -111,17 +111,17 @@ function checkBox() {
 // Get Weight Per Serving input value and save to local storage
 var weightPerServingLs = localStorage.getItem('weightPerServing' + foodId, weightPerServing);
 console.log(weightPerServingLs);
-
+// Get default weight value
 var weightPerServingVal = weightPerServing = document.getElementById('weight_per_serving_input').value;
 console.log(weightPerServingVal);
 
 var weightPerServing;
-
+// Called when User types into the input field
 var weightPerServingManFn = function (){
         weightPerServing = document.getElementById('weight_per_serving_input').value;
         localStorage.setItem("weightPerServing" + foodId, weightPerServing);
     }
-
+// Called automatically to extract the Value from local storage
 var weightPerServingFn = function (){
     if (weightPerServingLs === null){
         weightPerServing = document.getElementById('weight_per_serving_input').value = weightPerServing;
@@ -133,12 +133,81 @@ var weightPerServingFn = function (){
 weightPerServingFn();
 console.log('weightPerServing' + foodId, weightPerServing);
 
+
+// Get Weight Per Piece input value and save to local storage
+var weightPerPieceLs = localStorage.getItem('weightPerPiece' + foodId, weightPerPiece);
+console.log("weightPerPieceLs", weightPerPieceLs);
+// Get default Weight Per Piece value
+var weightPerPieceVal = weightPerPiece = document.getElementById('weight_per_piece_input').value;
+console.log("weightPerPieceVal", weightPerPieceVal);
+
+var weightPerPiece;
+// Called when User types into the input field
+var weightPerPieceManFn = function () {
+    weightPerPiece = document.getElementById('weight_per_piece_input').value;
+    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece);
+}
+// Called automatically to extract the Value from local storage
+var weightPerPieceFn = function (){
+    if (weightPerPieceLs === null){
+        weightPerPiece = document.getElementById('weight_per_piece_input').value = weightPerPiece;
+        localStorage.setItem("weightPerPiece" + foodId, weightPerPiece);
+    } else {
+        weightPerPiece = document.getElementById('weight_per_piece_input').value = weightPerPieceLs;
+    }
+}
+weightPerPieceFn();
+console.log('weightPerPiece' + foodId, weightPerPiece);
+
+
+// Get number of Pieces Per Serving input value and save to local storage
+var piecesPerServingLs = localStorage.getItem('piecesPerServing' + foodId, piecesPerServing);
+console.log("piecesPerServingLs", piecesPerServingLs);
+// Get default pieces per Serving value
+var piecesPerServingVal = piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+console.log("piecesPerServingVal", piecesPerServingVal);
+
+var piecesPerServing;
+// Called when User types into the input field
+var piecesPerServingManFn = function () {
+    piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+    localStorage.setItem("piecesPerServing" + foodId, piecesPerServing);
+}
+// Called automatically to extract the Value from local storage
+var piecesPerServingFn = function (){
+    if (piecesPerServingLs === null){
+        piecesPerServing = document.getElementById('pieces_per_serving_input').value = piecesPerServing;
+        console.log("piecesPerServing", piecesPerServing);
+        localStorage.setItem("piecesPerServing" + foodId, piecesPerServing);
+        
+    } else {
+        piecesPerServing = document.getElementById('pieces_per_serving_input').value = piecesPerServingLs;
+    }
+}
+piecesPerServingFn();
+console.log('piecesPerServing' + foodId, piecesPerServing);
+
+/*
+console.log("weightPerPiece", weightPerPiece);
+let weightPerPieceId = ("weightPerPiece" + foodId);
+console.log("weightPerPieceId", weightPerPieceId);
+let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+console.log("piecesPerServing", piecesPerServing);
+
+let weightPerServing = parseInt(weightPerPiece) * parseInt(piecesPerServing);
+document.getElementById('weight_per_serving_input').value = weightPerServing;
+
+// Called when user changes the Standard Serving or Pieces per serving inputs
+var calculateIngredientPage = function () {
+
+}
+
+
+
+
+
 /* // Ingredients Page: "Servings g" Field Calculation
 calculateIngredientPage = function () {
-  let weightPerPiece = document.getElementById('measure_weight_per_piece_input').value;
-  console.log(weightPerPiece);
-  let weightPerPieceId = ("weightPerPiece" + foodId);
-  console.log(weightPerPieceId);
 
   let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
   let weightPerServing = parseInt(weightPerPiece) * parseInt(piecesPerServing);
