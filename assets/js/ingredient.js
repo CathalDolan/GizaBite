@@ -1,9 +1,7 @@
-var foodId;
+var foodId = document.location.search.replace(/^.*?\=/,'');
 
 $(document).ready(function(){
-    foodId = document.location.search.replace(/^.*?\=/,'');
-    //console.log(foodId);
-    
+
     async function searchAPI() {
         searchIngredients(foodId);
         //await searchPortions(searchTerm);
@@ -71,30 +69,46 @@ $(document).ready(function(){
             }
     });
 
+    }; //Search is all contained in here
 
-    }; //Search is all conrained in here
-
+    // Checks if checkbox was already checked and updates page accordingly. For returning to an ingredient.
+    var checkBoxStatus = localStorage.getItem(checkBoxStatusKey);
+    console.log(checkBoxStatus)
+    if (checkBoxStatus == "true"){
+        document.getElementById("measurement_checkbox").checked = true;
+        checkBox();
+    }
+        
 });
+
+var checkBoxStatusKeyLS = ("ingredientCheckBox " + foodId); // Creates what the key should look like
 
 
 // Ingredients Page: Make fields appear when checkbox is ticked
-var checkbox = document.querySelector("input[name=measurement_checkbox]");
-checkbox.addEventListener('change', function () {
-  if (this.checked) {
-    document.getElementById(measure_weight_per_piece).style.display = "block";
-    document.getElementById(pieces_per_serving_container).style.display = "block";
-    localStorage.setItem('ingredientCheckBox', 'true');
-  } else {
-    document.getElementById(measure_weight_per_piece).style.display = "none";
-    document.getElementById(pieces_per_serving_container).style.display = "none";
-    localStorage.setItem('ingredientCheckBox', 'false');
-  }
-});
+var checkBoxInput = document.querySelector("input[name=measurement_checkbox]");
+var checkBoxStatusKey = 'ingredientCheckBox' + foodId;
+
+// Additional fields displayed if checkbox is checked
+function checkBox() {
+    if (checkBoxInput.checked) {
+        document.getElementById(measure_weight_per_piece).style.display = "block";
+        document.getElementById(pieces_per_serving_container).style.display = "block";
+        localStorage.setItem(checkBoxStatusKey, true);
+    } else {
+        document.getElementById(measure_weight_per_piece).style.display = "none";
+        document.getElementById(pieces_per_serving_container).style.display = "none";
+        localStorage.setItem(checkBoxStatusKey, false);
+    }
+}
 
 
 // Ingredients Page: "Servings g" Field Calculation
 calculateIngredientPage = function () {
   let weightPerPiece = document.getElementById('measure_weight_per_piece_input').value;
   let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
-  document.getElementById('weight_per_serving_input').value = parseInt(weightPerPiece) * parseInt(piecesPerServing);
-}
+  let weightPerServing = parseInt(weightPerPiece) * parseInt(piecesPerServing);
+  document.getElementById('weight_per_serving_input').value = weightPerServing;
+  localStorage.setItem('weightPerPiece', weightPerPiece);
+  localStorage.setItem('piecesPerServing', piecesPerServing);
+  localStorage.setItem('weightPerServing', weightPerServing);
+};
