@@ -1,14 +1,12 @@
 var foodId = document.location.search.replace(/^.*?\=/,'');
 
-
-
 $(document).ready(function(){
 
     // Add href to add icon to bring user to portion page
     var addIngredient = document.getElementById("add_ingredient_icon");
     console.log(addIngredient);
     addIngredient.outerHTML = `
-        <a href="new_portion.html?foodId=${foodId} target="_self">
+        <a href="new_portion.html?foodId=${foodId}" target="_self">
             <div id="add_ingredient_icon" class="row_icon_container plus_icon pointer alignR floatR">
             </div>
         </a>    
@@ -91,12 +89,9 @@ $(document).ready(function(){
         checkBox();
     }
         
-});
+}); // All doc.ready function inside here
 
-var checkBoxStatusKeyLS = ("ingredientCheckBox " + foodId); // Creates what the key should look like
-
-
-// Ingredients Page: Make fields appear when checkbox is ticked
+// Make fields appear when servings checkbox is ticked
 var checkBoxInput = document.querySelector("input[name=measurement_checkbox]");
 var checkBoxStatusKey = 'ingredientCheckBox' + foodId;
 
@@ -113,14 +108,43 @@ function checkBox() {
     }
 }
 
+// Get Weight Per Serving input value and save to local storage
+var weightPerServingLs = localStorage.getItem('weightPerServing' + foodId, weightPerServing);
+console.log(weightPerServingLs);
 
-// Ingredients Page: "Servings g" Field Calculation
+var weightPerServingVal = weightPerServing = document.getElementById('weight_per_serving_input').value;
+console.log(weightPerServingVal);
+
+var weightPerServing;
+
+var weightPerServingManFn = function (){
+        weightPerServing = document.getElementById('weight_per_serving_input').value;
+        localStorage.setItem("weightPerServing" + foodId, weightPerServing);
+    }
+
+var weightPerServingFn = function (){
+    if (weightPerServingLs === null){
+        weightPerServing = document.getElementById('weight_per_serving_input').value = weightPerServing;
+        localStorage.setItem("weightPerServing" + foodId, weightPerServing);
+    } else {
+        weightPerServing = document.getElementById('weight_per_serving_input').value = weightPerServingLs;
+    }
+}
+weightPerServingFn();
+console.log('weightPerServing' + foodId, weightPerServing);
+
+/* // Ingredients Page: "Servings g" Field Calculation
 calculateIngredientPage = function () {
   let weightPerPiece = document.getElementById('measure_weight_per_piece_input').value;
+  console.log(weightPerPiece);
+  let weightPerPieceId = ("weightPerPiece" + foodId);
+  console.log(weightPerPieceId);
+
   let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
   let weightPerServing = parseInt(weightPerPiece) * parseInt(piecesPerServing);
   document.getElementById('weight_per_serving_input').value = weightPerServing;
-  localStorage.setItem('weightPerPiece', weightPerPiece);
-  localStorage.setItem('piecesPerServing', piecesPerServing);
-  localStorage.setItem('weightPerServing', weightPerServing);
+  //localStorage.setItem('weightPerPiece' + foodId, weightPerPiece);
+  //localStorage.setItem('piecesPerServing' + foodId, piecesPerServing);
+  //localStorage.setItem('weightPerServing' + foodId, weightPerServing);
 };
+calculateIngredientPage(); */
