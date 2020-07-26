@@ -154,7 +154,7 @@
                                         <p>Standard Serving:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input id="pieces_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="1" maxlength="7" class="input_weight_number" onkeyup="piecesPerServingManFn()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input id="pieces_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="1" maxlength="7" class="input_weight_number" onkeyup="piecesPerServingManFn(); weightPerServingCalcFn()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
@@ -165,7 +165,7 @@
                                         <p>Weight per Piece:</p>
                                     </div>
                                     <div class="floatL">
-                                        <input id="weight_per_piece_input" type="number" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" onkeyup="weightPerPieceManFn()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input id="weight_per_piece_input" type="number" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" onkeyup="weightPerPieceManFn(); weightPerServingCalcFn()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>

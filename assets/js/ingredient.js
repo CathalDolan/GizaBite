@@ -29,9 +29,9 @@ $(document).ready(function(){
             //  list.innerHTML = "";
 
         response = await fetch(url),
-            console.log(response);
+            //console.log(response);
         recipes = await response.json();
-            console.log(recipes);
+            //console.log(recipes);
   
         recipes.hints.filter((item) => {
 
@@ -56,25 +56,25 @@ $(document).ready(function(){
 
             // Displays product name on the Ingredient Page
             ingredientNameId.innerHTML = `${product_name}`;
-            console.log(product_name);
+            //console.log(product_name);
 
             var ingredientList = '';
 
             //Extracts and then injects the contents food labels (ingredients) into the DOM, creating an unordered html list
             if ('undefined' !== typeof item.food.foodContentsLabel) { // Excludes "undefined" items, ie items that don't have ingredients
             let foodContentsLabels = item.food.foodContentsLabel; // Food's ingredients listed in a string
-            console.log(foodContentsLabels);
+            //console.log(foodContentsLabels);
             let foodContentsLabelsArray = foodContentsLabels.split(";"); // Food's ingredients list string converted to an array
-            console.log(foodContentsLabelsArray);
+            //console.log(foodContentsLabelsArray);
             if (foodContentsLabelsArray.length > 1) { // Excludes products where there was only one ingredient. Not quite correct, should only eliminate single words maybe.
                 foodContentsLabelsArray.forEach(function (foodContentsLabelsArrayLooped) {
                 ingredientList += '<li class="ingredient_ingredient"> - ' + foodContentsLabelsArrayLooped + '</li>';
                 })
-                console.log("Line 63", ingredientList);
+                //console.log("Line 63", ingredientList);
                 ingredientList = '<ul>' + ingredientList + '</ul>'; // Adds <ul> to the existing <li> html 
                 
                 ingredientListId.innerHTML = `${ingredientList}`;
-                console.log(ingredientList);
+                //console.log(ingredientList);
                 }
             }
         });
@@ -83,7 +83,7 @@ $(document).ready(function(){
 
     // Checks if checkbox was already checked and updates page accordingly. For returning to an ingredient.
     var checkBoxStatus = localStorage.getItem(checkBoxStatusKey);
-    console.log(checkBoxStatus)
+    //console.log(checkBoxStatus)
     if (checkBoxStatus == "true"){
         document.getElementById("measurement_checkbox").checked = true;
         checkBox();
@@ -110,17 +110,15 @@ function checkBox() {
 
 // Get Weight Per Serving input value and save to local storage
 var weightPerServingLs = localStorage.getItem('weightPerServing' + foodId, weightPerServing);
-console.log(weightPerServingLs);
 // Get default weight value
 var weightPerServingVal = weightPerServing = document.getElementById('weight_per_serving_input').value;
-console.log(weightPerServingVal);
 
 var weightPerServing;
 // Called when User types into the input field
-var weightPerServingManFn = function (){
-        weightPerServing = document.getElementById('weight_per_serving_input').value;
-        localStorage.setItem("weightPerServing" + foodId, weightPerServing);
-    }
+var weightPerServingManFn = function () {
+    weightPerServing = document.getElementById('weight_per_serving_input').value;
+    localStorage.setItem("weightPerServing" + foodId, weightPerServing);
+}
 // Called automatically to extract the Value from local storage
 var weightPerServingFn = function (){
     if (weightPerServingLs === null){
@@ -131,7 +129,12 @@ var weightPerServingFn = function (){
     }
 }
 weightPerServingFn();
-console.log('weightPerServing' + foodId, weightPerServing);
+// Called when User changes number of piece per serving and/or weight per piece
+var weightPerServingCalcFn = function () {
+    weightPerServing = weightPerPiece * piecesPerServing;
+    document.getElementById('weight_per_serving_input').value = weightPerServing;
+    localStorage.setItem("weightPerServing" + foodId, weightPerServing);
+}
 
 
 // Get Weight Per Piece input value and save to local storage
