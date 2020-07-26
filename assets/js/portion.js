@@ -60,7 +60,11 @@ $(document).ready(function(){
                 <h4 id="ingredient_product_name" class="alignL results_row_name pointer">${product_name}</h4>
                 </a>
             `;
-            
+           
+            //Extracts number of calories from the API
+            var kcal = parseInt(item.food.nutrients.ENERC_KCAL);
+            console.log(kcal);
+            document.getElementById("ingredient_kcal_value").innerHTML = kcal;
 
         });
     }; //Search is all contained in here

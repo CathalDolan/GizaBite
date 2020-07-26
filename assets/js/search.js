@@ -17,7 +17,7 @@ async function searchIngredients(searchTerm) {
     list = document.getElementById("ingredient_results");
     list.innerHTML = ""; //What's this?
   
-    let count = 0,
+    let countIngr = 0,
 
     response = await fetch(url),
     recipes = await response.json();
@@ -43,8 +43,8 @@ recipes.hints.filter((item) => {
       return;
     }
 
-    // Increment counter by 1
-    count += 1;
+    // Increment Ingredient counter by 1
+    countIngr += 1;
 
     list.innerHTML += `
     <div class="results_row section_in results_list">
@@ -54,9 +54,10 @@ recipes.hints.filter((item) => {
     
      
   });
-  document.getElementById('ingredients_results_count').innerHTML = count; //Returning an error. Also tried.text and .value
+  var ingredientsResultsCount = document.getElementById('ingredients_results_count').innerHTML = countIngr + " Results"; //Returning an error. Also tried.text and .value
+  console.log(ingredientsResultsCount);
   
-  
+
   // Return serving size (for "Portion g" fields) - Not Functioning
   // recipes.hints.filter((item) => {
   //   if (item.measures.label === "Serving") {
@@ -74,26 +75,35 @@ recipes.hints.filter((item) => {
 
 // Search: Portions
 async function searchPortions(searchTerm) {
-  let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-meals&categoryLabel=meal`;
-  console.log(url);
-  // Clears the results list for every new search
-  let list = document.getElementById("portion_results");
-  list.innerHTML = "";
-  let response = await fetch(url),
-    recipes = await response.json();
-  var capitalized_product_name = (product_name) => {
-    let arr = product_name.split(' ');
-    arr.forEach(function (i, index) {
-      arr[index] = i.replace(i[0], i[0].toUpperCase());
-    });
-    return arr.join(' ');
-  };
-  recipes.hints.filter((item) => {
-    if (item.food.category === "Generic meals") {
-      var product_name = (item.food.label).toLowerCase();
-    } else {
-      return;
-    }
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-meals&categoryLabel=meal`;
+    console.log(url);
+    // Clears the results list for every new search
+    let list = document.getElementById("portion_results");
+        list.innerHTML = "";
+
+    let countPort = 0;
+
+    let response = await fetch(url),
+        recipes = await response.json();
+
+    var capitalized_product_name = (product_name) => {
+        let arr = product_name.split(' ');
+        arr.forEach(function (i, index) {
+            arr[index] = i.replace(i[0], i[0].toUpperCase());
+        });
+        return arr.join(' ');
+    };
+
+    recipes.hints.filter((item) => {
+        if (item.food.category === "Generic meals") {
+            var product_name = (item.food.label).toLowerCase();
+        } else {
+            return;
+        }
+
+    // Increment Portion counter by 1
+    countPort += 1;
+
     list.innerHTML += `
         <div class="results_row section_in">
             <div class="row_icon_container eye_icon pointer alignL" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
@@ -103,4 +113,8 @@ async function searchPortions(searchTerm) {
             </div>
         </div>`;
   })
+
+  var portionsResultsCount = document.getElementById('portions_results_count').innerHTML = countPort + " Results"; //Returning an error. Also tried.text and .value
+  console.log(portionsResultsCount);
+
 };
