@@ -70,7 +70,7 @@ $(document).ready(function(){
     }; //Search is all contained in here
 
     // Servings Checkbox on Ingredients Page: Checks if it's ticked and if "true" Batch Qty displays.
-    var checkBoxStatus = localStorage.getItem(checkBoxStatusKey);
+    var checkBoxStatus = localStorage.getItem('ingredientCheckBox' + foodId);
     console.log(checkBoxStatus);
     if (checkBoxStatus == "true"){
         document.getElementById("ingredient_batch_qty_div").style.display = "block";
@@ -79,9 +79,6 @@ $(document).ready(function(){
     } 
     
 }); // Everything required on.ready behind here
-
-// Make fields appear when Servings checkbox is ticked on Ingredients Page
-var checkBoxStatusKey = 'ingredientCheckBox' + foodId;
 
 
 // Number of Servings: Extracts the default value
@@ -92,20 +89,22 @@ var numberOfServingsFn = function () {
 }
 numberOfServingsFn();
 
-// Weight Per Serving: Get value from local storage and input into html
-let weightPerServingId = 'weightPerServing' + foodId; // Creates the name of the key
-let weightPerServing = localStorage.getItem(weightPerServingId); // Extracts the Key value
+//--- Weight Per Serving: Get value from local storage and input into html
+let weightPerServing = localStorage.getItem('weightPerServing' + foodId); // Extracts the Key value
 console.log("weightPerServing", weightPerServing);
 document.getElementById("ingredient_serving_weight_input").value = weightPerServing; // Inputs the value into the html input
+// Called when User types into the input field
+var weightPerServingManFn = function () {
+    weightPerServing = document.getElementById('ingredient_serving_weight_input').value;
+    localStorage.setItem("weightPerServing" + foodId, weightPerServing);
+}
 
 // Weight Per Piece: Extract value from local storage for use in calculations
-let weightPerPieceId = 'weightPerPiece' + foodId;
-let weightPerPiece = localStorage.getItem(weightPerPieceId);
+let weightPerPiece = localStorage.getItem('weightPerPiece' + foodId);
 console.log("weightPerPiece", weightPerPiece);
 
 // Pieces Per Serving: Extract value from local storage for use in calculations
-let piecesPerServingId = 'piecesPerServing' + foodId;
-let piecesPerServing = localStorage.getItem(piecesPerServingId);
+let piecesPerServing = localStorage.getItem('piecesPerServing' + foodId);
 console.log("piecesPerServing", piecesPerServing);
 
 // Batch Quantity: 
