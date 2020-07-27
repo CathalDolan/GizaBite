@@ -61,3 +61,12 @@ $(function () {
       };
     });
 });
+
+// User types search term, clicks search button, brings them to Search page with search complete for that term
+var globalSearchTerm;
+var globalSearchTermFn = function (){
+    globalSearchTerm = document.getElementById('global_search_input').value;
+    global_search_button.outerHTML = `
+        <a href="search.html?globalSearchTerm=${globalSearchTerm}" target="_self" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>  
+    `;
+}
