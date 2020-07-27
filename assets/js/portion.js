@@ -99,6 +99,18 @@ var weightPerServingManFn = function () {
     localStorage.setItem("weightPerServing" + foodId, weightPerServing);
 }
 
+var weightPerServingCalcFn = function () {
+    console.log("function fires");
+    batchWeight = document.getElementById('ingredient_batch_weight_input').value;
+    localStorage.setItem("batchWeight" + foodId, batchWeight);
+    console.log("Typed batchWeight", batchWeight);
+    newWeightPerServing = batchWeight / numberOfServings;
+    document.getElementById("ingredient_serving_weight_input").value = newWeightPerServing;
+    localStorage.setItem("weightPerServing" + foodId, newWeightPerServing);
+    console.log(newWeightPerServing);
+}
+
+
 // Weight Per Piece: Extract value from local storage for use in calculations
 let weightPerPiece = localStorage.getItem('weightPerPiece' + foodId);
 console.log("weightPerPiece", weightPerPiece);
@@ -122,6 +134,7 @@ var batchWeightFn = function () {
     batchWeight = numberOfServings * weightPerServing;
     console.log("batchWeight", batchWeight);
     document.getElementById("ingredient_batch_weight_input").value = batchWeight;
+    localStorage.setItem("batchWeight" + foodId, batchWeight);
 }
 batchWeightFn();
 

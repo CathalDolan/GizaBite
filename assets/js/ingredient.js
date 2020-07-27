@@ -160,29 +160,24 @@ var weightPerServingP = function (){
     `;
 }
 
-
-
 //--- Weight Per Piece: Get from local storage if available
 var weightPerPieceLs = localStorage.getItem('weightPerPiece' + foodId, weightPerPiece);
-console.log("weightPerPieceLs", weightPerPieceLs);
-
 var weightPerPiece;
-// Called automatically to extract the Value from local storage. If empty, default value taken from html.
+
 var weightPerPieceFn = function (){
-    if (weightPerPieceLs === null){
-        weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the default value
+    if (weightPerPieceLs === null){ // Checks for no value in Local Storage, then
+        weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the default value from the html
         localStorage.setItem("weightPerPiece" + foodId, weightPerPiece); // Adds the default value to local storage
     } else {
-        weightPerPiece = weightPerPieceLs;
+        weightPerPiece = weightPerPieceLs; // If there is a value in local storage...
     }
 }
 weightPerPieceFn();
-console.log('weightPerPiece' + foodId, weightPerPiece);
 
-// Called when User types into the input field
+// Called when User types into the Weight Per Piece field input
 var weightPerPieceManFn = function () {
-    weightPerPiece = document.getElementById('weight_per_piece_input').value;
-    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece);
+    weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the value that the User types
+    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece); // Adds this value to Local Storage
 }
 
 
