@@ -82,12 +82,36 @@ $(document).ready(function(){
 
 
 // Number of Servings: Extracts the default value
-var numberOfServings;
-var numberOfServingsFn = function () {
-    numberOfServings = document.getElementById("number_of_servings_input").value;
-    console.log("numberOfServings", numberOfServings);
+var numberOfServingsLs = localStorage.getItem("numberOfServings" + foodId, numberOfServings);
+console.log(numberOfServingsLs);
+
+var numberOfServingsFn = function (){
+    if (numberOfServingsLs === null){ // Checks for no value in Local Storage, then
+        numberOfServings = document.getElementById("number_of_servings_input").value;
+        document.getElementById("number_of_servings_input").value = numberOfServings;
+    } else {
+        document.getElementById("number_of_servings_input").value = numberOfServingsLs;
+        numberOfServings = numberOfServingsLs;
+    }
 }
 numberOfServingsFn();
+
+var numberOfServings;
+
+var numberOfServingsManFn = function () {
+    numberOfServings = document.getElementById("number_of_servings_input").value;
+    localStorage.setItem("numberOfServings" + foodId, numberOfServings);
+    console.log(localStorage.getItem("numberOfServings" + foodId, numberOfServings));
+}
+
+
+
+/* // Called when User types into the Weight Per Piece field input
+var weightPerPieceManFn = function () {
+    weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the value that the User types
+    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece); // Adds this value to Local Storage
+} */
+
 
 //--- Weight Per Serving: Get value from local storage and input into html
 let weightPerServing = localStorage.getItem('weightPerServing' + foodId); // Extracts the Key value
