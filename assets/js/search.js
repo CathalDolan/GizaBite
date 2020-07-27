@@ -26,13 +26,13 @@ recipes.hints.filter((item) => {
 
     // API returns a variety of cases. This and toLowerCase above are used to capitalise 1st letter of each word
     let capitalized_product_name = (product_name) => {
-      let arr = product_name.toLowerCase().split(' ');
-      arr.forEach(function (i, index) {
-        if (i[0] !== undefined) {
-          arr[index] = i.replace(i[0], i[0].toUpperCase());
-        }
-      });
-      return arr.join(' ');
+        let arr = product_name.toLowerCase().split(' ');
+        arr.forEach(function (i, index) {
+            if (i[0] !== undefined) {
+            arr[index] = i.replace(i[0], i[0].toUpperCase());
+            }
+        });
+        return arr.join(' ');
     };
 
     if (item.food.category === "Packaged foods") {
@@ -45,11 +45,15 @@ recipes.hints.filter((item) => {
 
     // Increment Ingredient counter by 1
     countIngr += 1;
+    let foodId = item.food.foodId;
 
+    // Results List: Information to be displayed on front end
     list.innerHTML += `
     <div class="results_row section_in results_list">
-        <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${item.food.foodId}">${product_name}</a></h4>
-        <div class="row_icon_container plus_icon pointer alignR"></div>
+        <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${foodId}">${product_name}</a></h4>
+        <a href="new_portion.html?foodId=${foodId}" target="_self">    
+            <div class="row_icon_container plus_icon pointer alignR"></div>
+        </a> 
     </div>`;
     
      
