@@ -196,10 +196,20 @@
                             </div>
 
                             <!-- Search Input-->
-                            <div class="section_in inner_element_571" id="ingredient_search_div">
-                                <label for="ingredient_search_input">SEARCH:</label>
-                                <input type="text" id="ingredient_search_input" name="ingredient_search_input" placeholder="Search for and add Portions & Ingredients" class="inner_element_571">
+                            <div class="section_in inner_element_571">
+                                <div id="hero_search_section_in" class="section_in">
+                                    <div id="hero_search_inner">
+                                        <div class="hero_search_inner_element">
+                                            <input type="text" name="search" placeholder="Search and add Portions & Ingredients" id="global_search_input" class="floatL" onkeyup="globalSearchTermFn()">
+                                        </div>
+                                        <div class="hero_search_inner_element"> <!-- Search button-->
+                                            <a href="#" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

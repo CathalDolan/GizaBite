@@ -553,19 +553,24 @@ h2.hero_text {
     margin: 0 auto;
 }
 
-#hero_search_input {
+#global_search_input {
     margin: 10px 0 0 0; /* used to centre the input vertically relative to the button. Done by eye... */
+    width: 300px;
+}
+@media (max-width: 572px) {
+#global_search_input {
     width: 80%;
+    }
 }
 
-.hero_search_inner_element a#hero_search_button.button-image { /* The background section of the search buttoin in the hero section */
+.hero_search_inner_element a#global_search_button.button-image { /* The background section of the search buttoin in the hero section */
     margin: 8px 0 0 0;
     width: 40px;
     text-align: center;
     border-radius: 5px;
 }
 
-#hero_search_button.mybutton:before{   /* . Adds image to the "Search" button in the hero section. Related to .button-image:before*/
+#global_search_button.mybutton:before{   /* . Adds image to the "Search" button in the hero section. Related to .button-image:before*/
     max-height: 30px;
     width: 27px;
 }

@@ -118,3 +118,12 @@ async function searchPortions(searchTerm) {
   console.log(portionsResultsCount);
 
 };
+
+var globalSearchTerm = document.location.search.replace(/^.*?\=/,'');
+if (globalSearchTerm === "") {
+    console.log("empty")
+    } else {
+        document.getElementById("search_widget_input").value = globalSearchTerm;
+        searchIngredients(globalSearchTerm);
+        searchPortions(globalSearchTerm);
+    }

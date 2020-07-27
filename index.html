@@ -65,10 +65,10 @@
                     <div id="hero_search_section_in" class="section_in">
                         <div id="hero_search_inner">
                             <div class="hero_search_inner_element">
-                                <input type="text" name="search" placeholder="Search dish or ingredient name" id="hero_search_input" class="floatL">
+                                <input type="text" name="search" placeholder="Search dish or ingredient name" id="global_search_input" class="floatL" onkeyup="globalSearchTermFn()">
                             </div>
                             <div class="hero_search_inner_element"> <!-- Search button-->
-                                <a href="#" id="hero_search_button" class="button-image mybutton floatR "></a>
+                                <a href="#" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>
                             </div>
                         </div>
                         
@@ -184,5 +184,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="assets/js/js.js"></script>
+    <script type="text/javascript" src="assets/js/index.js"></script>
 </body>
 </html>
