@@ -162,55 +162,50 @@ var weightPerServingP = function (){
 
 
 
-// Get Weight Per Piece input value and save to local storage
+//--- Weight Per Piece: Get from local storage if available
 var weightPerPieceLs = localStorage.getItem('weightPerPiece' + foodId, weightPerPiece);
 console.log("weightPerPieceLs", weightPerPieceLs);
-// Get default Weight Per Piece value
-var weightPerPieceVal = weightPerPiece = document.getElementById('weight_per_piece_input').value;
-console.log("weightPerPieceVal", weightPerPieceVal);
 
 var weightPerPiece;
-// Called when User types into the input field
-var weightPerPieceManFn = function () {
-    weightPerPiece = document.getElementById('weight_per_piece_input').value;
-    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece);
-}
-// Called automatically to extract the Value from local storage
+// Called automatically to extract the Value from local storage. If empty, default value taken from html.
 var weightPerPieceFn = function (){
     if (weightPerPieceLs === null){
-        weightPerPiece = document.getElementById('weight_per_piece_input').value = weightPerPiece;
-        localStorage.setItem("weightPerPiece" + foodId, weightPerPiece);
+        weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the default value
+        localStorage.setItem("weightPerPiece" + foodId, weightPerPiece); // Adds the default value to local storage
     } else {
-        weightPerPiece = document.getElementById('weight_per_piece_input').value = weightPerPieceLs;
+        weightPerPiece = weightPerPieceLs;
     }
 }
 weightPerPieceFn();
 console.log('weightPerPiece' + foodId, weightPerPiece);
 
-// Get number of Pieces Per Serving input value and save to local storage
+// Called when User types into the input field
+var weightPerPieceManFn = function () {
+    weightPerPiece = document.getElementById('weight_per_piece_input').value;
+    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece);
+}
+
+
+//--- Pieces Per Serving: Get from local storage if available
 var piecesPerServingLs = localStorage.getItem('piecesPerServing' + foodId, piecesPerServing);
 console.log("piecesPerServingLs", piecesPerServingLs);
-// Get default pieces per Serving value
-var piecesPerServingVal = piecesPerServing = document.getElementById('pieces_per_serving_input').value;
-console.log("piecesPerServingVal", piecesPerServingVal);
 
 var piecesPerServing;
+// Called automatically to extract the Value from local storage
+var piecesPerServingFn = function (){
+    if (piecesPerServingLs === null){
+        piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+        localStorage.setItem("piecesPerServing" + foodId, piecesPerServing);
+        
+    } else {
+        piecesPerServing = piecesPerServingLs;
+    }
+}
+piecesPerServingFn();
+
 // Called when User types into the input field
 var piecesPerServingManFn = function () {
     piecesPerServing = document.getElementById('pieces_per_serving_input').value;
     localStorage.setItem("piecesPerServing" + foodId, piecesPerServing);
 }
-// Called automatically to extract the Value from local storage
-var piecesPerServingFn = function (){
-    if (piecesPerServingLs === null){
-        piecesPerServing = document.getElementById('pieces_per_serving_input').value = piecesPerServing;
-        console.log("piecesPerServing", piecesPerServing);
-        localStorage.setItem("piecesPerServing" + foodId, piecesPerServing);
-        
-    } else {
-        piecesPerServing = document.getElementById('pieces_per_serving_input').value = piecesPerServingLs;
-    }
-}
-piecesPerServingFn();
-console.log('piecesPerServing' + foodId, piecesPerServing);
 
