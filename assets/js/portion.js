@@ -3,7 +3,7 @@ var foodId = document.location.search.replace(/^.*?\=/,'');
 $(document).ready(function(){
 
     /*
-    // Add href to add icon to bring user to portion page
+    // Add href to add icon to bring user to Dish page - Not updated
     var addIngredient = document.getElementById("add_ingredient_icon");
     console.log(addIngredient);
     addIngredient.outerHTML = `
@@ -12,6 +12,13 @@ $(document).ready(function(){
             </div>
         </a>    
     `; */
+
+
+    if(foodId !== "") {
+        document.getElementById("ingredients_name_row").style.display = "block";
+        document.getElementById("ingredients_data_row").style.display = "block";
+    }
+
     console.log(foodId);
 
     async function searchAPI() {
@@ -74,14 +81,39 @@ $(document).ready(function(){
     console.log(checkBoxStatus);
     if (checkBoxStatus == "true"){
         document.getElementById("ingredient_batch_qty_div").style.display = "block";
+        document.getElementById("ingredient_batch_weight_div").innerHTML = `
+        <p id="ingredient_batch_weight_input"/>${batchWeight};
+        </p>
+        `;
+        document.getElementById("ingredient_serving_weight_div").innerHTML = `
+        <p id="ingredient_serving_weight_input"/>${weightPerServing};
+        </p>
+        `;
     } else {
         document.getElementById("ingredient_batch_qty_div").style.display = "none";
     } 
+
+    // Portion Name: Checks if there is an existing portion and adds name if so.
+    let portionNameLs = localStorage.getItem("portionName");
+
+    if(portionNameLs !== ""){
+        document.getElementById("portion_name_textarea").value = portionNameLs;
+    }
+    
     
 }); // Everything required on.ready behind here
 
 
-// Number of Servings: Extracts the default value
+
+
+// Portion Name: Collects the name as the User enters it and commits it to Local Storage
+var portionName;
+var portionNameFn = function () {
+    portionName = document.getElementById("portion_name_textarea").value;
+    localStorage.setItem("portionName", portionName);
+}
+
+//--- Number of Servings: Extracts the default value
 var numberOfServingsLs = localStorage.getItem("numberOfServings" + foodId, numberOfServings);
 console.log(numberOfServingsLs);
 
@@ -103,14 +135,6 @@ var numberOfServingsManFn = function () {
     localStorage.setItem("numberOfServings" + foodId, numberOfServings);
     console.log(localStorage.getItem("numberOfServings" + foodId, numberOfServings));
 }
-
-
-
-/* // Called when User types into the Weight Per Piece field input
-var weightPerPieceManFn = function () {
-    weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the value that the User types
-    localStorage.setItem("weightPerPiece" + foodId, weightPerPiece); // Adds this value to Local Storage
-} */
 
 
 //--- Weight Per Serving: Get value from local storage and input into html
@@ -135,15 +159,15 @@ var weightPerServingCalcFn = function () {
 }
 
 
-// Weight Per Piece: Extract value from local storage for use in calculations
+//--- Weight Per Piece: Extract value from local storage for use in calculations
 let weightPerPiece = localStorage.getItem('weightPerPiece' + foodId);
 console.log("weightPerPiece", weightPerPiece);
 
-// Pieces Per Serving: Extract value from local storage for use in calculations
+//--- Pieces Per Serving: Extract value from local storage for use in calculations
 let piecesPerServing = localStorage.getItem('piecesPerServing' + foodId);
 console.log("piecesPerServing", piecesPerServing);
 
-// Batch Quantity: 
+//--- Batch Quantity: 
 var batchQuantity;
 var batchQuantityFn = function () {
     batchQuantity = numberOfServings * piecesPerServing;
@@ -152,7 +176,7 @@ var batchQuantityFn = function () {
 }
 batchQuantityFn();
 
-// Batch Weight:
+//--- Batch Weight:
 var batchWeight;
 var batchWeightFn = function () {
     batchWeight = numberOfServings * weightPerServing;
@@ -161,85 +185,3 @@ var batchWeightFn = function () {
     localStorage.setItem("batchWeight" + foodId, batchWeight);
 }
 batchWeightFn();
-
-/*
-  let weightPerPieceId = ("weightPerPiece" + foodId);
-  console.log(weightPerPieceId);
-
-  let piecesPerServing = document.getElementById('pieces_per_serving_input').value;
-  let weightPerServing = parseInt(weightPerPiece) * parseInt(piecesPerServing);
-  document.getElementById('weight_per_serving_input').value = weightPerServing;
-  localStorage.setItem('weightPerPiece' + foodId, weightPerPiece);
-  localStorage.setItem('piecesPerServing' + foodId, piecesPerServing);
-  localStorage.setItem('weightPerServing' + foodId, weightPerServing);
-};
-
-
-// Portions Page: Ingredients section calculation variables
-// The fields should all be autocompleted based on Ingredients page and default data
-//var numberOfServings;
-//console.log("# of servings " + numberOfServings);
-
-// Weight per piece. Conditional
-//var weightPerPieceId = 'weightPerPiece' + foodId;
-////console.log(weightPerPieceId);
-//var weightPerPiece = localStorage.getItem(weightPerPieceId);
-//console.log(weightPerPiece);
-
-//var piecesPerServing = localStorage.getItem('piecesPerServing');
-//console.log("Pieces per Serving" + piecesPerServing);
-
-//var weightPerServing = localStorage.getItem('weightPerServing');
-//console.log("Weight per Serving" + weightPerServing);
-
-//var batchQuantity;
-
-
-/*
-// Portions Page: Ingredients section calculations
-calculate = function (){
-    numberOfServings = document.getElementById("number_of_servings_input").value;
-    console.log("# of servings2 " + numberOfServings);
-
-    // Batch Quantity: Only displays if "by the piece" is checked on ingredient page
-    batchQuantity = numberOfServings * piecesPerServing;
-    console.log("Batch Quantity " + batchQuantity);
-    document.getElementById('ingredient_batch_quantity_input').value = batchQuantity;
-   
-    // Batch Weight: Calculates total amount of ingredient needed for a batch
-    let batchWeight = numberOfServings * weightPerServing;
-    console.log("Batch Weight " + batchWeight);
-    document.getElementById('ingredient_batch_weight_input').value = batchWeight;
-   
-    // Ingredient Serving Weight: Gets the value from the Ingredient page 
-    let ingredientServingWeight = weightPerServing; 
-    console.log("Ingr Serving Weight " + ingredientServingWeight);
-    document.getElementById('ingredient_serving_weight_input').value = ingredientServingWeight;
-  
-    // If the User changes the Batch Weight in Portions, per serving weight updates in Ingredients
-    // let ingredientServingWeightChange = batchWeight / numberOfServings;
-    //console.log(ingredientServingWeightChange);
-    //document.getElementById('measure_weight_per_piece_input').value = parseInt(ingredientServingWeightChange);
- 
-    // If the User changes the Serving Weight in Portions, per serving weight updates in Ingredients
-    //let ingredientServingWeightChange2 = batchWeight / numberOfServings;
-    //console.log(ingredientServingWeightChange2);
-    //document.getElementById('measure_weight_per_piece_input').value = parseInt(ingredientServingWeightChange2);
- 
-    // Value is supplied by API, details tbc
-    //let kcal= tbc;
-    //console.log(kcal);
-    //document.getElementById('ingredient_kcal_value').text = parseInt(kcal);
-  
-    //Total serving weight
-    //let servingTotalWeight = "sum of all ingredientServingWeight"; 
-    //console.log(servingTotalWeight);
-    //document.getElementById('total_serving_weight').text = parseInt(servingTotalWeight); 
-  
-    // Total serving kcal
-   // let servingTotalKcal = "sum of all kcal"; 
-   //console.log(servingTotalKcal);
-   // document.getElementById('total_serving_kcal').text = parseInt(servingTotalKcal);
-}
-
-calculate(); */

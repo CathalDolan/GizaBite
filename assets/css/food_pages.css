@@ -280,18 +280,23 @@ div>ul>li {
 }
 /*--------*/
 
+
 /*--- New Dish / Portion ---*/
-textarea {
-    width: 70%;
-}
 
 textarea.product_name { /* removes margin added by global FloatL. Allows the input to be wide as possible on mobile" */
-        margin: 0;
-        line-height: 30px;
+    margin-left: 0.5rem;
+    line-height: 30px;
+    width: 300px;
 }
+@media (max-width: 768px) {
+    textarea.product_name {
+        width: 66%;
+        margin-right: 0;
+    }
 
-#description textarea, #add_ingredients.product_description {
+#description > textarea { /* Not working */
     width: 100%;
+    margin-top: 0.5rem;
 }
 
 #ingredient_search_div  {
