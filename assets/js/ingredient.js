@@ -150,7 +150,7 @@ var weightPerServingCalcFn = function () {
     localStorage.setItem("weightPerServing" + foodId, weightPerServing);
 }
 
-// Change input to <p>, called when User changes number of piece per serving and/or weight per piece
+// Change input to <p>, called when User changes number of pieces per serving and/or weight per piece
 var weightPerServingP = function (){
     console.log(document.getElementById('weight_per_serving_input'));
     document.getElementById('weight_per_serving_container').outerHTML = `
