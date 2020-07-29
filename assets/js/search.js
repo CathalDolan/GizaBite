@@ -53,8 +53,8 @@ async function searchIngredients(searchTerm) {
         console.log(product_name, "foodId", foodId);
 
         // Extract calories from API
-        kcal_per_100g = item.food.nutrients.ENERC_KCAL;
-        console.log(product_name, "kcal_per_100g", kcal_per_100g);
+        kcalPer100g = item.food.nutrients.ENERC_KCAL;
+        console.log(product_name, "kcalPer100g", kcalPer100g);
 
         // Extract "Serving" Measurement from API
         let measure = item.measures;
@@ -85,7 +85,7 @@ async function searchIngredients(searchTerm) {
     var commitDefaultMeasurementsToLS = function () {
         localStorage.setItem(`${product_name}ID`, `${foodId}`);
     }
-    document.getElementById("add_ingredient_to_portion_icon").addEventListener("click", commitDefaultMeasurementsToLS());
+    document.getElementById("add_ingredient_to_portion_icon").addEventListener("click", commitDefaultMeasurementsToLS);
 
     var ingredientsResultsCount = document.getElementById('ingredients_results_count').innerHTML = countIngr + " Results";
     

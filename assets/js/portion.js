@@ -1,109 +1,101 @@
 var foodId = document.location.search.replace(/^.*?\=/,'');
 
-$(document).ready(function(){
-
-    /*
-    // Add href to add icon to bring user to Dish page - Not updated
-    var addIngredient = document.getElementById("add_ingredient_icon");
-    console.log(addIngredient);
-    addIngredient.outerHTML = `
-        <a href="new_portion.html?foodId=${foodId} target="_self">
-            <div id="add_ingredient_icon" class="row_icon_container plus_icon pointer alignR floatR">
-            </div>
-        </a>    
-    `; */
 
 
-    if(foodId !== "") {
-        document.getElementById("ingredients_name_row").style.display = "block";
-        document.getElementById("ingredients_data_row").style.display = "block";
-    }
+/*
+// Add href to add icon to bring user to Dish page - Not updated
+var addIngredient = document.getElementById("add_ingredient_icon");
+console.log(addIngredient);
+addIngredient.outerHTML = `
+    <a href="new_portion.html?foodId=${foodId} target="_self">
+        <div id="add_ingredient_icon" class="row_icon_container plus_icon pointer alignR floatR">
+        </div>
+    </a>    
+`; */
 
-    console.log(foodId);
 
-    async function searchAPI() {
-        searchIngredients(foodId);
-        //await searchPortions(searchTerm);
-    }
-    searchAPI();
+if(foodId !== "") {
+    document.getElementById("ingredients_name_row").style.display = "block";
+    document.getElementById("ingredients_data_row").style.display = "block";
+}
 
-    // Search: Ingredients
-    async function searchIngredients(foodId) {
-        let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
-        //console.log(url);
+console.log(foodId);
 
-        var product_name = '',
-            ingredientNameId = document.getElementById("ingredient_product_name");
+async function searchAPI() {
+    searchIngredients(foodId);
+    //await searchPortions(searchTerm);
+}
+searchAPI();
 
-        response = await fetch(url),
-            console.log(response);
-        recipes = await response.json();
-            console.log(recipes);
-  
-        recipes.hints.filter((item) => {
+// Search: Ingredients
+async function searchIngredients(foodId) {
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
+    //console.log(url);
 
-            // API returns a variety of cases. This capitalises 1st letter of each word
-            let capitalized_product_name = (product_name) => {
-            let arr = product_name.toLowerCase().split(' ');
-            arr.forEach(function (i, index) {
-                if (i[0] !== undefined) {
-                arr[index] = i.replace(i[0], i[0].toUpperCase());
-                }
-            });
-            return arr.join(' ');
-            };
+    var product_name = '',
+        ingredientNameId = document.getElementById("ingredient_product_name");
 
-            if (item.food.category === "Packaged foods") {
-            product_name = ('"' + capitalized_product_name(item.food.brand) + '"' + ' - ' + capitalized_product_name(item.food.label)); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
-            } else if (item.food.category === "Generic foods") {
-            product_name = capitalized_product_name(item.food.label);
-            } else {
-            return;
+    response = await fetch(url),
+        console.log(response);
+    recipes = await response.json();
+        console.log(recipes);
+
+    recipes.hints.filter((item) => {
+
+        // API returns a variety of cases. This capitalises 1st letter of each word
+        let capitalized_product_name = (product_name) => {
+        let arr = product_name.toLowerCase().split(' ');
+        arr.forEach(function (i, index) {
+            if (i[0] !== undefined) {
+            arr[index] = i.replace(i[0], i[0].toUpperCase());
             }
-
-            // Displays product name on the Portion Page
-            ingredientNameId.innerHTML = `
-                <a href="ingredient.html?foodId=${foodId}" target="_self">
-                <h4 id="ingredient_product_name" class="alignL results_row_name pointer">${product_name}</h4>
-                </a>
-            `;
-           
-            //Extracts number of calories from the API
-            var kcal = parseInt(item.food.nutrients.ENERC_KCAL);
-            console.log(kcal);
-            document.getElementById("ingredient_kcal_value").innerHTML = kcal;
-
         });
-    }; //Search is all contained in here
+        return arr.join(' ');
+        };
 
-    // Servings Checkbox on Ingredients Page: Checks if it's ticked and if "true" Batch Qty displays.
-    var checkBoxStatus = localStorage.getItem('ingredientCheckBox' + foodId);
-    console.log(checkBoxStatus);
-    if (checkBoxStatus == "true"){
-        document.getElementById("ingredient_batch_qty_div").style.display = "block";
-        document.getElementById("ingredient_batch_weight_div").innerHTML = `
-        <p id="ingredient_batch_weight_input"/>${batchWeight};
-        </p>
+        if (item.food.category === "Packaged foods") {
+        product_name = ('"' + capitalized_product_name(item.food.brand) + '"' + ' - ' + capitalized_product_name(item.food.label)); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
+        } else if (item.food.category === "Generic foods") {
+        product_name = capitalized_product_name(item.food.label);
+        } else {
+        return;
+        }
+
+        // Displays product name on the Portion Page
+        ingredientNameId.innerHTML = `
+            <a href="ingredient.html?foodId=${foodId}" target="_self">
+            <h4 id="ingredient_product_name" class="alignL results_row_name pointer">${product_name}</h4>
+            </a>
         `;
-        document.getElementById("ingredient_serving_weight_div").innerHTML = `
-        <p id="ingredient_serving_weight_input"/>${weightPerServing};
-        </p>
-        `;
-    } else {
-        document.getElementById("ingredient_batch_qty_div").style.display = "none";
-    } 
 
-    // Portion Name: Checks if there is an existing portion and adds name if so.
-    let portionNameLs = localStorage.getItem("portionName");
+    });
+}; //Search is all contained in here
 
-    if(portionNameLs !== ""){
-        document.getElementById("portion_name_textarea").value = portionNameLs;
-    }
-    
-    
-}); // Everything required on.ready behind here
+// Servings Checkbox on Ingredients Page: Checks if it's ticked and if "true" Batch Qty displays.
+var checkBoxStatus = localStorage.getItem('ingredientCheckBox' + foodId);
+console.log(checkBoxStatus);
+if (checkBoxStatus == "true"){
+    document.getElementById("ingredient_batch_qty_div").style.display = "block";
+    document.getElementById("ingredient_batch_weight_div").innerHTML = `
+    <p id="ingredient_batch_weight_input"/>${batchWeight}
+    </p>
+    `;
+    document.getElementById("ingredient_serving_weight_div").innerHTML = `
+    <p id="ingredient_serving_weight_input"/>${weightPerServing}
+    </p>
+    `;
+} else {
+    document.getElementById("ingredient_batch_qty_div").style.display = "none";
+} 
 
+// Portion Name: Checks if there is an existing portion and adds name if so.
+let portionNameLs = localStorage.getItem("portionName");
 
+if(portionNameLs !== null){
+    document.getElementById("portion_name_textarea").value = portionNameLs;
+} else {
+    alert("Don't forget to add a Portion Name");
+}
 
 
 // Portion Name: Collects the name as the User enters it and commits it to Local Storage
@@ -157,6 +149,12 @@ var weightPerServingCalcFn = function () {
     localStorage.setItem("weightPerServing" + foodId, newWeightPerServing);
     console.log(newWeightPerServing);
 }
+
+//Extracts number of calories from local storage and calculates total before adding to storage and html
+var kcalPer100g = localStorage.getItem("kcalPer100g" + foodId);
+var kcalPerServing = (weightPerServing/100) * kcalPer100g;
+console.log(kcalPerServing);
+//document.getElementById("ingredient_kcal_value").innerHTML = kcal;
 
 
 //--- Weight Per Piece: Extract value from local storage for use in calculations
