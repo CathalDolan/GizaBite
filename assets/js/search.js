@@ -50,24 +50,70 @@ async function searchIngredients(searchTerm) {
 
         // Extract Food Id from API
         foodId = item.food.foodId;
-        console.log(product_name, "foodId", foodId);
 
+    // Below extracts the data and puts it into Local Storages. However it saves
+    // the data for all results. It should somehow be incorporated into 
+    // commitDefaultMeasurementsToLS = function () below and just apply to the
+    // product who's + icon is being clicked.
         // Extract calories from API
         kcalPer100g = item.food.nutrients.ENERC_KCAL;
-        console.log(product_name, "kcalPer100g", kcalPer100g);
-
-        // Extract "Serving" Measurement from API
+        localStorage.setItem("kcalPer100g" + foodId, Math.round(kcalPer100g));
+        
+        // Extract Measurements from API
         let measure = item.measures;
         let label;
         let weight;
+        let servingWeight;
+        let pieceWeight;
+        let wholeWeight;
+        let defaultWeight = 123;
 
         for(let i=0; i<measure.length; i++){
             label = (measure[i].label);
             weight =(measure[i].weight);
-            if (label === "Serving"){
-                console.log(product_name, label, weight);
+            if (label === "Piece"){
+                pieceWeight = Math.round(weight);
             }
         }
+        for(let i=0; i<measure.length; i++){
+            label = (measure[i].label);
+            weight =(measure[i].weight);
+            if (label === "Serving"){
+                servingWeight = Math.round(weight);
+            }
+        }
+        for(let i=0; i<measure.length; i++){
+            label = (measure[i].label);
+            weight =(measure[i].weight);
+            if (label === "Whole"){
+                wholeWeight = Math.round(weight);
+            }
+        }
+    
+        //--- Serving Weight: Set in local storage and on html
+        if (servingWeight !== undefined) {//If serving weight is defined, use it.
+            localStorage.setItem("APIweightPerServing" + foodId, servingWeight);
+        } else if (pieceWeight !== undefined) { //If serving weight is not defined, use weight per piece
+            localStorage.setItem("APIweightPerServing" + foodId, pieceWeight);
+        } else if (wholeWeight !== undefined) { //If serving weight and weight per piece are not defined, use whole weight
+            localStorage.setItem("APIweightPerServing" + foodId, wholeWeight);
+        } else { //If none are defined, use default weight
+            localStorage.setItem("APIweightPerServing" + foodId, defaultWeight);
+        }
+
+        //--- Weight Per Piece: Set in local storage and on html
+        if (pieceWeight !== undefined) {   //If weight per piece is defined, use it.
+            localStorage.setItem("APIweightPerPiece" + foodId, pieceWeight);
+        } else if (wholeWeight !== undefined) {   //If weight per piece is not defined, use whole weight.
+            localStorage.setItem("APIweightPerPiece" + foodId, wholeWeight);
+        } else if (servingWeight !== undefined) {   //If weight per piece and whole weight are not defined, use serving weight.
+            localStorage.setItem("APIweightPerPiece" + foodId, servingWeight);
+        } else {   //If none are defined, use default weight
+            localStorage.setItem("APIweightPerPiece" + foodId, defaultWeight);
+        }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
     
         // Results List: Information to be displayed on front end
         list.innerHTML += `
@@ -78,28 +124,27 @@ async function searchIngredients(searchTerm) {
             </a> 
         </div>`; 
         
+    
+    //
+
     });
 
+    // Extract API measurements and data
+
+
+        
+
+
     // Commit default measurements to Local Storage when User clicks on a result row (data committed for the product in that row).
-    // Not working. Activates on search, and adds last result
+    // Not working. Activates on search, and adds last result as opposed to the ingredient named in the row.
     var commitDefaultMeasurementsToLS = function () {
         localStorage.setItem(`${product_name}ID`, `${foodId}`);
+        //localStorage.setItem(`${product_name}ID`, `${kcal_per_100g}`); this is same as foodID yet doesn't behave the same. Stops foodId working. 
     }
     document.getElementById("add_ingredient_to_portion_icon").addEventListener("click", commitDefaultMeasurementsToLS);
 
-    var ingredientsResultsCount = document.getElementById('ingredients_results_count').innerHTML = countIngr + " Results";
-    
-    // Extract core values and commit to Local Storage for later use
-    // Serving Weight (for "Portion g" fields)
-    recipes.hints.filter((item2) => {
-        if (item2.measures.label === "Serving") {
-        console.log("Hello Serving");
-        }
-    })
 
-    // Pieces per Serving
-    // Weight per Piece
-    // Kcal per 100g
+    var ingredientsResultsCount = document.getElementById('ingredients_results_count').innerHTML = countIngr + " Results";
 
 };
 

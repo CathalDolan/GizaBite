@@ -73,70 +73,82 @@ async function searchIngredients(foodId) {
             }
         }
 
+    // All of the data being extracted here shouldn't be. It should be extracted when
+    // the user clicks the + icon on the search results or portion page, and lands on
+    // the ingredient page. Instead of below, the data should be extracted from LS. 
         // Extract calories from API
         kcalPer100g = item.food.nutrients.ENERC_KCAL;
-        console.log(product_name, "kcalPer100g", kcalPer100g);
         localStorage.setItem("kcalPer100g" + foodId, kcalPer100g)
 
         // Extract Measurements from API
         let measure = item.measures;
         let label;
         let weight;
-        let servingWeight;
+        let servingWeight = localStorage.getItem("APIweightPerServing" + foodId);
+        console.log("Serving Weight", servingWeight);
         let pieceWeight;
         let wholeWeight;
         let defaultWeight = 123;
 
-        for(let i=0; i<measure.length; i++){
-            label = (measure[i].label);
-            weight =(measure[i].weight);
-            if (label === "Piece"){
-                pieceWeight = Math.round(weight);
+        // Below functions should only kick in when the user lands on page for
+        // the first time, because "serving weight from line 87 will be empty.
+        // After this the data will be in local storage and these functions are not required.
+        // But it's not working. Serving Weight keeps reverting to what's taken from 
+        // the functions below. It like line 98 is being ignored. 
+        if (servingWeight === null){
+            for(let i=0; i<measure.length; i++){
+                label = (measure[i].label);
+                weight =(measure[i].weight);
+                if (label === "Piece"){
+                    pieceWeight = Math.round(weight);
+                }
             }
-        }
-        for(let i=0; i<measure.length; i++){
-            label = (measure[i].label);
-            weight =(measure[i].weight);
-            if (label === "Serving"){
-                servingWeight = Math.round(weight);
+            for(let i=0; i<measure.length; i++){
+                label = (measure[i].label);
+                weight =(measure[i].weight);
+                if (label === "Serving"){
+                    servingWeight = Math.round(weight);
+                }
             }
-        }
-        for(let i=0; i<measure.length; i++){
-            label = (measure[i].label);
-            weight =(measure[i].weight);
-            if (label === "Whole"){
-                wholeWeight = Math.round(weight);
+            for(let i=0; i<measure.length; i++){
+                label = (measure[i].label);
+                weight =(measure[i].weight);
+                if (label === "Whole"){
+                    wholeWeight = Math.round(weight);
+                }
             }
-        }
+        
+            //--- Serving Weight: Set in local storage and on html
+            if (servingWeight !== undefined) {//If serving weight is defined, use it.
+                localStorage.setItem("APIweightPerServing" + foodId, servingWeight);
+                document.getElementById("weight_per_serving_input").value = servingWeight;
+            } else if (pieceWeight !== undefined) { //If serving weight is not defined, use weight per piece
+                localStorage.setItem("APIweightPerServing" + foodId, pieceWeight);
+                document.getElementById("weight_per_serving_input").value = pieceWeight;
+            } else if (wholeWeight !== undefined) { //If serving weight and weight per piece are not defined, use whole weight
+                localStorage.setItem("APIweightPerServing" + foodId, wholeWeight);
+                document.getElementById("weight_per_serving_input").value = wholeWeight;
+            } else { //If none are defined, use default weight
+                localStorage.setItem("APIweightPerServing" + foodId, defaultWeight);
+                document.getElementById("weight_per_serving_input").value = defaultWeight;
+            }
 
-        //--- Serving Weight: Set in local storage and on html
-        if (servingWeight !== undefined) {//If serving weight is defined, use it.
-            localStorage.setItem("APIweightPerServing" + foodId, servingWeight);
-            document.getElementById("weight_per_serving_input").value = servingWeight;
-        } else if (pieceWeight !== undefined) { //If serving weight is not defined, use weight per piece
-            localStorage.setItem("APIweightPerServing" + foodId, pieceWeight);
-            document.getElementById("weight_per_serving_input").value = pieceWeight;
-        } else if (wholeWeight !== undefined) { //If serving weight and weight per piece are not defined, use whole weight
-            localStorage.setItem("APIweightPerServing" + foodId, wholeWeight);
-            document.getElementById("weight_per_serving_input").value = wholeWeight;
-        } else { //If none are defined, use default weight
-            localStorage.setItem("APIweightPerServing" + foodId, defaultWeight);
-            document.getElementById("weight_per_serving_input").value = defaultWeight;
-        }
-
-        //--- Weight Per Piece: Set in local storage and on html
-        if (pieceWeight !== undefined) {   //If weight per piece is defined, use it.
-            localStorage.setItem("APIweightPerPiece" + foodId, pieceWeight);
-            document.getElementById("weight_per_piece_input").value = pieceWeight;
-        } else if (wholeWeight !== undefined) {   //If weight per piece is not defined, use whole weight.
-            localStorage.setItem("APIweightPerPiece" + foodId, wholeWeight);
-            document.getElementById("weight_per_piece_input").value = wholeWeight;
-        } else if (servingWeight !== undefined) {   //If weight per piece and whole weight are not defined, use serving weight.
-            localStorage.setItem("APIweightPerPiece" + foodId, servingWeight);
-            document.getElementById("weight_per_piece_input").value = servingWeight;
-        } else {   //If none are defined, use default weight
-            localStorage.setItem("APIweightPerPiece" + foodId, defaultWeight);
-            document.getElementById("weight_per_piece_input").value = defaultWeight;
+            //--- Weight Per Piece: Set in local storage and on html
+            if (pieceWeight !== undefined) {   //If weight per piece is defined, use it.
+                localStorage.setItem("APIweightPerPiece" + foodId, pieceWeight);
+                document.getElementById("weight_per_piece_input").value = pieceWeight;
+            } else if (wholeWeight !== undefined) {   //If weight per piece is not defined, use whole weight.
+                localStorage.setItem("APIweightPerPiece" + foodId, wholeWeight);
+                document.getElementById("weight_per_piece_input").value = wholeWeight;
+            } else if (servingWeight !== undefined) {   //If weight per piece and whole weight are not defined, use serving weight.
+                localStorage.setItem("APIweightPerPiece" + foodId, servingWeight);
+                document.getElementById("weight_per_piece_input").value = servingWeight;
+            } else {   //If none are defined, use default weight
+                localStorage.setItem("APIweightPerPiece" + foodId, defaultWeight);
+                document.getElementById("weight_per_piece_input").value = defaultWeight;
+            }
+        } else {
+            actionFunction();
         }
 
         // Pieces Per Serving: If the serving weight is greater than the weight per piece, 
@@ -152,16 +164,59 @@ async function searchIngredients(foodId) {
             localStorage.setItem("APIpiecesPerServing" + foodId, 1);
             document.getElementById("pieces_per_serving_input").value = 1;
         }
+
     });
+
+    // Calls the function that allows all the data saved above to be used elsewhere
+    actionFunction();
 
 }; //Search is all contained in here
 
-// Checks if checkbox was already checked and updates page accordingly. For returning to an ingredient.
-var checkBoxStatus = localStorage.getItem(checkBoxStatusKey);
-//console.log(checkBoxStatus)
-if (checkBoxStatus == "true"){
-    document.getElementById("measurement_checkbox").checked = true;
-    checkBox();
+// Everything encased inside actionFunction() requires data saved in searchIngredients()
+// It needs to be encased rather than globally to allow searchIngredients time to 
+// return all of the required data. Would be better if there was a way to get the
+// data into global variables.
+function actionFunction() { 
+    pps = localStorage.getItem("APIpiecesPerServing" + foodId); 
+    console.log("Piece Per Serving", pps);
+    wpp = localStorage.getItem("APIweightPerPiece" + foodId); 
+    console.log("Weight Per Piece", wpp);
+    wps = localStorage.getItem("APIweightPerServing" + foodId); 
+    console.log("Weight Per Serving", wps);
+
+    // Checks if measure checkbox was already checked and updates fields accordingly.
+    var checkBoxStatus = localStorage.getItem(checkBoxStatusKey);
+    if (checkBoxStatus == "true"){
+        checkBox();
+    }
+
+    // Additional fields displayed if checkbox is checked
+    document.getElementById("measurement_checkbox").addEventListener("click", checkBox);
+    function checkBox() {
+        if (checkBoxInput.checked) {
+            document.getElementById(measure_weight_per_piece).style.display = "block";
+            document.getElementById(pieces_per_serving_container).style.display = "block";
+            localStorage.setItem(checkBoxStatusKey, true);
+
+            document.getElementById('weight_per_serving_container').innerHTML = `
+                <p id="weight_per_serving_input">${wps}</p>
+            `;
+            console.log("Checkbox Checked");
+
+        } else {
+            document.getElementById(measure_weight_per_piece).style.display = "none";
+            document.getElementById(pieces_per_serving_container).style.display = "none";
+            localStorage.setItem(checkBoxStatusKey, false);
+            console.log("Checkbox Unchecked");
+
+            document.getElementById('weight_per_serving_container').innerHTML = `
+                <input id="weight_per_serving_input" type="number" 
+                inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" 
+                name="total_amt" value="${wps}" onkeyup="weightPerServingManFn()"/>
+            `;
+        }
+    }
+
 }
 
 
@@ -169,24 +224,6 @@ if (checkBoxStatus == "true"){
 var checkBoxInput = document.querySelector("input[name=measurement_checkbox]");
 var checkBoxStatusKey = 'ingredientCheckBox' + foodId;
 
-// Additional fields displayed if checkbox is checked
-function checkBox() {
-    if (checkBoxInput.checked) {
-        document.getElementById(measure_weight_per_piece).style.display = "block";
-        document.getElementById(pieces_per_serving_container).style.display = "block";
-        localStorage.setItem(checkBoxStatusKey, true);
-    } else {
-        document.getElementById(measure_weight_per_piece).style.display = "none";
-        document.getElementById(pieces_per_serving_container).style.display = "none";
-        localStorage.setItem(checkBoxStatusKey, false);
-
-        document.getElementById('weight_per_serving_container').innerHTML = `
-            <input id="weight_per_serving_input" type="number" inputmode="numeric" 
-            pattern="[0-9]*" maxlength="7" class="input_weight_number" 
-            name="total_amt" onkeyup="weightPerServingManFn()"/>
-        `;
-    }
-}
 
 // Get Weight Per Serving input value and save to local storage
 var weightPerServingLs = localStorage.getItem('weightPerServing' + foodId, weightPerServing);
