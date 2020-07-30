@@ -84,32 +84,15 @@
                         <i class="fas fa-arrow-left"></i>
                     </button>
                     <button class="print_button floatR">
-                        <i class="fas fa-print"></i>
                     </button>
                     
                     <hr class="rule section_in_rule">
                 </div>
             </div>
 
-            
-                <!--======================================== Name -->
-                <div class="section_bg">
-                    <div class="section_in">
-                        <h2 id="page_title_ingredient" class="page_ti floatL">Ingr: <span id="ingredient_product_name">Ingredient Name</span></h2>
-                        <div id="add_ingredient_icon" class="row_icon_container plus_icon pointer alignR floatR">
-                        </div>
-                    </div>
-                    <div class="section_in">
-                        <p class="alignL">(<span>Optional content if it the product is an ingredient</span>)</p>
-                    </div>
-                    <div class="section_in">
-                        <p class="page_title_description">No description available.</p>
-                    </div>
-                </div>
-
             <div id="accordion">
 
-                <!--======================================== Servings -->
+                <!--======================================== Ingr: Ingredient Name -->
                 <div class="card section_bg"> 
 
                     <!-- Servings Section Header -->
@@ -121,7 +104,7 @@
                         the number of pieces per serving as well as weight per piece.</p>
                         ">
                         </div>
-                        <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseThree">Servings</h3>
+                        <h2 class="page_section_name alignL" data-toggle="collapse" href="#collapseThree"><span id="page_title_ingredient">Ingr: </span><span id="ingredient_product_name">Ingredient Name</span></h2>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseThree">
                         </div>
                     </div>
@@ -129,10 +112,29 @@
                     <!-- Servings Collapse/Expand Section -->
                     <div id="collapseThree" class="collapse show" data-parent="#accordion">
                         <div class="card-body"> 
+
+                            <!-- Number of Servings Row: Number of servings input & "Per Piece" Checkbox -->
+                            <div class="section_in">
+                                <div class="measurement_container floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <h6>Number of Servings:</h6>
+                                    </div>
+                                    <div class="floatL">
+                                        <input id="number_of_servings_input" type="text" inputmode="numeric" pattern="[0-9]*" value="10" maxlength="7" class="input_weight_number" onkeyup="numberOfServingsManFn(); batchQuantityFn(); batchWeightFn()"/>
+                                    </div>
+                                </div>
+                                <div class="measurement_container column2 floatL">
+                                    <label id="measurement_checkbox_label" for="measurement_checkbox">Purchased and/or sold by the piece? 
+                                        <input type="checkbox" id="measurement_checkbox" class="input_percent" name="measurement_checkbox">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Per Serving Row: Weight & Calories per serving-->
                             <div class="section_in">
                                 <div class="measurement_container floatL">
                                     <div class=" measurement_row_label floatL">
-                                        <p>Serving g:</p>
+                                        <h6>Weight per Serving:</h6>
                                     </div>
                                     <div id="weight_per_serving_container" class="floatL">
                                         <input id="weight_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" name="total_amt" onkeyup="weightPerServingManFn()"/> 
@@ -141,28 +143,32 @@
                                         <p>g</p>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="section_in">
-                                <div class="measurement_container floatL">
-                                    <label id="measurement_checkbox_label" for="measurement_checkbox">Purchased and/or sold by the piece? 
-                                        <input type="checkbox" id="measurement_checkbox" class="input_percent" name="measurement_checkbox"> <!-- class used to make this fit on 1 line on mobile -->
-                                    </label>
-                                </div>
-                                <div id="pieces_per_serving_container" class="measurement_container measurement_row_container_second floatL" style="display:none">
+                                <div id="ingredient_serving_kcals_container" class="measurement_container column2 floatL">
                                     <div class="measurement_row_label floatL">
-                                        <p>Standard Serving:</p>
+                                        <h6>Calories per Serving:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <input id="pieces_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="1" maxlength="7" class="input_weight_number" onkeyup="piecesPerServingManFn(); weightPerServingCalcFn()"/>
+                                        <p><span id="ingredient_kcal_value" class="kcal_count">125</span>Kcal</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Pieces Row: Number of pieces per serving and weight of each piece. Displays if "Per Piece" checkbox is checkedcheckbo -->
+                            <div id="pieces_row" class="section_in" style="display:none">
+                                <div id="pieces_per_serving_container" class="measurement_container measurement_row_container_second floatL">
+                                    <div class="measurement_row_label floatL">
+                                        <h6>Pieces per Serving:</h6>
+                                    </div>
+                                    <div class="floatL">
+                                        <input id="pieces_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="piecesPerServingManFn(); weightPerServingCalcFn()"/>
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
                                     </div>
                                 </div>
-                                <div id="measure_weight_per_piece" class="measurement_container measurement_row_container_second floatL" style="display:none">
+                                <div id="measure_weight_per_piece" class="measurement_container column2 floatL">
                                     <div class=" measurement_row_label floatL">
-                                        <p>Weight per Piece:</p>
+                                        <h6>Weight per Piece:</h6>
                                     </div>
                                     <div class="floatL">
                                         <input id="weight_per_piece_input" type="number" inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" onkeyup="weightPerPieceManFn(); weightPerServingCalcFn()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
@@ -172,7 +178,32 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
+                            <!-- Batch Row: Batch weight and quantity per batch -->
+                            <div class="section_in">
+                                <div id="ingredient_batch_weight" class="measurement_container floatL">
+                                    <div class=" measurement_row_label floatL">
+                                        <h6>Batch Weight:</h6>
+                                    </div>
+                                    <div id="ingredient_batch_weight_div" class="floatL">
+                                        <input id="batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="weightPerServingCalcFn()"/>
+                                    </div>
+                                    <div class="floatL">
+                                        <p>g</p>
+                                    </div>
+                                </div>
+                                <div id="ingredient_batch_qty_div" class="measurement_container column2 floatL"  style="display:none">
+                                    <div class="measurement_row_label floatL">
+                                        <h6>Batch Quantity:</h6>
+                                    </div>
+                                    <div class="floatL">
+                                        <input id="batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="weightPerServingCalcFn()"/>
+                                    </div>
+                                    <div class="floatL">
+                                        <p>pcs</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -419,7 +450,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+ 
     <script type="text/javascript" src="assets/js/js.js"></script>
     <script type="text/javascript" src="assets/js/ingredient.js"></script>
     
