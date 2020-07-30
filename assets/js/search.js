@@ -35,7 +35,7 @@ async function searchIngredients(searchTerm) {
                 }
             });
             return arr.join(' ');
-        };
+        }; 
 
         if (item.food.category === "Packaged foods") {
         product_name = ('"' + capitalized_product_name(item.food.brand) + '"' + ' - ' + capitalized_product_name(item.food.label)); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
@@ -48,13 +48,14 @@ async function searchIngredients(searchTerm) {
         // Increment Ingredient counter by 1
         countIngr += 1;
 
-        // Extract Food Id from API
-        foodId = item.food.foodId;
 
     // Below extracts the data and puts it into Local Storages. However it saves
-    // the data for all results. It should somehow be incorporated into 
-    // commitDefaultMeasurementsToLS = function () below and just apply to the
-    // product who's + icon is being clicked.
+    // the data for all results. It needs to apply to a single product listed in
+    // the results. Clicking anywhere on the result should save the data.
+
+        // Extract Food Id from API
+        foodId = item.food.foodId;
+        
         // Extract calories from API
         kcalPer100g = item.food.nutrients.ENERC_KCAL;
         localStorage.setItem("kcalPer100g" + foodId, Math.round(kcalPer100g));
@@ -68,6 +69,9 @@ async function searchIngredients(searchTerm) {
         let wholeWeight;
         let defaultWeight = 123;
 
+        // if (servingWeight === null){  Only extract the information if there is nothing
+        // already in local storage. Prevents user added data being over written if
+        // the page reloads
         for(let i=0; i<measure.length; i++){
             label = (measure[i].label);
             weight =(measure[i].weight);
@@ -112,10 +116,8 @@ async function searchIngredients(searchTerm) {
             localStorage.setItem("APIweightPerPiece" + foodId, defaultWeight);
         }
 
-
-//////////////////////////////////////////////////////////////////////////////////////
     
-        // Results List: Information to be displayed on front end
+    // Results List: Information to be displayed on front end
         list.innerHTML += `
         <div class="results_row section_in results_list">
             <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${foodId}">${product_name}</a></h4>
@@ -123,22 +125,14 @@ async function searchIngredients(searchTerm) {
                 <div id="add_ingredient_to_portion_icon" class="row_icon_container plus_icon pointer alignR"></div>
             </a> 
         </div>`; 
-        
-    
-    //
-
     });
 
     // Extract API measurements and data
 
 
-        
-
-
-    // Commit default measurements to Local Storage when User clicks on a result row (data committed for the product in that row).
-    // Not working. Activates on search, and adds last result as opposed to the ingredient named in the row.
+    // Not needed, but see comments.
     var commitDefaultMeasurementsToLS = function () {
-        localStorage.setItem(`${product_name}ID`, `${foodId}`);
+        localStorage.setItem(`${product_name}ID`, `${foodId}`); // How is this data being retrieved?
         //localStorage.setItem(`${product_name}ID`, `${kcal_per_100g}`); this is same as foodID yet doesn't behave the same. Stops foodId working. 
     }
     document.getElementById("add_ingredient_to_portion_icon").addEventListener("click", commitDefaultMeasurementsToLS);
