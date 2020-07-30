@@ -70,45 +70,23 @@ label { /* Over rides default. Prevents large space between it and rows beneath.
     margin-bottom: 0;
 }
 
-.measurement_row_container_second, .measurement_row_container_third, .measurement_row_container_fourth { /*--- Use to put a space between measurement rows, left on PC, top on mobile. Applies to all bar the first ---*/
-    margin-left: 0.5rem;
+.measurement_row_label {
+    width: 170px;
+}
+
+.measurement_container { /*--- Use to put a space between measurement rows, left on PC, top on mobile. Applies to all bar the first ---*/
+    margin-top: 1rem;
+    width: 300px;
     }
 @media (max-width: 1024px) {
-    .measurement_container, .measurement_row_container {
-        width: 275px;
+     .measurement_row_container {
         overflow: hidden;
     }
-    .measurement_row_label {
-        width: 140px;
-    }
-    .measurement_row_container_third, .measurement_row_container_fourth {
-        margin-top: 0.5rem;
-        margin-left: 0;
-    }
-    .measurement_row_container_second {
-        margin-left: 0;
-        margin-right: 200px;
-    }
 }
-@media (max-width: 768px) {
-    .measurement_row_container_second {
-    margin-left: 0.5rem;
-    margin-right: 0;
+@media (max-width: 592px) {
+    .measurement_container {
+    width: 285px;
     }
-    .measurement_row_container_third {
-    margin-top: 0.5rem;
-    margin-left: 0;
-    }
-    .measurement_row_container_fourth {
-    margin-left: 0.5rem;
-    }
-}
-@media (max-width: 650px) { /* 650px instead of 572 to allow for mobile in landsacape */
-    .measurement_row_container_second, .measurement_row_container_third, .measurement_row_container_fourth {
-    margin-top: 0.5rem;
-    margin-left: 0;
-    }
-
 }
 
 

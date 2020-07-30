@@ -9,7 +9,7 @@ async function searchAPI() {
 
 // Search: Ingredients
 async function searchIngredients(searchTerm) {
-    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
     console.log(url);
 
     // Clears the results list for every new search
@@ -37,9 +37,7 @@ async function searchIngredients(searchTerm) {
             return arr.join(' ');
         }; 
 
-        if (item.food.category === "Packaged foods") {
-        product_name = ('"' + capitalized_product_name(item.food.brand) + '"' + ' - ' + capitalized_product_name(item.food.label)); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
-        } else if (item.food.category === "Generic foods") {
+        if (item.food.category === "Generic foods") {
         product_name = capitalized_product_name(item.food.label);
         } else {
         return;
