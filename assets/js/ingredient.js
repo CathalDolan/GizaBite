@@ -1,10 +1,9 @@
 var foodId = document.location.search.replace(/^.*?\=/,'');
 
 async function searchAPI() {
-    searchIngredients(foodId);
+   await searchIngredients(foodId);
     //await searchPortions(searchTerm);
 }
-searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {
@@ -177,7 +176,6 @@ async function searchIngredients(foodId) {
 
     });
 
-
     // Checks if measure checkbox was already checked and updates fields accordingly.
     var checkBoxStatus = localStorage.getItem("checkBoxStatusKey " + foodId);
     console.log("checkBoxStatus", checkBoxStatus);
@@ -188,7 +186,6 @@ async function searchIngredients(foodId) {
         `;
     checkBox(); //Why is this not firing?
     }
-
 }; //Search is all contained in here
 
 //All of these variable are already declared inside the search function but due
@@ -218,6 +215,8 @@ function getData (){
     console.log("weightPerServing", weightPerServing);
 }
 
+
+
 // Per Piece Checkbox: Additional "Batch" and "Piece" fields displayed if checkbox is checked
 //document.getElementById("measurement_checkbox").addEventListener("click", checkBox);
 function checkBox() {
@@ -235,8 +234,6 @@ function checkBox() {
         document.getElementById("weight_per_serving_container").innerHTML = `
             <p id="weight_per_serving_input">${weightPerServing}</p>
         `;
-
-        
 
     } else if (checkBox.checked === false) {
         document.getElementById("pieces_row").style.display = "none";
