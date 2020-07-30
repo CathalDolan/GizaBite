@@ -190,6 +190,12 @@ async function searchPortions(searchTerm) {
 
 };
 
+myHtmlFn () {
+    
+}
+
+
+// Don't think this is employed anywhere, delete?
 var globalSearchTerm = document.location.search.replace(/^.*?\=/,'');
 if (globalSearchTerm === "") {
     console.log("empty")

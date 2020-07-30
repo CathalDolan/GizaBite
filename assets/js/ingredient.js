@@ -11,10 +11,9 @@ addIngredient.outerHTML = `
 `;
 
 async function searchAPI() {
-    searchIngredients(foodId);
+   await searchIngredients(foodId);
     //await searchPortions(searchTerm);
 }
-searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {
@@ -172,6 +171,8 @@ async function searchIngredients(foodId) {
 
 }; //Search is all contained in here
 
+//await searchAPI();
+
 // Everything encased inside actionFunction() requires data saved in searchIngredients()
 // It needs to be encased rather than globally to allow searchIngredients time to 
 // return all of the required data. Would be better if there was a way to get the
@@ -190,7 +191,9 @@ function actionFunction() {
         checkBox();
     }
 
-    // Additional fields displayed if checkbox is checked
+}
+
+// Additional fields displayed if checkbox is checked
     document.getElementById("measurement_checkbox").addEventListener("click", checkBox);
     function checkBox() {
         if (checkBoxInput.checked) {
@@ -216,8 +219,6 @@ function actionFunction() {
             `;
         }
     }
-
-}
 
 
 // Make fields appear when servings checkbox is ticked
