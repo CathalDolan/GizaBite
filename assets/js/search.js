@@ -46,13 +46,12 @@ async function searchIngredients(searchTerm) {
         // Increment Ingredient counter by 1
         countIngr += 1;
 
-
-    // Below extracts the data and puts it into Local Storages. However it saves
-    // the data for all results. It needs to apply to a single product listed in
-    // the results. Clicking anywhere on the result should save the data.
-
         // Extract Food Id from API
         foodId = item.food.foodId;
+
+    /* // Below extracts the data and puts it into Local Storages. However it saves
+    // the data for all results. It needs to apply to a single product listed in
+    // the results. Clicking anywhere on the result should save the data.
         
         // Extract calories from API
         kcalPer100g = item.food.nutrients.ENERC_KCAL;
@@ -113,6 +112,7 @@ async function searchIngredients(searchTerm) {
         } else {   //If none are defined, use default weight
             localStorage.setItem("APIweightPerPiece" + foodId, defaultWeight);
         }
+        */
 
     
     // Results List: Information to be displayed on front end
