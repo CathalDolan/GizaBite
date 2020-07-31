@@ -14,7 +14,6 @@ let defaultWeight = 123;
 async function searchAPI() {
     searchIngredients(foodId);
 }
-searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {
@@ -110,7 +109,6 @@ async function searchIngredients(foodId) {
         `;
     checkBox(); 
     }
-
 }; //Search is all contained in here
 
 
@@ -143,6 +141,7 @@ function weightPerServingFn() {
         weightPerServing = defaultWeight;
     }
 }
+
 
 // Weight Per Piece:
 function weightPerPieceFn() {
@@ -233,7 +232,6 @@ function checkBox() {
             <p id="batch_weight_input">${batchWeight}</p>
         `; 
         localStorage.setItem("batchWeight " + foodId, batchWeight);
-
     } else if (checkBox.checked === false) {
         document.getElementById("pieces_row").style.display = "none"; //If Unchecked: Pieces row is hidden
         document.getElementById("ingredient_batch_qty_div").style.display = "none"; //If Unhecked: Batch row is hidden
