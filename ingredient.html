@@ -28,8 +28,8 @@
                     <img src="https://i.imgur.com/Qw0QgK0.png" alt="GizaBite Logo" id="gizabite_logo">
                     </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="sr-only">Navigation Button</span>
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only" aria-hidden="true">Navigation Button</span>
+                    <span class="navbar-toggler-icon" aria-hidden="true"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
@@ -54,7 +54,7 @@
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="ingredient.html">Ingredient
-                            <span class="sr-only">(current)</span>
+                            <span class="sr-only" aria-hidden="true">(current)</span>
                         </a>
                         </li>
                         <li class="nav-item">
@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <div id="accordion">
+            
 
                 <!--======================================== Ingr: Ingredient Name -->
                 <div class="card section_bg"> 
@@ -104,7 +104,7 @@
                         the number of pieces per serving as well as weight per piece.</p>
                         ">
                         </div>
-                        <h2 class="page_section_name alignL" data-toggle="collapse" href="#collapseThree"><span id="page_title_ingredient">Ingr: </span><span id="ingredient_product_name">Ingredient Name</span></h2>
+                        <h2 class="page_section_name alignL" data-toggle="collapse" href="#collapseThree"><span id="page_title_ingredient" aria-hidden="true">Ingr: </span><span id="ingredient_product_name" aria-hidden="true">Ingredient Name</span></h2>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseThree">
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                                         <h6>Calories per Serving:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <p><span id="calories_per_serving" class="kcal_count"></span>Kcal</p>
+                                        <p><span id="calories_per_serving" class="kcal_count" aria-hidden="true"></span>Kcal</p>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
 
                             <!-- Buttons -->
                             <div id="add_to_dish_button_div" class="section_in alignC"> 
-                                <button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span"></span> to Dish</button>
+                                <button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span" aria-hidden="true"></span> to Dish</button>
                             </div>
 
                             <h4 id="or_h4" style="text-alignC">OR</h4>
@@ -216,16 +216,18 @@
                             <div id="hero_search_section_in" class="section_in">
                                 <div id="hero_search_inner">
                                     <div class="hero_search_inner_element">
-                                        <input type="text" name="search" placeholder="Search Again" id="global_search_input" class="floatL" onkeyup="">
+                                        <input type="text" name="search" placeholder="Search Again" id="global_search_input" class="floatL" onkeyup="globalSearchTermFn()">
                                     </div>
                                     <div class="hero_search_inner_element"> <!-- Search button-->
-                                        <a href="#" id="global_search_button" class="button-image mybutton floatR" onkeyup=""></a>
+                                        <a href="#" id="global_search_button" class="button-image mybutton floatR" onkeyup="globalSearchTermFn()"></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            <div id="accordion">
 
                 <!--======================================== Cooking -->
                 <div id="cooking_section" class="card section_bg"> 
@@ -261,9 +263,6 @@
                                         <div class="bricks_container">
                                             <div class="brick">
                                                 <p>No Further Cooking Needed</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Not Cooked on its Own</p>
                                             </div>
                                             <div class="brick">
                                                 <p>Boiled</p>
