@@ -538,16 +538,16 @@ h2.hero_text {
     background-color: var(--trans_black);
 }
 
-#hero_search_section_in {
+#hero_search_section_in, #add_to_dish_button_div {
     width: 400px;
 }
 @media (max-width: 768px) {
-#hero_search_section_in {
+#hero_search_section_in, #add_to_dish_button_div {
     width: 310px;
     }
 }
 
-#hero_search_inner {
+#hero_search_inner, #add_to_dish_button {
     width: 90%;
     overflow: hidden;
     margin: 0 auto;

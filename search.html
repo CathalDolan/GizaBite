@@ -78,7 +78,6 @@
                                 <a href="#" id="global_search_button" class="button-image mybutton floatR" onkeyup="globalSearchTermFn()"></a>
                             </div>
                         </div>
-                        
                     </div>
                     <hr id="hero_search_rule" class="rule">
                 </div>
@@ -111,98 +110,14 @@
                     or add it to an existing one.</P>
                     ">
                     </div>
-                    <h3 class="page_section_name alignL">Search & Create</h3>
+                    <h3 class="page_section_name alignL">Search</h3>
                 </div>
 
-                <!-- Create a new dish button-->
-                <div class="text-center"> 
-                    <a href="#" class="btn inner_element_579">Create New Dish</a>
-                </div>
-                
                 <!-- Search widget -->
                 <div class="search_container inner_element_579 text-center">  
                     <form action="">
                         
                         <input id="search_widget_input" type="search" name="search_widget_input" placeholder="Search dish or ingredient name" class="section_in">
-                        
-                        <div> <!-- Advanced Section Expand upwards initial code from https://stackoverflow.com/questions/35263219/expand-collapse-div-by-clicking-another -->
-                            <div class="container">
-                                <div class="content1">
-
-                                    <!-- Cooking Method-->
-                                    <div class="search_advanced_section container section_in"> 
-                                        <h6 class="search_advanced_section_title alignL">Method</h6>
-                                            <div class="bricks_container">
-                                                <div class="brick">
-                                                    <p>No Further Cooking Needed</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Not Cooked on its Own</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Boiled</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Steamed</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Microwave</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Baked</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Roasted</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Grilled</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Pan Fried</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Shallow Fried</p>
-                                                </div>
-                                                <div class="brick">
-                                                    <p>Deep Fried</p>
-                                                </div>
-                                            </div>
-                                    </div>
-
-                                    <!-- Cooking Substrate -->
-                                    <div class="search_advanced_section container section_in"> 
-                                        <h6 class="search_advanced_section_title alignL">Substrate</h6>
-                                        <div class="bricks_container">
-                                            <div class="brick">
-                                                <p>Included in Ingredients</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Dry</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Vegetable Oil</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Animal Fat</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Margarine</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Butter</p>
-                                            </div>
-                                            <div class="brick">
-                                                <p>Low Cal Spray</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="section_in">
-                                <h6 id="search_advanced_button" class="header advanced_reset_buttons floatL pointer">Advanced</h6>
-                                <h6 class="advanced_reset_buttons floatR pointer">Reset</h6>
-                            </div>
-                        </div>
 
                         <!-- Search button-->
                         <div class="text-center"> 
@@ -212,66 +127,6 @@
                 </div>
 
                 <div id="accordion"> <!-- Results Section -->
-
-                    <!-- Dishes Results -->
-                    <div class="results section_in card"> 
-                        <div class="section_header_bg card-header">
-                            <div id="dishes_results_count_div" class="section_in card-link" data-toggle="collapse" href="#collapseOne"> 
-                                <h3 class="results_section_name alignL">Dishes</h3>
-                                <h4 class="results_count"><span id="dishes_results_count">No</span> Results</h4>
-                                <div class="row_icon_container collapse_arrow pointer alignR">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseOne" class="collapse" data-parent="#accordion"> <!-- Add "show" to class here-->
-                            <div class="card-body">
-                                <!-- Results - Dishes Name Row -->
-                                <div class="results_row section_in">
-                                    <div class="row_icon_container eye_icon pointer alignL" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
-                                    </div>
-                                    <h4 class="alignL results_row_name pointer">Dish Name Dish Name Dish Na</h4>
-                                    <div class="row_icon_container">
-                                    </div>
-                                </div>
-                                <!-- Results - Dishes Description Row -->
-                                <div class="results_row section_in ">
-                                    <div class="row_icon_container alignL">
-                                    </div>
-                                    <p class="alignL results_row_description">Dish Name Dish Name Dish Name Dish </p>
-                                    <div class="row_icon_container">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Portions Results -->
-                    <div class=" results section_in card"> 
-                        <div class="section_header_bg card-header">
-                            <div id="portions_results_count_div" class="section_in card-link" data-toggle="collapse" href="#collapseTwo"> 
-                                <h3 class="results_section_name alignL">Portions</h3>
-                                <h4 id="portions_results_count" class="results_count"></h4>
-                                <div class="row_icon_container collapse_arrow pointer alignR">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                            <div id="portion_results" class="card-body">
-                                <!-- Results - Portions Name Row -->
-                                <p class="section_in">No Portions Results</p>
-                            </div>
-
-                            <!-- Results - Portions Description Row -->
-                            <div class="results_row section_in ">
-                                <div class="row_icon_container alignL">
-                                </div>
-                                <p class="alignL results_row_description">Portion description if available</p>
-                                <div class="row_icon_container">
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
 
                     <!-- Ingredients Results -->
                     <div class="results section_in card"> 
@@ -283,7 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                        <div id="collapseThree" class="collapse show" data-parent="#accordion">
                             <div id="ingredient_results" class="card-body">
                                 <!-- Results - Ingredient Name Row populated from js-->
                                 <p class="section_in">No Ingredient Results</p>
