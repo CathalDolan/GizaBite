@@ -15,7 +15,6 @@ let numberOfServings = 10;
 function searchAPI() {
     searchIngredients(foodId);
 }
-searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {
@@ -144,6 +143,7 @@ function weightPerServingFn() {
     }
 }
 
+
 // Weight Per Piece:
 function weightPerPieceFn() {
     if (weightPerPiece !== null) {   //If weight per piece is defined, use it.
@@ -216,7 +216,6 @@ function checkBox() {
 
         batchWeightP();
         caloriesFn();
-
     } else if (checkBox.checked === false) {
         document.getElementById("pieces_row").style.display = "none"; //If Unchecked: Pieces row is hidden
         document.getElementById("ingredient_batch_qty_div").style.display = "none"; //If Unhecked: Batch row is hidden
