@@ -120,7 +120,7 @@
                                         <h6>Number of Servings:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <input id="number_of_servings_input" type="text" inputmode="numeric" pattern="[0-9]*" value="10" maxlength="7" class="input_weight_number" onkeyup="numberOfServingsManFn(); batchQuantityFn(); batchWeightFn()"/>
+                                        <input id="number_of_servings_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="numberOfServingsManFn();"/>
                                     </div>
                                 </div>
                                 <div class="measurement_container column2 floatL">
@@ -137,7 +137,7 @@
                                         <h6>Weight per Serving:</h6>
                                     </div>
                                     <div id="weight_per_serving_container" class="floatL">
-                                        <input id="weight_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" name="total_amt" onkeyup="weightPerServingManFn()"/> 
+                                        <input id="weight_per_serving_input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" name="total_amt" onkeyup="weightPerServingManFn()"/> 
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -160,7 +160,7 @@
                                         <h6>Pieces per Serving:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <input id="pieces_per_serving_input" type="number" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="piecesPerServingManFn(); weightPerServingCalcFn()"/>
+                                        <input id="pieces_per_serving_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="piecesPerServingManFn()"/>
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
@@ -171,7 +171,7 @@
                                         <h6>Weight per Piece:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <input id="weight_per_piece_input" type="number" inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" onkeyup="weightPerPieceManFn(); weightPerServingCalcFn()"/> <!-- Look at this again regarding autodisplay numbers keyboard on mobile-->
+                                        <input id="weight_per_piece_input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" onkeyup="weightPerPieceManFn()"/> 
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -186,7 +186,7 @@
                                         <h6>Batch Weight:</h6>
                                     </div>
                                     <div id="ingredient_batch_weight_div" class="floatL">
-                                        <input id="batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="weightPerServingCalcFn()"/>
+                                        <input id="batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="batchWeightManFn()"/>
                                     </div>
                                     <div class="floatL">
                                         <p>g</p>
@@ -197,10 +197,29 @@
                                         <h6>Batch Quantity:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <input id="batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="weightPerServingCalcFn()"/>
+                                        <input id="batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="batchQuantityManFn()"/>
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div id="add_to_dish_button_div" class="section_in alignC"> 
+                                <button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span"></span> to Dish</button>
+                            </div>
+
+                            <h4 id="or_h4" style="text-alignC">OR</h4>
+
+                            <!-- Search Section -->
+                            <div id="hero_search_section_in" class="section_in">
+                                <div id="hero_search_inner">
+                                    <div class="hero_search_inner_element">
+                                        <input type="text" name="search" placeholder="Search Again" id="global_search_input" class="floatL" onkeyup="">
+                                    </div>
+                                    <div class="hero_search_inner_element"> <!-- Search button-->
+                                        <a href="#" id="global_search_button" class="button-image mybutton floatR" onkeyup=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -208,25 +227,108 @@
                     </div>
                 </div>
 
-                <!--======================================== Ingredients -->
-                <div class="card section_bg"> 
+                <!--======================================== Cooking -->
+                <div id="cooking_section" class="card section_bg"> 
 
-                    <!-- Section Header - Ingredients -->
+                    <!-- Section Header - Cooking -->
                     <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" 
-                        title="Where an ingredient is third party manufactured, ingredients are listed where provided.">
+                        <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" title="
+                        <h4>Method</h4>
+                        <p>The cooking method applies to all Portion ingredients. If different ingredients require different methods, each set needs to be a 
+                        separate Portion. Either search for or create a new Portion.</p> 
+                        <p>If all ingredients are already cooked, select 'No Further Cooking Needed'.</p>
+                        </br>
+                        <h4>Substrate</4>
+                        <p>If the substrate is already included as part of your ingredients list, choose 'Included in Ingredients'.</p>
+                        </br>
+                        <h4>Second Cooking Method</4>
+                        <p>If an additional cooking method is required, it also applies to the entire Portion.</p>
+                        ">
                         </div>
-                        <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFour">Ingredients</h3>
+                        <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFour">Cooking</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseFour">
                         </div>
                     </div>
 
-                    <!-- Collapse/Expand Section - Ingredients -->
+                    <!-- Collapse/Expand Section - Cooking -->
                     <div id="collapseFour" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <div id="ingredients_ingredients_list" class="section_in ">
-                                <p>Product doesn't have ingredients or none were provided.</p>
+                        <div class="card-body"> 
+                            <div class="container inner_element_579">
+
+                                <!-- Cooking Method-->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Method</h6>
+                                        <div class="bricks_container">
+                                            <div class="brick">
+                                                <p>No Further Cooking Needed</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Not Cooked on its Own</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Boiled</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Steamed</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Microwave</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Baked</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Roasted</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Grilled</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Pan Fried</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Shallow Fried</p>
+                                            </div>
+                                            <div class="brick">
+                                                <p>Deep Fried</p>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <!-- Cooking Substrate -->
+                                <div class="search_advanced_section container section_in"> 
+                                    <h6 class="search_advanced_section_title alignL">Substrate</h6>
+                                    <div class="bricks_container">
+                                        <div class="brick">
+                                            <p>Included in Ingredients</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Dry</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Vegetable Oil</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Animal Fat</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Margarine</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Butter</p>
+                                        </div>
+                                        <div class="brick">
+                                            <p>Low Cal Spray</p>
+                                        </div>
+                                    </div>
+                                    <label id="add_cooking_method_checkbox" for="another">Add a second cooking method 
+                                    <input type="checkbox" id="another" name="gender" value="male" class="input_percent">
+                                </label>
+                                </div>
+
+                                
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -413,14 +515,6 @@
                     
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="card section_bg"> 
-                <div class="section_in alignC"> 
-                    <button type="button" class="btn">Save</button>
-                    <button type="button" class="btn">Cancel</button>
                 </div>
             </div>
 

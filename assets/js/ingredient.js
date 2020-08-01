@@ -1,6 +1,5 @@
 //Global Variables used throughout the file
 var foodId = document.location.search.replace(/^.*?\=/,''); //Food Id: Extracted from url
-let numberOfServings;
 let weightPerServing;
 let weightPerPiece;
 let caloriesPer100g;
@@ -9,9 +8,11 @@ let piecesPerServing;
 let batchWeight;
 let quantityPerBatch;
 let weightPerWhole;
-let defaultWeight = 123;
+let defaultWeight = 125;
+let numberOfServings = 10;
 
-async function searchAPI() {
+// Triggers the searchIngredients function
+function searchAPI() {
     searchIngredients(foodId);
 }
 searchAPI();
@@ -48,20 +49,21 @@ async function searchIngredients(foodId) {
 
         // Displays product name on the Ingredient Page
         ingredientNameId.innerHTML = `${product_name}`;
+        document.getElementById("add_to_dish_button_span").innerHTML = `${product_name}`;
 
         // Extract Measurements from API
         let measure = item.measures;
         let label;
         let weight;
 
-        // Extract calories from API
+        // Extract calories from API and saved to LS
         caloriesPer100g = item.food.nutrients.ENERC_KCAL;
         localStorage.setItem("caloriesPer100g " + foodId, caloriesPer100g)
 
-        // Extract default number of servings from html
-        numberOfServingsStr = document.getElementById("number_of_servings_input").value;
-        numberOfServings = parseInt(numberOfServingsStr);
-        localStorage.setItem("numberOfServings " + foodId, numberOfServings);
+        // Number of Servings: This could be done outside of the function, but is
+        // included here because surrounding functions are related
+        document.getElementById("number_of_servings_input").value = numberOfServings;
+        localStorage.setItem("numberOfServings", numberOfServings); //FoodId is not included because it the same value applies to all products
 
         //  Extract default weights from API
         for(let i=0; i<measure.length; i++){
@@ -111,12 +113,10 @@ async function searchIngredients(foodId) {
     checkBox(); 
     }
 
-}; //Search is all contained in here
-
+}; // Search is all contained in here
 
 // Extract Measurements from local storage
 function getDataFn() {
-    numberOfServings = localStorage.getItem("numberOfServings " + foodId);
     weightPerServing = localStorage.getItem("weightPerServing " + foodId);
     weightPerPiece = localStorage.getItem("weightPerPiece " + foodId);
     caloriesPer100g = localStorage.getItem("caloriesPer100g " + foodId);
@@ -149,10 +149,10 @@ function weightPerPieceFn() {
     if (weightPerPiece !== null) {   //If weight per piece is defined, use it.
         document.getElementById("weight_per_piece_input").value = weightPerPiece;
         weightPerPiece = weightPerPiece;
-    } else if (weightPerWhole === null) {   //If weight per piece is not defined, use whole weight.
+    } else if (weightPerWhole !== null) {   //If weight per piece is not defined, use whole weight.
         document.getElementById("weight_per_piece_input").value = weightPerWhole;
         weightPerPiece = weightPerWhole;
-    } else if (weightPerServing === null) {   //If weight per piece and whole weight are not defined, use serving weight.
+    } else if (weightPerServing !== null) {   //If weight per piece and whole weight are not defined, use serving weight.
         document.getElementById("weight_per_piece_input").value = weightPerServing;
         weightPerPiece = weightPerServing;
     } else {   //If none are defined, use default weight
@@ -161,12 +161,11 @@ function weightPerPieceFn() {
     }
 }
 
-
 // Pieces Per Serving: Simplifed solution as halves should be included maybe.
 function piecesPerServingFn() {
-    console.log("function fires");
     if (weightPerServing >= weightPerPiece) { // If the serving weight is greater than the weight per piece...
-        piecesPerServing = Math.round(weightPerServing / weightPerPiece); // the 1st is divided by the 2nd.
+        piecesPerServing = Math.round(weightPerServing / weightPerPiece); // the 1st is divided by the 2nd. //?? Needs to go to 1 decimal place
+        console.log("piecesPerServing", piecesPerServing);
         localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
     } else {
@@ -177,27 +176,16 @@ function piecesPerServingFn() {
 
 // Batch Weight:  
 function batchWeightFn() {
-    let batchWeightLS = localStorage.getItem("batchWeight " + foodId);
-    console.log("Batch Weight", batchWeightLS);
-    if (batchWeightLS === null) { //If there is no existing data in LS...
-        batchWeight =  numberOfServings * weightPerServing; //run calculation...
-        document.getElementById("batch_weight_input").value = batchWeight; //add it to html and...
-        localStorage.setItem("batchWeight " + foodId, batchWeight); //save to LS
-    } else {
-        document.getElementById("batch_weight_input").value = batchWeightLS; // If there is a value in LS, add it to html
-    }
+    batchWeight =  Math.round(numberOfServings * weightPerServing);
+    document.getElementById("batch_weight_input").value = batchWeight;
+    localStorage.setItem("batchWeight " + foodId, batchWeight);
 }
 
 // Batch Quantity: 
 function batchQuantityFn() {
-    let quantityPerBatchLS = localStorage.getItem("quantityPerBatch " + foodId); // Extract data from LS if available
-    if (quantityPerBatchLS === null) { //If there is no existing data in LS...
-        quantityPerBatch =  numberOfServings * piecesPerServing; //run calculation...
-        document.getElementById("batch_quantity_input").value = quantityPerBatch; //add it to html and...
-        localStorage.setItem("quantityPerBatch " + foodId, quantityPerBatch); //save to LS
-    } else {
-        document.getElementById("batch_quantity_input").value = quantityPerBatchLS; // If there is a value in LS, add it to html
-    }
+    quantityPerBatch =  Math.round(numberOfServings * piecesPerServing);
+    document.getElementById("batch_quantity_input").value = quantityPerBatch; 
+    localStorage.setItem("quantityPerBatch " + foodId, quantityPerBatch);
 }
 
 // Calories: ((Number of calories per 100g / 100) * weight per serving)
@@ -218,7 +206,7 @@ function checkBox() {
 
         //If checked, the weight per serving is calculated instead of being taken from API
         //New calulation is saved to local storage
-        weightPerServing = weightPerPiece * piecesPerServing;
+        weightPerServing = Math.round(weightPerPiece * piecesPerServing);
         localStorage.setItem("weightPerServing "  + foodId, weightPerServing);
 
         //If checked, the weight per serving input changes to <p>
@@ -226,13 +214,8 @@ function checkBox() {
             <p id="weight_per_serving_input">${weightPerServing}</p>
         `;
 
-        //If checked, batch weight is calculated instead of being taken from API
-        //It also changes from an input to a <p> tag.
-        batchWeight =  numberOfServings * weightPerServing;
-        document.getElementById("batch_weight_input").outerHTML = `
-            <p id="batch_weight_input">${batchWeight}</p>
-        `; 
-        localStorage.setItem("batchWeight " + foodId, batchWeight);
+        batchWeightP();
+        caloriesFn();
 
     } else if (checkBox.checked === false) {
         document.getElementById("pieces_row").style.display = "none"; //If Unchecked: Pieces row is hidden
@@ -244,60 +227,116 @@ function checkBox() {
 
         //Weight per Serving:
         document.getElementById("weight_per_serving_container").innerHTML = `
-            <input id="weight_per_serving_input" type="number" 
+            <input id="weight_per_serving_input" type="text" 
             inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" 
             name="total_amt" value="${weightPerServing}" onkeyup="weightPerServingManFn()"/>
         `;
-        //Batch Weight:
+        //Batch Weight:  Needs to be moved out to a separate function
         document.getElementById("batch_weight_input").outerHTML = `
             <input id="batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" 
-            maxlength="7" class="input_weight_number" value="${batchWeight}" onkeyup="weightPerServingCalcFn()"/>
+            maxlength="7" class="input_weight_number" value="${batchWeight}" onkeyup="weightPerServingCalcFn2()"/>
         `;
        
+        caloriesFn(); //?? Don't know if this works
     }
 }
 
-// Get Weight Per Serving input value and save to local storage
-var weightPerServingLs = localStorage.getItem('weightPerServing ' + foodId, weightPerServing);
+//If "Per Piece" Checkbox is checked, batch weight is calculated instead of being taken from API
+//It also changes from an input to a <p> tag.
+function batchWeightP(){
+    batchWeight =  Math.round(numberOfServings * weightPerServing);
+    document.getElementById("batch_weight_input").outerHTML = `
+        <p id="batch_weight_input">${batchWeight}</p>
+    `; 
+    localStorage.setItem("batchWeight " + foodId, batchWeight);
+    //weightPerServingManFn();
+}
 
-// Called when User types into the input field
-var weightPerServingManFn = function () {
-    weightPerServing = document.getElementById('weight_per_serving_input').value;
+
+// Manual Functions: Calulations carried out when a User manually types into the input
+// As the user types, the data inputted is saved to Local Storage and related functions
+// called to update any fields affected by the change.
+
+// Number of Servings Manual Function:
+function numberOfServingsManFn() {
+    numberOfServings = document.getElementById('number_of_servings_input').value;
+    localStorage.setItem("numberOfServings", numberOfServings);
+    batchWeightFn();
+    batchQuantityFn();
+    checkBox(); // Updates the Batch Weight if Per Piece checkbox is checked
+}
+
+// Weight per Serving Manual Function:
+function weightPerServingManFn() {
+    weightPerServing = document.getElementById("weight_per_serving_input").value;
+    localStorage.setItem("weightPerServing " + foodId, weightPerServing);
+    batchWeightFn();
+    caloriesFn();
+}
+
+// Batch Weight Manual Function
+function batchWeightManFn() {
+    batchWeight = document.getElementById("batch_weight_input").value;
+    localStorage.setItem("batchWeight " + foodId, batchWeight);
+    weightPerServingCalcFn();
+    caloriesFn();
+}
+
+// Weight per Serving Batch Weight Calculation // Not fully working
+// When the Batch Weight input is changed manually with batchWeightManFn(), the Weight per Serving changes
+function weightPerServingCalcFn() {
+    weightPerServing = Math.round(batchWeight / numberOfServings);
+    document.getElementById('weight_per_serving_input').input = weightPerServing; // Not working
     localStorage.setItem("weightPerServing " + foodId, weightPerServing);
 }
 
-//weightPerServingFn();
-// Called when User changes number of piece per serving and/or weight per piece
-var weightPerServingCalcFn = function () {
-    weightPerServing = weightPerPiece * piecesPerServing;
-    document.getElementById('weight_per_serving_input').innerHTML = weightPerServing;
-    console.log("piecesPerServing CalcFn", piecesPerServing);
-    console.log("weightPerPiece CalcFn", weightPerPiece);
-    localStorage.setItem("weightPerServing " + foodId, weightPerServing);
-}
-
-// Change input to <p>, called when User changes number of pieces per serving and/or weight per piece
-var weightPerServingP = function (){
-    console.log(document.getElementById('weight_per_serving_input'));
-    document.getElementById('weight_per_serving_container').outerHTML = `
-    <div id="weight_per_serving_container" class="floatL">
-        <p id="weight_per_serving_input" type="number">${weightPerServing}</p>
-    </div>
-    `;
-}
-
-// Called when User types into the Weight Per Piece field input
-var weightPerPieceManFn = function () {
-    weightPerPiece = document.getElementById('weight_per_piece_input').value; // Extracts the value that the User types
-    localStorage.setItem("weightPerPiece " + foodId, weightPerPiece); // Adds this value to Local Storage
-}
-
-//--- Pieces Per Serving: Get from local storage if available
-var piecesPerServingLs = localStorage.getItem('piecesPerServing ' + foodId, piecesPerServing);
-
-// Called when User types into the input field
-var piecesPerServingManFn = function () {
+// Pieces per Serving Manual Function:
+function piecesPerServingManFn () {
     piecesPerServing = document.getElementById('pieces_per_serving_input').value;
     localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
+
+    batchQuantityFn(); // Batch Quantity is affected
+    weightPerServingCalcFn2(); // Weight per Serving is affected
+    caloriesFn(); // Calories is affected
+    batchWeightP(); // Batch Weight is affected
 }
 
+// Weight per Piece Manual Function
+// Called when User types into the Weight per Piece input
+function weightPerPieceManFn() {
+    weightPerPiece = document.getElementById('weight_per_piece_input').value;
+    localStorage.setItem("weightPerPiece " + foodId, weightPerPiece);
+
+    weightPerServingCalcFn2(); // Weight per Serving is affected
+    caloriesFn(); // Calories is affected
+    batchWeightP(); // Batch Weight is affected
+}
+
+// weightPerServingCalcFn2(); //Name needs updating
+// Called when User changes number of Pieces per Serving, Weight per Piece or Batdh Quantity
+function weightPerServingCalcFn2() {
+    weightPerServing = Math.round(weightPerPiece * piecesPerServing);
+    document.getElementById('weight_per_serving_input').innerHTML = weightPerServing;
+    localStorage.setItem("weightPerServing " + foodId, weightPerServing);
+}
+
+// Batch Quantity Manual Function
+//Called when users changes the input in Batch Quantity
+function batchQuantityManFn() {
+    batchQuantity = document.getElementById('batch_quantity_input').value;
+    localStorage.setItem("batchQuantity " + foodId, batchQuantity);
+
+    piecesPerServingCalcFn() // Pieces per Serving is affected
+    weightPerServingCalcFn2() // Weight per Serving is affected
+    caloriesFn(); // Calories is affected
+    batchWeightP(); // Batch Weight is affected
+}
+
+// Pieces per Serving Calculation Function
+// When user manually changes batch quantity with batchQuantityManFn(), pieces per serving is affected
+function piecesPerServingCalcFn(){
+    piecesPerServing = Math.round(batchQuantity / numberOfServings); //?? Needs to go to 1 decimal place
+    console.log("piecesPerServing", piecesPerServing);
+    document.getElementById('pieces_per_serving_input').value = piecesPerServing;
+    localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
+}

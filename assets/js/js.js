@@ -32,17 +32,6 @@ function goBack() {
   window.history.back();
 }
 
-// Funtion to allow the "Advance" section in Search expand and collape upwards - Not working due to Ingredients Page: Make field appear when checkbox is ticked
-$("#search_advanced_button").click(function () {
-  console.log("clicked");
-  $('.content1').slideToggle().toggleClass('active');
-  if ($('.content1').hasClass('active')) {
-    $('.header').text('Close Advanced');
-  } else {
-    $('.header').text('Advanced');
-  }
-});
-
 /* Funtion to allow the text wrap within a textarea input. From SpyYk3 http://jsfiddle.net/SpYk3/m8Qk9/ */
 $(function () {
   //  changes mouse cursor when highlighting lower right of box

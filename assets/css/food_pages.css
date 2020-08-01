@@ -89,6 +89,13 @@ label { /* Over rides default. Prevents large space between it and rows beneath.
     }
 }
 
+#add_to_dish_button_div, #or_h4 {
+    margin-top: 1rem;
+}
+
+#or_h4 {
+    text-align: center;
+}
 
 /*--- Lists ---*/
 .section_in ul {
