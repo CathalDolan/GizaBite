@@ -253,9 +253,6 @@ function batchWeightP(){
 }
 
 
-
-
-
 // Manual Functions: Calulations carried out when a User manually types into the input
 // As the user types, the data inputted is saved to Local Storage and related functions
 // called to update any fields affected by the change.
@@ -349,51 +346,176 @@ function piecesPerServingCalcFn(){
 
 
 // COOKING SECTION
-
-// Cooking Method: Change Brick Colours and add ID of selected brick to Local Storage
 // Designed to have similar functionality to radio buttons. Bricks and text handled separately.
-$(".cooking_method_brick").on("click", function () {
+
+// Cooking Method:
+// Changes brick colour when clicked, saves data to LS and updates HTML
+$(".cooking_method_brick").on("click", async function () {
+
     $(".cooking_method_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
+    $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Clears any substrate selection
+
     $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
     let methodID = document.getElementById(this.id).id;  // Extracts the ID for the substrate selected
-    localStorage.setItem("cookingMethodBrick " + foodId, methodID);  //Commit the ID to LS
+    localStorage.setItem("cookingMethodBrick " + foodId, methodID);  // Save the ID to LS
+    document.getElementById("cooking_method_span").innerHTML = methodID; // Adds method to "Cooking HTML"
 
-    // Allows Substrate section to display or hide when required
-    // Should be a shorter way of doing this using "substrate_yes" class...
-    if (methodID == "microwave_brick" || methodID == "baked_brick" || 
-        methodID == "roasted_brick" || methodID == "grilled_brick" || 
-        methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
-        methodID == "deep_fried_brick" ){
-            document.getElementById("cooking_substrate_container").style.display = "block";
-            document.getElementById("low_cal_spray_brick").style.display = "none"; // Ensures Low Cal SPrayed only displayed with Pan Fried
-    } else {
-        document.getElementById("cooking_substrate_container").style.display = "none";
-        localStorage.removeItem("cookingSubstrateBrick " + foodId); // If selected has no substrate associated with it, existing one is removed.
-        $(".cooking_substrate_brick").css({"background": "var(--white)"});
-        $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"});
-        document.getElementById("low_cal_spray_brick").style.display = "none"; // Ensures Low Cal SPrayed only displayed with Pan Fried
-    }
-
-    // Allows Low Cal Spray to display in Substrates if Pan Fried is selected as a method
-    if (methodID == "pan_fried_brick"){
-        document.getElementById("low_cal_spray_brick").style.display = "block";
-    }
+    await getCookingData(); //This make data saved available globally
+    caloriesFn(); // Reverts to non-cooked calorie count
 });
+// Handles the brick text
 $(".cooking_method_brick>p").on("click", function () {
-    $(".cooking_method_brick>p").css({"color": "var(--first_layer)"});// Makes all brick texts black, thereby deselecting any brick already selected
+    $(".cooking_method_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
+    $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // If User had selected a substrate but then choose another method, this clears the substrate
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
 
-// Cooking Substrate: Change Brick Colours and add ID of selected brick to Local Storage
-// Designed to have similar functionality to radio buttons.
-$(".cooking_substrate_brick").on("click", function () {
+
+// Cooking Substrate:
+// Changes brick colour when clicked, saves data to LS and updates HTML
+$(".cooking_substrate_brick").on("click", async function () {
     $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
     $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
     let substrateID = document.getElementById(this.id).id; // Extracts the ID for the substrate selected
-    localStorage.setItem("cookingSubstrateBrick " + foodId, substrateID); //Commit the ID to LS
+    localStorage.setItem("cookingSubstrateBrick " + foodId, substrateID); // Commit the ID to LS
+    document.getElementById("substrate_span").innerHTML = " with " + substrateID; // Adds substrate to "Cooking HTML"
+
+    await getCookingData(); //This make data saved available globally
+    await caloriesCookingCalulationFn();
 });
+// Handles the brick text
 $(".cooking_substrate_brick>p").on("click", function () {
     $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
+
+// Cooking Data Variables:
+let methodID;
+let substrateID;
+let totalCalories;
+
+// Get Cooking Data from Local Storage:
+async function getCookingData() {
+    methodID = localStorage.getItem("cookingMethodBrick " + foodId);
+    substrateID = localStorage.getItem("cookingSubstrateBrick " + foodId);
+}
+
+console.log(methodID);
+
+// Substrate Display Function:
+// Allows Substrate section to display or hide when required
+$(".cooking_method_brick").on("click", function () {
+    console.log(methodID);
+    if (methodID == "microwave_brick" || methodID == "baked_brick" || 
+        methodID == "roasted_brick" || methodID == "grilled_brick" || 
+        methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
+        methodID == "deep_fried_brick" ){ // Should be a shorter way of doing this using "substrate_yes" class...
+            document.getElementById("cooking_substrate_container").style.display = "block"; // Display the substrate section
+            document.getElementById("low_cal_spray_brick").style.display = "none"; // Ensures Low Cal Spray only displayed with Pan Fried
+    } else {
+        document.getElementById("cooking_substrate_container").style.display = "none"; // Keeps substrate section hidden
+        localStorage.removeItem("cookingSubstrateBrick " + foodId); // If selected has no substrate associated with it, existing one is removed.
+
+        // Ensures Low Cal Spray is only displayed with Pan Fried is selected, 
+        // by hiding it if anything else is selected.
+        // Connected to if statement at the end of this function
+        document.getElementById("low_cal_spray_brick").style.display = "none";
+
+        // Not sure why I put these two in here...
+        $(".cooking_substrate_brick").css({"background": "var(--white)"});
+        $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"});
+    }
+
+    // Low Cal Spray displays in Substrates if Pan Fried is selected as a method
+    if (methodID == "pan_fried_brick"){
+        document.getElementById("low_cal_spray_brick").style.display = "block";
+    }
+});
+
+
+
+// Calories Cooking Calculation: Called from getCookingData() when required data is extracted from LS
+// Calculates the calories per swerving based on cooking method and substrate
+// There has to be a shorter way than this!!
+function caloriesCookingCalulationFn() {
+    if (substrateID == "vegetable_oil_brick" && (methodID == "microwave_brick" ||
+        methodID == "baked_brick" || methodID == "roasted_brick" ||
+        methodID == "grilled_brick")) {
+        totalCalories = Math.round(caloriesPerServing * 1.2);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "animal_fat_brick" && (methodID == "microwave_brick" ||
+        methodID == "baked_brick" || methodID == "roasted_brick" ||
+        methodID == "grilled_brick")) {
+        totalCalories = Math.round(caloriesPerServing * 1.22);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "margarine_brick" && (methodID == "microwave_brick" ||
+        methodID == "baked_brick" || methodID == "roasted_brick" ||
+        methodID == "grilled_brick")) {
+        totalCalories = Math.round(caloriesPerServing * 1.15);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "butter_brick" && (methodID == "microwave_brick" ||
+        methodID == "baked_brick" || methodID == "roasted_brick" ||
+        methodID == "grilled_brick")) {
+        totalCalories = Math.round(caloriesPerServing * 1.15);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "vegetable_oil_brick" && methodID == "pan_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.25);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "animal_fat_brick" && methodID == "pan_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.27);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "margarine_brick" && methodID == "pan_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.20);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "butter_brick" && methodID == "pan_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.20);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "low_cal_spray_brick" && methodID == "pan_fried_brick") {
+        totalCalories = caloriesPerServing + 1; // Needs to be One per serving
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "vegetable_oil_brick" && methodID == "shallow_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.50);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "animal_fat_brick" && methodID == "shallow_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.55);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "margarine_brick" && methodID == "shallow_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.40);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "butter_brick" && methodID == "shallow_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.40);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "vegetable_oil_brick" && methodID == "deep_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.75);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "animal_fat_brick" && methodID == "deep_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.82);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "margarine_brick" && methodID == "deep_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.60);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else if (substrateID == "butter_brick" && methodID == "deep_fried_brick") {
+        totalCalories = Math.round(caloriesPerServing * 1.60);
+        document.getElementById("calories_per_serving").textContent = totalCalories;
+        localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
+    } else {
+        console.log("caloriesPerServing", caloriesPerServing);
+    }
+}
 
