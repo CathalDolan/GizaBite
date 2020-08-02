@@ -348,50 +348,52 @@ function piecesPerServingCalcFn(){
 }
 
 
-//Cooking Section
+// COOKING SECTION
 
 // Cooking Method: Change Brick Colours and add ID of selected brick to Local Storage
-// Designed to have similar functionality to radio buttons.
+// Designed to have similar functionality to radio buttons. Bricks and text handled separately.
 $(".cooking_method_brick").on("click", function () {
-    $(".cooking_method_brick").css({"background": "var(--white)"});
-    $(this).css({"background": "var(--orange)"});
-    let methodID = document.getElementById(this.id).id;
-    localStorage.setItem("cookingMethodBrick " + foodId, methodID);
+    $(".cooking_method_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
+    $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
+    let methodID = document.getElementById(this.id).id;  // Extracts the ID for the substrate selected
+    localStorage.setItem("cookingMethodBrick " + foodId, methodID);  //Commit the ID to LS
 
+    // Allows Substrate section to display or hide when required
+    // Should be a shorter way of doing this using "substrate_yes" class...
     if (methodID == "microwave_brick" || methodID == "baked_brick" || 
         methodID == "roasted_brick" || methodID == "grilled_brick" || 
         methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
         methodID == "deep_fried_brick" ){
             document.getElementById("cooking_substrate_container").style.display = "block";
+            document.getElementById("low_cal_spray_brick").style.display = "none"; // Ensures Low Cal SPrayed only displayed with Pan Fried
     } else {
         document.getElementById("cooking_substrate_container").style.display = "none";
+        localStorage.removeItem("cookingSubstrateBrick " + foodId); // If selected has no substrate associated with it, existing one is removed.
+        $(".cooking_substrate_brick").css({"background": "var(--white)"});
+        $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"});
+        document.getElementById("low_cal_spray_brick").style.display = "none"; // Ensures Low Cal SPrayed only displayed with Pan Fried
+    }
+
+    // Allows Low Cal Spray to display in Substrates if Pan Fried is selected as a method
+    if (methodID == "pan_fried_brick"){
+        document.getElementById("low_cal_spray_brick").style.display = "block";
     }
 });
 $(".cooking_method_brick>p").on("click", function () {
-    $(".cooking_method_brick>p").css({"color": "var(--first_layer)"});
-    $(this).css({"color": "var(--white)"});
+    $(".cooking_method_brick>p").css({"color": "var(--first_layer)"});// Makes all brick texts black, thereby deselecting any brick already selected
+    $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
 
 // Cooking Substrate: Change Brick Colours and add ID of selected brick to Local Storage
 // Designed to have similar functionality to radio buttons.
 $(".cooking_substrate_brick").on("click", function () {
-    $(".cooking_substrate_brick").css({"background": "var(--white)"});
-    $(this).css({"background": "var(--orange)"});
-    let substrateID = document.getElementById(this.id).id;
-    localStorage.setItem("cookingSubstrateBrick " + foodId, substrateID);
+    $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
+    $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
+    let substrateID = document.getElementById(this.id).id; // Extracts the ID for the substrate selected
+    localStorage.setItem("cookingSubstrateBrick " + foodId, substrateID); //Commit the ID to LS
 });
 $(".cooking_substrate_brick>p").on("click", function () {
-    $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"});
-    $(this).css({"color": "var(--white)"});
+    $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
+    $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
-
-//Cooking Substrate: Displayed if cooking methods with "substrate_yes" class are selected
-let substrateYes = document.getElementsByClassName("substrate_yes");
-let zyx = localStorage.getItem("cookingMethodBrick " + foodId);
-console.log(zyx);
-
-if (zyx == microwave_brick) {
-    console.log(zyx, "matches");
-    getElementById("zyx").style.display = "block"; 
-}
 
