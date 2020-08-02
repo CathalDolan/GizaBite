@@ -19,14 +19,6 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-// Change Brick Colours. Not correct
-$(".brick").on("click", function () {
-  $(this).css("background", "orange");
-})
-$(".brick>p").on("click", function () {
-  $(this).css("color", "white");
-})
-
 // Back Button function. Take from w3schools.
 function goBack() {
   window.history.back();

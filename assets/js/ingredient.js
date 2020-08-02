@@ -252,6 +252,9 @@ function batchWeightP(){
 }
 
 
+
+
+
 // Manual Functions: Calulations carried out when a User manually types into the input
 // As the user types, the data inputted is saved to Local Storage and related functions
 // called to update any fields affected by the change.
@@ -275,6 +278,7 @@ function weightPerServingManFn() {
 
 // Batch Weight Manual Function
 function batchWeightManFn() {
+    console.log("batchWeightManFn Function Fires");
     batchWeight = document.getElementById("batch_weight_input").value;
     localStorage.setItem("batchWeight " + foodId, batchWeight);
     weightPerServingCalcFn();
@@ -285,7 +289,7 @@ function batchWeightManFn() {
 // When the Batch Weight input is changed manually with batchWeightManFn(), the Weight per Serving changes
 function weightPerServingCalcFn() {
     weightPerServing = Math.round(batchWeight / numberOfServings);
-    document.getElementById('weight_per_serving_input').input = weightPerServing; // Not working
+    document.getElementById('weight_per_serving_input').value = weightPerServing; // Not working
     localStorage.setItem("weightPerServing " + foodId, weightPerServing);
 }
 
@@ -334,8 +338,59 @@ function batchQuantityManFn() {
 // Pieces per Serving Calculation Function
 // When user manually changes batch quantity with batchQuantityManFn(), pieces per serving is affected
 function piecesPerServingCalcFn(){
-    piecesPerServing = Math.round(batchQuantity / numberOfServings); //?? Needs to go to 1 decimal place
+    piecesPerServingCalc = batchQuantity / numberOfServings;
+    let multiplier = Math.pow(10, 1 || 0);
+    piecesPerServing = Math.round(piecesPerServingCalc * multiplier) / multiplier;
     console.log("piecesPerServing", piecesPerServing);
     document.getElementById('pieces_per_serving_input').value = piecesPerServing;
     localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
 }
+
+
+//Cooking Section
+
+// Cooking Method: Change Brick Colours and add ID of selected brick to Local Storage
+// Designed to have similar functionality to radio buttons.
+$(".cooking_method_brick").on("click", function () {
+    $(".cooking_method_brick").css({"background": "var(--white)"});
+    $(this).css({"background": "var(--orange)"});
+    let methodID = document.getElementById(this.id).id;
+    localStorage.setItem("cookingMethodBrick " + foodId, methodID);
+
+    if (methodID == "microwave_brick" || methodID == "baked_brick" || 
+        methodID == "roasted_brick" || methodID == "grilled_brick" || 
+        methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
+        methodID == "deep_fried_brick" ){
+            document.getElementById("cooking_substrate_container").style.display = "block";
+    } else {
+        document.getElementById("cooking_substrate_container").style.display = "none";
+    }
+});
+$(".cooking_method_brick>p").on("click", function () {
+    $(".cooking_method_brick>p").css({"color": "var(--first_layer)"});
+    $(this).css({"color": "var(--white)"});
+});
+
+// Cooking Substrate: Change Brick Colours and add ID of selected brick to Local Storage
+// Designed to have similar functionality to radio buttons.
+$(".cooking_substrate_brick").on("click", function () {
+    $(".cooking_substrate_brick").css({"background": "var(--white)"});
+    $(this).css({"background": "var(--orange)"});
+    let substrateID = document.getElementById(this.id).id;
+    localStorage.setItem("cookingSubstrateBrick " + foodId, substrateID);
+});
+$(".cooking_substrate_brick>p").on("click", function () {
+    $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"});
+    $(this).css({"color": "var(--white)"});
+});
+
+//Cooking Substrate: Displayed if cooking methods with "substrate_yes" class are selected
+let substrateYes = document.getElementsByClassName("substrate_yes");
+let zyx = localStorage.getItem("cookingMethodBrick " + foodId);
+console.log(zyx);
+
+if (zyx == microwave_brick) {
+    console.log(zyx, "matches");
+    getElementById("zyx").style.display = "block"; 
+}
+
