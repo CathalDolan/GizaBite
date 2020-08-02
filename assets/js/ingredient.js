@@ -358,7 +358,15 @@ $(".cooking_method_brick").on("click", async function () {
     $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
     let methodID = document.getElementById(this.id).id;  // Extracts the ID for the substrate selected
     localStorage.setItem("cookingMethodBrick " + foodId, methodID);  // Save the ID to LS
-    document.getElementById("cooking_method_span").innerHTML = methodID; // Adds method to "Cooking HTML"
+
+    // ID's are extracted in lowercase, underscore separated and the word "brick" 
+    // at the end. The above are removed and first letters capitalised. 
+    let methodIDRemoveUnderscore = methodID.replace(/_/g, " "); // Replaces all _. The g captures all.
+    let methodIDRemoveBrick = methodIDRemoveUnderscore.replace(/brick/g, " ");
+    let methodIDCapitalise = methodIDRemoveBrick.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+    document.getElementById("cooking_method_span").innerHTML = methodIDCapitalise; // Adds method to "Cooking" HTML .cooking_method_span
+    document.getElementById("substrate_span").innerHTML = ""; // Removes substrat from "Cooking" HTML .substrate_span
 
     await getCookingData(); //This make data saved available globally
     caloriesFn(); // Reverts to non-cooked calorie count
@@ -378,7 +386,11 @@ $(".cooking_substrate_brick").on("click", async function () {
     $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
     let substrateID = document.getElementById(this.id).id; // Extracts the ID for the substrate selected
     localStorage.setItem("cookingSubstrateBrick " + foodId, substrateID); // Commit the ID to LS
-    document.getElementById("substrate_span").innerHTML = " with " + substrateID; // Adds substrate to "Cooking HTML"
+
+    let substrateIDRemoveUnderscore = substrateID.replace(/_/g, " ");
+    let substrateIDRemoveBrick = substrateIDRemoveUnderscore.replace(/brick/g, " ");
+    let substrateIDCapitalise = substrateIDRemoveBrick.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    document.getElementById("substrate_span").innerHTML = " with " + substrateIDCapitalise; // Adds substrate to "Cooking" HTML .substrate_span
 
     await getCookingData(); //This make data saved available globally
     await caloriesCookingCalulationFn();
@@ -515,7 +527,7 @@ function caloriesCookingCalulationFn() {
         document.getElementById("calories_per_serving").textContent = totalCalories;
         localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
     } else {
-        console.log("caloriesPerServing", caloriesPerServing);
+        caloriesFn(); // Allows "Dry" substrate to revert Caloreies per serving back to non-cooked value
     }
 }
 
