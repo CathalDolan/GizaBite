@@ -209,3 +209,4 @@ Search: Trigger with button click or return key - https://www.w3schools.com/howt
 Ingredient Page: Checkbox trigger https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
 Ingredient Page: Accessing teh foodId from the URL https://www.youtube.com/watch?v=GNZg1KRsWuU
 Ingredient Page - Round Pieces per Serving to 1 decimal, Billy Moon on https://stackoverflow.com/questions/7342957/how-do-you-round-to-1-decimal-place-in-javascript
+Ingredient Page: Capitalise first letter https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
