@@ -1,5 +1,6 @@
 //Global Variables used throughout the file
 var foodId = document.location.search.replace(/^.*?\=/,''); //Food Id: Extracted from url
+localStorage.setItem("foodId " + foodId, foodId);
 let weightPerServing;
 let weightPerPiece;
 let caloriesPer100g;
@@ -10,6 +11,7 @@ let quantityPerBatch;
 let weightPerWhole;
 let defaultWeight = 125;
 let numberOfServings = 10;
+let productName;
 
 // Triggers the searchIngredients function
 function searchAPI() {
@@ -22,8 +24,8 @@ async function searchIngredients(foodId) {
     let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
     //console.log(url);
 
-    var product_name = '',
-        ingredientNameId = document.getElementById("ingredient_product_name"); // Takes the tag with id inside as outer, and everything in it
+    product_name = '',
+    ingredientNameId = document.getElementById("ingredient_product_name"); // Takes the tag with id inside as outer, and everything in it
 
     response = await fetch(url, {headers: {"Access-Control-Allow-Origin": "*"}});
     recipes = await response.json();
@@ -49,7 +51,12 @@ async function searchIngredients(foodId) {
 
         // Displays product name on the Ingredient Page
         ingredientNameId.innerHTML = `${product_name}`;
+
+        // Displays product name on the Ingredient Page "Add to Dish" button
         document.getElementById("add_to_dish_button_span").innerHTML = `${product_name}`;
+        localStorage.setItem("productName " + foodId, `${product_name}`);
+        console.log(product_name);
+      
 
         // Extract Measurements from API
         let measure = item.measures;
@@ -63,7 +70,7 @@ async function searchIngredients(foodId) {
         // Number of Servings: This could be done outside of the function, but is
         // included here because surrounding functions are related
         document.getElementById("number_of_servings_input").value = numberOfServings;
-        localStorage.setItem("numberOfServings", numberOfServings); //FoodId is not included because it the same value applies to all products
+        localStorage.setItem("numberOfServings ", numberOfServings); //FoodId is not included because it the same value applies to all products
 
         //  Extract default weights from API
         for(let i=0; i<measure.length; i++){
@@ -125,6 +132,7 @@ function getDataFn() {
     batchWeight = localStorage.getItem("batchWeight " + foodId);
     quantityPerBatch = localStorage.getItem("quantityPerBatch " + foodId);
     weightPerWhole = localStorage.getItem("weightPerWhole " + foodId);
+    productName = localStorage.getItem("productName " + foodId);
 }
 
 // Weight per Serving:
@@ -260,7 +268,7 @@ function batchWeightP(){
 // Number of Servings Manual Function:
 function numberOfServingsManFn() {
     numberOfServings = document.getElementById('number_of_servings_input').value;
-    localStorage.setItem("numberOfServings", numberOfServings);
+    localStorage.setItem("numberOfServings ", numberOfServings);
     batchWeightFn();
     batchQuantityFn();
     checkBox(); // Updates the Batch Weight if Per Piece checkbox is checked
@@ -350,7 +358,7 @@ function piecesPerServingCalcFn(){
 
 // Cooking Method:
 // Changes brick colour when clicked, saves data to LS and updates HTML
-$(".cooking_method_brick").on("click", async function () {
+$(".cooking_method_brick").on("click", async function xyz5() {
 
     $(".cooking_method_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
     $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Clears any substrate selection
@@ -372,7 +380,7 @@ $(".cooking_method_brick").on("click", async function () {
     caloriesFn(); // Reverts to non-cooked calorie count
 });
 // Handles the brick text
-$(".cooking_method_brick>p").on("click", function () {
+$(".cooking_method_brick>p").on("click", function xyz4() {
     $(".cooking_method_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
     $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // If User had selected a substrate but then choose another method, this clears the substrate
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
@@ -381,7 +389,7 @@ $(".cooking_method_brick>p").on("click", function () {
 
 // Cooking Substrate:
 // Changes brick colour when clicked, saves data to LS and updates HTML
-$(".cooking_substrate_brick").on("click", async function () {
+$(".cooking_substrate_brick").on("click", async function xyz1() {
     $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
     $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
     let substrateID = document.getElementById(this.id).id; // Extracts the ID for the substrate selected
@@ -396,7 +404,7 @@ $(".cooking_substrate_brick").on("click", async function () {
     await caloriesCookingCalulationFn();
 });
 // Handles the brick text
-$(".cooking_substrate_brick>p").on("click", function () {
+$(".cooking_substrate_brick>p").on("click", function xyz2() {
     $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
@@ -412,12 +420,9 @@ async function getCookingData() {
     substrateID = localStorage.getItem("cookingSubstrateBrick " + foodId);
 }
 
-console.log(methodID);
-
 // Substrate Display Function:
 // Allows Substrate section to display or hide when required
-$(".cooking_method_brick").on("click", function () {
-    console.log(methodID);
+$(".cooking_method_brick").on("click", function xyz3() {
     if (methodID == "microwave_brick" || methodID == "baked_brick" || 
         methodID == "roasted_brick" || methodID == "grilled_brick" || 
         methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
@@ -443,8 +448,6 @@ $(".cooking_method_brick").on("click", function () {
         document.getElementById("low_cal_spray_brick").style.display = "block";
     }
 });
-
-
 
 // Calories Cooking Calculation: Called from getCookingData() when required data is extracted from LS
 // Calculates the calories per swerving based on cooking method and substrate
@@ -531,3 +534,43 @@ function caloriesCookingCalulationFn() {
     }
 }
 
+
+// ADD INGREDIENT TO DISH
+document.getElementById("add_to_dish_button").addEventListener("click", addIngredientToDishFn);
+function addIngredientToDishFn() {
+    console.log("addIngredientToDishFn: It fires");
+    localStorage.setItem("addedToDish " + foodId, true);
+}
+
+// CREATE "STRING"
+document.getElementById("add_to_dish_button").addEventListener("click", addKeysValuesToLocalStorageObject);
+
+function addKeysValuesToLocalStorageObject() {
+    addToLocalStorageObject(productName, "foodId", foodId);
+    addToLocalStorageObject(productName, "weightPerServing", weightPerServing);
+    addToLocalStorageObject(productName, "caloriesPerServing", caloriesPerServing);
+    addToLocalStorageObject(productName, "piecesPerServing", piecesPerServing);
+    addToLocalStorageObject(productName, "weightPerPiece", weightPerPiece);
+    addToLocalStorageObject(productName, "batchWeight", batchWeight);
+    addToLocalStorageObject(productName, "quantityPerBatch", quantityPerBatch);
+}
+
+let foodDetails = [];
+let addToLocalStorageObject = function (name, key, value) {
+
+	// Get the existing data
+	var existing = localStorage.getItem(name);
+
+	// If no existing data, create an array
+	// Otherwise, convert the localStorage string to an array
+	existing = existing ? JSON.parse(existing) : {};
+
+	// Add new data to localStorage Array
+	existing[key] = value;
+
+	// Save back to localStorage
+	localStorage.setItem(name, JSON.stringify(existing));
+    foodDetails.push(name, existing);
+    console.log(name, existing);
+    console.log(foodDetails);
+};
