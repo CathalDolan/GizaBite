@@ -564,15 +564,17 @@ function caloriesCookingCalulationFn() {
 
 
 // ADD INGREDIENT TO DISH
-document.getElementById("add_to_dish_button").addEventListener("click", addIngredientToDishFn);
-function addIngredientToDishFn() {
-    console.log("addIngredientToDishFn: It fires");
+
+// Add Ingredient Status Function:
+// If "Add to Dish" button is clicked on an ingredient, status "addedToDish" is saved to
+// local storage. Using the foodId as the key and keeping the value as a constant allows
+// us to extract individual product data elsewhere, regardless of what else is in LS
+document.getElementById("add_to_dish_button").addEventListener("click", addIngredientStatusFn);
+function addIngredientStatusFn() {
     localStorage.setItem(foodId, "addedToDish");
 }
 
 // CREATE "STRING"
-// document.getElementById("add_to_dish_button").addEventListener("click", addKeysValuesToLocalStorageObject);
-
 function addKeysValuesToLocalStorageObject() {
     addToLocalStorageObject(productName, "foodId", foodId);
     addToLocalStorageObject(productName, "weightPerServing", weightPerServing);

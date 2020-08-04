@@ -6,7 +6,6 @@ async function searchAPI() {
   await searchPortions(searchTerm);
 }
 
-
 // Search: Ingredients
 async function searchIngredients(searchTerm) {
     let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
@@ -74,60 +73,9 @@ async function searchIngredients(searchTerm) {
 
 };
 
+// SAVED CODE
+// Extracts a specific element from the URI
 
-
-// Search: Portions
-async function searchPortions(searchTerm) {
-    let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-meals&categoryLabel=meal`;
-    console.log(url);
-    // Clears the results list for every new search
-    let list = document.getElementById("portion_results");
-        list.innerHTML = "";
-
-    let countPort = 0;
-
-    let response = await fetch(url),
-        recipes = await response.json();
-
-    var capitalized_product_name = (product_name) => {
-        let arr = product_name.split(' ');
-        arr.forEach(function (i, index) {
-            arr[index] = i.replace(i[0], i[0].toUpperCase());
-        });
-        return arr.join(' ');
-    };
-
-    recipes.hints.filter((item) => {
-        if (item.food.category === "Generic meals") {
-            var product_name = (item.food.label).toLowerCase();
-        } else {
-            return;
-        }
-
-    // Increment Portion counter by 1
-    countPort += 1;
-
-    list.innerHTML += `
-        <div class="results_row section_in">
-            <div class="row_icon_container eye_icon pointer alignL" data-toggle="tooltip" data-placement="top" data-html="true" title="whats here">
-            </div>
-            <h4 class="alignL results_row_name pointer">${capitalized_product_name(product_name)}</h4>
-            <div class="row_icon_container plus_icon pointer alignR">
-            </div>
-        </div>`;
-  })
-
-  var portionsResultsCount = document.getElementById('portions_results_count').innerHTML = countPort + " Results"; //Returning an error. Also tried.text and .value
-  console.log(portionsResultsCount);
-
-};
-
-myHtmlFn () {
-    
-}
-
-
-// Don't think this is employed anywhere, delete?
 var globalSearchTerm = document.location.search.replace(/^.*?\=/,'');
 if (globalSearchTerm === "") {
     console.log("empty")
