@@ -90,10 +90,8 @@
                         <div class="row_icon_container plus_icon pointer alignR floatR">
                         </div>
                     </div>
-               
-                    <div id="description" class="section_in">
-                        <textarea class="product_description" name="portion_description" rows="2" placeholder="Add Portion Description"></textarea>
-                    </div>       
+                    <div id="description"  class="section_in">
+                    </div>     
                 </div>
 
             <div id="accordion">
@@ -123,7 +121,7 @@
                     <div id="collapseThree" class="collapse show" data-parent="#accordion">
                         <div class="card-body">
                             
-                            <!-- Number of servings input -->
+                            <!-- Number of servings input 
                             <div class="results_row section_in">
                                 <div class="measurement_container floatL">
                                     <div class="measurement_row_label floatL">
@@ -133,66 +131,16 @@
                                         <input id="number_of_servings_input" type="text" inputmode="numeric" pattern="[0-9]*" value="10" maxlength="7" class="input_weight_number" onkeyup="numberOfServingsManFn(); batchQuantityFn(); batchWeightFn()"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Ingredient Row -->
-                            <div id="ingredients_name_row" class="results_row section_in" style="display:none">
-                                <div class="row_icon_container eye_icon pointer alignL floatL" data-toggle="tooltip" data-placement="top" title="whats here">
-                                </div>
-                                <a id="ingredient_product_name" class="alignL results_row_name pointer floatL">Ingredient Name goes here</a>
-                            
-                                <div class="row_icon_container delete_icon pointer alignR floatR">
-                                </div>
+                            <div id="ingredient_name_port">
+                                <!-- Html added frrom Javascript-->
                             </div>
 
-                            <!-- Ingredients Row with Inputs -->
-                            <div id="ingredients_data_row" class="ingredient_measurement_row section_in" style="display:none">>
-                                <div id="ingredient_batch_qty_div" class="measurement_container floatL"  style="display:none">
-                                    <div class="measurement_row_label floatL">
-                                        <p>Batch Qty:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <input id="ingredient_batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="weightPerServingCalcFn()"/>
-                                    </div>
-                                    <div class="floatL">
-                                        <p>pcs</p>
-                                    </div>
-                                </div>
-                                <div id="ingredient_batch_weight" class="measurement_container measurement_row_container_second floatL">
-                                    <div class=" measurement_row_label floatL">
-                                        <p>Batch g:</p>
-                                    </div>
-                                    <div id="ingredient_batch_weight_div" class="floatL">
-                                        <input id="ingredient_batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" onkeyup="weightPerServingCalcFn()"/>
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
-                                    </div>
-                                </div>
-                                <div id="ingredient_serving_weight" class="measurement_container measurement_row_container_third floatL">
-                                    <div class="measurement_row_label floatL">
-                                        <p>Serving g:</p>
-                                    </div>
-                                    <div id="ingredient_serving_weight_div" class="floatL">
-                                        <input id="ingredient_serving_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" value="100" maxlength="7" class="input_weight_number" onkeyup="weightPerServingManFn(); batchWeightFn()"/> 
-                                    </div>
-                                    <div class="floatL">
-                                        <p>g</p>
-                                    </div>
-                                </div>
-                                <div id="ingredient_serving_kcals_container" class="measurement_container measurement_row_container_fourth floatL">
-                                    <div class="measurement_row_label floatL">
-                                        <p>Serving Kcal:</p>
-                                    </div>
-                                    <div class="floatL">
-                                        <p><span id="ingredient_kcal_value" class="kcal_count">125</span>Kcal</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Wieght and Calorie Totals-->
+                            <!-- Weight and Calorie Totals-->
                             <div class="serving_totals_div section_in alignC">
-                                <h4>Serving Totals: <span id="total_serving_weight">330</span>g <span id="total_serving_kcal">195</span>Kcal</h4>
+                                <h4>Serving Totals: Weight <span id="total_serving_weight">330</span> g    -    Calories <span id="total_serving_kcal">195</span> Kcal</h4>
                             </div>
 
                             <!-- Search Input-->

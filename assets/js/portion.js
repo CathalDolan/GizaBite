@@ -1,93 +1,3 @@
-var foodId = document.location.search.replace(/^.*?\=/,'');
-
-
-
-/*
-// Add href to add icon to bring user to Dish page - Not updated
-var addIngredient = document.getElementById("add_ingredient_icon");
-console.log(addIngredient);
-addIngredient.outerHTML = `
-    <a href="new_portion.html?foodId=${foodId} target="_self">
-        <div id="add_ingredient_icon" class="row_icon_container plus_icon pointer alignR floatR">
-        </div>
-    </a>    
-`; */
-
-
-if(foodId !== "") {
-    document.getElementById("ingredients_name_row").style.display = "block";
-    document.getElementById("ingredients_data_row").style.display = "block";
-}
-
-console.log(foodId);
-
-async function searchAPI() {
-    searchIngredients(foodId);
-    //await searchPortions(searchTerm);
-}
-searchAPI();
-
-// Search: Ingredients
-async function searchIngredients(foodId) {
-    let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods&category=packaged-foods`;
-    //console.log(url);
-
-    var product_name = '',
-        ingredientNameId = document.getElementById("ingredient_product_name");
-
-    response = await fetch(url),
-        console.log(response);
-    recipes = await response.json();
-        console.log(recipes);
-
-    recipes.hints.filter((item) => {
-
-        // API returns a variety of cases. This capitalises 1st letter of each word
-        let capitalized_product_name = (product_name) => {
-        let arr = product_name.toLowerCase().split(' ');
-        arr.forEach(function (i, index) {
-            if (i[0] !== undefined) {
-            arr[index] = i.replace(i[0], i[0].toUpperCase());
-            }
-        });
-        return arr.join(' ');
-        };
-
-        if (item.food.category === "Packaged foods") {
-        product_name = ('"' + capitalized_product_name(item.food.brand) + '"' + ' - ' + capitalized_product_name(item.food.label)); //Search Page:  To list out and concatenate the product brands and names, and convert to lower case
-        } else if (item.food.category === "Generic foods") {
-        product_name = capitalized_product_name(item.food.label);
-        } else {
-        return;
-        }
-
-        // Displays product name on the Portion Page
-        ingredientNameId.innerHTML = `
-            <a href="ingredient.html?foodId=${foodId}" target="_self">
-            <h4 id="ingredient_product_name" class="alignL results_row_name pointer">${product_name}</h4>
-            </a>
-        `;
-
-    });
-}; //Search is all contained in here
-
-// Servings Checkbox on Ingredients Page: Checks if it's ticked and if "true" Batch Qty displays.
-var checkBoxStatus = localStorage.getItem('ingredientCheckBox' + foodId);
-console.log(checkBoxStatus);
-if (checkBoxStatus == "true"){
-    document.getElementById("ingredient_batch_qty_div").style.display = "block";
-    document.getElementById("ingredient_batch_weight_div").innerHTML = `
-    <p id="ingredient_batch_weight_input"/>${batchWeight}
-    </p>
-    `;
-    document.getElementById("ingredient_serving_weight_div").innerHTML = `
-    <p id="ingredient_serving_weight_input"/>${weightPerServing}
-    </p>
-    `;
-} else {
-    document.getElementById("ingredient_batch_qty_div").style.display = "none";
-} 
-
 // Portion Name: Checks if there is an existing portion and adds name if so.
 let portionNameLs = localStorage.getItem("portionName");
 
@@ -97,7 +7,6 @@ if(portionNameLs !== null){
     alert("Don't forget to add a Portion Name");
 }
 
-
 // Portion Name: Collects the name as the User enters it and commits it to Local Storage
 var portionName;
 var portionNameFn = function () {
@@ -105,81 +14,70 @@ var portionNameFn = function () {
     localStorage.setItem("portionName", portionName);
 }
 
-//--- Number of Servings: Extracts the default value
-var numberOfServingsLs = localStorage.getItem("numberOfServings" + foodId, numberOfServings);
-console.log(numberOfServingsLs);
+//Extracts all of the data from Local Storage as a string
+let xyz = JSON.stringify(localStorage);
+// Converts that string to an object
+let obj = JSON.parse(xyz);
 
-var numberOfServingsFn = function (){
-    if (numberOfServingsLs === null){ // Checks for no value in Local Storage, then
-        numberOfServings = document.getElementById("number_of_servings_input").value;
-        document.getElementById("number_of_servings_input").value = numberOfServings;
-    } else {
-        document.getElementById("number_of_servings_input").value = numberOfServingsLs;
-        numberOfServings = numberOfServingsLs;
+let totalCaloriesArray = [];
+let totalServingWeightArray = [];
+
+// Loop through the object: Purpose is find ingredients added to the dish
+for (const [key, value] of Object.entries(obj)) {
+    //console.log(`${key}: ${value}`);
+    // Filter to leave addedToDish ingredients
+    if (`${value}` == ("addedToDish")){
+        let foodId = `${key}`;
+        let numberOfServings = parseInt(localStorage.getItem("numberOfServings " + foodId));
+        let caloriesPerServing = parseInt(localStorage.getItem("caloriesPerServing " + foodId));
+        let weightPerServing = parseInt(localStorage.getItem("weightPerServing " + foodId));
+        let batchWeight = parseInt(localStorage.getItem("batchWeightg " + foodId));
+        let productName = localStorage.getItem("productName " + foodId);
+        
+        console.log("caloriesPerServing", caloriesPerServing);
+        console.log("weightPerServing", weightPerServing);
+        console.log("productName", productName);
+
+        document.getElementById("ingredient_name_port").outerHTML += `
+            <div id="ingredient_name_port" class="results_row section_in">
+                <div class="row_icon_container delete_icon pointer alignL floatL">
+                </div>
+                <div class="measurement_row_label2 floatL">
+                    <h4 id="ingredient_name_h4" class="alignL results_row_name floatL">${productName}</h4>
+                </div>
+                <div id="ingredient_batch_qty_div" class="measurement_container_port measurement_row_label2  floatL">
+                    <div class="floatL">
+                        <p>Weight per Serving:</p>
+                    </div>
+                    <div class="floatL">
+                        <p id="ingredient_batch_quantity_input"><span>${weightPerServing}</span> g</p>
+                    </div>
+                </div>
+                <div id="ingredient_batch_weight" class="measurement_container_port measurement_row_container_second measurement_row_label2 floatL">
+                    <div class="floatL">
+                        <p>Calories per Serving:</p>
+                    </div>
+                    <div class="floatL">
+                        <p id="ingredient_batch_weight_input"><span>${caloriesPerServing}</span> Kcal</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        //Adds the calorie value for each ingredient to the array
+        totalCaloriesArray.push(caloriesPerServing);
+        // Gets the sum of the numbers
+        var totalCalories = totalCaloriesArray.reduce(function(a, b){
+            return a + b;
+        }, 0);
+        document.getElementById("total_serving_weight").innerHTML = totalCalories;
+
+        //Adds the weight per serving value for each ingredient to the array
+        totalServingWeightArray.push(weightPerServing);
+        // Gets the sum of the numbers
+        var totalServingWeight = totalServingWeightArray.reduce(function(a, b){
+            return a + b;
+        }, 0);
+        document.getElementById("total_serving_kcal").innerHTML = totalServingWeight;
     }
 }
-numberOfServingsFn();
-
-var numberOfServings;
-
-var numberOfServingsManFn = function () {
-    numberOfServings = document.getElementById("number_of_servings_input").value;
-    localStorage.setItem("numberOfServings" + foodId, numberOfServings);
-    console.log(localStorage.getItem("numberOfServings" + foodId, numberOfServings));
-}
-
-
-//--- Weight Per Serving: Get value from local storage and input into html
-let weightPerServing = localStorage.getItem('weightPerServing' + foodId); // Extracts the Key value
-console.log("weightPerServing", weightPerServing);
-document.getElementById("ingredient_serving_weight_input").value = weightPerServing; // Inputs the value into the html input
-// Called when User types into the input field
-var weightPerServingManFn = function () {
-    weightPerServing = document.getElementById('ingredient_serving_weight_input').value;
-    localStorage.setItem("weightPerServing" + foodId, weightPerServing);
-}
-
-var weightPerServingCalcFn = function () {
-    console.log("function fires");
-    batchWeight = document.getElementById('ingredient_batch_weight_input').value;
-    localStorage.setItem("batchWeight" + foodId, batchWeight);
-    console.log("Typed batchWeight", batchWeight);
-    newWeightPerServing = batchWeight / numberOfServings;
-    document.getElementById("ingredient_serving_weight_input").value = newWeightPerServing;
-    localStorage.setItem("weightPerServing" + foodId, newWeightPerServing);
-    console.log(newWeightPerServing);
-}
-
-//Extracts number of calories from local storage and calculates total before adding to storage and html
-var kcalPer100g = localStorage.getItem("kcalPer100g" + foodId);
-var kcalPerServing = (weightPerServing/100) * kcalPer100g;
-console.log(kcalPerServing);
-//document.getElementById("ingredient_kcal_value").innerHTML = kcal;
-
-
-//--- Weight Per Piece: Extract value from local storage for use in calculations
-let weightPerPiece = localStorage.getItem('weightPerPiece' + foodId);
-console.log("weightPerPiece", weightPerPiece);
-
-//--- Pieces Per Serving: Extract value from local storage for use in calculations
-let piecesPerServing = localStorage.getItem('piecesPerServing' + foodId);
-console.log("piecesPerServing", piecesPerServing);
-
-//--- Batch Quantity: 
-var batchQuantity;
-var batchQuantityFn = function () {
-    batchQuantity = numberOfServings * piecesPerServing;
-    console.log("batchQuantity", batchQuantity);
-    document.getElementById("ingredient_batch_quantity_input").value = batchQuantity;
-}
-batchQuantityFn();
-
-//--- Batch Weight:
-var batchWeight;
-var batchWeightFn = function () {
-    batchWeight = numberOfServings * weightPerServing;
-    console.log("batchWeight", batchWeight);
-    document.getElementById("ingredient_batch_weight_input").value = batchWeight;
-    localStorage.setItem("batchWeight" + foodId, batchWeight);
-}
-batchWeightFn();
