@@ -48,78 +48,12 @@ async function searchIngredients(searchTerm) {
 
         // Extract Food Id from API
         foodId = item.food.foodId;
-
-    /* // Below extracts the data and puts it into Local Storages. However it saves
-    // the data for all results. It needs to apply to a single product listed in
-    // the results. Clicking anywhere on the result should save the data.
-        
-        // Extract calories from API
-        kcalPer100g = item.food.nutrients.ENERC_KCAL;
-        localStorage.setItem("kcalPer100g" + foodId, Math.round(kcalPer100g));
-        
-        // Extract Measurements from API
-        let measure = item.measures;
-        let label;
-        let weight;
-        let servingWeight;
-        let pieceWeight;
-        let wholeWeight;
-        let defaultWeight = 123;
-
-        // if (servingWeight === null){  Only extract the information if there is nothing
-        // already in local storage. Prevents user added data being over written if
-        // the page reloads
-        for(let i=0; i<measure.length; i++){
-            label = (measure[i].label);
-            weight =(measure[i].weight);
-            if (label === "Piece"){
-                pieceWeight = Math.round(weight);
-            }
-        }
-        for(let i=0; i<measure.length; i++){
-            label = (measure[i].label);
-            weight =(measure[i].weight);
-            if (label === "Serving"){
-                servingWeight = Math.round(weight);
-            }
-        }
-        for(let i=0; i<measure.length; i++){
-            label = (measure[i].label);
-            weight =(measure[i].weight);
-            if (label === "Whole"){
-                wholeWeight = Math.round(weight);
-            }
-        }
-    
-        //--- Serving Weight: Set in local storage and on html
-        if (servingWeight !== undefined) {//If serving weight is defined, use it.
-            localStorage.setItem("APIweightPerServing" + foodId, servingWeight);
-        } else if (pieceWeight !== undefined) { //If serving weight is not defined, use weight per piece
-            localStorage.setItem("APIweightPerServing" + foodId, pieceWeight);
-        } else if (wholeWeight !== undefined) { //If serving weight and weight per piece are not defined, use whole weight
-            localStorage.setItem("APIweightPerServing" + foodId, wholeWeight);
-        } else { //If none are defined, use default weight
-            localStorage.setItem("APIweightPerServing" + foodId, defaultWeight);
-        }
-
-        //--- Weight Per Piece: Set in local storage and on html
-        if (pieceWeight !== undefined) {   //If weight per piece is defined, use it.
-            localStorage.setItem("APIweightPerPiece" + foodId, pieceWeight);
-        } else if (wholeWeight !== undefined) {   //If weight per piece is not defined, use whole weight.
-            localStorage.setItem("APIweightPerPiece" + foodId, wholeWeight);
-        } else if (servingWeight !== undefined) {   //If weight per piece and whole weight are not defined, use serving weight.
-            localStorage.setItem("APIweightPerPiece" + foodId, servingWeight);
-        } else {   //If none are defined, use default weight
-            localStorage.setItem("APIweightPerPiece" + foodId, defaultWeight);
-        }
-        */
-
     
     // Results List: Information to be displayed on front end
         list.innerHTML += `
         <div class="results_row section_in results_list">
             <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${foodId}">${product_name}</a></h4>
-            <a id="add_ingredient_to_portion_anchor" href="new_portion.html?foodId=${foodId}" target="_self">    
+            <a id="add_ingredient_to_portion_anchor" href="ingredient.html?foodId=${foodId}" target="_self">    
                 <div id="add_ingredient_to_portion_icon" class="row_icon_container plus_icon pointer alignR"></div>
             </a> 
         </div>`; 

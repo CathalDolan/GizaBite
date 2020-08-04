@@ -89,12 +89,24 @@ label { /* Over rides default. Prevents large space between it and rows beneath.
     }
 }
 
+.measurement_container_port, .measurement_row_label2 {
+    width: 250px;
+}
+
+#ingredient_name_h4 {
+    width: 250px;
+}
+
 #add_to_dish_button_div, #or_h4 {
     margin-top: 1rem;
 }
 
 #or_h4 {
     text-align: center;
+}
+
+h6, p, span { /* This may need to be more targeted */
+    line-height: 30px;
 }
 
 /*--- Lists ---*/
