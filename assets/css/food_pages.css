@@ -57,6 +57,7 @@ h2.hero_text {
 
 .card { /* Each collapse section is a card. This over rides styles.css */
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 /*--- Measurement Section ---*/

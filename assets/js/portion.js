@@ -1,6 +1,5 @@
 // Portion Name: Checks if there is an existing portion and adds name if so.
 let portionNameLs = localStorage.getItem("portionName");
-
 if(portionNameLs !== null){
     document.getElementById("portion_name_textarea").value = portionNameLs;
 } else {
@@ -14,19 +13,24 @@ var portionNameFn = function () {
     localStorage.setItem("portionName", portionName);
 }
 
+// POPULATE PAGE: Functions and methods to extract data from LS and use it to populate the page
+
 //Extracts all of the data from Local Storage as a string
 let xyz = JSON.stringify(localStorage);
 // Converts that string to an object
 let obj = JSON.parse(xyz);
 
+// Arrays collect the individual variables so that they can be totalled
 let totalCaloriesArray = [];
 let totalServingWeightArray = [];
 
 // Loop through the object: Purpose is find ingredients added to the dish
 for (const [key, value] of Object.entries(obj)) {
-    //console.log(`${key}: ${value}`);
-    // Filter to leave addedToDish ingredients
+
+    // Filter to leave onlyaddedToDish ingredients
     if (`${value}` == ("addedToDish")){
+
+        //Extract variables from local storage
         let foodId = `${key}`;
         let numberOfServings = parseInt(localStorage.getItem("numberOfServings " + foodId));
         let caloriesPerServing = parseInt(localStorage.getItem("caloriesPerServing " + foodId));
@@ -34,12 +38,9 @@ for (const [key, value] of Object.entries(obj)) {
         let batchWeight = parseInt(localStorage.getItem("batchWeightg " + foodId));
         let productName = localStorage.getItem("productName " + foodId);
         
-        console.log("caloriesPerServing", caloriesPerServing);
-        console.log("weightPerServing", weightPerServing);
-        console.log("productName", productName);
-
+        // Populate the individual ingredient rows in Dishes
         document.getElementById("ingredient_name_port").outerHTML += `
-            <div id="ingredient_name_port" class="results_row section_in">
+            <div id="ingredient_name_port" class="section_in">
                 <div class="row_icon_container delete_icon pointer alignL floatL">
                 </div>
                 <div class="measurement_row_label2 floatL">
@@ -64,13 +65,13 @@ for (const [key, value] of Object.entries(obj)) {
             </div>
         `;
 
-        //Adds the calorie value for each ingredient to the array
+        // Adds the calorie value for each ingredient to the array
         totalCaloriesArray.push(caloriesPerServing);
         // Gets the sum of the numbers
         var totalCalories = totalCaloriesArray.reduce(function(a, b){
             return a + b;
         }, 0);
-        document.getElementById("total_serving_weight").innerHTML = totalCalories;
+        document.getElementById("total_serving_kcal").innerHTML = totalCalories;
 
         //Adds the weight per serving value for each ingredient to the array
         totalServingWeightArray.push(weightPerServing);
@@ -78,6 +79,6 @@ for (const [key, value] of Object.entries(obj)) {
         var totalServingWeight = totalServingWeightArray.reduce(function(a, b){
             return a + b;
         }, 0);
-        document.getElementById("total_serving_kcal").innerHTML = totalServingWeight;
+        document.getElementById("total_serving_weight").innerHTML = totalServingWeight;
     }
 }
