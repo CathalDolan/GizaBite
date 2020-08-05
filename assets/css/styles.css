@@ -541,7 +541,7 @@ h2.hero_text {
 #hero_search_section_in, #add_to_dish_button_div {
     width: 400px;
 }
-@media (max-width: 768px) {
+@media (max-width: 572px) {
 #hero_search_section_in, #add_to_dish_button_div {
     width: 310px;
     }

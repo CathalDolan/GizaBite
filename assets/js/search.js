@@ -53,7 +53,7 @@ async function searchIngredients(searchTerm) {
         <div class="results_row section_in results_list">
             <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${foodId}">${product_name}</a></h4>
             <a id="add_ingredient_to_portion_anchor" href="ingredient.html?foodId=${foodId}" target="_self">    
-                <div id="add_ingredient_to_portion_icon" class="row_icon_container plus_icon pointer alignR"></div>
+                <div id="add_ingredient_to_portion_icon" class="row_icon_container eye_icon pointer alignR"></div>
             </a> 
         </div>`; 
     });
@@ -81,5 +81,4 @@ if (globalSearchTerm === "") {
     } else {
         document.getElementById("search_widget_input").value = globalSearchTerm;
         searchIngredients(globalSearchTerm);
-        searchPortions(globalSearchTerm);
     }

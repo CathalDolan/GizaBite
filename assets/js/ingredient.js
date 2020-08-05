@@ -22,7 +22,7 @@ searchAPI();
 // Search: Ingredients
 async function searchIngredients(foodId) {
     let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
-    //console.log(url);
+    console.log(url);
 
     product_name = '',
     ingredientNameId = document.getElementById("ingredient_product_name"); // Takes the tag with id inside as outer, and everything in it
@@ -55,7 +55,6 @@ async function searchIngredients(foodId) {
         // Displays product name on the Ingredient Page "Add to Dish" button
         document.getElementById("add_to_dish_button_span").innerHTML = `${product_name}`;
         localStorage.setItem("productName " + foodId, `${product_name}`);
-        console.log(product_name);
 
         // Extract Measurements from API
         let measure = item.measures;
@@ -181,17 +180,16 @@ function weightPerPieceFn() {
     }
 }
 
-// Pieces Per Serving: Simplifed solution as halves should be included maybe.
+// Pieces Per Serving:
 function piecesPerServingFn() {
     if (piecesPerServing !== null) { //If pieces per serving is defined, use it.
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
         piecesPerServing = piecesPerServing;
     } else if (weightPerServing >= weightPerPiece) { // If the serving weight is greater than the weight per piece...
         piecesPerServing = Math.round(weightPerServing / weightPerPiece); // the 1st is divided by the 2nd. //?? Needs to go to 1 decimal place
-        console.log("piecesPerServing", piecesPerServing);
         localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
-    } else {
+    } else if (piecesPerServing === null) {
         localStorage.setItem("piecesPerServing " + foodId, 1); // Otherwise the default is 1. 
         document.getElementById("pieces_per_serving_input").value = 1;
     }
@@ -199,7 +197,6 @@ function piecesPerServingFn() {
 
 // Batch Weight:  
 function batchWeightFn() {
-    console.log("function fires");
     batchWeight =  Math.round(numberOfServings * weightPerServing);
     document.getElementById("batch_weight_input").value = batchWeight;
     localStorage.setItem("batchWeight " + foodId, batchWeight);
@@ -208,6 +205,8 @@ function batchWeightFn() {
 // Batch Quantity: 
 function batchQuantityFn() {
     quantityPerBatch =  Math.round(numberOfServings * piecesPerServing);
+    console.log("numberOfServings", numberOfServings);
+    console.log("piecesPerServing", piecesPerServing);
     document.getElementById("batch_quantity_input").value = quantityPerBatch; 
     localStorage.setItem("quantityPerBatch " + foodId, quantityPerBatch);
 }
@@ -276,17 +275,6 @@ function checkBox() {
         `; 
         localStorage.setItem("batchWeight " + foodId, batchWeight);
         //weightPerServingManFn();
-
-    /*
-    function addToDish() {
-        list.innerHTML += `
-        <div class="results_row section_in results_list">
-            <h4 class="alignL results_row_name"><a href="/ingredient.html?foodId=${foodId}">${product_name}</a></h4>
-            <a id="add_ingredient_to_portion_anchor" href="new_portion.html?foodId=${foodId}" target="_self">    
-                <div id="add_ingredient_to_portion_icon" class="row_icon_container plus_icon pointer alignR"></div>
-            </a> 
-        </div>`; 
-    } */
 }
 
 
