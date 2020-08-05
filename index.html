@@ -53,12 +53,15 @@
                     <div id="hero_search_section_in" class="section_in">
                         <div id="hero_search_inner">
                             <div class="hero_search_inner_element">
-                                <form action="" href="search.html">
-                                    <input type="text" name="search" placeholder="Search dish or ingredient name" id="global_search_input" class="floatL">
-                                </form>
+                                <input type="text" name="search" placeholder="Search Ingredients" id="global_search_input" class="floatL">
                             </div>
                             <div class="hero_search_inner_element"> <!-- Search button-->
                                 <a href="#" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>
+                            </div>
+
+                            <!-- Spinner -->
+                            <div id="waiting_spinner" class="spinner-border" role="status" style = "display:none">
+                                <span class="sr-only">Loading...</span>
                             </div>
                         </div>
                         

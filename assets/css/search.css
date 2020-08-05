@@ -7,6 +7,7 @@
     border-radius: 5px;
     background-color: var(--white);
     margin: auto;
+    margin-top: 0.5rem;
     overflow: hidden;
 }
 
@@ -24,6 +25,7 @@
 .container>.content1 { /* Allows the Advanced section in search widget to show closed when page is landed on */
     display: none; 
 }
+
 
 
 /*--------- Results Section --------*/

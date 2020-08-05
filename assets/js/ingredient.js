@@ -54,6 +54,7 @@ async function searchIngredients(foodId) {
 
         // Displays product name on the Ingredient Page "Add to Dish" button
         document.getElementById("add_to_dish_button_span").innerHTML = `${product_name}`;
+        document.getElementById("add_to_dish_button_span2").innerHTML = `${product_name}`;
         localStorage.setItem("productName " + foodId, `${product_name}`);
 
         // Extract Measurements from API
@@ -180,7 +181,7 @@ function weightPerPieceFn() {
     }
 }
 
-// Pieces Per Serving:
+// Pieces Per Serving: 
 function piecesPerServingFn() {
     if (piecesPerServing !== null) { //If pieces per serving is defined, use it.
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
@@ -189,7 +190,7 @@ function piecesPerServingFn() {
         piecesPerServing = Math.round(weightPerServing / weightPerPiece); // the 1st is divided by the 2nd. //?? Needs to go to 1 decimal place
         localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
-    } else if (piecesPerServing === null) {
+    } else {
         localStorage.setItem("piecesPerServing " + foodId, 1); // Otherwise the default is 1. 
         document.getElementById("pieces_per_serving_input").value = 1;
     }
@@ -551,6 +552,12 @@ function caloriesCookingCalulationFn() {
     }
 }
 
+// Add Cooking Status to LS:
+let cookingStatus;
+document.getElementById("cooking_section_div").addEventListener("click", cookingStatusFn);
+function cookingStatusFn() {
+    cookingStatus = localStorage.setItem("cookingStatus " + foodId, "true");
+}
 
 // ADD INGREDIENT TO DISH
 
@@ -558,10 +565,31 @@ function caloriesCookingCalulationFn() {
 // If "Add to Dish" button is clicked on an ingredient, status "addedToDish" is saved to
 // local storage. Using the foodId as the key and keeping the value as a constant allows
 // us to extract individual product data elsewhere, regardless of what else is in LS
+
 document.getElementById("add_to_dish_button").addEventListener("click", addIngredientStatusFn);
+document.getElementById("add_to_dish_button2").addEventListener("click", addIngredientStatusFn);
+
 function addIngredientStatusFn() {
-    localStorage.setItem(foodId, "addedToDish");
+    cookingStatus = localStorage.getItem("cookingStatus " + foodId);
+    console.log(cookingStatus);
+    if (cookingStatus === "true"){
+
+        // Adds the href link to the html
+        document.getElementById("add_to_dish_button_div").innerHTML = `
+        <a href="dish.html" target="_self"><button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span" aria-hidden="true"></span> to Dish</button></a>
+        `;
+
+        // Sets the status of the ingredient, whether it's added to a dish or not
+        localStorage.setItem(foodId, "addedToDish");
+
+        // Calls the function again so that the User navigates to the dish.html page
+        document.getElementById("add_to_dish_button").click();
+
+    } else { 
+        alert("Don't forget to checkout the cooking methods");
+    }
 }
+
 
 // CREATE "STRING"
 function addKeysValuesToLocalStorageObject() {

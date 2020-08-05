@@ -3,16 +3,23 @@ let app_id = "1234dec7",
     app_key = "634dea9e2c3835579ba9232e741217fc",
     edamamURL = "https://api.edamam.com/api/food-database/v2/parser";
 
-/* // Trigger search using Return key. Also tried  onsearch="searchAPI()" in the html - Neither functioning properly
-var input = document.getElementById("search_widget_input");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-      console.log("Yellow");
-   event.preventDefault();
-   document.getElementById("search_button").click();
-  }
-}); */
+// Global Search Term Function
+// User types search term, clicks search button, brings them to Search page with search complete for that term
+function globalSearchTermFn() {
+    let globalSearchTerm = document.getElementById('global_search_input').value;
+    global_search_button.outerHTML = `
+        <a href="search.html?globalSearchTerm=${globalSearchTerm}" target="_self" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>  
+    `;
+    document.getElementById("waiting_spinner").style.display = "block";
+}
 
+/*/ Search With Return Key: Supposed to call Global Search Term Fn but doesn't
+// Is the input value being removed when key is pressed?
+global_search_input.addEventListener("keyup", ({key}) => {
+    if (key === "Enter") {
+        globalSearchTermFn();
+    }
+}) */
 
 // Tooltip Funcion
 $(function () {

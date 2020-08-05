@@ -195,9 +195,9 @@
                                 </div>
                             </div>
 
-                            <!-- Buttons -->
+                            <!-- Add to Dish Button -->
                             <div id="add_to_dish_button_div" class="section_in alignC"> 
-                                <a href="dish.html" target="_self"><button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span" aria-hidden="true"></span> to Dish</button></a>
+                                <button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span" aria-hidden="true"></span> to Dish</button>
                             </div>
 
                             <h4 id="or_h4" style="text-alignC">OR</h4>
@@ -206,11 +206,16 @@
                             <div id="hero_search_section_in" class="section_in">
                                 <div id="hero_search_inner">
                                     <div class="hero_search_inner_element">
-                                        <input type="text" name="search" placeholder="Search Again" id="global_search_input" class="floatL" onkeyup="globalSearchTermFn()">
+                                        <input type="text" name="search" placeholder="Search Again" id="global_search_input" class="floatL">
                                     </div>
                                     <div class="hero_search_inner_element"> <!-- Search button-->
-                                        <a href="#" id="global_search_button" class="button-image mybutton floatR" onkeyup="globalSearchTermFn()"></a>
+                                        <a href="#" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>
                                     </div>
+                                </div>
+
+                                <!-- Spinner -->
+                                <div id="waiting_spinner" class="spinner-border" role="status" style = "display:none">
+                                    <span class="sr-only">Loading...</span>
                                 </div>
                             </div>
 
@@ -224,7 +229,7 @@
                 <div id="cooking_section" class="card section_bg"> 
 
                     <!-- Section Header - Cooking -->
-                    <div class="section_in card-link"> 
+                    <div id="cooking_section_div" class="section_in card-link"> 
                         <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" title="
                         <h4>Method</h4>
                         <p>The cooking method applies to all Portion ingredients. If different ingredients require different methods, each set needs to be a 
@@ -238,7 +243,7 @@
                         <p>If an additional cooking method is required, it also applies to the entire Portion.</p>
                         ">
                         </div>
-                        <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFour">Cooking</h3>
+                        <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseFour">Cooking Method</h3>
                         <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseFour">
                         </div>
                     </div>
@@ -310,7 +315,10 @@
                                     </div>
                                 </div>
 
-                                
+                                <!-- Duplicate of Add to Dish button. Only shown on mobile -->
+                                <div id="add_to_dish_button_div2" class="section_in alignC"> 
+                                    <a href="dish.html" target="_self"><button id="add_to_dish_button2" type="button" class="btn">+ Add <span id="add_to_dish_button_span2" aria-hidden="true"></span> to Dish</button></a>
+                                </div>
                             </div>
                             
                         </div>
