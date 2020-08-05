@@ -32,34 +32,34 @@ for (const [key, value] of Object.entries(obj)) {
 
         //Extract variables from local storage
         let foodId = `${key}`;
-        let numberOfServings = parseInt(localStorage.getItem("numberOfServings " + foodId));
         let caloriesPerServing = parseInt(localStorage.getItem("caloriesPerServing " + foodId));
         let weightPerServing = parseInt(localStorage.getItem("weightPerServing " + foodId));
-        let batchWeight = parseInt(localStorage.getItem("batchWeightg " + foodId));
         let productName = localStorage.getItem("productName " + foodId);
         
         // Populate the individual ingredient rows in Dishes
         document.getElementById("ingredient_name_port").outerHTML += `
             <div id="ingredient_name_port" class="section_in">
-                <div class="row_icon_container delete_icon pointer alignL floatL">
-                </div>
-                <div class="measurement_row_label2 floatL">
-                    <h4 id="ingredient_name_h4" class="alignL results_row_name floatL">${productName}</h4>
-                </div>
-                <div id="ingredient_batch_qty_div" class="measurement_container_port measurement_row_label2  floatL">
-                    <div class="floatL">
-                        <p>Weight per Serving:</p>
+                <div id="${foodId}">
+                    <div class="row_icon_container delete_icon pointer alignL floatL">
                     </div>
-                    <div class="floatL">
-                        <p id="ingredient_batch_quantity_input"><span>${weightPerServing}</span> g</p>
+                    <div class="measurement_row_label2 floatL">
+                        <h4 id="ingredient_name_h4" class="alignL results_row_name floatL">${productName}</h4>
                     </div>
-                </div>
-                <div id="ingredient_batch_weight" class="measurement_container_port measurement_row_container_second measurement_row_label2 floatL">
-                    <div class="floatL">
-                        <p>Calories per Serving:</p>
+                    <div id="ingredient_batch_qty_div" class="measurement_container_port measurement_row_label2  floatL">
+                        <div class="floatL">
+                            <p>Weight per Serving:</p>
+                        </div>
+                        <div class="floatL">
+                            <p id="ingredient_batch_quantity_input"><span>${weightPerServing}</span> g</p>
+                        </div>
                     </div>
-                    <div class="floatL">
-                        <p id="ingredient_batch_weight_input"><span>${caloriesPerServing}</span> Kcal</p>
+                    <div id="ingredient_batch_weight" class="measurement_container_port measurement_row_container_second measurement_row_label2 floatL">
+                        <div class="floatL">
+                            <p>Calories per Serving:</p>
+                        </div>
+                        <div class="floatL">
+                            <p id="ingredient_batch_weight_input"><span>${caloriesPerServing}</span> Kcal</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,4 +81,23 @@ for (const [key, value] of Object.entries(obj)) {
         }, 0);
         document.getElementById("total_serving_weight").innerHTML = totalServingWeight;
     }
+}
+
+// Start Again Button:
+// This empties Local Storage and refreshes the page so that it's blank
+document.getElementById("start_again_button").addEventListener("click", startAgainFn);
+function startAgainFn() {
+    window.localStorage.clear();
+    location.reload();
+}
+
+// Remove a Row:
+// Clicking the delete icon to remove the ingredient row and data from LS
+document.getElementsByClassName("delete_icon").addEventListener("click", deleteIngredientFn);
+function deleteIngredientFn() {
+    console.log($(this.foodId));
+    $(this).document.getElementById("ingredient_name_port").outerHTML = "";
+    $(this).localStorage.removeItem("productName " + foodId);
+    $(this).localStorage.removeItem("weightPerServing " + foodId);
+    $(this).localStorage.removeItem("caloriesPerServing " + foodId);
 }

@@ -274,7 +274,6 @@ p {
     margin-left: 0;
 }
 
-
 .page_section_name { 
     flex: 1; 
     margin: 0 5px;
@@ -719,3 +718,17 @@ min-width: 350px;
 }
 
 /*--------*/
+
+/*--- Generic ---*/
+
+#waiting_spinner {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    top: 50%;
+    margin-top: -75px;
+    color: var(--orange);
+    z-index: 100;
+}

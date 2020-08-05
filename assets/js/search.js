@@ -3,13 +3,15 @@ async function searchAPI() {
   let searchTerm = document.getElementById('search_widget_input').value;
   console.log(searchTerm);
   await searchIngredients(searchTerm);
-  await searchPortions(searchTerm);
 }
 
 // Search: Ingredients
 async function searchIngredients(searchTerm) {
     let url = `${edamamURL}?nutrition-type=logging&ingr=${searchTerm}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
     console.log(url);
+
+    // Spinner displays once Search Button is clicked
+    document.getElementById("waiting_spinner").style.display = "block";
 
     // Clears the results list for every new search
     var product_name = '',
@@ -58,20 +60,15 @@ async function searchIngredients(searchTerm) {
         </div>`; 
     });
 
-    // Extract API measurements and data
-
-
-    // Not needed, but see comments.
-    var commitDefaultMeasurementsToLS = function () {
-        localStorage.setItem(`${product_name}ID`, `${foodId}`); // How is this data being retrieved?
-        //localStorage.setItem(`${product_name}ID`, `${kcal_per_100g}`); this is same as foodID yet doesn't behave the same. Stops foodId working. 
-    }
-    document.getElementById("add_ingredient_to_portion_icon").addEventListener("click", commitDefaultMeasurementsToLS);
-
-
     var ingredientsResultsCount = document.getElementById('ingredients_results_count').innerHTML = countIngr + " Results";
 
+    hideSpinnerFn();
 };
+
+// Hide Spinner Once Search is Complete
+function hideSpinnerFn() {
+    document.getElementById("waiting_spinner").style.display = "none";
+}
 
 // SAVED CODE
 // Extracts a specific element from the URI
