@@ -6,6 +6,14 @@ a.btn { /*--- Required to over ride the styles.css where a margin ius applied to
     margin: 0;
 }
 
+/*-- Required on homepage to take into account of the search bar --*/
+@media (max-width: 320px) {
+    #hero_text_container  {
+        top: 7%;
+        width: 75%;
+    }
+}
+
 /*~~~~~~~~~~~~~~~~~~~~ Section Cards */
 div .container { /* Narrows the two cards, but only required on larger screens */
     width: 60%;
