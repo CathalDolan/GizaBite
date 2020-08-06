@@ -554,7 +554,7 @@ function caloriesCookingCalulationFn() {
 
 // Add Cooking Status to LS:
 let cookingStatus;
-document.getElementById("cooking_section_div").addEventListener("click", cookingStatusFn);
+document.getElementById("collapseFour").addEventListener("click", cookingStatusFn);
 function cookingStatusFn() {
     cookingStatus = localStorage.setItem("cookingStatus " + foodId, "true");
 }
