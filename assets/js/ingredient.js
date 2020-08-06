@@ -564,7 +564,7 @@ function cookingStatusFn() {
 // Add Ingredient Status Function:
 // If "Add to Dish" button is clicked on an ingredient, status "addedToDish" is saved to
 // local storage. Using the foodId as the key and keeping the value as a constant allows
-// us to extract individual product data elsewhere, regardless of what else is in LS
+// us to extract individual product data elsewhere, regardless of what else is in LS.
 
 document.getElementById("add_to_dish_button").addEventListener("click", addIngredientStatusFn);
 document.getElementById("add_to_dish_button2").addEventListener("click", addIngredientStatusFn);
