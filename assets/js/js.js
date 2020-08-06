@@ -10,7 +10,6 @@ function globalSearchTermFn() {
     global_search_button.outerHTML = `
         <a href="search.html?globalSearchTerm=${globalSearchTerm}" target="_self" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>  
     `;
-    document.getElementById("waiting_spinner").style.display = "block";
 }
 
 var input = document.getElementById("global_search_input");

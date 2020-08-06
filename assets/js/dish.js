@@ -53,7 +53,7 @@ for (const [key, value] of Object.entries(obj)) {
                             <p id="ingredient_batch_quantity_input"><span>${weightPerServing}</span> g</p>
                         </div>
                     </div>
-                    <div id="ingredient_batch_weight" class="measurement_container_port measurement_row_container_second measurement_row_label2 floatL">
+                    <div id="ingredient_batch_weight" class="measurement_container_port measurement_row_label2 floatL">
                         <div class="floatL">
                             <p>Calories per Serving:</p>
                         </div>
