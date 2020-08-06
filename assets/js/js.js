@@ -13,12 +13,9 @@ function globalSearchTermFn() {
     document.getElementById("waiting_spinner").style.display = "block";
 }
 
-
-// Return Key to Activate Search
 var input = document.getElementById("global_search_input");
 input.addEventListener("keyup", function(event) {
   if (event.key === "Enter") {
-    // Cancel the default action, if needed
     event.preventDefault();
     document.getElementById("global_search_button").click();
   }
