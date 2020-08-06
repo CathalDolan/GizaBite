@@ -1,6 +1,7 @@
 //Global Variables used throughout the file
 var foodId = document.location.search.replace(/^.*?\=/,''); //Food Id: Extracted from url
 localStorage.setItem("foodId " + foodId, foodId);
+console.log(foodId);
 let weightPerServing;
 let weightPerPiece;
 let caloriesPer100g;
@@ -17,6 +18,7 @@ let productName;
 function searchAPI() {
     searchIngredients(foodId);
 }
+searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {

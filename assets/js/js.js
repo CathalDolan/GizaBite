@@ -13,13 +13,16 @@ function globalSearchTermFn() {
     document.getElementById("waiting_spinner").style.display = "block";
 }
 
-/*/ Search With Return Key: Supposed to call Global Search Term Fn but doesn't
-// Is the input value being removed when key is pressed?
-global_search_input.addEventListener("keyup", ({key}) => {
-    if (key === "Enter") {
-        globalSearchTermFn();
-    }
-}) */
+
+// Return Key to Activate Search
+var input = document.getElementById("global_search_input");
+input.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    document.getElementById("global_search_button").click();
+  }
+});
 
 // Tooltip Funcion
 $(function () {
