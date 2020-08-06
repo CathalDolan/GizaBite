@@ -53,8 +53,8 @@ async function searchIngredients(searchTerm) {
     // Results List: Information to be displayed on front end
         list.innerHTML += `
         <div class="results_row section_in results_list">
-            <h4 class="alignL results_row_name"><a href="GizaBite/ingredient.html?foodId=${foodId}">${product_name}</a></h4>
-            <a id="add_ingredient_to_portion_anchor" href="GizaBite/ingredient.html?foodId=${foodId}" target="_self">    
+            <h4 class="alignL results_row_name"><a href="ingredient.html?foodId=${foodId}">${product_name}</a></h4>
+            <a id="add_ingredient_to_portion_anchor" href="ingredient.html?foodId=${foodId}" target="_self">    
                 <div id="add_ingredient_to_portion_icon" class="row_icon_container eye_icon pointer alignR"></div>
             </a> 
         </div>`; 
