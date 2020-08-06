@@ -91,7 +91,7 @@ function startAgainFn() {
     location.reload();
 }
 
-// Remove a Row:
+/*/ Remove a Row:
 // Clicking the delete icon to remove the ingredient row and data from LS
 document.getElementsByClassName("delete_icon").addEventListener("click", deleteIngredientFn);
 function deleteIngredientFn() {
@@ -100,4 +100,4 @@ function deleteIngredientFn() {
     $(this).localStorage.removeItem("productName " + foodId);
     $(this).localStorage.removeItem("weightPerServing " + foodId);
     $(this).localStorage.removeItem("caloriesPerServing " + foodId);
-}
+} */
