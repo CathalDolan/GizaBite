@@ -43,6 +43,18 @@ h2.hero_text {
     margin: 0;
 }
 
+#portion_name_textarea_H2{
+    margin-left: 0.5rem;
+}
+
+#page_title_dish, .save_icon:after, #portion_name_textarea_H2, #dish_name_button_H2 {
+    line-height: 1.3;
+}
+
+.edit_icon:after {
+    font-size: 20px;
+}
+
 #global_search_button.hero_search_inner_element { /*--- This is in styles.css but doesn't work. Need to invetigate specificity ---*/
     margin: 8px 0 0 0;
     width: 40px;
