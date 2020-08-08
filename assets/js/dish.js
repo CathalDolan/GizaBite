@@ -2,6 +2,7 @@
 let portionNameLs = localStorage.getItem("portionName");
 if(portionNameLs !== null){
     document.getElementById("portion_name_textarea").value = portionNameLs;
+    dishNameH2();
 } else {
     alert("Don't forget to add a Portion Name");
 }
@@ -11,6 +12,34 @@ var portionName;
 var portionNameFn = function () {
     portionName = document.getElementById("portion_name_textarea").value;
     localStorage.setItem("portionName", portionName);
+}
+
+// Portion Name: Change the input to a H2 heading and adds an "edit" icon
+function dishNameH2() {
+    portionName = localStorage.getItem("portionName");
+    document.getElementById("portion_name_textarea").outerHTML = `
+        <h2 id="portion_name_textarea_H2" class="product_name floatL" 
+        name="portion_name">${portionName}</h2>
+    `;
+    document.getElementById("dish_name_button").outerHTML = `
+        <div id="dish_name_button_H2" class="row_icon_container edit_icon 
+        pointer floatL" onclick="dishNameInput()"></div>
+    `;
+} 
+
+// Portion Name: Make field editable again
+document.getElementById("dish_name_button_H2").addEventListener("click", dishNameInput);
+function dishNameInput() {
+    portionName = localStorage.getItem("portionName");
+    document.getElementById("portion_name_textarea_H2").outerHTML = `
+        <textarea id="portion_name_textarea" class="product_name floatL" 
+        name="portion_name" rows="1" placeholder="Add Portion Name*" 
+        onkeyup="portionNameFn()" autofocus="autofocus">${portionName}</textarea>
+    `;
+    document.getElementById("dish_name_button_H2").outerHTML = `
+        <div id="dish_name_button" class="row_icon_container save_icon
+        pointer floatL" onclick="dishNameH2()"></div>
+    `;
 }
 
 // POPULATE PAGE: Functions and methods to extract data from LS and use it to populate the page

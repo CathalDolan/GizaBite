@@ -305,6 +305,14 @@ p {
     content: "\f06e";
 }
 
+.save_icon:after {
+    content: "\f0c7";
+}
+
+.edit_icon::after {
+    content: "\f044";
+}
+
 
 /*--- Button Specific ---*/
 .btn {
