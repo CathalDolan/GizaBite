@@ -28,7 +28,6 @@ function dishNameH2() {
 } 
 
 // Portion Name: Make field editable again
-document.getElementById("dish_name_button_H2").addEventListener("click", dishNameInput);
 function dishNameInput() {
     portionName = localStorage.getItem("portionName");
     document.getElementById("portion_name_textarea_H2").outerHTML = `

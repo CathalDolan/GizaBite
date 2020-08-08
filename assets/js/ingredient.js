@@ -162,6 +162,7 @@ function weightPerServingFn() {
         document.getElementById("weight_per_serving_input").value = defaultWeight;
         weightPerServing = defaultWeight;
     }
+    localStorage.setItem("weightPerServing " + foodId, weightPerServing);
 }
 
 // Weight Per Piece:
