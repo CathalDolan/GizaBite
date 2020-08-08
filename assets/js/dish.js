@@ -37,13 +37,13 @@ for (const [key, value] of Object.entries(obj)) {
         let productName = localStorage.getItem("productName " + foodId);
         
         // Populate the individual ingredient rows in Dishes
-        document.getElementById("ingredient_name_port").outerHTML += `
-            <div id="ingredient_name_port" class="section_in">
-                <div id="${foodId}">
-                    <div class="row_icon_container delete_icon pointer alignL floatL">
+        document.getElementById("ingredient_name_port").innerHTML += `
+            <div id="ingredient_name_port_${foodId}" class="section_in">
+                <div>
+                    <div class="row_icon_container delete_icon pointer alignL floatL" name="${foodId}" onclick="deleteIngredientFn(this)">
                     </div>
                     <div class="measurement_row_label2 floatL">
-                        <h4 id="ingredient_name_h4" class="alignL results_row_name floatL">${productName}</h4>
+                        <h4 id="ingredient_name_h4" class="alignL results_row_name floatL"><a href="ingredient.html?foodId=${foodId}">${productName}</a></h4>
                     </div>
                     <div id="ingredient_batch_qty_div" class="measurement_container_port measurement_row_label2  floatL">
                         <div class="floatL">
@@ -91,13 +91,42 @@ function startAgainFn() {
     location.reload();
 }
 
-/*/ Remove a Row:
+// Remove a Row:
 // Clicking the delete icon to remove the ingredient row and data from LS
-document.getElementsByClassName("delete_icon").addEventListener("click", deleteIngredientFn);
-function deleteIngredientFn() {
-    console.log($(this.foodId));
-    $(this).document.getElementById("ingredient_name_port").outerHTML = "";
-    $(this).localStorage.removeItem("productName " + foodId);
-    $(this).localStorage.removeItem("weightPerServing " + foodId);
-    $(this).localStorage.removeItem("caloriesPerServing " + foodId);
-} */
+// and update the total serving weight and calories value.
+function deleteIngredientFn(element){
+    let foodId = $(element).attr('name');
+
+    // Remove the calorie value for the ingredient in the array and recalculate
+    totalCaloriesArray.pop("caloriesPerServing " + foodId);
+    var totalCalories = totalCaloriesArray.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    document.getElementById("total_serving_kcal").innerHTML = totalCalories;
+
+    // Remove the per serving weight for the ingredient in the array and recalculate
+    totalServingWeightArray.pop("weightPerServing " + foodId);
+    var totalServingWeight = totalServingWeightArray.reduce(function(a, b){
+        return a + b;
+    }, 0);
+    document.getElementById("total_serving_weight").innerHTML = totalServingWeight;
+
+    localStorage.removeItem("foodId " + foodId);
+    localStorage.removeItem("productName " + foodId);
+    localStorage.removeItem("caloriesPer100g " + foodId);
+    localStorage.removeItem("weightPerPiece " + foodId);
+    localStorage.removeItem("weightPerServing " + foodId);
+    localStorage.removeItem("weightPerWhole " + foodId);
+    localStorage.removeItem("piecesPerServing " + foodId);
+    localStorage.removeItem("batchWeight " + foodId);
+    localStorage.removeItem("quantityPerBatch " + foodId);
+    localStorage.removeItem("caloriesPerServing " + foodId);
+    localStorage.removeItem("cookingMethodBrick " + foodId);
+    localStorage.removeItem("cookingStatus " + foodId);
+    localStorage.removeItem("cookingSubstrateBrick " + foodId);
+    localStorage.removeItem(foodId);
+
+    let ingredientRow = document.getElementById("ingredient_name_port_" + foodId);
+    ingredientRow.remove();
+}
+
