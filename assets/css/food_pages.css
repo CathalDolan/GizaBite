@@ -62,6 +62,11 @@ h2.hero_text {
     border-radius: 5px;
 }
 
+#cooking_section_div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /*--------- Accordion Collapse / Expand ----------*/
 #accordion .section_bg { /* Overrides the global padding in the collapse/expand sections as it is not required */
     padding: 0;
