@@ -62,6 +62,15 @@ async function searchIngredients(searchTerm) {
 
     var ingredientsResultsCount = document.getElementById('ingredients_results_count').innerHTML = countIngr + " Results";
 
+    // Detects if no results are returned.
+    if (countIngr == 0){
+        console.log("none");
+        list.innerHTML = `
+        <div class="results_row section_in results_list">
+            <h4 class="alignL results_row_name">No results. Please try again.</h4> 
+        </div>`;
+    }
+
     hideSpinnerFn();
 };
 
