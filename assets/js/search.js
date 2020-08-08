@@ -24,6 +24,16 @@ async function searchIngredients(searchTerm) {
 
     response = await fetch(url),
     recipes = await response.json();
+
+    // Detects if User searches without adding a word to the search input 
+    if (searchTerm.length == 0) { 
+        list.innerHTML = `
+        <div class="results_row section_in results_list">
+            <h4 class="alignL results_row_name">No results. Please try again.</h4> 
+        </div>
+        `;
+        hideSpinnerFn();
+    }
   
     recipes.hints.filter((item) => {
 
