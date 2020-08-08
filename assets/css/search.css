@@ -2,6 +2,15 @@
     background-image: url(../graphics/Search_Image.jpg);
 }
 
+#hero_text_container {
+    top: 32%
+}
+@media (max-width: 325px) {
+    #hero_text_container {
+    top: 17%
+    }
+}
+
 /*---------------------------------- Search Widget -- Start */
 .search_container {
     border-radius: 5px;
