@@ -212,3 +212,5 @@ Ingredient Page - Round Pieces per Serving to 1 decimal, Billy Moon on https://s
 Ingredient Page: Capitalise first letter https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
 Ingredient Page: Add each ingredieint measurement to a single LS "Object" - https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/#:~:text=Add%20to%20an%20object%20%23&text=var%20existing%20%3D%20localStorage.-,getItem(name)%3B%20%2F%2F%20If%20no%20existing%20data%2C%20create%20an,setItem(name%2C%20JSON
 Ingredient Page: Looping through Local Storage for key and values - https://stackoverflow.com/questions/8419354/get-html5-localstorage-keys
+Local Storage: General information - https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
+Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://stackoverflow.com/questions/12456399/how-to-use-this-reference-of-the-element-calling-the-function
