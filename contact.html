@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/food_pages.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/contact.css" type="text/css">
     <title>GizaBite</title>
     
     <link rel="shortcut icon" type="image/png" href="assets/graphics/GizaBite_Favicon.png">
 </head>
-<body id="new_portion">
+<body id="index">
     <!--======================================== Header - Start -->
     <header>
         <nav class="navbar navbar-expand-lg static-top">
@@ -56,6 +56,7 @@
     
     <!--======================================== Main Body - Start -->
     <main>
+        <!--~~~~~~~~~~~~~~~~~~~~ Introduction -->
         <section>
 
             <!--======================================== Action Icons Bar -->
@@ -63,84 +64,56 @@
                 <div class="section_in"> 
                     <button onclick="goBack()" class="back_button">
                         <i class="fas fa-arrow-left"></i>
-                        <button id="start_again_button" class="btn floatR">Start Again</button>
                     </button>
                     
                     <hr class="rule section_in_rule">
                 </div>
             </div>
 
-            
-                <!--======================================== Name -->
-                <div class="section_bg">
-                    <div class="section_in">
-                        <h2 id="page_title_dish" class="page_ti floatL">Dish: </h2>
-                        <textarea id="portion_name_textarea" class="product_name floatL" name="portion_name" rows="1" placeholder="Add Portion Name*" onkeyup="portionNameFn()" autofocus="autofocus"></textarea>
-                        <div id="dish_name_button" class="row_icon_container save_icon pointer floatL" onclick="dishNameH2()"></div>
-                    </div>    
+
+
+            <div class="section_bg clear">
+                <div class="section_in text-center clear">
+                    <h1 id="page_title" class="alignL">Contact</h1>
                 </div>
+                <div class="section_in clear">
 
-            <div id="accordion">
-                <!--======================================== Ingredients -->
-                <div class="card section_bg"> 
-
-                    <!-- Section Header - Ingredients -->
-                    <div class="section_in card-link"> 
-                        <div class="row_icon_container info_icon pointer alignL" data-toggle="tooltip" data-placement="right" data-html="true" title="
-                        <p>Portions can be compiled using both ingredients and Portions as ingredients.</p>
-                        </br>
-                        <p>- Put each ingredient on a separate row.</p>
-                        </br>
-                        <p>- Include ingredient name and weight required.</p>
-                        </br>
-                        <p>- Be as specific as possible</p>
-                        </br>
-                        <p><strong>Example: </strong>100g boneless chicken legs</p>
-                        ">
-                        </div>
-                        <h3 class="page_section_name alignL" data-toggle="collapse" href="#collapseThree">Ingredients</h3>
-                        <div class="row_icon_container collapse_arrow pointer alignR" data-toggle="collapse" href="#collapseThree">
-                        </div>
+                    <div class="contact_form_container floatL">
+                        <form action="action_page.php">
+                            <input type="text" id="name" name="name" placeholder="Your name...">
+                            <input type="text" id="email" name="email" placeholder="Your email...">
+                            <select id="country" name="subject">
+                                <option value="general">Ask Sales to Contact Me</option>
+                                <option value="bug">I Found a Bug</option>
+                                <option value="sales">General Enquiry</option>
+                            </select>
+                            <textarea id="subject" name="message" placeholder="Your message.." style="height:85px"></textarea>
+                            <input type="submit" value="Send">
+                        </form>
                     </div>
-
-                    <!-- Collapse/Expand Section - Ingredients -->
-                    <div id="collapseThree" class="collapse show" data-parent="#accordion">
-                        <div class="card-body">
-
-                            <!-- Ingredient Row -->
-                            <div id="ingredient_name_port">
-                                <!-- Html added from dish.js Javascript-->
-                            </div>
-
-                            <!-- Weight and Calorie Totals-->
-                            <div class="serving_totals_div section_in alignC">
-                                <h4>Serving Totals: Weight <span id="total_serving_weight"></span> g - Calories <span id="total_serving_kcal"></span> Kcal</h4>
-                            </div>
-
-                            <!-- Search Input-->
-                            <div class="section_in inner_element_571">
-                                <div id="hero_search_section_in" class="section_in">
-                                    <div id="hero_search_inner">
-                                        <div class="hero_search_inner_element">
-                                            <input type="text" name="search" placeholder="Add More Ingredients" id="global_search_input" class="floatL" onkeyup="globalSearchTermFn()">
-                                        </div>
-                                        <div class="hero_search_inner_element"> <!-- Search button-->
-                                            <a href="#" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-
+                    
+                    <div id="address" class="alignC">
+                        <h4>Write to Us:</h4>
+                        <p>22 Hungry Road,</p>
+                        <p>West Eatsville,</p>
+                        <p>Ireland</p>
+                        </br>
+                        <p>info@GizaBite.com</p>
+                        </br>
+                        <h4>Call Us:</h4>
+                        <p>+353 (0)1 2345678</p>
+                        <div id="icons_row">
+                            <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-square sm_icon" aria-hidden="true"></i></a>
+                            <a href="http://www.linkedin.com" target="_blank"><i class="fab fa-linkedin sm_icon" aria-hidden="true"></i></a>
+                            <a href="http://www.instagram.com" target="_blank"><i class="fa fa-instagram sm_icon" aria-hidden="true"></i></a>
+                            <a href="http://www.youtube.com" target="_blank"><i class="fa fa-youtube-square sm_icon" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </section>
-    </main>
 
+    </main> 
     <footer>
         <div>
             <hr class="rule header_rule">
@@ -167,7 +140,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="assets/js/js.js"></script>
-    <script type="text/javascript" src="assets/js/dish.js"></script>
-    
+    <script type="text/javascript" src="assets/js/index.js"></script>
 </body>
 </html>

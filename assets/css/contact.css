@@ -1,0 +1,73 @@
+.hero_image, .hero_outer {
+    height: 60px;
+}
+
+.hero_image {
+    background-image: url(../graphics/Portion_Image.jpg);
+}
+
+h2.hero_text {
+    font-size: 35px;
+    line-height: 60px;
+    margin-top: 0;
+}
+#hero_text_container {
+    top: 0;
+}
+
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--orange);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: var(--orange);
+  color: var(--white);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: var(--orange);
+}
+
+#page_title {
+    margin-bottom: 1rem;
+}
+
+.contact_form_container {
+  border-radius: 5px;
+  background-color: var(--white);
+  padding: 20px;
+  width: 70%;
+}
+@media (max-width: 992px){ 
+    .contact_form_container {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+#address {
+    margin-top: 1rem;
+}
+
+#icons_row {
+    margin-top: 1rem;
+    display: block;
+}
+@media (max-width: 992px){ 
+    #icons_row {
+        display: none;
+    }
+}
