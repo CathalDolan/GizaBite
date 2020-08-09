@@ -109,15 +109,6 @@ async function searchIngredients(foodId) {
     }
 
     await getDataFn();
-    await weightPerServingFn();
-    await weightPerPieceFn();
-    await piecesPerServingFn();
-    await batchWeightFn();
-    await batchQuantityFn();
-    await caloriesFn(); 
-    await getCookingData();
-    await caloriesCookingCalulationFn();
-    
 
     // Checks if "per piece" checkbox was already checked and updates fields accordingly.
     var checkBoxStatus = localStorage.getItem("checkBoxStatusKey " + foodId);
@@ -133,7 +124,7 @@ async function searchIngredients(foodId) {
 
 
 // EXTRACT MEASUREMENTS FROM local storage
-function getDataFn() {
+async function getDataFn() {
     weightPerServing = localStorage.getItem("weightPerServing " + foodId);
     weightPerPiece = localStorage.getItem("weightPerPiece " + foodId);
     caloriesPer100g = localStorage.getItem("caloriesPer100g " + foodId);
@@ -146,6 +137,15 @@ function getDataFn() {
     numberOfServings = localStorage.getItem("numberOfServings");
     console.log("numberOfServings", numberOfServings);
     addedToDish = localStorage.getItem(foodId);
+
+    await weightPerServingFn();
+    await weightPerPieceFn();
+    await piecesPerServingFn();
+    await batchWeightFn();
+    await batchQuantityFn();
+    await caloriesFn(); 
+    await getCookingData();
+    await caloriesCookingCalulationFn();
 }
 
 // Weight per Serving:
@@ -188,13 +188,18 @@ function piecesPerServingFn() {
     if (piecesPerServing !== null) { //If pieces per serving is defined, use it.
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
         piecesPerServing = piecesPerServing;
-    } else if (weightPerServing >= weightPerPiece) { // If the serving weight is greater than the weight per piece...
+    } else if (parseInt(weightPerServing) >= parseInt(weightPerPiece)) { // If the serving weight is greater than the weight per piece...
         piecesPerServing = Math.round(weightPerServing / weightPerPiece); // the 1st is divided by the 2nd. //?? Needs to go to 1 decimal place
         localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
     } else {
         localStorage.setItem("piecesPerServing " + foodId, 1); // Otherwise the default is 1. 
         document.getElementById("pieces_per_serving_input").value = 1;
+        
+        // Needed for certain products like "Pizza", but not for "Hard-boiled Egg". 
+        // Don't know why they differ or whay this is needed.
+        getDataFn();
+        batchQuantityFn();
     }
 }
 
@@ -234,6 +239,9 @@ function checkBox() {
         //New calulation is saved to local storage
         weightPerServing = Math.round(weightPerPiece * piecesPerServing);
         localStorage.setItem("weightPerServing "  + foodId, weightPerServing);
+        console.log("Weight Per Serving", weightPerServing);
+        console.log("Weight Per Piece", weightPerPiece);
+        console.log("Pieces Per Serving", piecesPerServing);
 
         //If checked, the weight per serving input changes to <p>
         document.getElementById("weight_per_serving_container").innerHTML = `
