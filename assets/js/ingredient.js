@@ -241,9 +241,6 @@ function checkBox() {
         //New calulation is saved to local storage
         weightPerServing = Math.round(weightPerPiece * piecesPerServing);
         localStorage.setItem("weightPerServing "  + foodId, weightPerServing);
-        console.log("Weight Per Serving", weightPerServing);
-        console.log("Weight Per Piece", weightPerPiece);
-        console.log("Pieces Per Serving", piecesPerServing);
 
         //If checked, the weight per serving input changes to <p>
         document.getElementById("weight_per_serving_container").innerHTML = `
@@ -413,6 +410,11 @@ $(".cooking_method_brick").on("click", async function cookingBrickBgColourFn() {
 
     await getCookingData(); //This make data saved available globally
     caloriesFn(); // Reverts to non-cooked calorie count
+
+    // Scrolls the search widget to the top so that the results are visible.
+    document.querySelector('#collapseFour').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
 });
 // Handles the brick text
 $(".cooking_method_brick>p").on("click", function cookingBrickTextColour() {

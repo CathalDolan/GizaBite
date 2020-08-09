@@ -185,7 +185,8 @@
                                         <h6>Batch Quantity:</h6>
                                     </div>
                                     <div class="floatL">
-                                        <input id="batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" maxlength="7" class="input_weight_number" onkeyup="batchQuantityManFn()"/>
+                                        <input id="batch_quantity_input" name="batch_quantity_input" type="text" inputmode="numeric" pattern="[0-9]*" value="" 
+                                        maxlength="7" class="input_weight_number" onkeyup="batchQuantityManFn()"/>
                                     </div>
                                     <div class="floatL">
                                         <p>pcs</p>
@@ -214,14 +215,7 @@
                                         <a href="#" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>
                                     </div>
                                 </div>
-
-                                <!-- Spinner -->
-                                <div id="waiting_spinner" class="spinner-border" role="status" style = "display:none">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
                             </div>
-
-                        </div>
 
                         </div>
                     </div>

@@ -10,7 +10,6 @@ function globalSearchTermFn() {
     global_search_button.outerHTML = `
         <a href="search.html?globalSearchTerm=${globalSearchTerm}" target="_self" id="global_search_button" class="button-image mybutton floatR" onclick="globalSearchTermFn()"></a>  
     `;
-    document.getElementById("waiting_spinner").style.display = "block";
 }
 
 // Return Key to Activate Search
@@ -35,7 +34,7 @@ function goBack() {
   window.history.back();
 }
 
-/* Funtion to allow the text wrap within a textarea input. From SpyYk3 http://jsfiddle.net/SpYk3/m8Qk9/ */
+// Funtion to allow the text wrap within a textarea input. From SpyYk3 http://jsfiddle.net/SpYk3/m8Qk9/
 $(function () {
   //  changes mouse cursor when highlighting lower right of box
   $(document).on('mousemove', 'textarea', function (e) {
@@ -53,4 +52,3 @@ $(function () {
       };
     });
 });
-
