@@ -7,9 +7,10 @@ if(portionNameLs !== null){
     alert("Don't forget to add a Portion Name");
 }
 
-// Portion Name: Collects the name as the User enters it and commits it to Local Storage
-var portionName;
-var portionNameFn = function () {
+// Portion Name: Collects the name as the User enters it
+// and commits it to Local Storage
+let portionName;
+let portionNameFn = function () {
     portionName = document.getElementById("portion_name_textarea").value;
     localStorage.setItem("portionName", portionName);
 }
@@ -18,11 +19,11 @@ var portionNameFn = function () {
 function dishNameH2() {
     portionName = localStorage.getItem("portionName");
     document.getElementById("portion_name_textarea").outerHTML = `
-        <h2 id="portion_name_textarea_H2" class="product_name floatL" 
+        <h2 id="portion_name_textarea_H2" class="product_name floatL"
         name="portion_name">${portionName}</h2>
     `;
     document.getElementById("dish_name_button").outerHTML = `
-        <div id="dish_name_button_H2" class="row_icon_container edit_icon 
+        <div id="dish_name_button_H2" class="row_icon_container edit_icon
         pointer floatL" onclick="dishNameInput()"></div>
     `;
 } 
@@ -31,8 +32,8 @@ function dishNameH2() {
 function dishNameInput() {
     portionName = localStorage.getItem("portionName");
     document.getElementById("portion_name_textarea_H2").outerHTML = `
-        <textarea id="portion_name_textarea" class="product_name floatL" 
-        name="portion_name" rows="1" placeholder="Add Portion Name*" 
+        <textarea id="portion_name_textarea" class="product_name floatL"
+        name="portion_name" rows="1" placeholder="Add Portion Name*"
         onkeyup="portionNameFn()" autofocus="autofocus">${portionName}</textarea>
     `;
     document.getElementById("dish_name_button_H2").outerHTML = `
@@ -41,7 +42,8 @@ function dishNameInput() {
     `;
 }
 
-// POPULATE PAGE: Functions and methods to extract data from LS and use it to populate the page
+// POPULATE PAGE: Functions and methods to extract data
+// from LS and use it to populate the page
 
 //Extracts all of the data from Local Storage as a string
 let xyz = JSON.stringify(localStorage);
@@ -63,7 +65,7 @@ for (const [key, value] of Object.entries(obj)) {
         let caloriesPerServing = parseInt(localStorage.getItem("caloriesPerServing " + foodId));
         let weightPerServing = parseInt(localStorage.getItem("weightPerServing " + foodId));
         let productName = localStorage.getItem("productName " + foodId);
-        
+
         // Populate the individual ingredient rows in Dishes
         document.getElementById("ingredient_name_port").innerHTML += `
             <div id="ingredient_name_port_${foodId}" class="section_in">
@@ -96,7 +98,7 @@ for (const [key, value] of Object.entries(obj)) {
         // Adds the calorie value for each ingredient to the array
         totalCaloriesArray.push(caloriesPerServing);
         // Gets the sum of the numbers
-        var totalCalories = totalCaloriesArray.reduce(function(a, b){
+        let totalCalories = totalCaloriesArray.reduce(function(a, b){
             return a + b;
         }, 0);
         document.getElementById("total_serving_kcal").innerHTML = totalCalories;
@@ -104,7 +106,7 @@ for (const [key, value] of Object.entries(obj)) {
         //Adds the weight per serving value for each ingredient to the array
         totalServingWeightArray.push(weightPerServing);
         // Gets the sum of the numbers
-        var totalServingWeight = totalServingWeightArray.reduce(function(a, b){
+        let totalServingWeight = totalServingWeightArray.reduce(function(a, b){
             return a + b;
         }, 0);
         document.getElementById("total_serving_weight").innerHTML = totalServingWeight;
@@ -123,18 +125,18 @@ function startAgainFn() {
 // Clicking the delete icon to remove the ingredient row and data from LS
 // and update the total serving weight and calories value.
 function deleteIngredientFn(element){
-    let foodId = $(element).attr('name');
+    let foodId = $(element).attr("name");
 
     // Remove the calorie value for the ingredient in the array and recalculate
     totalCaloriesArray.pop("caloriesPerServing " + foodId);
-    var totalCalories = totalCaloriesArray.reduce(function(a, b){
+    let totalCalories = totalCaloriesArray.reduce(function(a, b){
         return a + b;
     }, 0);
     document.getElementById("total_serving_kcal").innerHTML = totalCalories;
 
     // Remove the per serving weight for the ingredient in the array and recalculate
     totalServingWeightArray.pop("weightPerServing " + foodId);
-    var totalServingWeight = totalServingWeightArray.reduce(function(a, b){
+    let totalServingWeight = totalServingWeightArray.reduce(function(a, b){
         return a + b;
     }, 0);
     document.getElementById("total_serving_weight").innerHTML = totalServingWeight;
@@ -157,4 +159,3 @@ function deleteIngredientFn(element){
     let ingredientRow = document.getElementById("ingredient_name_port_" + foodId);
     ingredientRow.remove();
 }
-

@@ -1,5 +1,5 @@
 //Global Variables used throughout the file
-var foodId = document.location.search.replace(/^.*?\=/,''); //Food Id: Extracted from url
+let foodId = document.location.search.replace(/^.*?\=/,''); //Food Id: Extracted from url
 localStorage.setItem("foodId " + foodId, foodId);
 console.log(foodId);
 let weightPerServing;
@@ -22,10 +22,11 @@ searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {
-    let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=
+                ${app_id}&app_key=${app_key}&category=generic-foods`;
     console.log(url);
 
-    product_name = '',
+    product_name = "";
     ingredientNameId = document.getElementById("ingredient_product_name"); // Takes the tag with id inside as outer, and everything in it
 
     response = await fetch(url, {headers: {"Access-Control-Allow-Origin": "*"}});
@@ -35,13 +36,13 @@ async function searchIngredients(foodId) {
 
         // API returns a variety of cases. This capitalises 1st letter of each word
         let capitalized_product_name = (product_name) => {
-        let arr = product_name.toLowerCase().split(' ');
+        let arr = product_name.toLowerCase().split(" ");
         arr.forEach(function (i, index) {
             if (i[0] !== undefined) {
             arr[index] = i.replace(i[0], i[0].toUpperCase());
             }
         });
-        return arr.join(' ');
+        return arr.join(" ");
         };
 
         if (item.food.category === "Generic foods") {
@@ -112,13 +113,13 @@ async function searchIngredients(foodId) {
     await getDataFn();
 
     // Checks if "per piece" checkbox was already checked and updates fields accordingly.
-    var checkBoxStatus = localStorage.getItem("checkBoxStatusKey " + foodId);
+    let checkBoxStatus = localStorage.getItem("checkBoxStatusKey " + foodId);
     if (checkBoxStatus == "true"){
         document.getElementById("measurement_checkbox").outerHTML = `
-        <input type="checkbox" id="measurement_checkbox" class="input_percent" 
+        <input type="checkbox" id="measurement_checkbox" class="input_percent"
         name="measurement_checkbox" checked>
         `;
-    checkBox(); 
+    checkBox();
     }
 
 }; // Search is all contained in here
@@ -144,7 +145,7 @@ async function getDataFn() {
     await piecesPerServingFn();
     await batchWeightFn();
     await batchQuantityFn();
-    await caloriesFn(); 
+    await caloriesFn();
     await getCookingData();
     await caloriesCookingCalulationFn();
 }
@@ -185,7 +186,7 @@ function weightPerPieceFn() {
     }
 }
 
-// Pieces Per Serving: 
+// Pieces Per Serving:
 function piecesPerServingFn() {
     if (piecesPerServing !== null) { //If pieces per serving is defined, use it.
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
@@ -195,24 +196,24 @@ function piecesPerServingFn() {
         localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
         document.getElementById("pieces_per_serving_input").value = piecesPerServing;
     } else {
-        localStorage.setItem("piecesPerServing " + foodId, 1); // Otherwise the default is 1. 
+        localStorage.setItem("piecesPerServing " + foodId, 1); // Otherwise the default is 1.
         document.getElementById("pieces_per_serving_input").value = 1;
         
-        // Needed for certain products like "Pizza", but not for "Hard-boiled Egg". 
+        // Needed for certain products like "Pizza", but not for "Hard-boiled Egg".
         // Don't know why they differ or whay this is needed.
         getDataFn();
         batchQuantityFn();
     }
 }
 
-// Batch Weight:  
+// Batch Weight:
 function batchWeightFn() {
     batchWeight =  Math.round(numberOfServings * weightPerServing);
     document.getElementById("batch_weight_input").value = batchWeight;
     localStorage.setItem("batchWeight " + foodId, batchWeight);
 }
 
-// Batch Quantity: 
+// Batch Quantity:
 function batchQuantityFn() {
     quantityPerBatch =  Math.round(numberOfServings * piecesPerServing);
     console.log("numberOfServings", numberOfServings);
@@ -231,7 +232,7 @@ function caloriesFn() {
 // Per Piece Checkbox:
 document.getElementById("measurement_checkbox").addEventListener("click", checkBox);
 function checkBox() {
-    var checkBox = document.getElementById("measurement_checkbox");
+    let checkBox = document.getElementById("measurement_checkbox");
     if (checkBox.checked === true) {
         document.getElementById("pieces_row").style.display = "block";  //If Checked: Pieces row is displayed
         document.getElementById("ingredient_batch_qty_div").style.display = "block"; //If Checked: Batch row is displayed
@@ -268,13 +269,13 @@ function checkBox() {
 
         //Weight per Serving:
         document.getElementById("weight_per_serving_container").innerHTML = `
-            <input id="weight_per_serving_input" type="text" 
-            inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number" 
+            <input id="weight_per_serving_input" type="text"
+            inputmode="numeric" pattern="[0-9]*" maxlength="7" class="input_weight_number"
             name="total_amt" value="${weightPerServing}" onkeyup="weightPerServingManFn()"/>
         `;
         //Batch Weight:  Needs to be moved out to a separate function
         document.getElementById("batch_weight_input").outerHTML = `
-            <input id="batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*" 
+            <input id="batch_weight_input" type="text" inputmode="numeric" pattern="[0-9]*"
             maxlength="7" class="input_weight_number" value="${batchWeight}" onkeyup="weightPerServingCalcFn2()"/>
         `;
        
@@ -288,11 +289,10 @@ function checkBox() {
         batchWeight =  Math.round(numberOfServings * weightPerServing);
         document.getElementById("batch_weight_input").outerHTML = `
             <p id="batch_weight_input">${batchWeight}</p>
-        `; 
+        `;
         localStorage.setItem("batchWeight " + foodId, batchWeight);
         //weightPerServingManFn();
 }
-
 
 // Manual Functions: Calulations carried out when a User manually types into the input
 // As the user types, the data inputted is saved to Local Storage and related functions
@@ -300,7 +300,7 @@ function checkBox() {
 
 // Number of Servings Manual Function:
 function numberOfServingsManFn() {
-    numberOfServings = document.getElementById('number_of_servings_input').value;
+    numberOfServings = document.getElementById("number_of_servings_input").value;
     localStorage.setItem("numberOfServings", numberOfServings);
     batchWeightFn();
     batchQuantityFn();
@@ -327,13 +327,13 @@ function batchWeightManFn() {
 // When the Batch Weight input is changed manually with batchWeightManFn(), the Weight per Serving changes
 function weightPerServingCalcFn() {
     weightPerServing = Math.round(batchWeight / numberOfServings);
-    document.getElementById('weight_per_serving_input').value = weightPerServing; // Not working
+    document.getElementById("weight_per_serving_input").value = weightPerServing;
     localStorage.setItem("weightPerServing " + foodId, weightPerServing);
 }
 
 // Pieces per Serving Manual Function:
 function piecesPerServingManFn () {
-    piecesPerServing = document.getElementById('pieces_per_serving_input').value;
+    piecesPerServing = document.getElementById("pieces_per_serving_input").value;
     localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
 
     batchQuantityFn(); // Batch Quantity is affected
@@ -345,7 +345,7 @@ function piecesPerServingManFn () {
 // Weight per Piece Manual Function
 // Called when User types into the Weight per Piece input
 function weightPerPieceManFn() {
-    weightPerPiece = document.getElementById('weight_per_piece_input').value;
+    weightPerPiece = document.getElementById("weight_per_piece_input").value;
     localStorage.setItem("weightPerPiece " + foodId, weightPerPiece);
 
     weightPerServingCalcFn2(); // Weight per Serving is affected
@@ -357,14 +357,14 @@ function weightPerPieceManFn() {
 // Called when User changes number of Pieces per Serving, Weight per Piece or Batdh Quantity
 function weightPerServingCalcFn2() {
     weightPerServing = Math.round(weightPerPiece * piecesPerServing);
-    document.getElementById('weight_per_serving_input').innerHTML = weightPerServing;
+    document.getElementById("weight_per_serving_input").innerHTML = weightPerServing;
     localStorage.setItem("weightPerServing " + foodId, weightPerServing);
 }
 
 // Batch Quantity Manual Function
 //Called when users changes the input in Batch Quantity
 function batchQuantityManFn() {
-    batchQuantity = document.getElementById('batch_quantity_input').value;
+    batchQuantity = document.getElementById("batch_quantity_input").value;
     localStorage.setItem("batchQuantity " + foodId, batchQuantity);
 
     piecesPerServingCalcFn() // Pieces per Serving is affected
@@ -380,7 +380,7 @@ function piecesPerServingCalcFn(){
     let multiplier = Math.pow(10, 1 || 0);
     piecesPerServing = Math.round(piecesPerServingCalc * multiplier) / multiplier;
     console.log("piecesPerServing", piecesPerServing);
-    document.getElementById('pieces_per_serving_input').value = piecesPerServing;
+    document.getElementById("pieces_per_serving_input").value = piecesPerServing;
     localStorage.setItem("piecesPerServing " + foodId, piecesPerServing);
 }
 
@@ -400,7 +400,7 @@ $(".cooking_method_brick").on("click", async function cookingBrickBgColourFn() {
     localStorage.setItem("cookingMethodBrick " + foodId, methodID);  // Save the ID to LS
 
     // ID's are extracted in lowercase, underscore separated and the word "brick" 
-    // at the end. The above are removed and first letters capitalised. 
+    // at the end. The above are removed and first letters capitalised.
     let methodIDRemoveUnderscore = methodID.replace(/_/g, " "); // Replaces all _. The g captures all.
     let methodIDRemoveBrick = methodIDRemoveUnderscore.replace(/brick/g, " ");
     let methodIDCapitalise = methodIDRemoveBrick.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -412,8 +412,8 @@ $(".cooking_method_brick").on("click", async function cookingBrickBgColourFn() {
     caloriesFn(); // Reverts to non-cooked calorie count
 
     // Scrolls the search widget to the top so that the results are visible.
-    document.querySelector('#collapseFour').scrollIntoView({ 
-        behavior: 'smooth' 
+    document.querySelector("#collapseFour").scrollIntoView({
+        behavior: "smooth"
     });
 });
 // Handles the brick text
@@ -530,9 +530,6 @@ if (substrateID !== null) {
     }
 }
 
-
-
-
 // Get Cooking Data from Local Storage:
 function getCookingData() {
     methodID = localStorage.getItem("cookingMethodBrick " + foodId);
@@ -542,9 +539,9 @@ function getCookingData() {
 // Substrate Display Function:
 // Allows Substrate section to display or hide when required
 $(".cooking_method_brick").on("click", function substrateBrickFn() {
-    if (methodID == "microwave_brick" || methodID == "baked_brick" || 
-        methodID == "roasted_brick" || methodID == "grilled_brick" || 
-        methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
+    if (methodID == "microwave_brick" || methodID == "baked_brick" ||
+        methodID == "roasted_brick" || methodID == "grilled_brick" ||
+        methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" ||
         methodID == "deep_fried_brick" ){ // Should be a shorter way of doing this using "substrate_yes" class...
             document.getElementById("cooking_substrate_container").style.display = "block"; // Display the substrate section
             document.getElementById("low_cal_spray_brick").style.display = "none"; // Ensures Low Cal Spray only displayed with Pan Fried
@@ -552,7 +549,7 @@ $(".cooking_method_brick").on("click", function substrateBrickFn() {
         document.getElementById("cooking_substrate_container").style.display = "none"; // Keeps substrate section hidden
         localStorage.removeItem("cookingSubstrateBrick " + foodId); // If selected has no substrate associated with it, existing one is removed.
 
-        // Ensures Low Cal Spray is only displayed with Pan Fried is selected, 
+        // Ensures Low Cal Spray is only displayed with Pan Fried is selected,
         // by hiding it if anything else is selected.
         // Connected to if statement at the end of this function
         document.getElementById("low_cal_spray_brick").style.display = "none";
@@ -676,7 +673,9 @@ function addIngredientStatusFn() {
 
         // Adds the href link to the html
         document.getElementById("add_to_dish_button_div").innerHTML = `
-        <a href="dish.html" target="_self"><button id="add_to_dish_button" type="button" class="btn">+ Add <span id="add_to_dish_button_span" aria-hidden="true"></span> to Dish</button></a>
+            <a href="dish.html" target="_self"><button id="add_to_dish_button" 
+            type="button" class="btn">+ Add <span id="add_to_dish_button_span" 
+            aria-hidden="true"></span> to Dish</button></a>
         `;
 
         // Sets the status of the ingredient, whether it's added to a dish or not
@@ -689,7 +688,6 @@ function addIngredientStatusFn() {
         alert("Don't forget to checkout the cooking methods");
     }
 }
-
 
 // CREATE "STRING"
 function addKeysValuesToLocalStorageObject() {
@@ -706,7 +704,7 @@ let foodDetails = [];
 let addToLocalStorageObject = function (name, key, value) {
 
 	// Get the existing data
-	var existing = localStorage.getItem(name);
+	let existing = localStorage.getItem(name);
 
 	// If no existing data, create an array
 	// Otherwise, convert the localStorage string to an array

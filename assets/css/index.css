@@ -31,6 +31,9 @@ div.card { /* Over rides default colour var(--second_layer) */
     margin-bottom: 0;
 }
 
+iframe {
+    border: none;
+}
 
 
 /*------- Media queries to make cards fit all devices. */
