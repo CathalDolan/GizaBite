@@ -216,3 +216,4 @@ Local Storage: General information - https://blog.logrocket.com/the-complete-gui
 Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://stackoverflow.com/questions/12456399/how-to-use-this-reference-of-the-element-calling-the-function
 Contact: EMail form w3 schools
 Contact: Send email from form - https://github.com/formspree/formspree
+Global Search: Using Return Key to activate search on dish and index pages - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_trigger_button_enter

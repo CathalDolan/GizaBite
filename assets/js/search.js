@@ -91,6 +91,7 @@ function hideSpinnerFn() {
 
 // SAVED CODE
 // Extracts a specific element from the URI
+
 var globalSearchTerm = document.location.search.replace(/^.*?\=/,'');
 if (globalSearchTerm === "") {
     console.log("empty")
