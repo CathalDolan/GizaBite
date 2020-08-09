@@ -9,7 +9,7 @@ if(portionNameLs !== null){
 
 // Portion Name: Collects the name as the User enters it
 // and commits it to Local Storage
-let portionName;
+var portionName;
 let portionNameFn = function () {
     portionName = document.getElementById("portion_name_textarea").value;
     localStorage.setItem("portionName", portionName);
