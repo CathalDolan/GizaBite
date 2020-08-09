@@ -22,11 +22,10 @@ searchAPI();
 
 // Search: Ingredients
 async function searchIngredients(foodId) {
-    let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=
-                ${app_id}&app_key=${app_key}&category=generic-foods`;
+    let url = `${edamamURL}?nutrition-type=logging&ingr=${foodId}&app_id=${app_id}&app_key=${app_key}&category=generic-foods`;
     console.log(url);
 
-    product_name = "";
+    product_name = '',
     ingredientNameId = document.getElementById("ingredient_product_name"); // Takes the tag with id inside as outer, and everything in it
 
     response = await fetch(url, {headers: {"Access-Control-Allow-Origin": "*"}});
