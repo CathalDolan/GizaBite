@@ -322,6 +322,7 @@ textarea.product_name { /* removes margin added by global FloatL. Allows the inp
         width: 66%;
         margin-right: 0;
     }
+}
 
 #description > textarea { /* Not working */
     width: 100%;
