@@ -15,13 +15,15 @@ function globalSearchTermFn() {
 
 // Return Key to Activate Search
 var input = document.getElementById("global_search_input");
-input.addEventListener("keyup", function(event) {
-  if (event.key === "Enter") {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    document.getElementById("global_search_button").click();
-  }
-});
+if(input !== null) { // Checks the page to see if function is applicable to it.
+    input.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        document.getElementById("global_search_button").click();
+    }
+    });
+}
 
 // Tooltip Funcion
 $(function () {
