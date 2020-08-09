@@ -217,3 +217,4 @@ Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://sta
 Contact: EMail form w3 schools
 Contact: Send email from form - https://github.com/formspree/formspree
 Numerical Inputs: Validation - https://www.w3resource.com/javascript/form/all-numbers.php Not implemented.
+Global Search: Using Return Key to activate search on dish and index pages - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_trigger_button_enter
