@@ -115,7 +115,8 @@ async function searchIngredients(foodId) {
     await batchWeightFn();
     await batchQuantityFn();
     await caloriesFn(); 
-
+    await getCookingData();
+    await caloriesCookingCalulationFn();
     
 
     // Checks if "per piece" checkbox was already checked and updates fields accordingly.
@@ -238,6 +239,15 @@ function checkBox() {
         document.getElementById("weight_per_serving_container").innerHTML = `
             <p id="weight_per_serving_input">${weightPerServing}</p>
         `;
+
+        // Cooking: Any existing selections are cleared
+        $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
+        $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
+        $(".cooking_method_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
+        $(".cooking_method_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
+        localStorage.removeItem("cookingMethodBrick " + foodId);
+        localStorage.removeItem("cookingSubstrateBrick " + foodId);
+        localStorage.removeItem("cookingStatus " + foodId);
 
         batchWeightP();
         caloriesFn();
@@ -372,24 +382,6 @@ function piecesPerServingCalcFn(){
 // COOKING SECTION
 // Designed to have similar functionality to radio buttons. Bricks and text handled separately.
 
-let cookingMethodBrick;
-let cookingSubstrateBrick;
-
-// Cooking Method Return:
-// If User is returning to an existing ingredient, this reloads existing cooking data
-cookingMethodBrick = localStorage.getItem("cookingMethodBrick " + foodId);
-cookingSubstrateBrick = localStorage.getItem("cookingSubstrateBrick " + foodId);
-console.log(cookingSubstrateBrick);
-
-if (cookingMethodBrick !== null) {
-    if (cookingMethodBrick == "deep_fried_brick") {
-        document.getElementById("deep_fried_brick").style.backgroundColor = "var(--orange)";
-        document.getElementById("deep_fried_p").style.color = "var(--white)";
-        console.log(cookingMethodBrick);
-    }
-}
-
-
 // Cooking Method:
 // Changes brick colour when clicked, saves data to LS and updates HTML
 $(".cooking_method_brick").on("click", async function cookingBrickBgColourFn() {
@@ -420,7 +412,6 @@ $(".cooking_method_brick>p").on("click", function cookingBrickTextColour() {
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
 
-
 // Cooking Substrate:
 // Changes brick colour when clicked, saves data to LS and updates HTML
 $(".cooking_substrate_brick").on("click", async function substrateBrickBgColourFn() {
@@ -448,8 +439,91 @@ let methodID;
 let substrateID;
 let totalCalories;
 
+// Cooking Method on Return to Page:
+// If User is returning to an existing ingredient, this colours the appropriate bricks
+methodID = localStorage.getItem("cookingMethodBrick " + foodId);
+substrateID = localStorage.getItem("cookingSubstrateBrick " + foodId);
+console.log(methodID);
+console.log(substrateID);
+
+if (methodID !== null) {
+    if (methodID == "no_further_cooking_needed_brick") {
+        document.getElementById("no_further_cooking_needed_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("no_further_cooking_needed_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "boiled_brick") {
+        document.getElementById("boiled_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("boiled_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "steamed_brick") {
+        document.getElementById("steamed_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("steamed_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "microwave_brick") {
+        document.getElementById("microwave_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("microwave_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "baked_brick") {
+        document.getElementById("baked_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("baked_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "roasted_brick") {
+        document.getElementById("roasted_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("roasted_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "grilled_brick") {
+        document.getElementById("grilled_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("grilled_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "pan_fried_brick") {
+        document.getElementById("pan_fried_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("pan_fried_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "shallow_fried_brick") {
+        document.getElementById("shallow_fried_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("shallow_fried_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (methodID == "deep_fried_brick") {
+        document.getElementById("deep_fried_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("deep_fried_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } 
+}
+
+if (substrateID !== null) {
+    document.getElementById("cooking_substrate_container").style.display = "block";
+    if (substrateID == "dry_brick") {
+        document.getElementById("dry_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("dry_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (substrateID == "vegetable_oil_brick") {
+        document.getElementById("vegetable_oil_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("vegetable_oil_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (substrateID == "animal_fat_brick") {
+        document.getElementById("animal_fat_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("animal_fat_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (substrateID == "margarine_brick") {
+        document.getElementById("margarine_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("margarine_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (substrateID == "butter_brick") {
+        document.getElementById("butter_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("butter_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    } else if (substrateID == "low_cal_spray_brick") {
+        document.getElementById("low_cal_spray_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("low_cal_spray_brick_p").style.color = "var(--white)";
+        console.log(methodID);
+    }
+}
+
+
+
+
 // Get Cooking Data from Local Storage:
-async function getCookingData() {
+function getCookingData() {
     methodID = localStorage.getItem("cookingMethodBrick " + foodId);
     substrateID = localStorage.getItem("cookingSubstrateBrick " + foodId);
 }
