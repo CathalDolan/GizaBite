@@ -188,13 +188,10 @@ Copyright free images were taken from https://www.pexels.com/. They are employed
 Informational pages were given a larger image as the aesthetics need to be more pleasing. Functional pages have a small hero image.
 - Index: https://www.pexels.com/photo/grilled-salmon-fish-on-rectangular-black-ceramic-plate-842142/
 - Search: https://www.pexels.com/photo/sliced-fried-chicken-2232433/
-- Dish: https://www.pexels.com/photo/pasta-noodles-tomato-sauce-spirelli-14737/
-- New Dish: https://www.pexels.com/photo/cooked-food-1998920/
-- Portion: https://www.pexels.com/photo/cheeseburger-and-fries-2725744/
-- New Portion: https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/
+- Dish: https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/
 - Ingredient: https://www.pexels.com/photo/sliced-fried-chicken-2232433/
 - About: https://www.pexels.com/photo/food-chicken-fresh-rice-105588/
-- Contact:https://www.pexels.com/photo/assorted-variety-of-foods-on-plates-on-dining-table-1528013/
+- Contact:https://www.pexels.com/photo/cheeseburger-and-fries-2725744/
 
 
 # Third Party
