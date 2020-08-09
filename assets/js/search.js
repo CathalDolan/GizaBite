@@ -82,6 +82,11 @@ async function searchIngredients(searchTerm) {
     }
 
     hideSpinnerFn();
+
+    // Scrolls the search widget to the top so that the results are visible.
+    document.querySelector('#search_heading').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
 };
 
 // Hide Spinner Once Search is Complete

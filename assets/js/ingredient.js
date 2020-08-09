@@ -225,7 +225,6 @@ document.getElementById("measurement_checkbox").addEventListener("click", checkB
 function checkBox() {
     var checkBox = document.getElementById("measurement_checkbox");
     if (checkBox.checked === true) {
-        console.log("Fires for True");
         document.getElementById("pieces_row").style.display = "block";  //If Checked: Pieces row is displayed
         document.getElementById("ingredient_batch_qty_div").style.display = "block"; //If Checked: Batch row is displayed
         localStorage.setItem("checkBoxStatusKey "  + foodId, true); //If Checked: Checkbox status "true" saved to local storage
@@ -244,7 +243,6 @@ function checkBox() {
         caloriesFn();
 
     } else if (checkBox.checked === false) {
-        console.log("Fires for False");
         document.getElementById("pieces_row").style.display = "none"; //If Unchecked: Pieces row is hidden
         document.getElementById("ingredient_batch_qty_div").style.display = "none"; //If Unhecked: Batch row is hidden
         localStorage.setItem("checkBoxStatusKey "  + foodId, false); //If Unchecked: Checkbox status "false" saved to local storage
@@ -303,7 +301,6 @@ function weightPerServingManFn() {
 
 // Batch Weight Manual Function
 function batchWeightManFn() {
-    console.log("batchWeightManFn Function Fires");
     batchWeight = document.getElementById("batch_weight_input").value;
     localStorage.setItem("batchWeight " + foodId, batchWeight);
     weightPerServingCalcFn();
@@ -375,9 +372,27 @@ function piecesPerServingCalcFn(){
 // COOKING SECTION
 // Designed to have similar functionality to radio buttons. Bricks and text handled separately.
 
+let cookingMethodBrick;
+let cookingSubstrateBrick;
+
+// Cooking Method Return:
+// If User is returning to an existing ingredient, this reloads existing cooking data
+cookingMethodBrick = localStorage.getItem("cookingMethodBrick " + foodId);
+cookingSubstrateBrick = localStorage.getItem("cookingSubstrateBrick " + foodId);
+console.log(cookingSubstrateBrick);
+
+if (cookingMethodBrick !== null) {
+    if (cookingMethodBrick == "deep_fried_brick") {
+        document.getElementById("deep_fried_brick").style.backgroundColor = "var(--orange)";
+        document.getElementById("deep_fried_p").style.color = "var(--white)";
+        console.log(cookingMethodBrick);
+    }
+}
+
+
 // Cooking Method:
 // Changes brick colour when clicked, saves data to LS and updates HTML
-$(".cooking_method_brick").on("click", async function xyz5() {
+$(".cooking_method_brick").on("click", async function cookingBrickBgColourFn() {
 
     $(".cooking_method_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
     $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Clears any substrate selection
@@ -399,7 +414,7 @@ $(".cooking_method_brick").on("click", async function xyz5() {
     caloriesFn(); // Reverts to non-cooked calorie count
 });
 // Handles the brick text
-$(".cooking_method_brick>p").on("click", function xyz4() {
+$(".cooking_method_brick>p").on("click", function cookingBrickTextColour() {
     $(".cooking_method_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
     $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // If User had selected a substrate but then choose another method, this clears the substrate
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
@@ -408,7 +423,7 @@ $(".cooking_method_brick>p").on("click", function xyz4() {
 
 // Cooking Substrate:
 // Changes brick colour when clicked, saves data to LS and updates HTML
-$(".cooking_substrate_brick").on("click", async function xyz1() {
+$(".cooking_substrate_brick").on("click", async function substrateBrickBgColourFn() {
     $(".cooking_substrate_brick").css({"background": "var(--white)"}); // Makes all bricks white, thereby deselecting any brick already selected
     $(this).css({"background": "var(--orange)"}); // Makes the selected brick orange
     let substrateID = document.getElementById(this.id).id; // Extracts the ID for the substrate selected
@@ -423,7 +438,7 @@ $(".cooking_substrate_brick").on("click", async function xyz1() {
     await caloriesCookingCalulationFn();
 });
 // Handles the brick text
-$(".cooking_substrate_brick>p").on("click", function xyz2() {
+$(".cooking_substrate_brick>p").on("click", function substrateBrickTextColourFn() {
     $(".cooking_substrate_brick>p").css({"color": "var(--first_layer)"}); // Makes all brick texts black, thereby deselecting any brick already selected
     $(this).css({"color": "var(--white)"});  // Makes the selected brick text white
 });
@@ -441,7 +456,7 @@ async function getCookingData() {
 
 // Substrate Display Function:
 // Allows Substrate section to display or hide when required
-$(".cooking_method_brick").on("click", function xyz3() {
+$(".cooking_method_brick").on("click", function substrateBrickFn() {
     if (methodID == "microwave_brick" || methodID == "baked_brick" || 
         methodID == "roasted_brick" || methodID == "grilled_brick" || 
         methodID == "pan_fried_brick" || methodID == "shallow_fried_brick" || 
@@ -470,7 +485,7 @@ $(".cooking_method_brick").on("click", function xyz3() {
 
 // Calories Cooking Calculation: Called from getCookingData() when required data is extracted from LS
 // Calculates the calories per swerving based on cooking method and substrate
-// There has to be a shorter way than this!!
+// There has to be a shorter way than this, pass in the variable maybe??
 function caloriesCookingCalulationFn() {
     if (substrateID == "vegetable_oil_brick" && (methodID == "microwave_brick" ||
         methodID == "baked_brick" || methodID == "roasted_brick" ||
@@ -549,7 +564,7 @@ function caloriesCookingCalulationFn() {
         document.getElementById("calories_per_serving").textContent = totalCalories;
         localStorage.setItem("caloriesPerServing " + foodId, totalCalories);
     } else {
-        caloriesFn(); // Allows "Dry" substrate to revert Caloreies per serving back to non-cooked value
+        caloriesFn(); // Allows "Dry" substrate to revert Calories per serving back to non-cooked value
     }
 }
 
@@ -572,7 +587,6 @@ document.getElementById("add_to_dish_button2").addEventListener("click", addIngr
 
 function addIngredientStatusFn() {
     cookingStatus = localStorage.getItem("cookingStatus " + foodId);
-    console.log(cookingStatus);
     if (cookingStatus === "true"){
 
         // Adds the href link to the html
