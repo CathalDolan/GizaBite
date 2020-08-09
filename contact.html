@@ -37,8 +37,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="contact.html">Contact
+                                <span class="sr-only">(current)</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +81,7 @@
                 <div class="section_in clear">
 
                     <div class="contact_form_container floatL">
-                        <form action="action_page.php">
+                        <form action="https://formspree.io/cathal@gizagig.com" method="POST">
                             <input type="text" id="name" name="name" placeholder="Your name...">
                             <input type="text" id="email" name="email" placeholder="Your email...">
                             <select id="country" name="subject">
@@ -87,7 +89,7 @@
                                 <option value="bug">I Found a Bug</option>
                                 <option value="sales">General Enquiry</option>
                             </select>
-                            <textarea id="subject" name="message" placeholder="Your message.." style="height:85px"></textarea>
+                            <textarea id="subject" name="message" placeholder="Your message...will be sent using Formspree" style="height:85px"></textarea>
                             <input type="submit" value="Send">
                         </form>
                     </div>

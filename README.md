@@ -214,3 +214,5 @@ Ingredient Page: Add each ingredieint measurement to a single LS "Object" - http
 Ingredient Page: Looping through Local Storage for key and values - https://stackoverflow.com/questions/8419354/get-html5-localstorage-keys
 Local Storage: General information - https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
 Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://stackoverflow.com/questions/12456399/how-to-use-this-reference-of-the-element-calling-the-function
+Contact: EMail form w3 schools
+Contact: Send email from form - https://github.com/formspree/formspree
