@@ -3,9 +3,9 @@
 - [GitHub](https://github.com/CathalDolan/GizaBite)
 
 ## Background
-GizaBite was created by Cathal Dolan as a milestone project for a full stack web development course. The site
-is a scaled down version of a wider idea that includes greater functionality and provides additional UX
-options for users including an account option and the ability to store personal information.
+GizaBite was created as my full stack web development course milestone two project. The site
+is a scaled down version of a larger idea that includes greater functionality and provides additional UX
+options for users, including creating a log in account and the ability to record personal preferences.
 
 # Contents
 
@@ -57,11 +57,11 @@ in the dish along with any cooking methods. As the dish is being compiled, and o
 ## The Process
 Compiling a dish involves repeatiung a 4-step process until the User is satisfied they have added all ingredients to their list.
 
-1 - Input a search term into a search field and either click the search button or the "return" key
-2 - Choose an ingredient from the list of Results
-3 - Adjust default measurements if required and add cooking criteria
-4 - Add to dish
-5 - Repeat steps 1 to 4 until dish is complete
+- Input a search term into a search field and either click the search button or the "return" key
+- Choose an ingredient from the list of Results
+- Adjust default measurements if required and add cooking criteria
+- Add to dish
+- Repeat steps 1 to 4 until dish is complete
 
 [**Video Demo**](https://youtu.be/Iai-qh7k4RY)
 
