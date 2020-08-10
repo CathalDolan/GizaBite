@@ -213,6 +213,7 @@ p {
 .clearL {
     clear: left;
 }
+
 /*--------*/
 
 
@@ -709,7 +710,7 @@ footer {
     margin: 0 0.5rem;
 }
 
-.footer_row p {
+.footer_row a {
     margin: 0 auto;
 }
 
