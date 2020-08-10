@@ -1,13 +1,13 @@
 # GizaBite
-- [Web:](https://cathaldolan.github.io/GizaBite/index.html)
-- [GitHub:](https://github.com/CathalDolan/GizaBite)
+- [Web](https://cathaldolan.github.io/GizaBite/index.html)
+- [GitHub](https://github.com/CathalDolan/GizaBite)
 
 ## Background
 GizaBite was created by Cathal Dolan as a milestone project for a full stack web development course. The site
 is a scaled down version of a wider idea that includes greater functionality and provides additional UX
 options for users including an account option and the ability to store personal information.
 
-![Home Page](graphics/readme_images/home_snap.jpg)
+![Home Page](https://imgur.com/E4QoWeU)
 
 # Contents
 
@@ -60,16 +60,16 @@ in the dish along with any cooking methods. As the dish is being compiled, and o
 Compiling a dish involves repeatiung a 4-step process until the User is satisfied they have added all ingredients to their list.
 
 1 - Input a search term into a search field and either click the search button or the "return" key
-![Search Field](/graphics/readme_images/search_field.jpg)
+![Search Field](https://imgur.com/fIIG0E9)
 
 2 - Choose an ingredient from the list of Results
-![Search Results](/graphics/readme_images/search_results.jpg)
+![Search Results](https://imgur.com/20JwLQ2)
 
 3 - Adjust default measurements if required and add cooking criteria
-![Ingredient Page](/graphics/readme_images/ingredient_page.jpg)
+![Ingredient Page](https://imgur.com/undefined)
 
 4 - Add to dish
-![Dish Page](/graphics/readme_images/dish_snap.jpg)
+![Dish Page](https://imgur.com/gS32wEE)
 
 5 - Repeat steps 1 to 4 until dish is complete
 
@@ -94,12 +94,10 @@ White is also employed.
 - Orange: Employed on page rules and to indicate that an element is interactive. With the exception of rules, anything orange can be clicked.
 - White: Used predominetly for text. It is also employed where a section needs to stand out from the background.
 
-### Tertiary Colours
-Three additional colours were required to highlight Dish, Portion and Ingredient Pages. 
+### Tertiary Colour
+An additional colour is required to highlight Dish Pages. 
 Inspirtation was taken from [Homedit](https://www.homedit.com/colors-that-go-with-orange/stosa-cucine-dark-backsplash-with-open-orange-shelves/)
-- Ingredients: Green
-- Portions: Yellow
-- Dishes: Red
+- Dish: Red
 
 ## Typography
 Three GoogleFonts fonts are employed on the site:
@@ -130,8 +128,8 @@ delivered concisely. It contains several calls to action and videos to engage th
 to navigate further into the site. It curcially contains a "Search" option that makes the page interactive.
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/home_page_pc.jpg)
+    - [Mobile](https://imgur.com/j14UUp1)
+    - [Desktop](https://imgur.com/FIMEETx)
 
 ## 2 - Search
 The Search page is broken into two sections:
@@ -140,8 +138,8 @@ The Search page is broken into two sections:
 2 - The result section that displays the results and allows the User to access their specifics
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/search_page_pc.jpg)
+    - [Mobile](https://imgur.com/VtVy3jx)
+    - [Desktop](https://imgur.com/HjucYO7)
 
 ## 3 - Ingredients
 Upon landing on the ingredient page for the first time, it will include all default measurements and data.
@@ -158,8 +156,8 @@ This provides 4 fields:
 - Calories per Serving: Calculated based on the serving weight.
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/ingrdient_page_unchecked_pc.jpg)
+    - [Mobile](https://imgur.com/KBMI8fi)
+    - [Desktop](https://imgur.com/YnoiQ0C)
 
 ### Sold by the Piece 
 Checking the "Sold by the Piece" checkbox reveals additional fields:
@@ -168,8 +166,8 @@ Checking the "Sold by the Piece" checkbox reveals additional fields:
 - Batch Quantity 
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/ingrdient_page_checked_pc.jpg)
+    - [Mobile](https://imgur.com/8jWHR23)
+    - [Desktop](https://imgur.com/bBoitVj)
 
 ### Cooking
 The cooking method and substrate used to prepare a food can have a significant imapct of the number of
@@ -180,8 +178,8 @@ It should be noted that not all methods affect the calorific value, and some wil
 others. However, this is equally dependant upon the substrate chosen.
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/ingrdient_page_unchecked_pc.jpg)
+    - [Mobile](https://imgur.com/8jWHR23)
+    - [Desktop](https://imgur.com/bBoitVj)
 
 ## 4 - Dish
 The dish page is where each of the individual ingredients is listed, one beneath the other. It includes
@@ -192,8 +190,8 @@ The page also includes two delete options: remove everything and start again or 
 ingredient. 
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/dish_page_pc.jpg)
+    - [Mobile](https://imgur.com/6omdPPh)
+    - [Desktop](https://imgur.com/WwCEBt2)
 
 ## 5 - Contact
 User are given multiple means by which to make contact via the Contact page:
@@ -204,8 +202,8 @@ User are given multiple means by which to make contact via the Contact page:
 - Social Media Links
 
 - **Wireframes**
-    - [Mobile]()
-    - [Desktop](/graphics/wieframes/contact_page_pc.jpg)
+    - [Mobile](https://imgur.com/G4proWZ)
+    - [Desktop](https://imgur.com/ZIgdwK2)
 
 
 # Github & Version Control
