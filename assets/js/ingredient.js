@@ -1,6 +1,7 @@
 //Global Variables used throughout the file
 let foodId = document.location.search.replace(/^.*?\=/,''); //Food Id: Extracted from url
 localStorage.setItem("foodId " + foodId, foodId);
+console.log(foodId);
 let weightPerServing;
 let weightPerPiece;
 let caloriesPer100g;
@@ -166,6 +167,7 @@ function weightPerServingFn() {
     localStorage.setItem("weightPerServing " + foodId, weightPerServing);
 }
 
+
 // Weight Per Piece:
 function weightPerPieceFn() {
     if (weightPerPiece !== null) {   //If weight per piece is defined, use it.
@@ -256,7 +258,6 @@ function checkBox() {
 
         batchWeightP();
         caloriesFn();
-
     } else if (checkBox.checked === false) {
         document.getElementById("pieces_row").style.display = "none"; //If Unchecked: Pieces row is hidden
         document.getElementById("ingredient_batch_qty_div").style.display = "none"; //If Unhecked: Batch row is hidden
