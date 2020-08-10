@@ -1,171 +1,86 @@
+# GizaBite
+- Web:  [https://cathaldolan.github.io/GizaBite/index.html](https://cathaldolan.github.io/GizaBite/index.html)
+- GitHub: [https://github.com/CathalDolan/GizaBite](https://github.com/CathalDolan/GizaBite)
+
+## Background
+GizaBite was created by Cathal Dolan as a milestone project for a full stack web development course. The site
+is a scaled down version of a wider idea that includes greater functionality and provides additional UX
+options for users including an account option and the ability to store personal information.
+
+![Home Page](graphics/readme_images/home_snap.jpg)
+
 # Contents
 
-- [Github & Version Control](#github-&-version-control),
 - [What is GizaBite?](#what-is-gizabite),
 - [Website Style & Design](#website-style-&-design),
+- [Github & Version Control](#github-&-version-control),
 - [Third Party](#third-party),
-
-
-# Github & Version Control
-[Back to Contents](#contents),
-
-## Github
-
-Github is used as a code repository.
-
-### Branches
-Two branches were employed during development so as to help prevent the unintended over-writing of code
-- dev_branch: Where work was carried out
-- master branch: Where completed work was stored and from where the site us published.
-
-## Pushes & Pulls
-### Local
-Each time a new piece of code was completed it was added to the repository:
-- git add . / git add [file_name]
-- git commit -m "Reason for commit"
-- git push
-
-### Github
-Intermittently, the code was added to the master branch:
-- git checkout master
-- git merge dev_branch
-- git push
-- git push origin master --force: required on occassion
-- Go to github and if there are conflicts resolve them
-- git checkout dev_branch
-
-### Experimental Code
-On occassion when a new branch was required for experimental code, it was created from teh dev_branch:
-
-- git checkout -b [new_branch_name]
-- git push origin [new_branch_name]
-- git push --set-upstream origin ingredient_page_update
-- Delete a branch on your local filesystem : $ git branch -d [name_of_your_new_branch]
-- To force the deletion of local branch on your filesystem : $ git branch -D [name_of_your_new_branch]
-- Delete the branch on github : $ git push origin :[name_of_your_new_branch]
-
-You can see all the branches created by using : $ git branch -a
-
-Which will show :
-* approval_messages
-  master
-  master_clean
-
 
 # What is GizaBite?
 [Back to Contents](#contents),
 
-GizaBite is a website where chefs can compile dish recipes that automatically calculate the total number of calories and nutrients, 
-and identify any allergen information in a dish.
+GizaBite is a website where chefs can compile recipes that automatically calculate the total number of calories in a dish.
 
 ## What Problem Does It Address?
 
-Existing legislation requires food outlets to declare [allergen information](https://www.fsai.ie/legislation/food_legislation/food_information_fic/allergens.html) 
-for each dish they serve. In addition, impending regulations will require food outlets to also display the number of calories in each dish.
-
-This presents a challenge for cooks because the process of manually compiling nutritional data is time consuming and can be confusing. 
-Although much of the required information for individual foods is readily available on Google and sites like www.myfitnesspal.com, 
+Impending legislative regulations will require food outlets to display the number of calories in each dish on their menu. This presents 
+a challenge for cooks because the process of manually compiling nutritional data is time consuming and can be confusing. 
+Although much of the required information for individual foods is readily available on Google and sites like [www.myfitnesspal.com](www.myfitnesspal.com), 
 they don’t provide a way to compile a recipe. This means significant manual input is still required by the User to calculate total values 
 as they must be added together one by one.
 
-The Food Safety Authority of Ireland have gone some way to addressing this issue by developing a website, [https://menucal.fsai.ie/](https://menucal.fsai.ie/). 
+The Food Safety Authority of Ireland have gone some way to addressing this issue by developing a website; [https://menucal.fsai.ie/](https://menucal.fsai.ie/). 
 While it allows its Users to create specific dishes, it has some significant shortcomings:
-- It is cumbersome to use, offering a poor user experience It is very limited with regards to cooking methods, an area that can significantly 
-impact nutritional values. This is also true of the other sites mentioned
+- It is cumbersome to use, offering a poor user experience
+- It is very limited with regards to cooking methods, an area that can significantly 
+impact calorific values. This is also true of the other sites mentioned.
 
 ## What Solution Does GizaBite Offer?
 
-It allows chefs to efficiently create dish recipes and calculate their nutritional values. This is achieved by providing a comprehensive library 
-of ingredients, along with functionality that automatically calculates a dish’s nutritional values. Crucially, this calculation also includes the 
+It allows chefs to efficiently create dish recipes and calculate dish calories. This is achieved by providing access to a comprehensive library 
+of ingredients*, along with functionality that automatically calculates a dish’s calorific values. Crucially, this calculation also includes the 
 cooking processes involved in preparing the dish.
 
-## Data Sources API
+## *Data Sources API
 
 Individual food data is provided by [https://developer.edamam.com/food-database-api](https://developer.edamam.com/food-database-api).
-
 
 
 # How it Works
 [Back to Contents](#contents),
 
 ## Introduction
-To calculate the nutritional values of a dish we need to know what’s in it. So we need to create a recipe, i.e. a list of all the ingredients 
-in the dish. We’ve already established that it is easy to find nutritional values for individual foods. Therefore, once we have the recipe, 
-calculating the total calories and nutrients in the completed dish is straight forward. The same is also true for identifying whether it 
-contains any allergens, and if so, highlighting what they are. 
+To calculate the number of calories in a dish we need to know what’s in it. So we create a recipe, i.e. a list of all the ingredients 
+in the dish along with any cooking methods. As the dish is being compiled, and of course when complete, the site diosplays a reunning calorie sum total.
 
-## Creating a Recipe
-Traditionally a recipe is a simple list containing all of the ingredients in a dish. Think about how recipes are usually displayed in cookbooks 
-or consider the common pub lunch “Fish & Chips”. It might look like this:
+## The Process
+Compiling a dish involves repeatiung a 4-step process until the User is satisfied they have added all ingredients to their list.
 
-### Ingredients:
-- Cod
-- Flour
-- Eggs
-- Water
-- Potatoes
-- Canned Mushy Peas
+1 - Input a search term into a search field and either click the search button or the "return" key
+![Search Field](graphics/readme_images/search_field.jpg)
 
-### Cooking Methods:
-- Deep fry the fish
-- Deep fry the potatoes
-- Boil the peas
+2 - Choose an ingredient from the list of Results
+![Search Results](graphics/readme_images/search_results.jpg)
 
-However, preparing it is not that simple. Although everything is presented as a single dish on the plate and in the recipe, during preparation 
-different ingredients need to be grouped and cooked separately; We have to batter and deep fry the fish, separately deep fry the potatoes to make 
-the chips, and boil the canned mushy peas. What we’re actually doing is breaking the dish into 3 component parts:
+3 - Adjust default measurements if required and add cooking criteria
+![Ingredient Page](graphics/readme_images/ingredient_page.jpg)
 
-- Battered Fish
-- Chips
-- Mushy Peas 
+4 - Add to dish
+![Dish Page](graphics/readme_images/dish_snap.jpg)
 
-## Dish Components (“Portions”)
-Interestingly, not only is each component a stand-alone dish in its own right, usually sold as a side or a portion, each can be included in other 
-dishes, e.g. “chicken & chips” or “Leg of Lamb with Mushy Peas”. Even the batter on the fish is a stand-alone product that can be used in other 
-dishes such as battered sausages or to make pancakes. This highlights a significant inefficiency with the traditional recipe format: Cooks need 
-to continuously repeat themselves in order to achieve the same result. For example, if I prepare three recipes that require batter, I must list 
-flour, eggs and water, and include them individually in the nutritional calculation three different times.
+5 - Repeat steps 1 to 4 until dish is complete
 
-GizaBite will eradicate this inefficiency by providing a comprehensive library of traditional ingredients for cooks to call upon. Crucially however, 
-they will also have access to a library of pre-compiled “Portion” ingredients, each of which includes the cooking methods data. So, in the case of 
-the “Fish & Chips”, rather than having to list each individual ingredient, the cook need only add the three components mentioned previously:
+[https://youtu.be/Iai-qh7k4RY](**Video Demo**)
 
-- Battered Fish
-- Chips
-- Mushy Peas
-
-## So, what is an “Ingredient”?
-
-Are chips really an ingredient? When they form part of a larger dish, the answer is yes! They’re just a bit more complex as an ingredient than the 
-potatoes they are made from. With this in mind we have two ingredient categories:
-
-- **Base Ingredients** (referred to as Ingredients): These are ingredients that haven't had anything else added and for the most part haven’t been processed by the cook. They are 
-“as delivered”. In other words, they are as per the state they were received in. This means that in most cases they need to be combined with other 
-ingredients and/or processed further in order to make them saleable.
-
-In general this equates to raw ingredients such as carrots or potatoes. However, they can also be pre-processed products such as gravy granules, 
-pre-packed “BBQ chicken wings”, or even a sliced loaf of bread. Once the chef doesn’t add any other ingredients to it, it remains a “Base Ingredient”. 
-
-- **Portions**: These are what were referred to previously as “components”. They are more complex than base ingredients as they usually require the 
-combining of several ingredients. With a few exceptions (batter mix for example), they also include the cooking process. 
-
-Portion ingredients are generally prepared in-house by the chef and in general are saleable on their own, usually being displayed as an extra portion 
-or as a “side” on a menu, hence the name “Sides” Ingredients. 
-
-## How does this Help?
-Having a library of base and “sides” ingredients available dramatically speeds up the process of creating a recipe. Think of it as jQuery or
-Bootstrap for chefs. As mentioned previously in the “fish and chips” example, rather than a chef having to add each individual ingredient to the recipe, 
-they need only add three: Battered Cod, Chips and Mushy Peas. However, they are still provided with a complete recipe (that includes all nutritional 
-information) and it’s presented in a much more structured format. 
-
-
-
+## Local Storage
+In the absence of a database, local storage is employed by the site. It enables the user to set their own data 
+and have it retained, as well as view product data on multiple pages.
 
 
 # Website Style & Design
-[Back to Contents](#contents),
+[Back to Contents](#contents)
 
-The website style is that of a contemporary rustic feel.
+The website style is that of a contemporary rustic "hipster" feel as currently found in many eateries.
 
 ## Colours
 
@@ -173,7 +88,7 @@ The website style is that of a contemporary rustic feel.
 Created through the use of two strong complimentary and contrasting colours, dark greys and orange.
 White is also employed.
 - Grey: Varying degrees of grey are employed as backgrounds layered on top of each other to provide subtleyty and depth.
-- Orange: Employed on page rules and to indicate that an element is interactive. With teh exception of rules, anything orange can be clicked.
+- Orange: Employed on page rules and to indicate that an element is interactive. With the exception of rules, anything orange can be clicked.
 - White: Used predominetly for text. It is also employed where a section needs to stand out from the background.
 
 ### Tertiary Colours
@@ -183,6 +98,12 @@ Inspirtation was taken from https://www.homedit.com/colors-that-go-with-orange/s
 - Portions: Yellow
 - Dishes: Red
 
+## Typography
+Three GoogleFonts fonts are employed on the site:
+- Body Text: [https://fonts.google.com/specimen/Lato?query=lato] Lato
+- Headings: [https://fonts.google.com/specimen/Roboto] Roboto
+- Hero Image: [https://fonts.google.com/specimen/Parisienne?query=parisie] Parisienne
+
 ## Images
 Copyright free images were taken from https://www.pexels.com/. They are employed to give colour to the pages, being displayed in the header as a hero image. 
 Informational pages were given a larger image as the aesthetics need to be more pleasing. Functional pages have a small hero image.
@@ -190,27 +111,216 @@ Informational pages were given a larger image as the aesthetics need to be more 
 - Search: https://www.pexels.com/photo/sliced-fried-chicken-2232433/
 - Dish: https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/
 - Ingredient: https://www.pexels.com/photo/sliced-fried-chicken-2232433/
-- About: https://www.pexels.com/photo/food-chicken-fresh-rice-105588/
 - Contact:https://www.pexels.com/photo/cheeseburger-and-fries-2725744/
 
+## Responsiveness
+The site is equally responsive on all devices from mobile to large screen desktop.
+
+
+# Site Contents
+[Back to Contents](#contents)
+The site comprises of five pages:
+
+## 1 - Index/Home Page
+The page content is designed to speak to the site's target audience in a clear, easy to understand manner,
+delivered concisely. It contains several calls to action and videos to engage the User and encourage them
+to navigate further into the site. It curcially contains a "Search" option that makes the page interactive.
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+## 2 - Search
+The Search page is broken into two sections:
+
+1 - The search widget with input field and button that allows the User to condust a search
+2 - The result section that displays the results and allows the User to access their specifics
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+## 3 - Ingredients
+Upon landing on the ingredient page for the first time, it will include all default measurements and data.
+Users can manipulate this by altering any of the inputs. Altering one, can have an affect on others.
+
+The page enables Users to manipulate the data based on whether an ingredient is sold by weight or by the piece.
+Their choice dectates what fields are displayed and which can be manipulated by the User.
+
+### Sold by Weight
+This provides 4 fields:
+- Number of Servings: Set to 10 by default
+- Weight per Serving: As per API data
+- Batch Weight: A multiplication of Number of Servings by Weight per Serving
+- Calories per Serving: Calculated based on the serving weight.
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+### Sold by the Piece 
+Checking the "Sold by the Piece" checkbox reveals additional fields:
+- Pieces per Serving
+- Weight per Piece
+- Batch Quantity 
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+### Cooking
+The cooking method and substrate used to prepare a food can have a significant imapct of the number of
+calories in a dish. With this in mind, a range of methods and substrates are provided, with the latter 
+only being display if a related method is selected.
+
+It should be noted that not all methods afftec the calorific value, and some will affect it more than
+others. However, this is equally dependant upon the substrate chosen.
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+## 4 - Dish
+The dish page is where each of the individual ingredients is listed, one beneath the other. It includes
+the product name, serving weight and calories per serving. It also includes a running weight and calories
+total for all ingredients added. Users are also encouraged to give their dish a name.
+
+The page also includes two delete options: remove everything and start again or just remove a single
+ingredient. 
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+## 5 - Contact
+User are given multiple means by which to make contact via the Contact page:
+- Email Form (powered by Formspree)
+- Physical Address
+- Email Address
+- Phone Number
+- Social Media Links
+
+- **Wireframes**
+    - Mobile
+    - Tablet
+    - Desktop
+
+
+# Github & Version Control
+[Back to Contents](#contents),
+
+## Github
+
+The code was written in GitPod, with Github is used as a code repository.
+
+### Branches
+Two branches were employed during development so as to help prevent the unintended over-writing of code:
+- dev_branch: Where work was carried out
+- master: Where completed work was stored and from where the site us published.
+
+## Pushes, Pulls & Deployment
+
+Each time a new piece of code was completed it was added to the repository via the terminal:
+- git add . / git add [file_name]
+- git commit -m "Reason for commit"
+- git push
+- GitHub: 
+    - Resolve conflicts (if any)
+    - Merge dev_branch into master and deployment
+
+On occassion the following is required to force a push:
+- git push origin dev_branch --force: required on occassion
+
+
+# Testing
+Although the intention was to use Test Driven Development with Jasmine to build the site, this was
+abandoned early on due to lack of knowledge and difficulty implementing it. Therefore, the site
+relied upon manual testing throughout. 
+
+## Devices
+Testing was done by way of Chrome Developer Tools emulator with a focus on viewing the site on the 
+following devices:
+
+- Desktop
+- Laptop
+- iPad
+- iPad Pro 
+- iPhones 5 to X
+- Galaxy S5
+
+## Validation
+All code was put through a validator. This process presented some issues, the majority of which were
+rectified. Some issues highlighted were not changed as they would either have a negative impact on
+the site, or the effort involved would reap negligible returns. This is particularly the case regarding
+keeping Javascript lines to under 80 characters.
+- [https://validator.w3.org/nu/] HTML from w3.org
+- [https://jigsaw.w3.org/css-validator/] CSS from w3.org
+- [https://jslint.com/] JSLint 
+
+## Testing Suite
+A complete texting suite was prepared for each page:
+
+- Index
+- Search
+- Ingredient
+- Dish
+- Contact
+
+## Known Bugs 
+Several bugs still exist on the site. They remain as they have negligible impact and there was
+insufficient time to correct them:
+
+- Ingredient Page: Changing the "Number of Servings" input, deactivates the "Batch Weight" input
+- Ingredient Page: Where a User indicates a product is sold by the piece and attempts to reverse
+this upon returning to the product page, it is not possible.
+- Search Page: The Results do not include pagination
+- Collapse/Expand Arrows: Upon arrival to a page, the arrows point in the wrong direction
+- Dish: Users cannot use the Return key to save the dish name
 
 # Third Party
 [Back to Contents](#contents),
 
+## Technologies Used
+
+### GitHub
+GitHub is used to store the code, control versions and deploy the site publicly.
+
+### Formspree
+Enables Users to send messages from the Contact page. https://formspree.io/
+
+### Bootstrap4
+Although a great time saver, owing to styling difficulties and the "sameness" look of Bootstrap 
+elements, it was used sparingly and only as a last resort. 
+
+### jQuery
+Although the site was built as much as possible using vanilla Javascript, lack of knowledge
+meant that on occassion the jQuery library was employed. The decision to use as little as
+possible is based on the fact that jQuery is becoming somewhat obselete since all browsers
+are somewhat standardized in how they read Javascript.
+
+### Fontawesome
+Used to add icons throughout the site https://fontawesome.com/
+
 ## Code
-Accordion - https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
-Buttons - https://getbootstrap.com/docs/4.0/components/buttons/
-API Packaged Products Ingredieints Lists - https://gomakethings.com/two-different-ways-to-create-html-from-an-array-of-data-with-vanilla-js/  &  https://codepen.io/cferdinandi/pen/mYmbgL
-Capitalise Results in "Search" capitalized_product_name - Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
-Search: Trigger with button click or return key - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_trigger_button_enter
-Ingredient Page: Checkbox trigger https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
-Ingredient Page: Accessing teh foodId from the URL https://www.youtube.com/watch?v=GNZg1KRsWuU
-Ingredient Page - Round Pieces per Serving to 1 decimal, Billy Moon on https://stackoverflow.com/questions/7342957/how-do-you-round-to-1-decimal-place-in-javascript
-Ingredient Page: Capitalise first letter https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
-Ingredient Page: Add each ingredieint measurement to a single LS "Object" - https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/#:~:text=Add%20to%20an%20object%20%23&text=var%20existing%20%3D%20localStorage.-,getItem(name)%3B%20%2F%2F%20If%20no%20existing%20data%2C%20create%20an,setItem(name%2C%20JSON
-Ingredient Page: Looping through Local Storage for key and values - https://stackoverflow.com/questions/8419354/get-html5-localstorage-keys
-Local Storage: General information - https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
-Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://stackoverflow.com/questions/12456399/how-to-use-this-reference-of-the-element-calling-the-function
-Contact: EMail form w3 schools
-Contact: Send email from form - https://github.com/formspree/formspree
-Numerical Inputs: Validation - https://www.w3resource.com/javascript/form/all-numbers.php Not implemented.
+Owing to lack of knowledge in certain areas, assistance was sought elsewhere to compile certain code:
+
+- Accordion: https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
+- Buttons: https://getbootstrap.com/docs/4.0/components/buttons/
+- Capitalise Results in "Search": Solution from "I'm a little teapot" in https://stackoverflow.com/questions/32589197/how-to-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript/45620677#45620677" 
+- Search: Trigger with button click or return key - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_trigger_button_enter
+- Ingredient Page: Checkbox trigger https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
+- Ingredient Page: Accessing the foodId from the URL https://www.youtube.com/watch?v=GNZg1KRsWuU
+- Ingredient Page - Round Pieces per Serving to 1 decimal, Billy Moon on https://stackoverflow.com/questions/7342957/how-do-you-round-to-1-decimal-place-in-javascript
+- Ingredient Page: Capitalise first letter https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
+- Ingredient Page: Add each ingredieint measurement to a single LS "Object" - https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/#:~:text=Add%20to%20an%20object%20%23&text=var%20existing%20%3D%20localStorage.-,getItem(name)%3B%20%2F%2F%20If%20no%20existing%20data%2C%20create%20an,setItem(name%2C%20JSON
+- Ingredient Page: Looping through Local Storage for key and values - https://stackoverflow.com/questions/8419354/get-html5-localstorage-keys
+- Local Storage: General information - https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
+- Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://stackoverflow.com/questions/12456399/how-to-use-this-reference-of-the-element-calling-the-function
+- Contact: EMail form w3 schools
+- Contact: Send email from form - https://github.com/formspree/formspree
