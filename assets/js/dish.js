@@ -4,7 +4,7 @@ if(portionNameLs !== null){
     document.getElementById("portion_name_textarea").value = portionNameLs;
     dishNameH2();
 } else {
-    alert("Don't forget to add a Portion Name");
+    alert("Don't forget to add a name to your dish");
 }
 
 // Portion Name: Collects the name as the User enters it
