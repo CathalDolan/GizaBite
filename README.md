@@ -7,17 +7,15 @@ GizaBite was created by Cathal Dolan as a milestone project for a full stack web
 is a scaled down version of a wider idea that includes greater functionality and provides additional UX
 options for users including an account option and the ability to store personal information.
 
-![Home Page](https://imgur.com/E4QoWeU)
-
 # Contents
 
-1 [What is GizaBite?](#what-is-gizabite)
-2 [How it Works](#how-it-works)
-3 [Site Contents](#site_contents)
-3 [Website Style & Design](#website-style-&-design)
-4 [Github & Version Control](#github-&-version-control)
-5 [Testing](#testing)
-6 [Third Party](#third-party)
+1 - [What is GizaBite?](#what-is-gizabite)
+2 - [How it Works](#how-it-works)
+3 - [Site Contents](#site_contents)
+3 - [Website Style & Design](#website-style-&-design)
+4 - [Github & Version Control](#github-&-version-control)
+5 - [Testing](#testing)
+6 - [Third Party](#third-party)
 
 # What is GizaBite?
 [Back to Contents](#contents),
@@ -60,17 +58,9 @@ in the dish along with any cooking methods. As the dish is being compiled, and o
 Compiling a dish involves repeatiung a 4-step process until the User is satisfied they have added all ingredients to their list.
 
 1 - Input a search term into a search field and either click the search button or the "return" key
-![Search Field](https://imgur.com/fIIG0E9)
-
 2 - Choose an ingredient from the list of Results
-![Search Results](https://imgur.com/20JwLQ2)
-
 3 - Adjust default measurements if required and add cooking criteria
-![Ingredient Page](https://imgur.com/undefined)
-
 4 - Add to dish
-![Dish Page](https://imgur.com/gS32wEE)
-
 5 - Repeat steps 1 to 4 until dish is complete
 
 [**Video Demo**](https://youtu.be/Iai-qh7k4RY)
@@ -276,6 +266,7 @@ this upon returning to the product page, it is not possible.
 - Search Page: The Results do not include pagination
 - Collapse/Expand Arrows: Upon arrival to a page, the arrows point in the wrong direction
 - Dish: Users cannot use the Return key to save the dish name
+- User Inputs:Validation not added
 
 
 # Third Party
