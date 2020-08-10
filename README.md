@@ -260,13 +260,15 @@ A complete texting suite was prepared for each page and is stored in the "testin
 Several bugs still exist on the site. They remain as they have negligible impact and there was
 insufficient time to correct them:
 
-- Ingredient Page: Changing the "Number of Servings" input, deactivates the "Batch Weight" input
-- Ingredient Page: Where a User indicates a product is sold by the piece and attempts to reverse
+- ****Ingredient Page**: Changing the "Number of Servings" input, deactivates the "Batch Weight" input
+- **Ingredient Page**: Where a User indicates a product is sold by the piece and attempts to reverse
 this upon returning to the product page, it is not possible.
-- Search Page: The Results do not include pagination
-- Collapse/Expand Arrows: Upon arrival to a page, the arrows point in the wrong direction
-- Dish: Users cannot use the Return key to save the dish name
-- User Inputs:Validation not added
+- **Search Page**: The Results do not include pagination
+- **Collapse/Expand Arrows**: Upon arrival to a page, the arrows point in the wrong direction
+- **Dish**: Users cannot use the Return key to save the dish name
+- **User Inputs**: Validation not added
+- **Dish Page**: On occassion when the 2nd last product is deleted, the total servings weight and calories reflects the values of
+the deleted product as opposed to the remaining product
 
 
 # Third Party

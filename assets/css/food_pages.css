@@ -281,8 +281,6 @@ div>ul>li {
     flex: 1;
 }
 
-
-
 #portion .serving_totals_div h4, #new_portion .serving_totals_div h4, #dish .serving_totals_div h4 { /* Adds space between the ingredient name and its measurements beneath it */
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -291,6 +289,17 @@ div>ul>li {
 #portion .ingredient_measurement_row, #dish .ingredient_measurement_row { /* Adds spacing between the ingredients listed */
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+}
+
+@media (max-width: 576px) { 
+    #ingredient_batch_weight { 
+        margin-left: 33px;
+    }
+}
+@media (max-width: 324px) { 
+    #ingredient_batch_weight { 
+        margin-left: 0px;
+    }
 }
 
 
