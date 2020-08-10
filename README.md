@@ -9,13 +9,13 @@ options for users including an account option and the ability to store personal 
 
 # Contents
 
-1 - [What is GizaBite?](#what-is-gizabite)
-2 - [How it Works](#how-it-works)
-3 - [Site Contents](#site_contents)
-3 - [Website Style & Design](#website-style-&-design)
-4 - [Github & Version Control](#github-&-version-control)
-5 - [Testing](#testing)
-6 - [Third Party](#third-party)
+- [What is GizaBite?](#what-is-gizabite)
+- [How it Works](#how-it-works)
+- [Site Contents](#site_contents)
+- [Website Style & Design](#website-style-&-design)
+- [Github & Version Control](#github-&-version-control)
+- [Testing](#testing)
+- [Third Party](#third-party)
 
 # What is GizaBite?
 [Back to Contents](#contents),
@@ -248,13 +248,13 @@ keeping Javascript lines to under 80 characters.
 - [JSLint](https://jslint.com/)
 
 ## Testing Suite
-A complete texting suite was prepared for each page:
+A complete texting suite was prepared for each page and is stored in the "testing" folder inside the "assets" folder:
 
-- Index
-- Search
-- Ingredient
-- Dish
-- Contact
+- [Index](/assets/testing/index_page_testing.md)
+- [Search](/assets/testing/search_page_testing.md)
+- [Ingredient](/assets/testing/ingredient_page_testing.md)
+- [Dish](/assets/testing/dish_page_testing.md)
+- [Contact](/assets/testing/contact_page_testing.md)
 
 ## Known Bugs 
 Several bugs still exist on the site. They remain as they have negligible impact and there was
