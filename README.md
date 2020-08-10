@@ -1,6 +1,6 @@
 # GizaBite
-- Web:  [https://cathaldolan.github.io/GizaBite/index.html](https://cathaldolan.github.io/GizaBite/index.html)
-- GitHub: [https://github.com/CathalDolan/GizaBite](https://github.com/CathalDolan/GizaBite)
+- [Web:](https://cathaldolan.github.io/GizaBite/index.html)
+- [GitHub:](https://github.com/CathalDolan/GizaBite)
 
 ## Background
 GizaBite was created by Cathal Dolan as a milestone project for a full stack web development course. The site
@@ -11,10 +11,13 @@ options for users including an account option and the ability to store personal 
 
 # Contents
 
-- [What is GizaBite?](#what-is-gizabite),
-- [Website Style & Design](#website-style-&-design),
-- [Github & Version Control](#github-&-version-control),
-- [Third Party](#third-party),
+1 [What is GizaBite?](#what-is-gizabite)
+2 [How it Works](#how-it-works)
+3 [Site Contents](#site_contents)
+3 [Website Style & Design](#website-style-&-design)
+4 [Github & Version Control](#github-&-version-control)
+5 [Testing](#testing)
+6 [Third Party](#third-party)
 
 # What is GizaBite?
 [Back to Contents](#contents),
@@ -57,20 +60,20 @@ in the dish along with any cooking methods. As the dish is being compiled, and o
 Compiling a dish involves repeatiung a 4-step process until the User is satisfied they have added all ingredients to their list.
 
 1 - Input a search term into a search field and either click the search button or the "return" key
-![Search Field](graphics/readme_images/search_field.jpg)
+![Search Field](/graphics/readme_images/search_field.jpg)
 
 2 - Choose an ingredient from the list of Results
-![Search Results](graphics/readme_images/search_results.jpg)
+![Search Results](/graphics/readme_images/search_results.jpg)
 
 3 - Adjust default measurements if required and add cooking criteria
-![Ingredient Page](graphics/readme_images/ingredient_page.jpg)
+![Ingredient Page](/graphics/readme_images/ingredient_page.jpg)
 
 4 - Add to dish
-![Dish Page](graphics/readme_images/dish_snap.jpg)
+![Dish Page](/graphics/readme_images/dish_snap.jpg)
 
 5 - Repeat steps 1 to 4 until dish is complete
 
-[https://youtu.be/Iai-qh7k4RY](**Video Demo**)
+[**Video Demo**](https://youtu.be/Iai-qh7k4RY)
 
 ## Local Storage
 In the absence of a database, local storage is employed by the site. It enables the user to set their own data 
@@ -93,16 +96,16 @@ White is also employed.
 
 ### Tertiary Colours
 Three additional colours were required to highlight Dish, Portion and Ingredient Pages. 
-Inspirtation was taken from https://www.homedit.com/colors-that-go-with-orange/stosa-cucine-dark-backsplash-with-open-orange-shelves/
+Inspirtation was taken from [Homedit](https://www.homedit.com/colors-that-go-with-orange/stosa-cucine-dark-backsplash-with-open-orange-shelves/)
 - Ingredients: Green
 - Portions: Yellow
 - Dishes: Red
 
 ## Typography
 Three GoogleFonts fonts are employed on the site:
-- Body Text: [https://fonts.google.com/specimen/Lato?query=lato] Lato
-- Headings: [https://fonts.google.com/specimen/Roboto] Roboto
-- Hero Image: [https://fonts.google.com/specimen/Parisienne?query=parisie] Parisienne
+- Body Text: [Lato](https://fonts.google.com/specimen/Lato?query=lato)
+- Headings: [Roboto](https://fonts.google.com/specimen/Roboto)
+- Hero Image: [Parisienne](https://fonts.google.com/specimen/Parisienne?query=parisie)
 
 ## Images
 Copyright free images were taken from https://www.pexels.com/. They are employed to give colour to the pages, being displayed in the header as a hero image. 
@@ -127,9 +130,8 @@ delivered concisely. It contains several calls to action and videos to engage th
 to navigate further into the site. It curcially contains a "Search" option that makes the page interactive.
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/home_page_pc.jpg)
 
 ## 2 - Search
 The Search page is broken into two sections:
@@ -138,9 +140,8 @@ The Search page is broken into two sections:
 2 - The result section that displays the results and allows the User to access their specifics
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/search_page_pc.jpg)
 
 ## 3 - Ingredients
 Upon landing on the ingredient page for the first time, it will include all default measurements and data.
@@ -157,9 +158,8 @@ This provides 4 fields:
 - Calories per Serving: Calculated based on the serving weight.
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/ingrdient_page_unchecked_pc.jpg)
 
 ### Sold by the Piece 
 Checking the "Sold by the Piece" checkbox reveals additional fields:
@@ -168,22 +168,20 @@ Checking the "Sold by the Piece" checkbox reveals additional fields:
 - Batch Quantity 
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/ingrdient_page_checked_pc.jpg)
 
 ### Cooking
 The cooking method and substrate used to prepare a food can have a significant imapct of the number of
 calories in a dish. With this in mind, a range of methods and substrates are provided, with the latter 
 only being display if a related method is selected.
 
-It should be noted that not all methods afftec the calorific value, and some will affect it more than
+It should be noted that not all methods affect the calorific value, and some will affect it more than
 others. However, this is equally dependant upon the substrate chosen.
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/ingrdient_page_unchecked_pc.jpg)
 
 ## 4 - Dish
 The dish page is where each of the individual ingredients is listed, one beneath the other. It includes
@@ -194,9 +192,8 @@ The page also includes two delete options: remove everything and start again or 
 ingredient. 
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/dish_page_pc.jpg)
 
 ## 5 - Contact
 User are given multiple means by which to make contact via the Contact page:
@@ -207,16 +204,14 @@ User are given multiple means by which to make contact via the Contact page:
 - Social Media Links
 
 - **Wireframes**
-    - Mobile
-    - Tablet
-    - Desktop
+    - [Mobile]()
+    - [Desktop](/graphics/wieframes/contact_page_pc.jpg)
 
 
 # Github & Version Control
-[Back to Contents](#contents),
+[Back to Contents](#contents)
 
 ## Github
-
 The code was written in GitPod, with Github is used as a code repository.
 
 ### Branches
@@ -239,6 +234,7 @@ On occassion the following is required to force a push:
 
 
 # Testing
+[Back to Contents](#contents)
 Although the intention was to use Test Driven Development with Jasmine to build the site, this was
 abandoned early on due to lack of knowledge and difficulty implementing it. Therefore, the site
 relied upon manual testing throughout. 
@@ -259,9 +255,9 @@ All code was put through a validator. This process presented some issues, the ma
 rectified. Some issues highlighted were not changed as they would either have a negative impact on
 the site, or the effort involved would reap negligible returns. This is particularly the case regarding
 keeping Javascript lines to under 80 characters.
-- [https://validator.w3.org/nu/] HTML from w3.org
-- [https://jigsaw.w3.org/css-validator/] CSS from w3.org
-- [https://jslint.com/] JSLint 
+- [HTML from w3.org](https://validator.w3.org/nu/)
+- [CSS from w3.org](https://jigsaw.w3.org/css-validator/)
+- [JSLint](https://jslint.com/)
 
 ## Testing Suite
 A complete texting suite was prepared for each page:
@@ -283,8 +279,10 @@ this upon returning to the product page, it is not possible.
 - Collapse/Expand Arrows: Upon arrival to a page, the arrows point in the wrong direction
 - Dish: Users cannot use the Return key to save the dish name
 
+
 # Third Party
-[Back to Contents](#contents),
+[Back to Contents](#contents)
+Third party input was required in several areas, be it a technology platform or reuse of others' code.
 
 ## Technologies Used
 
@@ -307,6 +305,10 @@ are somewhat standardized in how they read Javascript.
 ### Fontawesome
 Used to add icons throughout the site https://fontawesome.com/
 
+### Imgur
+Although most iumages are hosted on the site backend itself, for demo purposes, some are 
+hosted on Imgur.com, a free to use image hosting platform. https://imgur.com/
+
 ## Code
 Owing to lack of knowledge in certain areas, assistance was sought elsewhere to compile certain code:
 
@@ -322,5 +324,5 @@ Owing to lack of knowledge in certain areas, assistance was sought elsewhere to 
 - Ingredient Page: Looping through Local Storage for key and values - https://stackoverflow.com/questions/8419354/get-html5-localstorage-keys
 - Local Storage: General information - https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
 - Dish Page: Extracting the foodId to allow for deletion - Viktor S in https://stackoverflow.com/questions/12456399/how-to-use-this-reference-of-the-element-calling-the-function
-- Contact: EMail form w3 schools
+- Contact: Email form w3 schools
 - Contact: Send email from form - https://github.com/formspree/formspree
