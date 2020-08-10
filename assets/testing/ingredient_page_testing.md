@@ -1,0 +1,232 @@
+# Ingredient Page
+
+### Page Links
+Click the links then return to Ingredient page.
+
+- Header logo navigates to Home page
+- Home link navigates to Home page
+- Search link navigates to Search page
+- My Dish link navigates to Dish page
+- Contact navigates to Contact page
+- Back Button navigates to previous page
+- Ingredient Name tooltip icon shows tooltip
+- Cooking Method tooltip icon shows tooltip
+- Facebook icon navigates to Facebook
+- LinkedIn icon navigates to LinkedIn
+- Instagram icon navigates to Instagram
+- YouTube icon navigates to YouTube
+- Edamam text links to Edamam
+
+**Wheat Bread is used as test product**
+### Landing on an ingredient for the first time
+- Are all values saved to Local Storage
+    - caloriesPer100g = 267
+    - batchWeight = 600
+    - Weight PerPiece = 29
+    - piecesPerServing = 2
+    - Number of Servings = 10
+    - quantity PerBatch = 20
+    - caloriesPerServing = 160
+    - weightPerWhole = 384
+    - weightPerServing = 60
+- Is section expanded
+- Is Cooking section collapsed
+- Is Nutrients & Allergens section collapsed
+- Is name present
+- Does name match that clicked on results
+- Number of Servings;
+    - Is it an input field
+    - Is there a number present
+    - Is it the default number 10
+- Is the “Per Piece” checkbox unchecked
+- Weight per Serving;
+    - Is it an input field
+    - Is there a number present
+    - Does the number = 60g
+- Calories per Serving;
+    - Is there a number present
+    - Does the number = 160Kcal
+- Batch Weight;
+    - Is it an input field
+    - Is there a number present
+    - Does the number = 580g
+- Number of Servings - Change to 20
+    - Does Local Storage update “numberOfServings” to 20
+    - Does Batch Weight increase to 1200g
+    - Does Local Storage update “batchWeight” to 1200
+- Weight per Serving - Change to 125
+    - Does Calories per Serving change to 103Kcal
+    - Does Local Storage update “caloriesPerServing” to 333
+    - Does Local Storage update “weightPerServing” to 125
+    - Does Batch Weight increase to 2500g
+    - Does Local Storage update “batchWeight” to 2500
+- Batch Weight - Change to 3000
+    - Does Weight per Serving inputbatchQuantity change to 300g
+    - Does Local Storage update “weightPerServing” to 300
+    - Does Calories per Serving change to 249
+    - Does Local Storage update “caloriesPerServing” to 249
+    - Does Local Storage update “batchWeight” to 3000
+
+### Checking the “Per Piece” Checkbox
+- Does Local Storage Update
+    - checkBoxStatusKey = true
+    - caloriesPer100g = 267
+    - batchWeight = 580
+    - Weight PerPiece = 29
+    - piecesPerServing = 2
+    - Number of Servings = 10
+    - quantity PerBatch = 20
+    - caloriesPerServing = 154
+    - weightPerWhole = 384
+    - weightPerServing = 58
+- Weight per Serving;
+    - Does input change to a <p>
+    - Is there a number present?
+    - Does the number = 58g
+- Calories per Serving;
+    - Is there a number present
+    - Does the number = 154Kcal
+- Pieces per Serving;
+    - Does the field display
+    - Is it an input field
+    - Is there a number present?
+    - Does the number = 2
+- Weight per Piece:
+    - Does the field display
+    - Is it an input field
+    - Is there a number present?
+    - Does the number = 29g
+- Batch Weight;
+    - Does input change to a <p>
+    - Is there a number present?
+    - Does the number = 580g
+- Batch Quantity:
+    - Does the field display
+    - Is it an input field
+    - Is there a number present?
+    - Does the number = 20pcs
+- Number of Servings - Change to 30
+    - Does Local Storage update “numberOfServings” to 30
+    - Does Batch Weight increase to 1740g
+    - Does Local Storage update “batchWeight” to 1740
+- Pieces Per Serving - Change to 4
+    - Does Local Storage update “piecesPerServing” to 4
+    - Does Weight per Serving increase to 116g
+    - Does Local Storage update “weightPerServing” to 116
+    - Does Calories per Serving increase to 309Kcal
+    - Does Local Storage update “caloriesPerServing” to 309 
+    - Does Batch Weight increase to 3480g
+    - Does Local Storage update “batchWeight” to 3480 
+    - Does Batch Quantity increase to 120pcs
+    - Does Local Storage update “batchQuantity” to 120
+- Weight per Piece - Change to 35g
+    - Does Local Storage update “weightPerPiece” to 35
+    - Does Weight per Serving increase to 140g
+    - Does Local Storage update “weightPerServing” to 140
+    - Does Calories per Serving increase to 373Kcal
+    - Does Local Storage update “caloriesPerServing” to 373 
+    - Does Batch Weight increase to 4200g
+    - Does Local Storage update “batchWeight” to 4200 
+- Batch Quantity - change to 160
+    - Does Local Storage update “batchQuantity” to 150
+    - Does Weight per Serving increase to 186g
+    - Does Local Storage update “weightPerServing” to 186
+    - Does Pieces per Serving increase to 5.3pcs
+    - Does Local Storage update “piecesPerServing” to 5.3
+    - Does Calories per Serving increase to 496Kcal
+    - Does Local Storage update “caloriesPerServing” to 496 
+    - Does Batch Weight increase to 5580g
+    - Does Local Storage update “batchWeight” to 5580 
+
+### Unchecking the “Per Piece” Checkbox
+- Does Local Storage Update
+    - checkBoxStatusKey = false
+- Weight per Serving;
+    - Does <p> revert to an input
+    - Is there a number present?
+    - Does the number = 58g
+- Pieces per Serving;
+    - Does the field become hidden
+- Weight per Piece:
+    - Does the field become hidden
+- Batch Weight;
+    - Does <p> revert to an input
+    - Is there a number present?
+    - Does the number = 580g
+- Batch Quantity:
+    - Does the field become hidden
+
+### Cooking Method
+- Does clicking on each of the bricks turn each orange with white text
+- Does clicking on a brick add that brickID to local storage as “cookingMethodBrick”
+- Does clicking on subsequent ones, turn the other back to white and black?
+- Does clicking on subsequent ones change “cookingMethodBrick” in Local storage to the one just clicked?
+- Can only one brick be clicked at a time?
+- Does clicking “Microwave” open the substrate section
+- Does clicking “Baked” open the substrate section
+- Does clicking “Roasted” open the substrate section
+- Does clicking “Grilled” open the substrate section
+- Does clicking “Pan Fried” open the substrate section
+- Does clicking “Pan Fried” show “Loc Cal Spray” in  the substrate section
+- Does clicking “Shallow Fried” open the substrate section
+- Does clicking “Deep Fried” open the substrate section
+
+### Cooking Method Affect on Calories
+- No Further Cooking Needed - No effect
+- Boiled = No effect
+- Steamed = No effect
+- Microwave = No effect
+- Roasted = No effect
+- Grilled = No effect
+- Pan Fried = No effect
+- Shallow Fried = No effect
+- Deep Fried = No effect
+- Microwave & Dry = No effect
+- Microwave & Vegetable Oil = 595
+- Microwave & Animal Fat = 605
+- Microwave & Margarine = 570
+- Microwave & Butter = 570
+- Baked & Dry = No effect
+- Baked & Vegetable Oil = 595
+- Baked & Animal Fat = 605
+- Baked & Margarine = 570
+- Baked & Butter = 570
+- Roasted & Dry = No effect
+- Roasted & Vegetable Oil = 595
+- Roasted & Animal Fat = 605
+- Roasted & Margarine = 570
+- Roasted & Butter =570
+- Grilled & Dry = No effect
+- Grilled & Vegetable Oil = 595 
+- Grilled & Animal Fat = 605
+- Grilled & Margarine = 570
+- Grilled & Butter = 570
+- Pan Fried & Dry = No effect
+- Pan Fried & Vegetable Oil = 620
+- Pan Fried & Animal Fat = 630
+- Pan Fried & Margarine = 595
+- Pan Fried & Butter = 595
+- Pan Fried & Low Cal Spray =  497
+- Shallow Fried & Dry = No effect
+- Shallow Fried & Vegetable Oil = 744
+- Shallow Fried & Animal Fat = 769
+- Shallow Fried & Margarine = 694
+- Shallow Fried & Butter =694
+- Deep Fried & Dry = No effect
+- Deep Fried & Vegetable Oil = 868
+- Deep Fried & Animal Fat = 903
+- Deep Fried & Margarine = 794
+- Deep Fried & Butter = 794
+
+### Refresh Page and Do all Above Again
+
+### Add Product Name to Dish Button
+- Does the button contain the product name
+- Does clicking the button add all product data to a single string in Local Storage
+
+### Search Again Section 
+- Does clicking the “Return” key activate the search
+- Does clicking the “Search” button activate the search
+- Upon activation is the User brought to the search page
+- Upon arrival on the Search Page is the search input populated with the term entered on the Ingredient page
+- Is there a set of results to match the term
